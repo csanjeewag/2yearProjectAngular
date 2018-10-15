@@ -1,0 +1,36 @@
+<div class="navBar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+  <a class="navbar-brand" href="#">Event Planing</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+        
+      <li class="nav-item">
+        
+        <a class="nav-link" routerLink="/cricket" routerLinkActive="active ">Cricket </a>
+          
+      </li>
+      <li class="nav-item">
+          <a *ngIf="islogged" class="nav-link" routerLink="/trip" routerLinkActive="active ">Trip </a>
+          
+      </li>
+      <li class="nav-item">
+          <a *ngIf="isAdmin" class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Admin Page </a>
+          
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/profile/list" routerLinkActive="active ">Show Employee</a>
+          
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/profile/login" routerLinkActive="active ">Login User</a>
+          
+      </li>
+      <button type="button" class="btn btn-secondary" (click)="logout()">Log out</button>
+    </ul>
+  </div>
+  
+</nav>
+</div>

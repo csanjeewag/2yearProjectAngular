@@ -1,0 +1,21 @@
+
+
+
+<div *ngIf="IsHaveAccount; then thenBlock else elseBlock" ></div>
+    <ng-template #thenBlock>
+        <div class="row ">
+            <div class="col-2 side">
+                
+            </div>
+            <div class="col-8 side">
+                <app-login-employee></app-login-employee>
+            </div>
+            <div class="col-2 side">
+                
+            </div>
+            </div>
+    
+    </ng-template>
+    <ng-template #elseBlock>
+      <app-signup-employee></app-signup-employee>   
+    </ng-template>

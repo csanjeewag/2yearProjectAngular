@@ -1,0 +1,126 @@
+<app-logged-header></app-logged-header>
+<br>
+
+<!-- <mat-card class="card">
+<h4>Employee Details</h4>
+<br>
+<div class="container">
+<div class="row align-items-start">
+  <div class="col-4 row align-items-start" >
+    <h5>Name:</h5>
+  </div>
+  <div class="col-8 row align-items-start">
+   <h6>{{result.empName}}</h6> 
+  </div>
+</div>
+
+<div class="row align-items-start">
+  <div class="col-4 row align-items-start">
+    <h5>Id:</h5>
+  </div>
+  <div class="col-8 row align-items-start">
+   <h6>{{result.empId}}</h6> 
+  </div>
+</div>
+
+<div class="row align-items-start">
+  <div class="col-4 row align-items-start">
+    <h5>Email:</h5>
+  </div>
+  <div class="col-8 row align-items-start">
+   <h6>{{result.empEmail}}</h6> 
+  </div>
+</div>
+
+<div class="row align-items-start">
+  <div class="col-4 row align-items-start">
+    <h5>Adress:</h5>
+  </div>
+  <div class="col-8 row align-items-start">
+   <h6>{{result.empAddress}}</h6>
+  </div>
+</div>
+<div class="row align-items-start">
+  <div class="col-4 row align-items-start">
+    <h5>Department:</h5>
+  </div>
+  <div class="col-8 row align-items-start">
+   <h6>{{result.departmentDprtId}}</h6> 
+  </div>
+</div>
+<div class="row align-items-start">
+  <div class="col-4 row align-items-start" >
+    <h5>Position:</h5>
+  </div>
+  <div class="col-8 row align-items-start">
+   <h6> {{result.positionPId}} </h6>
+  </div>
+</div>
+
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle class="btn btn-secondary"  value="bold" (click)="goPrevious()">Previous</mat-button-toggle>
+    <mat-button-toggle class="btn btn-secondary"  value="italic" (click)="goNext()">Next</mat-button-toggle>
+    <mat-button-toggle class="btn btn-secondary"  value="underline" (click)="goBack()">Back</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+</mat-card> -->
+
+
+  
+
+<section class="testimonial py-5 container" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 py-5 text-white text-center " id="sideA">
+                <div class="sideA">
+                    <div class="card-body">
+                        <img src="assets/_image/cslogo.png" style="width:30%">
+                        
+                        <h2 class="py-3">{{result.empName}}</h2>
+                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
+  
+  </p>
+                    </div>
+                </div>
+            </div>
+  
+  
+            <div class="col-md-8 py-5 border" id="formA">
+                <h3 class="pb-4">Profile Details</h3>
+               
+                <div class="form-row">
+                    <div class="form-group col-md-3"><h4>Full Name:</h4></div>
+                    <div class="form-group col-md-9"><h4>{{result.empName}}</h4></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3"><h4>Company Id:</h4></div>
+                    <div class="form-group col-md-9"><h4>{{result.empId}}</h4></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3"><h4>Email:</h4></div>
+                    <div class="form-group col-md-9"><h4>{{result.empEmail}}</h4></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3"><h4>Department:</h4></div>
+                    <div class="form-group col-md-9"><h4>{{result.empDepartment}}</h4></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3"><h4>Posiion:</h4></div>
+                    <div class="form-group col-md-9"><h4>{{result.empPosition}}</h4></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3"><h4>Gender:</h4></div>
+                    <div class="form-group col-md-9"><h4>{{result.empGender}}</h4></div>
+                </div>
+              
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle class="btn btn-secondary"  value="bold" (click)="goPrevious()">Previous</mat-button-toggle>
+                    <mat-button-toggle class="btn btn-secondary"  value="italic" (click)="goNext()">Next</mat-button-toggle>
+                    <mat-button-toggle class="btn btn-secondary"  value="underline" (click)="goBack()">Back</mat-button-toggle>
+                  </mat-button-toggle-group>
+
+            </div>
+        </div>
+    </div>
+  </section>
+  

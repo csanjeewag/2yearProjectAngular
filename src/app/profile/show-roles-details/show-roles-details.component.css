@@ -1,0 +1,31 @@
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-body{
+    display: hide;
+}
+.tableWithHeader{
+   
+    border-style: outset;
+    
+    padding: 5px;
+}
+#table thead{
+    background-color: rgb(197, 29, 29);
+}
+#table tbody tr{
+    background: rgb(212, 212, 211);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, rgb(255, 141, 141),rgb(252, 79, 79));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, rgb(255, 141, 141),rgb(252, 79, 79)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+   
+}
+.Header h3{
+    text-align: center;
+    color: brown;
+}

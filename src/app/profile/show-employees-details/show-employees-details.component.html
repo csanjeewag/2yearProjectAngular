@@ -1,0 +1,89 @@
+
+<!-- <mat-card class="card">
+    <mat-card-title>
+        show-employees-details
+    </mat-card-title>
+    <mat-card-subtitle>
+      There all Employees Details.
+    </mat-card-subtitle>
+
+<br>
+  <table class="table table-striped ">
+    <tr>
+      <th></th>
+        <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+      <th></th>
+     
+    </tr>
+  
+    <tr *ngFor="let i of result;">
+      <td> </td>
+      <td>{{i.empId}}</td>
+      <td>{{i.empName}}</td>
+      <td>{{i.empEmail}}</td>
+      <td>{{i.empAddress1}} {{i.empAddress2}}</td>
+      <td><button type="button" id="details" class="btn btn-default" (click)=detailsemployee(i.empId)>Details</button></td>
+            <td><button type="button" id="update" class="btn btn-success" >Update</button></td>
+            <td><button type="button" id="delete" class="btn btn-danger" (click)=deleteEmployee(i.empId)>Delete</button></td>
+         
+     
+    </tr>
+  </table>
+  </mat-card> -->
+
+
+<!------ Include the above in your HEAD tag ---------->
+<app-logged-header></app-logged-header>
+
+<div class="container">
+    
+    	<div class="row">
+			<div class="col-md-12">
+				<div class="tableWithHeader ">
+					<div class="Header">
+						<h3 class="panel-title">..All Employee Details..</h3>
+						
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+          </div>
+          <div class="table-responsive" id="table">
+					<table class="table table-hover">
+            <thead>
+            <tr >
+                <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Position</th>
+              <th></th>
+              <th></th>
+              <th *ngIf="isAdmin"></th>
+             
+            </tr></thead>
+            <tbody>
+            <tr *ngFor="let i of result;">
+              <td>{{i.empId}}</td>
+              <td>{{i.empName}}</td>
+              <td>{{i.empEmail}}</td>
+              <td>{{i.empAddress1}} {{i.empAddress2}}</td>
+              <td>{{i.empPosition}}</td>
+              <td><button type="button" id="details" class="btn btn-default" (click)=detailsemployee(i.empId)>Details</button></td>
+                    <td><button type="button" id="update" class="btn btn-success" (click)=updateEmployee(i.empId)>Update</button></td>
+                    <td *ngIf="isAdmin"><button type="button" id="delete" class="btn btn-danger" (click)=deleteEmployee(i.empId)>Delete</button></td>
+                 
+             
+            </tr>
+            </tbody>
+          </table></div>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>

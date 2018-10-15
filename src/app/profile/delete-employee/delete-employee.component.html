@@ -1,0 +1,16 @@
+
+<br>
+<br>
+<br>
+<br>
+<h2> If you want to delete record enter Password relevent to ID!</h2>
+<h4 class="danger">{{Message}}</h4>
+<form [formGroup]="deleteForm" autocomplete="off" novalidate (ngSubmit)="delete(deleteForm.value)">
+ 
+    <div class="form-group">
+        <input formControlName="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+    </div>
+   
+    <button type="button" class="btn btn-primary" (click)=rederect()>Cansel</button>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>

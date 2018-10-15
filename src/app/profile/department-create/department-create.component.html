@@ -1,0 +1,26 @@
+
+<div class="container">
+    <h2>Create a new Department</h2>
+  <h3 id="msg">{{Message}}</h3>
+  <form [formGroup]="departmentForm" autocomplete="off" novalidate (ngSubmit)="createdepartment(departmentForm.value)">
+    <div class="form-group">
+        <label for="email" class="sr-only">DepartmentId</label>
+        <input class="form-control" formControlName="departmentId" id="departmentId" placeholder="Department Id">
+        <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'required')">*Email is required!</em>
+        <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'email')">*This not a valid email!</em>
+
+    </div>
+    <div class="form-group">
+        <label for="key" class="sr-only">Password</label>
+        <input type="text" formControlName="departmentName" id="departmentName" class="form-control" placeholder="Department Name">
+        <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'required')">*password is required</em>
+        <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+      
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
+    <button type="submit" class="btn btn-success" [disabled]="!departmentForm.valid">Create</button>
+    
+</div> 
+</form>
+</div>

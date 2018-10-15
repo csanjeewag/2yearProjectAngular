@@ -1,0 +1,145 @@
+<app-logged-header></app-logged-header>
+
+
+
+<section class="testimonial py-5" id="testimonial">
+  <div class="container">
+      <div class="row ">
+          <div class="col-md-4 py-5 text-white text-center " id="sideA">
+              <div class="sideA">
+                  <div class="card-body">
+                      <img src="assets/_image/cslogo.png" style="width:30%">
+                      
+                      <h2 class="py-3">Registration For EMS</h2>
+                      <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
+
+</p>
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="col-md-8 py-5 border" id="formA">
+              <h4 class="pb-4">Please fill with your details</h4>
+              <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.getRawValue())">
+             
+                  <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <input  placeholder="Full Name" class="form-control" type="text" formControlName="name" id="name">
+                        <em *ngIf="validateControl('name') && hasError('name', 'required')">*Name is required</em>
+                        <em *ngIf="validateControl('name') && hasError('name', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+               
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="email" class="form-control"  placeholder="Email" formControlName="email" id="email">
+                        <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required</em>
+                        <em *ngIf="validateControl('email') && hasError('email', 'email')">*Not a valid email</em>
+               
+                         
+                      </div>
+                      <div class="form-group col-md-6">
+                            <input type="text" class="form-control"  placeholder="Enter Id" formControlName="id" id="id" >
+                            <em *ngIf="validateControl('id') && hasError('id', 'required')">*Id is required</em>
+                             <em *ngIf="validateControl('id') && hasError('id', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                    
+                    </div>
+                    <div class="form-group col-md-6">
+                            <input  placeholder="Mobile No." class="form-control" type="text" formControlName="contact" id="contact">
+                            <em *ngIf="validateControl('contact') && hasError('contact', 'required')">*Contact is required</em>
+                            <em *ngIf="validateControl('contact') && hasError('contact', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                   
+                        </div>
+                        <div class="form-group col-md-6">
+                          <select class="form-control" formControlName="role" placeholder="Roles" id="role" >
+                            <option value="" selected disabled hidden>Roles</option>
+                            <option [value]="p.positionId" *ngFor="let p of roles">{{p.positionName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input  placeholder="Password" class="form-control" type="password" formControlName="password" id="password">
+                                <em *ngIf="validateControl('password') && hasError('password', 'required')">*Password is required</em>
+                                <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                       
+                            </div>
+                            <div class="form-group col-md-6">
+                                    <input  placeholder="Re Again Password" class="form-control" type="password" >
+                                   
+                                </div>
+                    </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <input  placeholder="Address city" class="form-control" type="text" formControlName="address1" id="address1">
+                          <em *ngIf="validateControl('address1') && hasError('address1', 'required')">*City is required</em>
+                          <em *ngIf="validateControl('address1') && hasError('address1', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                 
+                      </div>
+                      <div class="form-group col-md-6">
+                            <input  placeholder="Address Lane" class="form-control" type="text" formControlName="address2" id="address2">
+                            <em *ngIf="validateControl('address2') && hasError('address2', 'required')">*Town  is required</em>
+                            <em *ngIf="validateControl('address2') && hasError('address2', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                   
+                        </div>
+                      <div class="form-group col-md-6">
+                                
+                                <select class="form-control" formControlName="department" placeholder="Department" id="department">
+                                        <option value="" selected disabled hidden>Departments</option>
+                                        <option [value]="d.dprtId" *ngFor="let d of departments">{{d.dprtName}}</option>
+                                    </select>
+                      </div>
+                      <em *ngIf="validateControl('department') && hasError('department', 'required')">*Department is required</em>
+                      <em *ngIf="validateControl('department') && hasError('department', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+             
+                     
+                  </div>
+                  <div class="form-group col-md-8">
+                        <div class ="row">
+                            <div class="form-group col-md-4 " >
+                              <label class="gender">Gender:</label>
+                            </div>
+                            <div class="form-group col-md-1 ">
+                                    <label class="gender">Male:</label>
+                            </div>
+                            <div class="form-group col-md-2 ">
+                                  	 
+                                <input type="radio" name="gender"   value="male" formControlName="gender" >
+                            </div>
+                            <div class="form-group col-md-2 ">
+                                    <label class="gender">FeMale:</label>
+                            </div>
+                            <div class="form-group col-md-1 ">
+                            
+                                <input type="radio"  name="gender"  value="female"formControlName="gender"  >
+                            </div></div>
+                            <em *ngIf="validateControl('gender') && hasError('gender', 'required')">*Id is required</em>
+                            <em *ngIf="validateControl('gender') && hasError('gender', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                   
+                          </div>
+                  <div class="form-row">
+                      <div class="form-group">
+                          <div class="form-group">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                <label class="form-check-label" for="invalidCheck2">
+                                  <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
+                                </label>
+                              </div>
+                            </div>
+                  
+                        </div>
+                  </div>
+                  
+                  <div class="form-row">
+                      <div class="form-group">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
+                                    <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Submit Form</button>
+                                </div>
+                            </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>

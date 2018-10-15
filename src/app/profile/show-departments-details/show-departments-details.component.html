@@ -1,0 +1,42 @@
+
+
+<div class="container">
+    
+    	<div class="row">
+			<div class="col-md-12">
+				<div class="tableWithHeader ">
+					<div class="Header">
+						<h3 class="panel-title">..All Department Details..</h3>
+						
+					</div>
+					
+          <div class="table-responsive" id="table">
+					<table class="table table-hover">
+            <thead>
+            <tr >
+                <th>Department Id</th>
+              <th>Department Name</th>
+              <th></th>
+              <th *ngIf="isAdmin"></th>
+             
+            </tr></thead>
+            <tbody>
+            <tr *ngFor="let i of departments;">
+              <td>{{i.dprtId}}</td>
+              <td>{{i.dprtName}}</td>
+              
+                 <td><button type="button" id="update" class="btn btn-success" (click)=updateDepartment(i.dprtId)>Update</button></td>
+                    <td *ngIf="isAdmin"><button type="button" id="delete" class="btn btn-danger" (click)=deleteEmployee(i.dprtId)>Delete</button></td>
+                 
+             
+            </tr>
+            </tbody>
+          </table></div>
+					
+				</div>
+			</div>
+			
+		</div>
+  </div>
+  
+  

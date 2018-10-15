@@ -1,0 +1,27 @@
+img {width:100%;}
+section #formA{
+    background: rgb(212, 212, 211);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   
+}
+section h2{
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+section h4{
+    color: rgba(185, 7, 7);
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+#sideA{
+    background-color: rgba(185, 7, 7, 0.8);
+}
+em{
+    color: red;
+}
