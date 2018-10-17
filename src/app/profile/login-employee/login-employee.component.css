@@ -99,6 +99,9 @@
         color: inherit;
     }
 
+    .error{
+        border: 2px solid red;
+    }
 
 
     .login-block{

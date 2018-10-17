@@ -25,3 +25,14 @@ section h4{
 em{
     color: red;
 }
+
+.ng-valid, .ng-valid.required  {
+    border-left: 10px solid #42A948; /* green */
+    background-color: rgb(182, 253, 185);
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 10px solid #a94442; /* red */
+    background-color: #ffd6d5;
+  }
+ 

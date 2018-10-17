@@ -1,6 +1,6 @@
 
   import { Component, OnInit } from '@angular/core';
-  import { FormControl, FormGroup, Validators } from '@angular/forms';
+  import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
   import { Employee} from './../_interfaces/employee.model';
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router } from '@angular/router';
@@ -36,15 +36,12 @@
         address1:new FormControl('',[Validators.required]),
         address2:new FormControl('',[Validators.required]),
         email:new FormControl('',[Validators.required,Validators.email]),
-        
+        confirmpassword: new FormControl ('',[Validators.required]),
         password:new FormControl('',[Validators.required]),
       
         department:new FormControl('',[Validators.required]),
         gender:new FormControl('',[Validators.required])
-        
-        
-  
-      })
+      },{ validators: isvalidconfirmpassword })
     }
   
     public validateControl(controlName: string) {
@@ -56,6 +53,12 @@
   
     public hasError(controlName: string, errorName: string) {
       if (this.ownerForm.controls[controlName].hasError(errorName))
+        return true;
+  
+      return false;
+    }
+    public touchanddirty(controlName: string) {
+      if (this.ownerForm.controls[controlName].value !=="" && this.ownerForm.controls[controlName].touched )
         return true;
   
       return false;
@@ -83,7 +86,7 @@
       };
   
       let apiUrl = 'create';
-      console.log(owner);
+    
       this.repository.postData(apiUrl, owner)
         .subscribe(res => {
           this.router.navigate(['/profile/list']);
@@ -107,7 +110,7 @@
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.departments = res;
-         console.log(res);
+        
             
           },
           (error => {
@@ -122,7 +125,7 @@
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.roles = res;
-         console.log(res);
+         
             
           },
           (error => {
@@ -131,6 +134,21 @@
         )
     }
 
+      
+ 
 
-  }
+}
   
+function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
+      return { 'ageRange': true };
+  }
+  return null;
+} 
+
+export const isvalidconfirmpassword: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+  const password = control.get('password');
+  const confirmpassword = control.get('confirmpassword');
+  
+  return password && confirmpassword && password.value === confirmpassword.value && confirmpassword.value !== ""? { 'ismatch': true } : null;
+};

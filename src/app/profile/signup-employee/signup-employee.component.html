@@ -27,8 +27,7 @@
                       <div class="form-group col-md-12">
                         <input  placeholder="Full Name" class="form-control" type="text" formControlName="name" id="name">
                         <em *ngIf="validateControl('name') && hasError('name', 'required')">*Name is required</em>
-                        <em *ngIf="validateControl('name') && hasError('name', 'maxlength')">*Maximum allowed length is 6 characters.</em>
-               
+                        
                       </div>
                       <div class="form-group col-md-6">
                         <input type="email" class="form-control"  placeholder="Email" formControlName="email" id="email">
@@ -55,13 +54,19 @@
                                 <input  placeholder="Password" class="form-control" type="password" formControlName="password" id="password">
                                 <em *ngIf="validateControl('password') && hasError('password', 'required')">*Password is required</em>
                                 <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">*Maximum allowed length is 6 characters.</em>
+                                
                        
                             </div>
                             <div class="form-group col-md-6">
-                                    <input  placeholder="Re Again Password" class="form-control" type="password" >
-                                   
+                                    <input  placeholder="Re Again Password" class="form-control" formControlName="confirmpassword" type="password" id="confirmpassword">
+                                    <em *ngIf="validateControl('confirmpassword') && hasError('confirmpassword', 'required')">*Password is required</em>
+                                    <em *ngIf="(!(ownerForm.errors?.ismatch) && (touchanddirty('confirmpassword')) )">*confirm password is not match</em> 
+                                    
                                 </div>
                     </div>
+
+                    
+
                   <div class="form-row">
                       <div class="form-group col-md-6">
                           <input  placeholder="Address city" class="form-control" type="text" formControlName="address1" id="address1">
@@ -128,7 +133,7 @@
                       <div class="form-group">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-                                    <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Submit Form</button>
+                                    <button type="submit" class="btn btn-success" [disabled]="!ownerForm.valid">Submit Form</button>
                                 </div>
                             </div>
                   </div>
@@ -136,4 +141,7 @@
           </div>
       </div>
   </div>
+
+  
+
 </section>

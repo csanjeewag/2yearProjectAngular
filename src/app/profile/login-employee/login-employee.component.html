@@ -15,23 +15,41 @@
                                     
                                    
                                     
-                                    <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="createLogin(loginForm.value)">
-                                            <div class="form-group">
-                                                <label for="email" class="sr-only">Email</label>
-                                                <input class="form-control" formControlName="email" id="email" placeholder="Enter Email">
-                                                <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
-                                                <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
-                                  
+                                    <form [formGroup]="loginForm" autocomplete="off" novalidate >
+                                        <div class="form-group ">
+                                           
+                                            <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
+                                            <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
+                                       
+                                            <div class=" input-group mb-3" [class.error]="isNotEmail">
+                                                    <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="email">Email </label>
+                                                    </div>
+                                                <input class="form-control" formControlName="email" id="email" placeholder="Enter Email" >
                                             </div>
-                                            <div class="form-group">
-                                                <label for="key" class="sr-only">Password</label>
+                                            </div>
+                                  
+                                            
+                                            <div class="input-group">
+                                                    <em *ngIf="validateControl('pass') && hasError('pass', 'required')">*password is required</em>
+                                                    <em *ngIf="validateControl('pass') && hasError('pass', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+
+                                            <div class="  input-group mb-3" *ngIf="hiddenPassword">
+                                                   
+                                                    <div class="input-group-prepend">
+                                                            <label class="input-group-text" for="pass">Password </label>
+                                                            </div>
                                                 <input type="password" formControlName="pass" id="pass" class="form-control" placeholder="Password">
-                                                <em *ngIf="validateControl('pass') && hasError('pass', 'required')">*password is required</em>
-                                                <em *ngIf="validateControl('pass') && hasError('pass', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                                              
+                                            </div>
+                                                    
+                                        </div>
+
+                                            <div ><p class="text-danger" *ngIf="isNotEmail">Above email is not registered!</p>
+                                                <p class="text-danger" >{{Message}}</p>
                                             </div>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button type="submit" class="btn btn-info" [disabled]="!loginForm.valid">Login</button>
+                                            <button *ngIf="!(hiddenPassword)" type="button" class="btn btn-success" (click)="hiddenpassword()"> next </button>
+                                            <button *ngIf="(hiddenPassword)" type="submit" class="btn btn-success" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Login</button>
                                             <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
                                         </div> 
                                         </form>

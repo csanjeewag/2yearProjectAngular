@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders} from '@angular/common/http';
 import { UserServiceService} from './user-service.service';
+import { Observable } from 'rxjs';
+
+interface userIdIsUnique {
+  unique: boolean
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RepositoryService {
 
   public islogged:any;
@@ -22,6 +28,11 @@ export class RepositoryService {
   
   }
   
+ public isUserIdUnique(userId): Observable<userIdIsUnique> {
+   
+    return this.http.post<userIdIsUnique>(this.createCompleteRoute('isuniqueemail', this.envUrl.urlAddress), 'c@g.com',this.generateHeaders())
+
+  }
   
   public deleteUser(route: string, body){
     return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress),body, this.generateHeaders());

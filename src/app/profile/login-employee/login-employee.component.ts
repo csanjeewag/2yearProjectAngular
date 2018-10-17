@@ -1,14 +1,16 @@
 
 
   import { Component, OnInit } from '@angular/core';
-  import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
+  import { FormControl, FormGroup, AbstractControl, ValidationErrors, Validators, AsyncValidatorFn } from '@angular/forms';
 
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router } from '@angular/router';
-  
+  import { Observable } from 'rxjs';
+  import { map } from 'rxjs/operators';
  
   import { LoginUserInterfaceComponent  } from "./../login-user-interface/login-user-interface.component";
 import { LoginByEmail } from '../_interfaces/login-by-email';
+  import { EmailCheck } from "./../_interfaces/email-check";
   
   @Component({ 
     selector: 'app-login-employee',
@@ -18,10 +20,13 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
   export class LoginEmployeeComponent implements OnInit {
   
     constructor(private router: Router,  private repository : RepositoryService, private logcomponent :LoginUserInterfaceComponent) { }
-    public r :any ;
+    public result :any ;
     public Message: {};
     public loginForm: FormGroup;
-  
+ 
+    public isNotEmail:any;
+    public hiddenPassword:any;
+
     ngOnInit() {
     
       this.loginForm = new FormGroup({
@@ -47,8 +52,15 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     
         return false;
       }
-  
+      public validateEmail() {
+          let controlName ='email';
+        if (! (this.shouldBeUnique(controlName)) && this.loginForm.controls[controlName].touched)
+          return true;
+    
+        return false;
+      }
       public createLogin(loginFormvalue) {
+        this.validateEmail();
         if (this.loginForm.valid) {
           this.executeLoginCreation(loginFormvalue);
           
@@ -68,24 +80,18 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
         
         this.repository.postData(apiUrl, loginuser)
           .subscribe(res =>  {
-                this.r = res;
+                this.result = res;
             
               this.Message="Your loggin Success!";
               
                 this.router.navigate(['/profile/list']);
-              
-              
-             // localStorage.setItem('id',this.r.empId );
-             // localStorage.setItem('pass',this.r.empPassword );
-              localStorage.setItem('token',this.r.token );
-              
-              
-              
+
+              localStorage.setItem('token',this.result.token );
+          
             },
             (error => {
               this.Message="Your loggin faild, Check your Id or Password!";
-            //  this.errorHandler.handleError(error);
-            //  this.errorMessage = this.errorHandler.errorMessage;
+              
             })
           )
       }
@@ -95,8 +101,35 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
       }
       
   
-  
-  
-  
+    public  shouldBeUnique(controlName: string ){
+        
+       let isunique;
+       let apiUrl = 'isuniqueemail';
+       let loginuse: EmailCheck = {
+        Email: this.loginForm.controls[controlName].value
+      }
+     
+
+    this.repository.postData(apiUrl,loginuse)
+          .subscribe(res=>{
+            
+            if(res==true)
+            {this.isNotEmail =false;  this.hiddenPassword = true;}
+            else 
+            {this.isNotEmail =true; this.hiddenPassword = false;}
+          },(error => {
+           
+           
+          })
+          )
+
+      }
+      
+    public  hiddenpassword(){
+        if(this.shouldBeUnique('email')){
+          this.hiddenPassword = true;
+        
+      }
+    }
   }
   
