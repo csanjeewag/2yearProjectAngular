@@ -134,21 +134,18 @@
         )
     }
 
-      
- 
-
 }
   
-function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
-  if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
-      return { 'ageRange': true };
-  }
-  return null;
-} 
+// function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
+//   if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
+//       return { 'ageRange': true };
+//   }
+//   return null;
+// } 
 
 export const isvalidconfirmpassword: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
   const password = control.get('password');
   const confirmpassword = control.get('confirmpassword');
   
-  return password && confirmpassword && password.value === confirmpassword.value && confirmpassword.value !== ""? { 'ismatch': true } : null;
+  return password && confirmpassword && password.value !== confirmpassword.value && confirmpassword.value !== ""? { 'ismatch': true } : null;
 };

@@ -14,18 +14,19 @@
     background: -webkit-linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    
-    border-style: outset;
-    border-width: 5px;
-    border-color: brown;
-    padding: 5px;
+   
+   
+    
+    padding: 10px;
 }
 #table thead{
-    background-color: rgb(197, 29, 29);
+    background-color: rgb(29, 29, 29);
+    color: aliceblue;
 }
 #table tbody tr{
     background: rgb(212, 212, 211);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, rgb(255, 141, 141),rgb(252, 79, 79));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, rgb(255, 141, 141),rgb(252, 79, 79)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    
    
 }

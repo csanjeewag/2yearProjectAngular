@@ -81,11 +81,9 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
         this.repository.postData(apiUrl, loginuser)
           .subscribe(res =>  {
                 this.result = res;
+            this.Message="Your loggin Success!";
+           this.router.navigate(['/profile/list']);
             
-              this.Message="Your loggin Success!";
-              
-                this.router.navigate(['/profile/list']);
-
               localStorage.setItem('token',this.result.token );
           
             },

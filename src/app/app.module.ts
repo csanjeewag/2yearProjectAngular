@@ -8,7 +8,6 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { LoggedHeaderComponent } from './SharePart/logged-header/logged-header.component';
 import { LogingHeaderComponent } from './SharePart/loging-header/loging-header.component';
 import { RepositoryService } from './ShareData/repository.service';
 import {UserServiceService } from './ShareData/user-service.service';

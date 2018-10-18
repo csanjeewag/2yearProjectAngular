@@ -43,6 +43,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   }
 
   body{
-    min-height: 100%;
-    background-color: rgba(196, 199, 199, 0.452);
+   
+    /* background-color: rgba(196, 199, 199, 0.452); */
+    background-color: #212F3C;
   }

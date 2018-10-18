@@ -60,7 +60,7 @@
                             <div class="form-group col-md-6">
                                     <input  placeholder="Re Again Password" class="form-control" formControlName="confirmpassword" type="password" id="confirmpassword">
                                     <em *ngIf="validateControl('confirmpassword') && hasError('confirmpassword', 'required')">*Password is required</em>
-                                    <em *ngIf="(!(ownerForm.errors?.ismatch) && (touchanddirty('confirmpassword')) )">*confirm password is not match</em> 
+                                    <em *ngIf="((ownerForm.errors?.ismatch) )">*confirm password is not match</em> 
                                     
                                 </div>
                     </div>

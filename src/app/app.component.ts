@@ -19,6 +19,7 @@ export class AppComponent {
   showFiller = false;
 
   ngOnInit(){
+    this.auth.istokenExpired();
     this.logged = this.auth.islogged();
   // this.logged = this.repo.islogged;
     

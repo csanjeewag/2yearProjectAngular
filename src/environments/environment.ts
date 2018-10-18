@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   department_url :"http://localhost:3005/department",
   //employee_url :"http://localhost:5000/api/employee",
-  employee_url :"http://localhost:5309/api",
+  employee_url :"http://localhost:5308/api",
   posturl : 'http://localhost:3005/enroll',
  // employee_url: 'https://jsonplaceholder.typicode.com/users'
   

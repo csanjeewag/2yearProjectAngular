@@ -26,7 +26,7 @@ em{
     color: red;
 }
 
-.ng-valid, .ng-valid.required  {
+ .ng-valid:not(form) {
     border-left: 10px solid #42A948; /* green */
     background-color: rgb(182, 253, 185);
   }
