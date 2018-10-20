@@ -1,12 +1,14 @@
 
   import { Component, OnInit } from '@angular/core';
-  import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
+  import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors,AsyncValidatorFn } from '@angular/forms';
   import { Employee} from './../_interfaces/employee.model';
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router } from '@angular/router';
   import { LoginUserInterfaceComponent } from "./../login-user-interface/login-user-interface.component";
-  
-  
+  import { EmailCheck } from "./../_interfaces/email-check";
+  import { Observable } from 'rxjs';
+  import { map } from 'rxjs/operators';
+
 
   @Component({
     selector: 'app-signup-employee',
@@ -19,6 +21,7 @@
     public ownerForm: FormGroup;
     public departments:any;
     public roles:any;
+    public isAvalibleemail:boolean;
    
    
   
@@ -28,7 +31,7 @@
 
       this.getRoles();
       this.getDepartment();
-
+    
       this.ownerForm = new FormGroup({
         id:new FormControl('',[Validators.required,Validators.maxLength(6)]),
         name:new FormControl('',[Validators.required]),
@@ -63,9 +66,11 @@
   
       return false;
     }
-  
+   
+
     public createOwner(ownerFormValue) {
       if (this.ownerForm.valid) {
+        this.shouldBeUnique('email');
         this.executeOwnerCreation(ownerFormValue);
        
       }
@@ -134,14 +139,59 @@
         )
     }
 
+    public  shouldBeUnique(controlName: string ){
+        
+      let isunique;
+      let apiUrl = 'isuniqueemail';
+      let loginuse: EmailCheck = {
+       Email: this.ownerForm.controls[controlName].value
+     }
+    
+
+   this.repository.postData(apiUrl,loginuse)
+         .subscribe(res=>{
+           console.log(res);
+           if(res==true)
+           {this.isAvalibleemail=true }
+           else 
+           { }
+         },(error => {
+          
+          
+         })
+         )
+
+     }
+
+  
+
+    public ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
+      
+      if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
+        
+          return { 'ageRange': true , 'as': false};
+      }
+      return null;
+    }
+
+    // public isvalidEmail(control: AbstractControl): { [key: string]: boolean } | null {
+    //   let apiUrl = 'isuniqueemail';
+    //   let loginuse: EmailCheck = {
+    //    Email: control.value
+
+    //   }
+    //   this.repository.postData(apiUrl,loginuse).pipe(map(res => { 
+    //     return { 'shouldBeUnique': true}
+    //   }));
+
+    //   return null;
+    // }
 }
   
-// function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
-//   if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
-//       return { 'ageRange': true };
-//   }
-//   return null;
-// } 
+
+
+
+
 
 export const isvalidconfirmpassword: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
   const password = control.get('password');
@@ -149,3 +199,4 @@ export const isvalidconfirmpassword: ValidatorFn = (control: FormGroup): Validat
   
   return password && confirmpassword && password.value !== confirmpassword.value && confirmpassword.value !== ""? { 'ismatch': true } : null;
 };
+

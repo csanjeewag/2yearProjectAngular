@@ -11,9 +11,12 @@ export class LoggedHeaderComponent implements OnInit {
   constructor( private router : Router, private auth :AuthServiceService) { }
 public islogged:any;
 public isAdmin:any;
+public EmployeeName:any;
   ngOnInit() {
     this.islogged = this.auth.islogged();
     this.isAdmin= this.auth.isAdmin();
+    this.EmployeeName = this.auth.tokenGetName();
+    //console.log(this.EmployeeName)
   }
 
   public  logout(){

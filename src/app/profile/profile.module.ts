@@ -32,6 +32,7 @@ import { UpdateRolesComponent } from './update-roles/update-roles.component';
 import { ShowDepartmentsDetailsComponent } from './show-departments-details/show-departments-details.component';
 import { ShowRolesDetailsComponent } from './show-roles-details/show-roles-details.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 
 @NgModule({
   imports: [
@@ -61,12 +62,13 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
       { path: 'update/:id', component: UpdateEmployeeComponent },
       { path: 'upd/:id', component: UpdateDepartmentComponent },
       { path: 'upr/:id', component: UpdateRolesComponent },
+      { path: 'profile', component: EmployeeProfileComponent },
       
       { path: 'admin', component: AdminPageComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'}},
       
     ])
   ],
-  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent]
+  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent]
 })
 export class ProfileModule { }
  

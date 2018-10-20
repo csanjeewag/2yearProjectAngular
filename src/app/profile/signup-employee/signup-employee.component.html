@@ -28,6 +28,7 @@
                         <input  placeholder="Full Name" class="form-control" type="text" formControlName="name" id="name">
                         <em *ngIf="validateControl('name') && hasError('name', 'required')">*Name is required</em>
                         
+                        
                       </div>
                       <div class="form-group col-md-6">
                         <input type="email" class="form-control"  placeholder="Email" formControlName="email" id="email">
@@ -128,7 +129,7 @@
                   
                         </div>
                   </div>
-                  
+                  <em *ngIf="isAvalibleemail"> This Email already registered!</em>
                   <div class="form-row">
                       <div class="form-group">
                                 <div class="btn-group" role="group" aria-label="Basic example">

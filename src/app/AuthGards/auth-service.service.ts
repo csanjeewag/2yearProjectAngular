@@ -70,11 +70,21 @@ public istokenExpired(){
 
 const decodedToken = helper.decodeToken(token);
   
-   //console.log(decodedToken.Id);
-   return decodedToken.email;
+  // console.log(decodedToken);
+   return decodedToken.nameid;
 
  }
+ public tokenGetName(){
+  var token = localStorage.getItem('token');
+
+  const helper = new JwtHelperService();
+
+const decodedToken = helper.decodeToken(token);
  
+ //console.log(decodedToken);
+  return decodedToken.unique_name;
+
+}
   // public logcheck() {
   //   let loginuser: LoginUser = {
   //     EmpId: localStorage.getItem('id'),
