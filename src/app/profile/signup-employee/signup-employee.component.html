@@ -130,15 +130,22 @@
                         </div>
                   </div>
                   <em *ngIf="isAvalibleemail"> This Email already registered!</em>
+                  <em id="error">{{message}}</em>
                   <div class="form-row">
                       <div class="form-group">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-                                    <button type="submit" class="btn btn-success" [disabled]="!ownerForm.valid">Submit Form</button>
+                                    <button type="submit" class="btn btn-success" [disabled]="!ownerForm.valid">Next</button>
                                 </div>
+                                
+                                <p id="waiting" *ngIf="wait">Waiting for while... . .</p>
                             </div>
                   </div>
               </form>
+              <div *ngIf="IsLogin" id="register">
+                <app-employee-register></app-employee-register>
+              </div>
+                
           </div>
       </div>
   </div>

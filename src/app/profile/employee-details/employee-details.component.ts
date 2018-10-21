@@ -12,7 +12,7 @@ import { Employee } from '../_interfaces/employee.model';
 export class EmployeeDetailsComponent implements OnInit {
 
   public empId;
-  public result : Observable<Employee>;
+  public result :any;
   constructor(private route: ActivatedRoute,private repo :RepositoryService,private router: Router ) { }
 
   ngOnInit() {
@@ -25,7 +25,8 @@ export class EmployeeDetailsComponent implements OnInit {
     
     this.repo.getData('getall/'+id)
     .subscribe(res => {
-      this.result = res as Observable<Employee>;
+      this.result = res ;
+      console.log(this.result)
     },
     (error) => {
     //  this.handleErrors(error);n

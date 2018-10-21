@@ -36,3 +36,9 @@ em{
     background-color: #ffd6d5;
   }
  
+  #waiting{
+      color: rgb(119, 28, 24);
+  }
+  #error{
+    color: rgba(185, 7, 7);
+  }

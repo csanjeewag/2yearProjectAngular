@@ -22,8 +22,11 @@
     public departments:any;
     public roles:any;
     public isAvalibleemail:boolean;
+    public IsLogin:any;
+    public message:any;
+    public wait:any;
    
-   
+
   
     constructor(private router: Router,  private repository : RepositoryService,private logcomponent:LoginUserInterfaceComponent) { }
   
@@ -40,8 +43,7 @@
         address2:new FormControl('',[Validators.required]),
         email:new FormControl('',[Validators.required,Validators.email]),
         confirmpassword: new FormControl ('',[Validators.required]),
-        password:new FormControl('',[Validators.required]),
-      
+        password:new FormControl('',[Validators.required]),      
         department:new FormControl('',[Validators.required]),
         gender:new FormControl('',[Validators.required])
       },{ validators: isvalidconfirmpassword })
@@ -72,6 +74,8 @@
       if (this.ownerForm.valid) {
         this.shouldBeUnique('email');
         this.executeOwnerCreation(ownerFormValue);
+        this.wait = true;
+        this.IsLogin = false;
        
       }
     }
@@ -84,7 +88,7 @@
         EmpAddress1: ownerFormValue.address1,
         EmpAddress2: ownerFormValue.address2,
         EmpEmail: ownerFormValue.email,
-        PositionPId: 'RC',
+        PositionPId: '',
         EmpPassword:  ownerFormValue.password,
         DepartmentDprtId: ownerFormValue.department,
         EmpGender: ownerFormValue.gender,
@@ -94,12 +98,15 @@
     
       this.repository.postData(apiUrl, owner)
         .subscribe(res => {
-          this.router.navigate(['/profile/list']);
-            
+          this.IsLogin = true;
+          this.logcomponent.loginEmail = ownerFormValue.email;
+           this.wait = false;
+           this.message = ""
           },
           (error => {
-          //  this.errorHandler.handleError(error);
-          //  this.errorMessage = this.errorHandler.errorMessage;
+            this.IsLogin= false;
+            this.wait = false;
+            this.message = "Registration failed, try again!"
           })
         )
     }
@@ -163,29 +170,7 @@
 
      }
 
-  
-
-    public ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
-      
-      if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
-        
-          return { 'ageRange': true , 'as': false};
-      }
-      return null;
-    }
-
-    // public isvalidEmail(control: AbstractControl): { [key: string]: boolean } | null {
-    //   let apiUrl = 'isuniqueemail';
-    //   let loginuse: EmailCheck = {
-    //    Email: control.value
-
-    //   }
-    //   this.repository.postData(apiUrl,loginuse).pipe(map(res => { 
-    //     return { 'shouldBeUnique': true}
-    //   }));
-
-    //   return null;
-    // }
+ 
 }
   
 

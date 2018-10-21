@@ -18,7 +18,9 @@ export class LoginUserInterfaceComponent implements OnInit {
   public r :any ;
   public Message: {};
   public loginForm: FormGroup;
-
+  public loginEmail:any;
+  public IsLogin:any;
+  
   constructor(private router: Router,  private repository : RepositoryService) { }
 
 

@@ -1,0 +1,14 @@
+<h4 id="error">{{message}}</h4>
+<h5> Check your email, and place code here, to registration finish!</h5>
+<form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
+             
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <input  placeholder="Resiter code" class="form-control" type="text" formControlName="resitercode" id="resitercode">
+              <em *ngIf="validateControl('resitercode') && hasError('resitercode', 'required')">*register code is required</em>
+           </div>
+           <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Submit Form</button>
+            </div>
+      </div>
+</form>

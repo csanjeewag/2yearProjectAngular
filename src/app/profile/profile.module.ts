@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { map, filter } from 'rxjs/operators';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
@@ -33,6 +35,8 @@ import { ShowDepartmentsDetailsComponent } from './show-departments-details/show
 import { ShowRolesDetailsComponent } from './show-roles-details/show-roles-details.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { FilterPipePipe } from './filter-pipe.pipe';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 
 @NgModule({
   imports: [
@@ -68,7 +72,7 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
       
     ])
   ],
-  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent]
+  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent]
 })
 export class ProfileModule { }
  
