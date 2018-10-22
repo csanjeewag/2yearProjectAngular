@@ -46,6 +46,8 @@
 
                                             <div ><p class="text-danger" *ngIf="isNotEmail">Above email is not registered!</p>
                                                 <p class="text-danger" >{{Message}}</p>
+                                                <p class="text-danger" >{{wait}}</p>
+                                                
                                             </div>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                             <button *ngIf="!(hiddenPassword)" type="button" class="btn btn-success" (click)="hiddenpassword()"> next </button>
@@ -56,7 +58,9 @@
                                       
                     </section>
 		    
-<div class="copy-text">You have not account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div>
+<div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div>
+<div *ngIf="(hiddenPassword)" class="copy-text"><i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="forgetpassword(loginForm.value)"> Forget passward.</a></div>
+
         </div>
         
 		<div class="col-md-8 banner-sec">

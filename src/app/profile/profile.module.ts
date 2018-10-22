@@ -37,6 +37,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { EmployeeRegisterByLinkComponent } from './employee-register-by-link/employee-register-by-link.component';
+import { ForgetEmployeePasswordComponent } from './forget-employee-password/forget-employee-password.component';
 
 @NgModule({
   imports: [
@@ -67,12 +69,13 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
       { path: 'upd/:id', component: UpdateDepartmentComponent },
       { path: 'upr/:id', component: UpdateRolesComponent },
       { path: 'profile', component: EmployeeProfileComponent  },
-      
+      { path: 'register', component: EmployeeRegisterByLinkComponent  },
+      { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
       { path: 'admin', component: AdminPageComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'}},
       
     ])
   ],
-  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent]
+  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent]
 })
 export class ProfileModule { }
  

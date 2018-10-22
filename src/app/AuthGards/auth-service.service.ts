@@ -47,7 +47,7 @@ public istokenExpired(){
   const helper = new JwtHelperService();
   var token = localStorage.getItem('token');
   const ex = helper.isTokenExpired(token);
-  if(ex==true){this.loggout();}
+  if(ex==true){localStorage.removeItem('token');}
   return ex;
 }
 

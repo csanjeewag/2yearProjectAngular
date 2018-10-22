@@ -23,7 +23,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     public result :any ;
     public Message: {};
     public loginForm: FormGroup;
- 
+    public wait:any;
     public isNotEmail:any;
     public hiddenPassword:any;
 
@@ -122,7 +122,19 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
           )
 
       }
-      
+    public forgetpassword(value){
+     this.wait = "please wait for while, check your email.."; 
+      console.log(value);
+      this.repository.getData('forgetpassword/'+value.email)
+      .subscribe(res => {
+        this.Message="For change password, go to your email.";
+        this.wait = ""; 
+    },
+      (error) => {
+        this.Message="you can not change password.";
+        this.wait = ""; 
+      })
+    }  
     public  hiddenpassword(){
         if(this.shouldBeUnique('email')){
           this.hiddenPassword = true;

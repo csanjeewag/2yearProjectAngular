@@ -1,0 +1,45 @@
+<div class="form-row">
+  <div class="form-group col-md-3">
+  </div>
+ 
+  <div class="form-group col-md-6" id="page">
+      <div class="card">
+          <div class="card-header">
+              <h4 *ngIf="!(RegisterSucces)">If you prefer to register, Event managment system, you can register!</h4>
+              <h4 *ngIf="(RegisterSucces)"> Welcome you for Event Manegment System</h4>
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <br>
+              <h5>Hello, {{Name}}</h5><br>
+              <h4 id="error">{{message}}</h4>
+                <form *ngIf="!(RegisterSucces)" [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                          <input  placeholder="Resiter code" class="form-control" type="text" formControlName="resitercode" id="resitercode">
+                          <small *ngIf="validateControl('resitercode') && hasError('resitercode', 'required')">*register code is required</small>
+                       </div>
+                       <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
+                        </div>
+                  </div>
+            </form>
+            <div *ngIf="RegisterSucces">
+                <h5>Welcome to our Event manement system. It is exciting to know working with you in the following days to come. We would love to hear your new ideas and insights that will contribute a lot for our growing company</h5>
+                <h5>You can log now, go to <a href="http://localhost:4200/profile/login">login</a>,</h5>
+                <h5> Thank you!</h5>
+            </div>
+            <br>
+              <footer class="blockquote-footer">Creative Software <cite title="Source Title">Event Manement System</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+
+
+<br>
+
+</div>
+<div class="form-group col-md-3">
+</div>
+</div>
