@@ -66,7 +66,7 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
       { path: 'update/:id', component: UpdateEmployeeComponent },
       { path: 'upd/:id', component: UpdateDepartmentComponent },
       { path: 'upr/:id', component: UpdateRolesComponent },
-      { path: 'profile', component: EmployeeProfileComponent },
+      { path: 'profile', component: EmployeeProfileComponent  },
       
       { path: 'admin', component: AdminPageComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'}},
       
