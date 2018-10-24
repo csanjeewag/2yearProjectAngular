@@ -3,16 +3,18 @@ h2{
     text-align: center;
     color: brown;
 }
+#showview{
+padding: 20px;
+    background: rgba(1, 0, 7, 0.295);  /* fallback for old browsers */
+   
+}
 #createview{
-
     background: rgb(212, 212, 211);  /* fallback for old browsers */
     background: -webkit-linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    
 }
-#showview{
-    background: rgb(212, 212, 211);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, rgb(136, 135, 134),rgb(212, 212, 211)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-   
+
+.card{
+    background-color: rgba(247, 247, 247, 0.089);
 }

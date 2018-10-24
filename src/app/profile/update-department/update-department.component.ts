@@ -58,7 +58,7 @@
         this.repository.postData(apiUrl, departments)
           .subscribe(res =>  {
             this.Message="Department updated!";
-              //  this.router.navigate(['/profile/list']);
+              this.router.navigate(['/profile/admin/departments']);
          
             },
             (error => {
@@ -94,8 +94,9 @@
 
     }
     public redirectToOwnerList(){
-      this.router.navigate(['/profile/list']);
-    }
+      this.router.navigate(['/profile/admin/departments']);
+      
+     }
     
   }
   

@@ -1,37 +1,54 @@
 <app-logged-header></app-logged-header>
 
-
 <div class="form-row">
     <div class="form-group col-md-1">
     </div>
     <div class="form-group col-md-10">
      
 
-<div id="showview">
-    <div>
-        <h2>Admin Controller Page</h2>
-      </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-        <app-show-departments-details></app-show-departments-details>
-    </div>
-    <div class="form-group col-md-6">
-        <app-show-roles-details></app-show-roles-details>
-    </div>
-  </div>
-</div>
-<div id="createview">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-         <app-department-create></app-department-create> 
-      </div>
-      <div class="form-group col-md-6">
-        <app-role-create></app-role-create>
-      </div>
-    </div>
-  </div>
+<div class="card">
+    <h5 class="card-header"><h2>Admin Controller Page</h2></h5>
+    <div class="card-body">
   
+      
+      <div id="showview">
+          <div>
+              
+            </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <br>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                  <button (click) ="isdepartment()"  type="button" class="btn btn-secondary"> Create Departments</button>
+                  <button (click)="isrole()" type="button" class="btn btn-secondary"> Create Roles</button>
+                  <br>
+                </div>
+                <br><br><br>
+              <div *ngIf="department"><app-department-create></app-department-create></div>
+              <div *ngIf="role"><app-role-create></app-role-create></div>
+              
+               
+              <!-- <app-show-departments-details></app-show-departments-details> -->
+          </div>
+          <div class="form-group col-md-6">
+              <!-- <app-show-roles-details></app-show-roles-details> -->
+              <br>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                  <button routerLink="/profile/admin/departments" routerLinkActive="active" type="button" class="btn btn-secondary">View Departments</button>
+                  <button routerLink="/profile/admin/roles" routerLinkActive="active" type="button" class="btn btn-secondary">View Roles</button>
+                  
+                </div>
+              <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+      
+        
+     
+      </div> 
+    </div>
+  </div>
+
 </div>
 <div class="form-group col-md-1">
   </div>
-</div>

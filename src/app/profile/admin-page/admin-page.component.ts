@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
+  public department:any= true;
+  public role:any;
   constructor() { }
 
   ngOnInit() {
   }
 
+  public isdepartment(){
+    this.department = true;
+    this.role = false;
+  }
+  public isrole(){
+    this.role = true;
+    this.department = false;
+  }
 }

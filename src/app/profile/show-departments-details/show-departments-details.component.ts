@@ -30,7 +30,12 @@ export class ShowDepartmentsDetailsComponent implements OnInit {
   }
 
   public updateDepartment(id){
-    this.router.navigate(['/profile/upd',id]);
+    this.router.navigate(['/profile/admin/updatedepartment/',id]);
   }
+
+  public redirectToOwnerList(){
+    this.router.navigate(['/profile/admin']);
+    
+   }
 }
 

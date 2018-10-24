@@ -40,7 +40,7 @@ export class DepartmentCreateComponent implements OnInit {
   }
 
   public createdepartment(DepartmentFormvalue) {
-
+    this.router.navigate(['/profile/admin']);
     if (this.departmentForm.valid) {
       
       let departments: Department = {
@@ -54,7 +54,7 @@ export class DepartmentCreateComponent implements OnInit {
       this.repository.postData(apiUrl, departments)
         .subscribe(res =>  {
           this.Message="Department Created!";
-            //  this.router.navigate(['/profile/list']);
+             this.router.navigate(['/profile/admin/departments']);
        
           },
           (error => {
@@ -66,7 +66,11 @@ export class DepartmentCreateComponent implements OnInit {
   }
 
   public redirectToOwnerList(){
-    this.router.navigate(['/profile/list']);
+    //this.router.navigate(['/profile/list']);
+    this.departmentForm = new FormGroup({
+      departmentId: new FormControl('',),
+      departmentName: new FormControl(''),})
+
   }
   
 }

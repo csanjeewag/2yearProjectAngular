@@ -41,7 +41,7 @@ export class RoleCreateComponent implements OnInit {
   }
 
   public createrole(PositionFormvalue) {
-
+    this.router.navigate(['/profile/admin']);
     if (this.positionForm.valid) {
       
       let positions: Role = {
@@ -56,8 +56,8 @@ export class RoleCreateComponent implements OnInit {
       this.repository.postData(apiUrl, positions)
         .subscribe(res =>  {
           this.Message="role Created!";
-            //  this.router.navigate(['/profile/list']);
-            location.reload();
+              this.router.navigate(['/profile/admin/roles']);
+           // location.reload();
        
           },
           (error => {
@@ -69,6 +69,12 @@ export class RoleCreateComponent implements OnInit {
   }
 
   public redirectToOwnerList(){
-    this.router.navigate(['/profile/list']);
+    // this.router.navigate(['/profile/list']);
+    this.positionForm = new FormGroup({
+      positionId: new FormControl('',),
+      positionName: new FormControl('',),
+      positionDis: new FormControl('',)
+
+     })
   }
 }

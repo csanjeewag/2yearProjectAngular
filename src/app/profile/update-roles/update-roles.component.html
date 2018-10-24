@@ -1,32 +1,41 @@
-update
-<div class="container">
-  {{Message}}
-    <form [formGroup]="positionForm" autocomplete="off" novalidate (ngSubmit)="createrole(positionForm.value)">
-      <div class="form-group">
-          <label for="email" class="sr-only">DepartmentId</label>
-          <input class="form-control" formControlName="positionId" id="positionId" placeholder="Role Id">
-          <em *ngIf="validateControl('positionId') && hasError('positionId', 'required')">*Email is required!</em>
-          <em *ngIf="validateControl('positionId') && hasError('positionId', 'email')">*This not a valid email!</em>
-  
+<br><br><br>
+
+<div class="card">
+        <h5 class="card-header"><h2>Update Roles</h2></h5>
+        <div class="card-body">
+          <h5 class="card-title"><h3>{{Message}}</h3></h5>
+          <div class="container">
+
+                <form [formGroup]="positionForm" autocomplete="off" novalidate (ngSubmit)="createrole(positionForm.value)">
+                  <div class="form-group">
+                      <label for="email" class="sr-only">DepartmentId</label>
+                      <input class="form-control" formControlName="positionId" id="positionId" placeholder="Role Id">
+                      <em *ngIf="validateControl('positionId') && hasError('positionId', 'required')">*Email is required!</em>
+                      <em *ngIf="validateControl('positionId') && hasError('positionId', 'email')">*This not a valid email!</em>
+              
+                  </div>
+                  <div class="form-group">
+                      <label for="key" class="sr-only">Name</label>
+                      <input type="text" formControlName="positionName" id="positionName" class="form-control" placeholder="Role Name">
+                      <em *ngIf="validateControl('positionName') && hasError('positionName', 'required')">*Role is required</em>
+                      <em *ngIf="validateControl('positionName') && hasError('positionName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+                    
+                  </div>
+                  <div class="form-group">
+                      <label for="key" class="sr-only">Dis</label>
+                      <input type="text" formControlName="positionDis" id="positionDis" class="form-control" placeholder="Role Dis">
+                      <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'required')">*Role Discription is required</em>
+                      <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+                    
+                  </div>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
+                  <button type="submit" class="btn btn-success" [disabled]="!positionForm.valid">Create</button>
+                  
+              </div> 
+              </form>
+              </div>
+        </div>
       </div>
-      <div class="form-group">
-          <label for="key" class="sr-only">Name</label>
-          <input type="text" formControlName="positionName" id="positionName" class="form-control" placeholder="Role Name">
-          <em *ngIf="validateControl('positionName') && hasError('positionName', 'required')">*password is required</em>
-          <em *ngIf="validateControl('positionName') && hasError('positionName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-        
-      </div>
-      <div class="form-group">
-          <label for="key" class="sr-only">Dis</label>
-          <input type="text" formControlName="positionDis" id="positionDis" class="form-control" placeholder="Role Dis">
-          <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'required')">*password is required</em>
-          <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-        
-      </div>
-      <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-      <button type="submit" class="btn btn-success" [disabled]="!positionForm.valid">Create</button>
-      
-  </div> 
-  </form>
-  </div>
+
+

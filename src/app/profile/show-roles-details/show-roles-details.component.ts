@@ -30,7 +30,11 @@ export class ShowRolesDetailsComponent implements OnInit {
   }
 
   public updateRoles(id){
-    this.router.navigate(['/profile/upr',id]);
+    this.router.navigate(['/profile/admin/updaterole',id]);
   }
 
+  public redirectToOwnerList(){
+   this.router.navigate(['/profile/admin']);
+   
+  }
 }

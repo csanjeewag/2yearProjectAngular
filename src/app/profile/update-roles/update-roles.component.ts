@@ -61,7 +61,7 @@
         this.repository.postData(apiUrl, positions)
           .subscribe(res =>  {
             this.Message="role updated!";
-              //  this.router.navigate(['/profile/list']);
+               this.router.navigate(['/profile/admin/roles']);
          
             },
             (error => {
@@ -96,8 +96,10 @@
     this.positionForm.controls['positionDis'].setValue(this.roles.positionDis);
 
   }
+    
     public redirectToOwnerList(){
-      this.router.navigate(['/profile/list']);
-    }
+      this.router.navigate(['/profile/admin/roles']);
+      
+     }
   }
   

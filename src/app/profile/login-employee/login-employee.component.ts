@@ -115,12 +115,13 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
             {this.isNotEmail =false;  this.hiddenPassword = true;}
             else 
             {this.isNotEmail =true; this.hiddenPassword = false;}
+            return res;
           },(error => {
            
-           
+           return true;
           })
           )
-
+          return false;
       }
     public forgetpassword(value){
      this.wait = "please wait for while, check your email.."; 
