@@ -19,6 +19,7 @@ export class EmployeeRegisterComponent implements OnInit {
   public registerForm: FormGroup;
   public registerEmail:any;
   public message:any;
+  public waiting :any;
   ngOnInit() {
     this.registerEmail = this.logcomponent.loginEmail;
    
@@ -41,6 +42,7 @@ export class EmployeeRegisterComponent implements OnInit {
   }
 
   public Register(resiterFormValue) {
+    this.waiting = true;
     this.registerEmail = this.logcomponent.loginEmail;
     if (this.registerForm.valid) {
       
@@ -56,9 +58,11 @@ export class EmployeeRegisterComponent implements OnInit {
           this.logcomponent.loginEmail = null;
           this.message="Registration Success!";
           this.logcomponent.IsHaveAccount = true;
+          this.waiting = false;
             },
           (error => {
             this.message="Registration Failed, Try Again!";
+            this.waiting = false;
           })
         )
      

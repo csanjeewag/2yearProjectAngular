@@ -53,7 +53,11 @@
                                             <button *ngIf="!(hiddenPassword)" type="button" class="btn btn-success" (click)="hiddenpassword()"> next </button>
                                             <button *ngIf="(hiddenPassword)" type="submit" class="btn btn-success" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Login</button>
                                             <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
+                                            <div *ngIf="(Loading)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+         
                                         </div> 
+                                       
+                                        
                                         </form>
                                       
                     </section>

@@ -25,6 +25,7 @@
                     <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'maxlength')">*Maximum allowed length is 100 characters.</em>
                   
                 </div>
+                
                 <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
                 <button type="submit" class="btn btn-success" [disabled]="!positionForm.valid">Create</button>

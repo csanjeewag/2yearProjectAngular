@@ -8,8 +8,9 @@
           <div class="col-md-4 py-5 text-white text-center " id="sideA">
               <div class="sideA">
                   <div class="card-body">
-                      <img src="assets/_image/cslogo.png" style="width:30%">
-                      
+                    
+                      <img  [src]="ImageUrl" style="width:200px;"> 
+                                                
                       <h2 class="py-3">Registration For EMS</h2>
                       <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
 
@@ -90,9 +91,14 @@
                       </div>
                       <em *ngIf="validateControl('department') && hasError('department', 'required')">*Department is required</em>
                       <em *ngIf="validateControl('department') && hasError('department', 'maxlength')">*Maximum allowed length is 6 characters.</em>
-             
+                      <div class="form-group col-md-6" >
+                         <h6>Add a Profile picture <input type="file" (change)="onFileChange($event.target.files)" />
+                         </h6> 
+                           <!-- <img *ngIf="ImageUrl[2]" [src]="ImageUrl[2]" style="width:250px; height:200px">  -->
+                        </div>
                      
                   </div>
+                  
                   <div class="form-group col-md-8">
                         <div class ="row">
                             <div class="form-group col-md-4 " >
@@ -138,7 +144,9 @@
                                     <button type="submit" class="btn btn-success" [disabled]="!ownerForm.valid">Next</button>
                                 </div>
                                 
-                                <p id="waiting" *ngIf="wait">Waiting for while... . .</p>
+                                <div *ngIf="(waiting)" > <p id="waiting" *ngIf="wait"> Waiting for while... . .</p><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+                                
+         
                             </div>
                   </div>
               </form>

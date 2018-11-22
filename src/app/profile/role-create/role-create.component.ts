@@ -14,14 +14,16 @@ import { Role } from '../_interfaces/role';
 export class RoleCreateComponent implements OnInit {
 
   constructor(private router: Router,  private repository : RepositoryService) { }
-
+  // public  input:FormData = new FormData();
   public positionForm: FormGroup;
   public Message:any;
+  public F:File;
   ngOnInit() {
     this.positionForm = new FormGroup({
       positionId: new FormControl('',[Validators.required]),
       positionName: new FormControl('',[Validators.required]),
-      positionDis: new FormControl('',[Validators.required])
+      positionDis: new FormControl('',[Validators.required]),
+     // image: new FormControl('')
 
      })
   }
@@ -47,10 +49,12 @@ export class RoleCreateComponent implements OnInit {
       let positions: Role = {
         PositionId:PositionFormvalue.positionId,
         PositionName:PositionFormvalue.positionName,
-        positionDis:PositionFormvalue.positionDis
+        positionDis:PositionFormvalue.positionDis,
+      //  Image: this.F
        
       };
-  
+      
+     
       let apiUrl = 'createposition';
       
       this.repository.postData(apiUrl, positions)
@@ -74,7 +78,8 @@ export class RoleCreateComponent implements OnInit {
       positionId: new FormControl('',),
       positionName: new FormControl('',),
       positionDis: new FormControl('',)
-
+      
      })
   }
+
 }

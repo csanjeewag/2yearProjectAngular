@@ -10,5 +10,7 @@
            <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Submit Form</button>
             </div>
+             <div *ngIf="(waiting)" > <p id="waiting" *ngIf="wait"> Waiting for while... . .</p><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+                                
       </div>
 </form>

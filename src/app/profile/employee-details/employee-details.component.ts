@@ -13,12 +13,14 @@ export class EmployeeDetailsComponent implements OnInit {
 
   public empId;
   public result :any;
+  public ImageUrl:any;
+  public ProfileImage:any= "assets/_image/cslogo.png";
   constructor(private route: ActivatedRoute,private repo :RepositoryService,private router: Router ) { }
 
   ngOnInit() {
   //  let id = parseInt(this.route.snapshot.paramMap.get('id'));
    // this.empId = id;
-
+   this.ImageUrl = this.repo.ImageUrl;
    this.route.paramMap.subscribe((params:ParamMap)=>{
     let id = parseInt(params.get('id'));
     this.empId=id;
@@ -27,6 +29,8 @@ export class EmployeeDetailsComponent implements OnInit {
     .subscribe(res => {
       this.result = res ;
       console.log(this.result)
+      if(this.result.empProfilePicture)
+     { this.ProfileImage =this.ImageUrl+ this.result.empProfilePicture;}
     },
     (error) => {
     //  this.handleErrors(error);n

@@ -5,6 +5,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { map, filter } from 'rxjs/operators';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
@@ -71,7 +72,7 @@ import { ForgetEmployeePasswordComponent } from './forget-employee-password/forg
       { path: 'register', component: EmployeeRegisterByLinkComponent  },
       { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
       
-      { path: 'admin', component: AdminPageComponent,children:[
+      { path: 'admin', component: AdminPageComponent, canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'},children:[
         
         { path: 'roles', component: ShowRolesDetailsComponent },
         { path: 'departments', component: ShowDepartmentsDetailsComponent},
@@ -81,7 +82,7 @@ import { ForgetEmployeePasswordComponent } from './forget-employee-password/forg
       
     ])
   ],
-  declarations: [LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent],
+  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent],
   exports: [RouterModule]
 })
 export class ProfileModule { }

@@ -22,11 +22,16 @@
     public employeeId:any;
     public isAdmin:any;
     public userId:any;
-  
+    public FileImage : File;
+    public ImageUrl :any;
+    public profileImage:any="assets/_image/cslogo.png";
+
     constructor(private route: ActivatedRoute ,private router: Router,  private repository : RepositoryService,private auth:AuthServiceService) { }
   
     ngOnInit() {
-
+    //  this.ImageUrl = "assets/_image/cslogo.png";
+    this.ImageUrl = this.repository.ImageUrl;
+  
      this.isAdmin = this.auth.isAdmin();
      this.userId = this.auth.tokencheckId();
       this.getDepartment();
@@ -64,26 +69,39 @@
       return false;
     }
   
-    public createOwner(ownerFormValue) {
+    public createOwner(value) {
       
       if (this.ownerForm.valid) {
       
-        let owner: Employee = {
-          EmpId: ownerFormValue.id,
-          EmpName: ownerFormValue.name,
-          EmpContact: ownerFormValue.contact,
-          EmpAddress1: ownerFormValue.address1,
-          EmpAddress2: ownerFormValue.address2,
-          EmpEmail: ownerFormValue.email,
-          PositionPId: ownerFormValue.role,
-          EmpPassword:  ownerFormValue.password,
-          DepartmentDprtId: ownerFormValue.department,
-          EmpGender: ownerFormValue.gender,
-        };
-    
+        // let owner: Employee = {
+        //   EmpId: ownerFormValue.id,
+        //   EmpName: ownerFormValue.name,
+        //   EmpContact: ownerFormValue.contact,
+        //   EmpAddress1: ownerFormValue.address1,
+        //   EmpAddress2: ownerFormValue.address2,
+        //   EmpEmail: ownerFormValue.email,
+        //   PositionPId: ownerFormValue.role,
+        //   EmpPassword:  ownerFormValue.password,
+        //   DepartmentDprtId: ownerFormValue.department,
+        //   EmpGender: ownerFormValue.gender,
+        // };
+       let formData = new FormData();
+      formData.append('EmpId', value.id);
+      formData.append('EmpName',value.name);
+      formData.append('EmpContact', value.contact);
+      formData.append('EmpAddress1',value.address1);
+      formData.append('EmpAddress2', value.address2);
+      formData.append('EmpEmail',value.email);
+      formData.append('PositionPId', '');
+      formData.append('EmpPassword',value.password);
+      formData.append('DepartmentDprtId', value.department);
+      formData.append('EmpGender',value.gender);
+      formData.append('EmpProfilePicture',this.FileImage);
+
+      
         let apiUrl = 'updateemployee';
         
-        this.repository.postData(apiUrl, owner)
+        this.repository.postFile(apiUrl, formData)
           .subscribe(res => {
             this.router.navigate(['/profile/list']);
            
@@ -136,6 +154,8 @@
       this.repository.getData(''+id)
       .subscribe(res => {
         this.employee = res ;
+        if(this.employee.empProfilePicture)
+      { this.profileImage =this.ImageUrl+ this.employee.empProfilePicture;}
         this.fillEmployee();
       },
       (error) => {
@@ -158,6 +178,19 @@
   this.ownerForm.controls['role'].setValue(this.employee.positionPId);
  
   
+  }
+  onFileChange(file : FileList,id:number) {
+    
+
+    this.FileImage = file.item(0);
+   //selected image viewing
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+       this.profileImage = event.target.result;
+  
+       console.log(event.target.result)
+    }
+     reader.readAsDataURL(this.FileImage);
   }
 
 }

@@ -26,6 +26,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     public wait:any;
     public isNotEmail:any;
     public hiddenPassword:any;
+    public Loading : any;
 
     ngOnInit() {
     
@@ -60,6 +61,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
         return false;
       }
       public createLogin(loginFormvalue) {
+        this.Loading = true;
         this.validateEmail();
         if (this.loginForm.valid) {
           this.executeLoginCreation(loginFormvalue);
@@ -83,13 +85,13 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
                 this.result = res;
             this.Message="Your loggin Success!";
            this.router.navigate(['/profile/list']);
-            
+            this.Loading = false;
               localStorage.setItem('token',this.result.token );
           
             },
             (error => {
               this.Message="Your loggin faild, Check your Id or Password!";
-              
+              this.Loading = false;
             })
           )
       }
@@ -100,7 +102,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
       
   
     public  shouldBeUnique(controlName: string ){
-        
+        this.Loading = true;
        let isunique;
        let apiUrl = 'isuniqueemail';
        let loginuse: EmailCheck = {
@@ -110,14 +112,14 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
 
     this.repository.postData(apiUrl,loginuse)
           .subscribe(res=>{
-            
+            this.Loading = false;
             if(res==true)
             {this.isNotEmail =false;  this.hiddenPassword = true;}
             else 
             {this.isNotEmail =true; this.hiddenPassword = false;}
             return res;
           },(error => {
-           
+           this.Loading = false;
            return true;
           })
           )

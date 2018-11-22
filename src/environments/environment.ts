@@ -5,10 +5,12 @@
 export const environment = {
   production: false,
   department_url :"http://localhost:3005/department",
-  //employee_url :"http://localhost:5000/api/employee",
-  employee_url :"http://localhost:5308/api",
+ // employee_url :"http://localhost:5000/api/employee",
+ // employee_url :"http://localhost:5308/api", 
+  main_url :'https://789456.azurewebsites.net/',
+ // main_url :'http://localhost:5308/', 
   posturl : 'http://localhost:3005/enroll',
- // employee_url: 'https://jsonplaceholder.typicode.com/users'
+  employee_url: 'https://789456.azurewebsites.net/api'
   
 };
 /*
