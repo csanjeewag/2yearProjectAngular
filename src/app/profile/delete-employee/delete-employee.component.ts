@@ -58,7 +58,7 @@ export class DeleteEmployeeComponent implements OnInit {
      
     };
 
-    let apiUrl = 'employee/delete';
+    let apiUrl = '/delete';
       
       this.repository.deleteUser(apiUrl, loginuser)
         .subscribe(res => {

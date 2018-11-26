@@ -5,7 +5,7 @@ h2{
 }
 #showview{
 padding: 20px;
-    background: rgba(1, 0, 7, 0.295);  /* fallback for old browsers */
+    background: rgba(1, 0, 7, 0.7);  /* fallback for old browsers */
    
 }
 #createview{
@@ -16,5 +16,5 @@ padding: 20px;
 }
 
 .card{
-    background-color: rgba(247, 247, 247, 0.089);
+    background-color: rgba(247, 247, 247, 0.8);
 }

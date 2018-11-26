@@ -28,6 +28,7 @@
               <th>Position</th>
               <th></th>
               <th></th>
+              <th></th>
               <th *ngIf="isAdmin"></th>
              
             </tr></thead>
@@ -38,9 +39,10 @@
               <td>{{i.empEmail}}</td>
               <td>{{i.empAddress1}} {{i.empAddress2}}</td>
               <td>{{i.empPosition}}</td>
-              <td><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)>Details</button></td>
-                    <td><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)>Update</button></td>
-                    <td *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)>Delete</button></td>
+              
+              <td><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
+                    <td><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
+                    <td *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/delete.png" alt="Cinque Terre" ></button></td>
                  
              
             </tr>

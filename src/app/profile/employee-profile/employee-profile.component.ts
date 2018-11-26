@@ -17,12 +17,12 @@ export class EmployeeProfileComponent implements OnInit {
   public result : any;
   public ImageUrl:any;
   public ProfileImage:any= "assets/_image/cslogo.png";
-  constructor(private auth:AuthServiceService,private route: ActivatedRoute,private repo :RepositoryService,private router: Router ) { }
+  constructor(private auth:AuthServiceService,private route: ActivatedRoute,private repository :RepositoryService,private router: Router ) { }
 
   ngOnInit() {
-    this.ImageUrl = "http://localhost:5308/";
+    this.ImageUrl = this.repository.ImageUrl;
     //console.log(this.auth.tokencheckId)
-    this.repo.getData('getall/'+this.auth.tokencheckId())
+    this.repository.getData('getall/'+this.auth.tokencheckId())
     .subscribe(res => {
       this.result = res ;
       
