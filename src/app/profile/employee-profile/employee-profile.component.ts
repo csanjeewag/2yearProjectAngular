@@ -22,7 +22,7 @@ export class EmployeeProfileComponent implements OnInit {
   ngOnInit() {
     this.ImageUrl = this.repository.ImageUrl;
     //console.log(this.auth.tokencheckId)
-    this.repository.getData('getall/'+this.auth.tokencheckId())
+    this.repository.getData('employee/getall/'+this.auth.tokencheckId())
     .subscribe(res => {
       this.result = res ;
       

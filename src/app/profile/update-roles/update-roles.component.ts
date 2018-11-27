@@ -56,7 +56,7 @@
          
         };
     
-        let apiUrl = 'updateposition';
+        let apiUrl = 'position/updateposition';
         
         this.repository.postData(apiUrl, positions)
           .subscribe(res =>  {
@@ -77,7 +77,7 @@
       this.RoleId = this.route.snapshot.paramMap.get('id')
       console.log(this.RoleId)
       
-      this.repository.getData('getposition/'+this.RoleId)
+      this.repository.getData('position/getposition/'+this.RoleId)
       .subscribe(res => {
         this.roles = res ;
         console.log(res)

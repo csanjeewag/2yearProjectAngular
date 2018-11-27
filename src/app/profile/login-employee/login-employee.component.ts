@@ -78,7 +78,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
          
         };
     
-        let apiUrl = 'loginEmail';
+        let apiUrl = 'employee/loginEmail';
         
         this.repository.postData(apiUrl, loginuser)
           .subscribe(res =>  {
@@ -104,7 +104,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     public  shouldBeUnique(controlName: string ){
         this.Loading = true;
        let isunique;
-       let apiUrl = 'isuniqueemail';
+       let apiUrl = 'employee/isuniqueemail';
        let loginuse: EmailCheck = {
         Email: this.loginForm.controls[controlName].value
       }

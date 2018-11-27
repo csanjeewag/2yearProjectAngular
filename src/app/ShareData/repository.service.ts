@@ -44,10 +44,11 @@ export class RepositoryService {
 
 
   private createCompleteRoute(route: string, envAddress: string) {
-    return `${envAddress}/employee/${route}`;
+  
+    return `${envAddress}/${route}`;
   }
   private createCompleteRoutefile(route: string, envAddress: string) {
-    return `${envAddress}/employee/${route}`;
+    return `${envAddress}/${route}`;
   }
   private generateHeaders() {
     return {

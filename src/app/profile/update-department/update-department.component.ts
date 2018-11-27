@@ -53,7 +53,7 @@
          
         };
     
-        let apiUrl = 'updatedepartment';
+        let apiUrl = 'project/updatedepartment';
         
         this.repository.postData(apiUrl, departments)
           .subscribe(res =>  {
@@ -75,7 +75,7 @@
         this.empId = this.route.snapshot.paramMap.get('id')
         console.log(this.empId)
         
-        this.repository.getData('getdepartment/'+this.empId)
+        this.repository.getData('project/getdepartment/'+this.empId)
         .subscribe(res => {
           this.department = res ;
           console.log(res)

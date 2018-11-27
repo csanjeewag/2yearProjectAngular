@@ -25,7 +25,7 @@ export class EmployeeDetailsComponent implements OnInit {
     let id = parseInt(params.get('id'));
     this.empId=id;
     
-    this.repo.getData('getall/'+id)
+    this.repo.getData('employee/getall/'+id)
     .subscribe(res => {
       this.result = res ;
       console.log(this.result)

@@ -34,7 +34,7 @@ export class ShowEmployeesDetailsComponent implements OnInit {
 
   
  public  getAllEmployee(){
-    this.repo.getData('getall')
+    this.repo.getData('employee/getall')
     .subscribe(res => {
       this.result = res ;
       var myObjStr = JSON.stringify(res);
@@ -57,7 +57,7 @@ export class ShowEmployeesDetailsComponent implements OnInit {
   public deActiveEmployee(id){
 
     if(confirm("Are you sure?")){
-    this.repo.getData('deleteEmployee/'+id)
+    this.repo.getData('employee/deleteEmployee/'+id)
     .subscribe(res => {
       location.reload();
     },

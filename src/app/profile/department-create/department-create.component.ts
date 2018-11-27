@@ -49,7 +49,7 @@ export class DepartmentCreateComponent implements OnInit {
        
       };
   
-      let apiUrl = 'createdepartment';
+      let apiUrl = 'project/createdepartment';
       
       this.repository.postData(apiUrl, departments)
         .subscribe(res =>  {

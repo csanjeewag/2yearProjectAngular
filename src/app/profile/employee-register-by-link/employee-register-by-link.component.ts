@@ -59,7 +59,7 @@
         RegisterEmpEmail:this.registerEmail,
         
       }
-      let apiUrl = 'registeremployee';
+      let apiUrl = 'employee/registeremployee';
       console.log(register)
          this.repository.postData(apiUrl, register)
           .subscribe(res => {

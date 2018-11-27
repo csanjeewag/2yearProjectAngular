@@ -99,7 +99,7 @@
       formData.append('EmpProfilePicture',this.FileImage);
 
       
-        let apiUrl = 'updateemployee';
+        let apiUrl = 'employee/updateemployee';
         
         this.repository.postFile(apiUrl, formData)
           .subscribe(res => {
@@ -115,7 +115,7 @@
     }
   
     public getRole(){
-      let apiUrl = 'getroles';
+      let apiUrl = 'position/getroles';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.roles = res;
@@ -131,7 +131,7 @@
 
     public getDepartment(){
 
-      let apiUrl = 'getdepartments';
+      let apiUrl = 'project/getdepartments';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.departments = res;
@@ -151,7 +151,7 @@
       let id = parseInt(params.get('id'));
        this.employeeId=id;
       
-      this.repository.getData(''+id)
+      this.repository.getData('employee/'+id)
       .subscribe(res => {
         this.employee = res ;
         if(this.employee.empProfilePicture)

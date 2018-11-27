@@ -55,7 +55,7 @@ export class RoleCreateComponent implements OnInit {
       };
       
      
-      let apiUrl = 'createposition';
+      let apiUrl = 'position/createposition';
       
       this.repository.postData(apiUrl, positions)
         .subscribe(res =>  {

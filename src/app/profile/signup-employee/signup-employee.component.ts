@@ -113,7 +113,8 @@ import { ok } from 'assert';
       formData.append('DepartmentDprtId', value.department);
       formData.append('EmpGender',value.gender);
       formData.append('EmpProfilePicture',this.FileImage);
-      let apiUrl = 'create';
+
+      let apiUrl = 'employee/create';
     
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
@@ -137,7 +138,7 @@ import { ok } from 'assert';
     
     public getDepartment(){
 
-      let apiUrl = 'getdepartments';
+      let apiUrl = 'project/getdepartments';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.departments = res;
@@ -152,7 +153,7 @@ import { ok } from 'assert';
 
     public getRoles(){
 
-      let apiUrl = 'getroles';
+      let apiUrl = 'position/getroles';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.roles = res;
@@ -168,7 +169,7 @@ import { ok } from 'assert';
     public  shouldBeUnique(controlName: string ){
         
       let isunique;
-      let apiUrl = 'isuniqueemail';
+      let apiUrl = 'employee/isuniqueemail';
       let loginuse: EmailCheck = {
        Email: this.ownerForm.controls[controlName].value
      }

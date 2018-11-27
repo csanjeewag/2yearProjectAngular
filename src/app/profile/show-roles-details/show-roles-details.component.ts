@@ -19,7 +19,7 @@ export class ShowRolesDetailsComponent implements OnInit {
   }
 
   public  getAllRoles(){
-    this.repository.getData('getroles')
+    this.repository.getData('position/getroles')
     .subscribe(res => {
       this.roles = res ;
       console.log(res);

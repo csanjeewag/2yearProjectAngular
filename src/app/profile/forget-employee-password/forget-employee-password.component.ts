@@ -65,7 +65,7 @@
         Code : resiterFormValue.code
         
       }
-      let apiUrl = 'setpassword';
+      let apiUrl = 'employee/setpassword';
       console.log(register)
          this.repository.postData(apiUrl, register)
           .subscribe(res => {
