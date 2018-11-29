@@ -138,7 +138,7 @@ import { ok } from 'assert';
     
     public getDepartment(){
 
-      let apiUrl = 'project/getdepartments';
+      let apiUrl = 'department/getdepartments';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.departments = res;

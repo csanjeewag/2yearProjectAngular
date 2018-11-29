@@ -19,7 +19,7 @@ export class ShowDepartmentsDetailsComponent implements OnInit {
   }
 
   public  getAllDepartment(){
-    this.repository.getData('project/getdepartments')
+    this.repository.getData('department/getdepartments')
     .subscribe(res => {
       this.departments = res ;
       console.log(res);

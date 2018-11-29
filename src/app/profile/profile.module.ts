@@ -40,6 +40,9 @@ import { FilterPipePipe } from './filter-pipe.pipe';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeeRegisterByLinkComponent } from './employee-register-by-link/employee-register-by-link.component';
 import { ForgetEmployeePasswordComponent } from './forget-employee-password/forget-employee-password.component';
+import { ProjectCreateComponent } from './Project/project-create/project-create.component';
+import { ProjectUpdateComponent } from './Project/project-update/project-update.component';
+import { ProjectViewComponent } from './Project/project-view/project-view.component';
 
 @NgModule({
   imports: [
@@ -75,14 +78,16 @@ import { ForgetEmployeePasswordComponent } from './forget-employee-password/forg
       { path: 'admin', component: AdminPageComponent, canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'},children:[
         
         { path: 'roles', component: ShowRolesDetailsComponent },
+        { path: 'project', component: ProjectViewComponent },
         { path: 'departments', component: ShowDepartmentsDetailsComponent},
+        { path: 'updateproject/:id', component: ProjectUpdateComponent },
         { path: 'updatedepartment/:id', component: UpdateDepartmentComponent },
         { path: 'updaterole/:id', component: UpdateRolesComponent },
       ]},
       
     ])
   ],
-  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent],
+  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent],
   exports: [RouterModule]
 })
 export class ProfileModule { }

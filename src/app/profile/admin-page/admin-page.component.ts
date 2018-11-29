@@ -9,6 +9,7 @@ export class AdminPageComponent implements OnInit {
 
   public department:any= true;
   public role:any;
+  public project:any;
   constructor() { }
 
   ngOnInit() {
@@ -17,9 +18,16 @@ export class AdminPageComponent implements OnInit {
   public isdepartment(){
     this.department = true;
     this.role = false;
+    this.project = false;
   }
   public isrole(){
     this.role = true;
     this.department = false;
+    this.project = false;
+  }
+  public isproject(){
+    this.project = true;
+    this.department = false;
+    this.role = false;
   }
 }

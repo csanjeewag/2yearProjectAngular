@@ -14,7 +14,7 @@ import { Role } from '../_interfaces/role';
 export class RoleCreateComponent implements OnInit {
 
   constructor(private router: Router,  private repository : RepositoryService) { }
-  // public  input:FormData = new FormData();
+  
   public positionForm: FormGroup;
   public Message:any;
   public F:File;
@@ -50,7 +50,7 @@ export class RoleCreateComponent implements OnInit {
         PositionId:PositionFormvalue.positionId,
         PositionName:PositionFormvalue.positionName,
         positionDis:PositionFormvalue.positionDis,
-      //  Image: this.F
+      
        
       };
       
@@ -61,7 +61,7 @@ export class RoleCreateComponent implements OnInit {
         .subscribe(res =>  {
           this.Message="role Created!";
               this.router.navigate(['/profile/admin/roles']);
-           // location.reload();
+           
        
           },
           (error => {
@@ -73,7 +73,7 @@ export class RoleCreateComponent implements OnInit {
   }
 
   public redirectToOwnerList(){
-    // this.router.navigate(['/profile/list']);
+    
     this.positionForm = new FormGroup({
       positionId: new FormControl('',),
       positionName: new FormControl('',),

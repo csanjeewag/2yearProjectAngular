@@ -1,0 +1,47 @@
+
+
+<div class="container">
+    
+  <div class="row">
+  <div class="col-md-12">
+    <div class="tableWithHeader ">
+      <div class="Header">
+        <h3 class="panel-title">..All Project Details..</h3>
+        
+      </div>
+      
+      <div class="table-responsive" id="table">
+      <table class="table table-hover">
+        <thead>
+        <tr >
+            <th>Project Id</th>
+          <th>Project Name</th>
+          <th> Desciption</th>
+          <th></th>
+          <th></th>
+         
+          
+         
+        </tr></thead>
+        <tbody>
+        <tr *ngFor="let i of project;">
+          <td>{{i.projectId}}</td>
+          <td>{{i.projectName}}</td>
+          <td>{{i.projectDescription}}</td>
+          
+             <td><button type="button" id="update" class="btn btn-success" (click)=updateProject(i.projectId)><img   style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Update" ></button></td>
+            <td *ngIf="(i.isActive)&&(Loading!=i.projectId)" ><button  type="button" id="delete" class="btn btn-danger" (click)=DeActive(i.projectId)>Deactive</button></td>
+            <td *ngIf="!(i.isActive)&&(Loading!=i.projectId)"><button type="button" id="delete" class="btn btn-success" (click)=Active(i.projectId)>Active</button></td>
+            <td *ngIf="(Loading==i.projectId)"><div ><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" ></div>
+             </td>
+         
+        </tr>
+        </tbody>
+      </table></div>
+      
+    </div>
+  </div>
+  
+</div>
+</div>
+
