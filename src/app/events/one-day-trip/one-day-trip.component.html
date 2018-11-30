@@ -1,0 +1,63 @@
+<body>
+
+        
+    <br/><br/>
+    <div id="all">
+      <div id="head">
+    <h3>Register for Annual Trip</h3>
+    </div>
+    <br/><br/>
+    
+    
+    <div class="col-md-8 py-5 border" id="newForm">
+    
+        <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="register(registerForm.value)">
+     
+           <div class="form-row">
+               <div class="form-group col-md-12">
+                 <label>Employee Id</label>
+                 <input  placeholder="" class="form-control" type="text" formControlName="employeeId" id="employeeId">
+                 <em *ngIf="validateControl('employeeId') && hasError('employeeId', 'required')">employeeId is required</em>
+                 </div>
+           </div>
+
+           <div class="form-row">
+              <div class="form-group col-md-12">
+          <label for="transportationMode">Transportation Mode</label>
+          <select class="form-control" id="url" formControlName="transportationMode">
+            <option *ngFor="let contry of regForms" [value]="contry.id">{{contry.name}}</option>
+          </select>
+          </div>
+        </div>
+     
+
+
+
+
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+              <label>Number of Family Members</label>
+              <input  placeholder="" class="form-control" type="text" formControlName="numberOfFamilyMembers" id="numberOfFamilyMembers">
+              <em *ngIf="validateControl('numberOfFamilyMembers') && hasError('numberOfFamilyMembers', 'required')">numberOfFamilyMembers is required</em>
+              </div>
+        </div>
+
+       <div class="form-row">
+          <div class="form-group">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-danger" (click)="redirectToEventPage()" style="margin-left: 5px">Cancel</button>
+                        <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" style="margin-left: 25px">Register</button>
+                    </div>
+                </div>
+      </div>          
+     
+         </form>
+    </div>
+    <br/><br/>
+    
+    </div>
+
+   
+  
+     </body>

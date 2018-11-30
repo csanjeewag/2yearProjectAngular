@@ -1,0 +1,42 @@
+<div class="row"> 
+  <div class="col-md-offset-10 col-md-2">
+    <h2>Team Details</h2>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead> 
+          <tr>
+            <th>Team name</th>
+            <th>Caption Name</th>
+            <th>Captain Contact</th>
+            <th>Caption Email</th>
+            <!-- <th>Participation</th>
+            <th>Vegitarion</th>
+            <th>Non-Vegitarion</th> -->
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams">
+            <td>{{team.criTeamName}}</td>
+            <td>{{team.criTeamCaptionName}}</td>
+            <td>{{team.criTeamCaptionContact}}</td>
+            <td>{{team.criTeamCaptionEmail}}</td>
+            <!-- <td>{{team.criTeamParticipations}}</td>
+            <td>{{team.criTeamVegitarion}}</td>
+            <td>{{team.criTeamNonVegitarion}}</td> -->
+            <td><button type="button" id="update" class="btn btn-success" (click)="updateteam(team.teamId)">Update</button></td>
+            <td><button type="button" id="delete" class="btn btn-danger" (click)=deleteteam(i.empId)>Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<button type="button" id="update" class="btn btn-success" (click)="redirectToUpdatePage(owner.id)">Update</button>

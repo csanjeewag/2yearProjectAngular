@@ -1,0 +1,29 @@
+ ul li i{
+    margin-right: 10px;
+    font-style: initial;
+    color: #800000;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-family: helvetica, sans-serif;
+    color: black;
+    font-size: 5em;
+    font-style: unset;
+    font: unset bold;
+    text-shadow: 3px 2px #800000;
+}
+
+#deadline {
+    color:#660000;
+    text-align: justify;
+    font-family: Arial, sans-serif;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+h2 {
+    font-family: helvetica, sans-serif;
+    color: black;
+    font-size: 3em;
+    font-style: italic;
+}

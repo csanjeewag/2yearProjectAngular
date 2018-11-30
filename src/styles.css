@@ -44,13 +44,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
   body{
    
-    /* background-color: rgba(196, 199, 199, 0.452); */
+    background-color: rgba(196, 199, 199, 0.452);
    /* background-color: rgb(224, 229, 235);*/
-    background-image: url("assets/_image/back1.jpg");
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+    /* background-image: url("assets/_image/back1.jpg"); */
+    /* background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg"); */
 
-    height: 50%;
-    background-repeat: no-repeat;
+    /* height: 50%; */
+    /* background-repeat: no-repeat; */
     background-size: cover;
 
   }

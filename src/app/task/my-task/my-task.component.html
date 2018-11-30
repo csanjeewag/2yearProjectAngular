@@ -1,0 +1,49 @@
+<app-logged-header></app-logged-header>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-4 py-5 text-white text-center " id="sideA">
+            <div class="sideA">
+                <div class="card-body">
+                    <img src="assets/_image/cslogo.png" style="width:30%">
+                    
+                    <h2 class="py-3">Assign Tasks</h2>
+                    <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
+
+</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+                <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Task</th>
+                            <th scope="col">Status</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let i of result;">
+                            <td>{{i.taskName}}</td>
+                            <td>{{i.status}}</td>
+                            <td><button type="button" id="add" class="btn btn-success" (click)=addInfo()>Add Details</button></td>
+                            <td><button type="button" id="add" class="btn btn-info" (click)=detail()>Details</button></td>
+
+                          </tr>
+                          
+                          
+                        </tbody>
+                      </table>
+        
+        
+        </div>
+
+</div>
+
+
+</div>
+
+   
+  

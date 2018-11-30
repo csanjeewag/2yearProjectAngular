@@ -1,0 +1,31 @@
+<app-logged-header></app-logged-header>
+<div class="form-row">
+  <div class="form-group col-md-2">
+
+    <div class="container">
+
+
+      <!-- <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Topics</button> -->
+      <!-- <div id="demo" class="collapse"> -->
+        <div class="sidenav">
+          <br><br>
+          <div id="topicside">Latest Topics </div>
+          <div *ngFor="let e of event">
+            <a [class.click]="(ClickId==e.id)" (click)=gotoEvent(e.id)>{{e.username}}</a>
+
+          </div>
+
+
+        </div>
+
+      <!-- </div> -->
+    </div>
+
+
+
+  </div>
+
+  <div class="form-group col-md-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

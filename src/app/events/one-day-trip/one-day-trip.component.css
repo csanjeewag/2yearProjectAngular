@@ -1,0 +1,30 @@
+#all{
+    margin-left: 350px
+}
+body{
+    background-color: white
+}
+
+
+
+#head{
+    margin-left: 220px;
+    color: rgb(83, 87, 85);
+    font-family: 'Times New Roman'
+}
+
+
+em{
+    color: rgb(199, 87, 87);
+}
+
+.ng-valid, .ng-valid.required  {
+    /*border-left: 10px solid #42A948;  green */
+    background-color: rgb(191, 252, 194);
+  }
+  
+  .ng-invalid:not(form)  {
+    /*border-left: 10px solid #a94442; red */
+    background-color: #fddcdc;
+  }
+ 

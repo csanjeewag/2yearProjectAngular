@@ -1,0 +1,62 @@
+<div class="container">
+  <br>
+    <h2>Employee Cicket Match Participation</h2>
+  <br>
+    <form [formGroup]="employeeForm" autocomplete="off" novalidate (ngSubmit)="employeeData(employeeForm.value)">
+
+      <div class="form-group row">
+          <label for="inputName" class="col-2 col-form-label" >Name :</label>
+          <div class="col-10">
+              <input formControlName="employeeName" class="form-control" type="text" placeholder="Name" id="inputName" >
+              <em *ngIf="validateControl('employeeName') && hasError('employeeName', 'required')">*Employee name is required</em>
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="inputId" class="col-2 col-form-label">Id No : </label>
+          <div class="col-10">
+              <input formControlName="employeeId" class="form-control" type="text" placeholder="Id No" id="inputId">
+              <em *ngIf="validateControl('employeeId') && hasError('employeeId', 'required')">*Employee Id is required</em>
+          </div>
+      </div>
+
+      <div class ="row">
+        <div class="form-group" class="col-7" >
+            <label class="col-7 col-form-label">If your family member Participation :</label>
+        </div>
+        <div class="form-group" class=" col-md-1">
+            <button type="button" class="btn btn-lg btn-primary" (click)="clickone()">Yes</button>
+        </div>
+        <div class="form-group" class=" col-md-1">
+            <button type="button" class="btn btn-lg btn-primary" (click)="clicktwo()">No</button>
+        </div>
+      </div>
+      <br>
+      
+      <div class="form-group row" *ngIf="show" >
+        <label for="inputFamilyParticipate" class="col-2 col-form-label">No of family members Participate : </label>
+        <div class="col-10">
+            <input formControlName="employeeFamilyParticipation" class="form-control" type="number" placeholder="No of family members Participate" id="inputFamilyParticipate" min="0" >
+            <em *ngIf="validateControl('employeeFamilyParticipation') && hasError('employeeFamilyParticipation', 'required')">*Count of Family member is required</em>
+        </div>
+     </div>
+     
+     <div class="form-group row" *ngIf="show">
+        <label for="inputVegitarion" class="col-2 col-form-label">No of vegitarions member : </label>
+        <div class="col-10">
+            <input formControlName="employeeVegitarion" class="form-control" type="number" placeholder="No of vegitarions member" id="inputVegitarion" min="0">
+            <em *ngIf="validateControl('inputVegitarion') && hasError('inputVegitarion', 'required')">*Count of vegitarion member is required</em>
+        </div>
+     </div>     
+
+      <br><br>
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-2">
+                <button type="button" id="btn-sub" class="btn btn-success" [disabled]="!employeeForm.valid">Submit</button>
+            </div> 
+            <div class="col-5"></div>
+        </div>
+
+    </form>
+</div>

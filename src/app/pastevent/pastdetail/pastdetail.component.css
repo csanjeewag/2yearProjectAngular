@@ -1,0 +1,46 @@
+.subevent {
+    color: rgb(206, 212, 212);
+    text-shadow: rgb(255, 255, 255);
+    text-align: center;
+
+    background-image: url("/assets/_image/iii.jpg");
+    height: 600px;
+    /* Add the blur effect */
+    /*
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  */
+    /* Full height *//*
+    height: 100%; */
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*
+body,html {}
+*/
+.h1{
+  text-decoration-color: antiquewhite;
+}
+.div{
+  color: white;
+}
+#topicImage {
+  height: 200px;
+}
+#topicname{
+  text-align: center;
+}
+#dateplace h3{
+  text-align: right;
+}
+#topicVideo{
+  height: 200px;
+  
+
+}
+#backcolor{
+  background-color: rgb(137, 158, 177);
+}

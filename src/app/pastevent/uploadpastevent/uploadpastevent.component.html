@@ -1,0 +1,54 @@
+<app-logged-header></app-logged-header>
+<div class="card">
+    <h5 class="card-header">
+        <h2>Make A Brief Summary of Campaign</h2>
+    </h5>
+    <div class="card-body">
+        <h5 class="card-title">
+            <h3 id="msg">{{Message}}</h3>
+        </h5>
+        <form [formGroup]="summaryForm" autocomplete="off" novalidate (ngSubmit)="createrole(summaryForm.value)">
+
+            <div class="form-group">
+                <label for="email" class="sr-only">TypeId</label>
+                <input class="form-control" formControlName="TypeId" id="TypeId" placeholder="TypeId">
+               
+               
+
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="sr-only">EventId</label>
+                <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
+            </div>
+            <div class="form-group">
+                <label for="key" class="sr-only">Summary</label>
+                <input type="text" formControlName="summary" id="summary" class="form-control" placeholder=" Summary">
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="email" class="sr-only">treasurer</label>
+                <input class="form-control" formControlName="treasurer" id="treasurer" placeholder="treasurer">
+
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="sr-only">Real Budget</label>
+                <input class="form-control" formControlName="Real_Budget" id="Real_Budget" placeholder="Real Budget">
+
+            </div>
+
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+
+                <button type="submit" class="btn btn-success" [disabled]="!summaryForm.valid">Make </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+</div>

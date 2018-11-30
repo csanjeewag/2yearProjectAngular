@@ -1,0 +1,23 @@
+#all{
+    margin-left: 350px
+}
+
+
+
+#head{
+    margin-left: 220px;
+    color: rgb(38, 53, 45);
+    font-family: 'Times New Roman'
+}
+
+
+em{
+    color: rgb(199, 87, 87);
+}
+
+
+  .ng-invalid:not(form)  {
+    /*border-left: 10px solid #a94442; red */
+    background-color: #ceb9b9;
+  }
+ 

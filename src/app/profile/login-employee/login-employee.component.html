@@ -1,110 +1,74 @@
 
 
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<br>
-<section class="login-block">
-    <div class="container">
-	<div class="row">
-		<div class="col-md-4 login-sec">
-                <section id="login">
-                        
-                                    <h1>Log in with your email account</h1>
-                                    
-                                   
-                                    
-                                    <form [formGroup]="loginForm" autocomplete="off" novalidate >
-                                        <div class="form-group ">
-                                           
-                                            <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
-                                            <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
-                                       
-                                            <div class=" input-group mb-3" [class.error]="isNotEmail">
-                                                    <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="email">Email </label>
-                                                    </div>
-                                                <input class="form-control" formControlName="email" id="email" placeholder="Enter Email" >
-                                            </div>
-                                            </div>
-                                  
-                                            
-                                            <div class="input-group">
-                                                    <em *ngIf="validateControl('pass') && hasError('pass', 'required')">*password is required</em>
-                                                    <em *ngIf="validateControl('pass') && hasError('pass', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+<div id = "back">
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-                                            <div class="  input-group mb-3" *ngIf="hiddenPassword">
-                                                   
-                                                    <div class="input-group-prepend">
-                                                            <label class="input-group-text" for="pass">Password </label>
-                                                            </div>
-                                                <input type="password" formControlName="pass" id="pass" class="form-control" placeholder="Password">
-                                            </div>
-                                                    
-                                        </div>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="assets/_image/cslogo.png" id="icon" alt="User Icon" />
+      <h1>Login</h1>
+    </div>
 
-                                            <div ><p class="text-danger" *ngIf="isNotEmail">Above email is not registered!</p>
-                                                <p class="text-danger" >{{Message}}</p>
-                                                <p class="text-danger" >{{wait}}</p>
-                                                
-                                            </div>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button *ngIf="!(hiddenPassword)" type="button" class="btn btn-success" (click)="hiddenpassword()"> next </button>
-                                            <button *ngIf="(hiddenPassword)" type="submit" class="btn btn-success" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Login</button>
-                                            <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-                                            <div *ngIf="(Loading)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
-         
-                                        </div> 
-                                       
-                                        
-                                        </form>
-                                      
-                    </section>
-		    
-<div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div>
-<div *ngIf="(hiddenPassword)" class="copy-text"><i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="forgetpassword(loginForm.value)"> Forget passward.</a></div>
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" autocomplete="off" novalidate >
+        <div class="form-group ">
+           
+            <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
+            <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
+       
+            <div class=" input-group mb-3" [class.error]="isNotEmail">
+                    <div class="input-group-prepend">
+                    <!-- <label class="input-group-text" for="email">Email </label> -->
+                    </div>
+                <input class="form-control" formControlName="email" id="email" placeholder="Enter Email" >
+            </div>
+            </div>
+  
+            
+            <div class="input-group">
+                    <em *ngIf="validateControl('pass') && hasError('pass', 'required')">*password is required</em>
+                    <em *ngIf="validateControl('pass') && hasError('pass', 'maxlength')">*Maximum allowed length is 100 characters.</em>
 
+            <div class="  input-group mb-3" *ngIf="hiddenPassword">
+                   
+                    <div class="input-group-prepend">
+                            <!-- <label class="input-group-text" for="pass">Password </label> -->
+                            </div>
+                <input type="password" formControlName="pass" id="pass" class="form-control" placeholder="Password">
+            </div>
+                    
         </div>
+
+            <div ><p class="text-danger" *ngIf="isNotEmail">Above email is not registered!</p>
+                <p class="text-danger" >{{Message}}</p>
+                <p class="text-danger" >{{wait}}</p>
+                
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <button id="btn" *ngIf="!(hiddenPassword)&& !(Loading)" type="button" class="btn" (click)="hiddenpassword()"> Next </button>
+            <button id="btn" *ngIf="(hiddenPassword) && !(Loading)" type="submit" class="btn" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Login</button>
+            <!-- <button id="btn" type="button" class="btn " (click)="redirectToOwnerList()">Cancel</button> -->
+            <div *ngIf="(Loading)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+
+        </div> 
+       
         
-		<div class="col-md-8 banner-sec">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                  </ol>
-            <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
-      <div class="carousel-caption d-none d-md-block">
-        <div class="banner-text">
-            <h2>This is Heaven</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-        </div>	
+        </form>
+        <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+        
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a *ngIf="!(hiddenPassword)" id="crateAccountlink"  class="underlineHover" (click)="crateAccount()">SignUp</a>
+      <div *ngIf="(hiddenPassword)" class="copy-text"><a id="crateAccountlink"  (click)="forgetpassword(loginForm.value)"> Forgot passward.</a></div>
+        
+    </div>
+
   </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
-      <div class="carousel-caption d-none d-md-block">
-        <div class="banner-text">
-            <h2>This is Heaven</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-        </div>	
-    </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
-      <div class="carousel-caption d-none d-md-block">
-        <div class="banner-text">
-            <h2>This is Heaven</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-        </div>	
-    </div>
-  </div>
-            </div>	   
-		    
-		</div>
-	</div>
-</div></div>
-</section>
+</div>
+</div>
