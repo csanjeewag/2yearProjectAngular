@@ -1,20 +1,19 @@
 
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <div id = "back">
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown col-md-4 container">
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="assets/_image/cslogo.png" id="icon" alt="User Icon" />
-      <h1>Login</h1>
+      <img [src]="profileImage" id="icon" alt="User Icon" />
+   
+      <h1 *ngIf="!EmployeeName">Sign in</h1>
+      
     </div>
-
+    <h2 *ngIf="EmployeeName">Hi, {{EmployeeName}}</h2>
     <!-- Login Form -->
     <form [formGroup]="loginForm" autocomplete="off" novalidate >
         <div class="form-group ">
@@ -22,7 +21,7 @@
             <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
             <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
        
-            <div class=" input-group mb-3" [class.error]="isNotEmail">
+            <div *ngIf="!hiddenPassword" class=" input-group mb-3" [class.error]="isNotEmail">
                     <div class="input-group-prepend">
                     <!-- <label class="input-group-text" for="email">Email </label> -->
                     </div>
@@ -52,7 +51,7 @@
             </div>
             <div class="btn-group" role="group" aria-label="Basic example">
             <button id="btn" *ngIf="!(hiddenPassword)&& !(Loading)" type="button" class="btn" (click)="hiddenpassword()"> Next </button>
-            <button id="btn" *ngIf="(hiddenPassword) && !(Loading)" type="submit" class="btn" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Login</button>
+            <button id="btn" *ngIf="(hiddenPassword) && !(Loading)" type="submit" class="btn" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Sign in</button>
             <!-- <button id="btn" type="button" class="btn " (click)="redirectToOwnerList()">Cancel</button> -->
             <div *ngIf="(Loading)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
 

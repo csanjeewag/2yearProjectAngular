@@ -1,8 +1,24 @@
-.navBar{
+#navBar{
     position: sticky;
     top: 0;
+   height: 50px;
     width: 100%;
     z-index: +1;
+    background-color: rgb(35, 35, 35);
+}
+#navBar a{
+    color: rgb(176, 14, 35);
+    font-size: 12pt;
+}
+#navBar a:hover{
+    color: rgb(140, 10, 10);
+    
+    -webkit-box-shadow: 0 30px 60px 0 rgba(250, 250, 250, 0.3);
+    box-shadow: 0 30px 60px 0 rgba(247, 247, 247, 0.3);
+    font-size: 12.5pt;
+}
+#navbarDropdownMenuLink{
+height: 45px;
 }
 #navbarimage{
     height: 50px;

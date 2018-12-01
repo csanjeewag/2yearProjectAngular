@@ -17,32 +17,45 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
 import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
+//employee
+import { ShowEmployeesDetailsComponent } from './employee/show-employees-details/show-employees-details.component';
+import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
+import { DeleteEmployeeComponent } from './employee/delete-employee/delete-employee.component';
+import { EmployeeProfileComponent } from './employee/employee-profile/employee-profile.component';
+import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 
-import { ShowEmployeesDetailsComponent } from './show-employees-details/show-employees-details.component';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+//departments
+import { DepartmentCreateComponent } from './department/department-create/department-create.component';
+import { UpdateDepartmentComponent } from './department/update-department/update-department.component';
+import { ShowDepartmentsDetailsComponent } from './department/show-departments-details/show-departments-details.component';
 
-//import { AuthRCGuard} from "./../auth-rc.guard"
-import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
-import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
-import { LoginEmployeeComponent } from './login-employee/login-employee.component';
-import { SignupEmployeeComponent } from './signup-employee/signup-employee.component';
-import { DepartmentCreateComponent } from './department-create/department-create.component';
-import { RoleCreateComponent } from './role-create/role-create.component';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
-import { UpdateDepartmentComponent } from './update-department/update-department.component';
-import { UpdateRolesComponent } from './update-roles/update-roles.component';
-import { ShowDepartmentsDetailsComponent } from './show-departments-details/show-departments-details.component';
-import { ShowRolesDetailsComponent } from './show-roles-details/show-roles-details.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
-import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
-import { FilterPipePipe } from './filter-pipe.pipe';
-import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
-import { EmployeeRegisterByLinkComponent } from './employee-register-by-link/employee-register-by-link.component';
-import { ForgetEmployeePasswordComponent } from './forget-employee-password/forget-employee-password.component';
+//projects
 import { ProjectCreateComponent } from './Project/project-create/project-create.component';
 import { ProjectUpdateComponent } from './Project/project-update/project-update.component';
 import { ProjectViewComponent } from './Project/project-view/project-view.component';
+
+
+//position
+import { RoleCreateComponent } from './position/role-create/role-create.component';
+import { UpdateRolesComponent } from './position/update-roles/update-roles.component';
+import { ShowRolesDetailsComponent } from './position/show-roles-details/show-roles-details.component';
+
+//Auth
+import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
+import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
+
+//login
+import { LoginEmployeeComponent } from './login-employee/login-employee.component';
+import { SignupEmployeeComponent } from './signup-employee/signup-employee.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { EmployeeRegisterByLinkComponent } from './employee-register-by-link/employee-register-by-link.component';
+import { ForgetEmployeePasswordComponent } from './forget-employee-password/forget-employee-password.component';
+
+//admin
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { FilterPipePipe } from './filter-pipe.pipe';
+import { HomepageComponent } from './homepage/homepage.component';
+
 
 @NgModule({
   imports: [
@@ -62,6 +75,7 @@ import { ProjectViewComponent } from './Project/project-view/project-view.compon
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
+      { path: 'home', component: HomepageComponent},
       { path: 'list', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
       
       { path: 'login', component: LoginUserInterfaceComponent },
@@ -87,7 +101,7 @@ import { ProjectViewComponent } from './Project/project-view/project-view.compon
       
     ])
   ],
-  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent],
+  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent],
   exports: [RouterModule]
 })
 export class ProfileModule { }
