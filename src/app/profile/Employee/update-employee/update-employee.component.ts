@@ -1,9 +1,9 @@
   import { Component, OnInit } from '@angular/core';
   import { FormControl, FormGroup, Validators } from '@angular/forms';
-  import { Employee} from './../_interfaces/employee.model';
-  import {  RepositoryService } from './../../ShareData/repository.service';
+  import { Employee} from './../../_interfaces/employee.model';
+  import {  RepositoryService } from './../../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute} from '@angular/router';
-  import { AuthServiceService } from "./../../AuthGards/auth-service.service";
+  import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
  
   
 
@@ -73,18 +73,6 @@
       
       if (this.ownerForm.valid) {
       
-        // let owner: Employee = {
-        //   EmpId: ownerFormValue.id,
-        //   EmpName: ownerFormValue.name,
-        //   EmpContact: ownerFormValue.contact,
-        //   EmpAddress1: ownerFormValue.address1,
-        //   EmpAddress2: ownerFormValue.address2,
-        //   EmpEmail: ownerFormValue.email,
-        //   PositionPId: ownerFormValue.role,
-        //   EmpPassword:  ownerFormValue.password,
-        //   DepartmentDprtId: ownerFormValue.department,
-        //   EmpGender: ownerFormValue.gender,
-        // };
        let formData = new FormData();
       formData.append('EmpId', value.id);
       formData.append('EmpName',value.name);

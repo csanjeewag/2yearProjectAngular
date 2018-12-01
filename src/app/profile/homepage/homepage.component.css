@@ -1,0 +1,43 @@
+
+
+#homeback{
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#part0{
+   background-color: rgba(0, 0, 0, 0.5);
+   height: 900px;
+}
+#part1{
+    background-color: rgb(196,199,199);
+    height: 900px;
+ }
+ #part2{
+    background-color: rgb(174,14,35);
+    height: 900px;
+ }
+ #part43{
+    background-color: rgb(196,199,199);
+    height: 900px;
+ }
+ #part0 h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+     text-align: center;
+     font-size: 100px;
+     font-weight: bold;
+     position: relative;
+     -webkit-animation: mymove 5s 1; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s 1;
+ }
+ @-webkit-keyframes mymove {
+    from {top: 200px;}
+    to {top: 500px;}
+}
+
+@keyframes mymove {
+    from {top: 200px;}
+    to {top: 500px;}
+}

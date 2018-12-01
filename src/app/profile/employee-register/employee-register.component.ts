@@ -68,6 +68,9 @@ export class EmployeeRegisterComponent implements OnInit {
      
     }
 
+  }
 
+  public Login(){
+    
   }
 }
