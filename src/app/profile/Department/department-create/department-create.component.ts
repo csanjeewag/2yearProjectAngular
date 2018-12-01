@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 
-import {  RepositoryService} from './../../ShareData/repository.service';
+import {  RepositoryService} from './../../../ShareData/repository.service';
 import { Router } from '@angular/router';
-import { Department } from '../_interfaces/department';
+import { Department } from '../../_interfaces/department';
 
 @Component({
   selector: 'app-department-create',

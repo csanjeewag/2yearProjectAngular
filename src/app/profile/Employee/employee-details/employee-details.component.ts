@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RepositoryService} from './../../ShareData/repository.service';
+import { RepositoryService} from './../../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Employee } from '../_interfaces/employee.model';
+import { Employee } from '../../_interfaces/employee.model';
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',

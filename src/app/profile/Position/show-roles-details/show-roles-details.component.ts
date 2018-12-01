@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RepositoryService} from './../../ShareData/repository.service';
+import { RepositoryService} from './../../../ShareData/repository.service';
 import { Router } from '@angular/router';
-import { AuthServiceService } from "./../../AuthGards/auth-service.service";
+import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
 
 @Component({
   selector: 'app-show-roles-details',
