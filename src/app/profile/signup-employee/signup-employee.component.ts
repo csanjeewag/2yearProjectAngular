@@ -9,7 +9,7 @@
   import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
   import { Observable } from 'rxjs';
   import { map } from 'rxjs/operators';
-import { ok } from 'assert';
+  import { ok } from 'assert';
 
 
   @Component({
@@ -88,18 +88,7 @@ import { ok } from 'assert';
     }
   
     private executeOwnerCreation(value) {
-      // let owner: Employee = {
-      //   EmpId: ownerFormValue.id,
-      //   EmpName: ownerFormValue.name,
-      //   EmpContact: ownerFormValue.contact,
-      //   EmpAddress1: ownerFormValue.address1,
-      //   EmpAddress2: ownerFormValue.address2,
-      //   EmpEmail: ownerFormValue.email,
-      //   PositionPId: '',
-      //   EmpPassword:  ownerFormValue.password,
-      //   DepartmentDprtId: ownerFormValue.department,
-      //   EmpGender: ownerFormValue.gender,
-      // };
+ 
 
       let formData = new FormData();
       formData.append('EmpId', value.id);
@@ -199,7 +188,6 @@ onFileChange(file : FileList,id:number) {
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
-     console.log(event.target.result)
   }
    reader.readAsDataURL(this.FileImage);
 }

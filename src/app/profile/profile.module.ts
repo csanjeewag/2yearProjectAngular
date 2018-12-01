@@ -54,6 +54,7 @@ import { ForgetEmployeePasswordComponent } from './forget-employee-password/forg
 //admin
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { FilterPipePipe } from './filter-pipe.pipe';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
+      { path: 'home', component: HomepageComponent},
       { path: 'list', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
       
       { path: 'login', component: LoginUserInterfaceComponent },
@@ -99,7 +101,7 @@ import { FilterPipePipe } from './filter-pipe.pipe';
       
     ])
   ],
-  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent],
+  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent],
   exports: [RouterModule]
 })
 export class ProfileModule { }
