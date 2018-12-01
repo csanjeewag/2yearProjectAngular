@@ -1,9 +1,9 @@
   import { Component, OnInit } from '@angular/core';
   import { FormControl, FormGroup, Validators } from '@angular/forms';
-  import { Employee} from './../_interfaces/employee.model';
-  import {  RepositoryService } from './../../ShareData/repository.service';
+  import { Employee} from './../../_interfaces/employee.model';
+  import {  RepositoryService } from './../../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute} from '@angular/router';
-  import { AuthServiceService } from "./../../AuthGards/auth-service.service";
+  import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
  
   
 

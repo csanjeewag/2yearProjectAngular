@@ -1,15 +1,15 @@
 
   import { Component, OnInit } from '@angular/core';
   import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors,AsyncValidatorFn } from '@angular/forms';
-  import { Employee} from './../_interfaces/employee.model';
-  import {  RepositoryService} from './../../ShareData/repository.service';
+  import { Employee} from './../../_interfaces/employee.model';
+  import {  RepositoryService} from './../../../ShareData/repository.service';
   import { Router } from '@angular/router';
-  import { LoginUserInterfaceComponent } from "./../login-user-interface/login-user-interface.component";
-  import { EmailCheck } from "./../_interfaces/email-check";
+  import { LoginUserInterfaceComponent } from "./../../login-user-interface/login-user-interface.component";
+  import { EmailCheck } from "./../../_interfaces/email-check";
   import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
   import { Observable } from 'rxjs';
   import { map } from 'rxjs/operators';
-  import { ok } from 'assert';
+import { ok } from 'assert';
 
 
   @Component({
@@ -88,7 +88,18 @@
     }
   
     private executeOwnerCreation(value) {
- 
+      // let owner: Employee = {
+      //   EmpId: ownerFormValue.id,
+      //   EmpName: ownerFormValue.name,
+      //   EmpContact: ownerFormValue.contact,
+      //   EmpAddress1: ownerFormValue.address1,
+      //   EmpAddress2: ownerFormValue.address2,
+      //   EmpEmail: ownerFormValue.email,
+      //   PositionPId: '',
+      //   EmpPassword:  ownerFormValue.password,
+      //   DepartmentDprtId: ownerFormValue.department,
+      //   EmpGender: ownerFormValue.gender,
+      // };
 
       let formData = new FormData();
       formData.append('EmpId', value.id);
@@ -188,6 +199,7 @@ onFileChange(file : FileList,id:number) {
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
+     console.log(event.target.result)
   }
    reader.readAsDataURL(this.FileImage);
 }

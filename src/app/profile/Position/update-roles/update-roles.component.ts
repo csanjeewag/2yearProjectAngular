@@ -2,9 +2,9 @@
   import { Component, OnInit } from '@angular/core';
   import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
   
-  import {  RepositoryService} from './../../ShareData/repository.service';
+  import {  RepositoryService} from './../../../ShareData/repository.service';
   import { Router ,ParamMap, ActivatedRoute} from '@angular/router';
-  import { Role } from '../_interfaces/role';
+  import { Role } from './../../_interfaces/role';
   
   @Component({
     selector: 'app-update-roles',
