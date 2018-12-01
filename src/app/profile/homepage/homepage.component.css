@@ -1,7 +1,7 @@
 
 
 #homeback{
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(11).jpg");
+    background-image: url("https://www.areinfotech.com/it-company/it-company-ahmedabad.jpeg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,7 +52,12 @@
 }
 #backCard h1{
     text-align: center;
+    transition: 0.5s all ease-in-out;
     
+}
+#backCard h1:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
 }
 #center{
     position: absolute;
