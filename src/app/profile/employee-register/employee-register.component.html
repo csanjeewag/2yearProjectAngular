@@ -1,16 +1,41 @@
-<h4 id="error">{{message}}</h4>
-<h5> Check your email, and place code here, to registration finish!</h5>
-<form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
-             
-        <div class="form-row">
-            <div class="form-group col-md-12">
-              <input  placeholder="Resiter code" class="form-control" type="text" formControlName="resitercode" id="resitercode">
-              <em *ngIf="validateControl('resitercode') && hasError('resitercode', 'required')">*register code is required</em>
-           </div>
-           <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Submit Form</button>
-            </div>
-             <div *ngIf="(waiting)" > <p id="waiting" *ngIf="wait"> Waiting for while... . .</p><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
-                                
+
+
+<div class="wrapper fadeInDown col-md-8 container">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="assets/_image/cslogo.png" id="icon" alt="User Icon" />
+            <h1>Register</h1>
+          </div>
+      
+          <!-- Login Form -->
+          <h4 id="error">{{message}}</h4>
+          <h5> Check your email, and type code here to registration finish!</h5>
+          <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
+                       
+                  <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <input  placeholder="Resiter code" class="form-control" type="text" formControlName="resitercode" id="resitercode">
+                        <em *ngIf="validateControl('resitercode') && hasError('resitercode', 'required')">*register code is required</em>
+                     </div>
+                 
+                                      
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                        <button  *ngIf="!(waiting)" type="submit" class="btn" [disabled]="!registerForm.valid">Register</button>
+                        <div *ngIf="(waiting)" > <p id="waiting" *ngIf="wait"> Waiting for while... . .</p><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+                          
+                </div> 
+          </form>
+              <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+              
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+                <a  id="crateAccountlink"  class="underlineHover" (click)="Login()">Sign in</a>
+            
+              </div>
+      
+        </div>
       </div>
-</form>
