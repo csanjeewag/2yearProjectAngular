@@ -6,38 +6,91 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    text-align: center;
 }
 #part0{
    background-color: rgba(0, 0, 0, 0.5);
-   height: 900px;
+   height: 750px;
 }
 #part1{
     background-color: rgb(196,199,199);
-    height: 900px;
+    height: 750px;
+    padding: 20px;
  }
  #part2{
     background-color: rgb(174,14,35);
-    height: 900px;
+    height: 750px;  padding: 20px;
  }
- #part43{
-    background-color: rgb(196,199,199);
-    height: 900px;
+ #part3{
+    background-color: rgba(196, 199, 199, 0.103);
+    height: 750px;  padding: 20px;
  }
  #part0 h1{
+     color: rgb(196,199,199);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
      text-align: center;
      font-size: 100px;
      font-weight: bold;
      position: relative;
-     -webkit-animation: mymove 5s 1; /* Safari 4.0 - 8.0 */
-    animation: mymove 5s 1;
+     -webkit-animation: mymove 10s 1; /* Safari 4.0 - 8.0 */
+    animation: mymove 10s 10;
+    animation-direction: alternate;
  }
  @-webkit-keyframes mymove {
-    from {top: 200px;}
-    to {top: 500px;}
+    from {top: 100px;}
+    to {top: 300px;}
 }
 
 @keyframes mymove {
-    from {top: 200px;}
-    to {top: 500px;}
+    from {top: 100px;}
+    to {top: 300px;}
 }
+#backCard{
+    width: 100%; height: 100%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#backCard h1{
+    text-align: center;
+    
+}
+#center{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
+#body .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#cardDesk img{
+    width: 20%;
+     margin-left: 40%    
+ }
+ #cardDesk .card-deck{
+     margin-left: 10%;
+     margin-right: 10%;
+     margin-top: 2%
+ 
+ }
+ 
+ #cardDesk .card {
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.5s all ease-in-out;
+     width: 40%;
+ }
+ 
+ #cardDesk .card:hover {
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+     width: 42%;
+     transform: scale(1.05);
+ }
+ 
+ #cardDesk .container {
+     padding: 2px 16px;
+ }
