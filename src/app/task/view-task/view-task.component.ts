@@ -15,7 +15,8 @@ export class ViewTaskComponent implements OnInit {
   public stts:string;
   public isAdmin:any;
   public taskId;
-  public result2:any;
+  public taskdetails:any;
+  public employee:any;
   constructor(private repo :RepositoryService,private router: Router, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
   config.backdrop = 'static';
   config.keyboard = false;
@@ -38,24 +39,22 @@ public changeStatus(status){
 }
  
 public detailsTask(tid) {
-    
 
-    this.route.paramMap.subscribe((params:ParamMap)=>{
-      let id = parseInt(params.get('id'));
-      this.taskId=id;
+
+   
       
       this.repo.getData('task/'+tid)
       .subscribe(res => {
         //this.result = res as Observable<NewTask>;
-        this.result = res as any;
-        console.log(this.result);
-        this.getempfortask(tid);
+        this.taskdetails = res as any;
+        console.log(this.taskdetails);
+     
 
       },
       (error) => {
       //  this.handleErrors(error);
       })
-     });
+     
 
 }
 
@@ -77,27 +76,27 @@ public detailsTask(tid) {
   }
 
 public getempfortask(tid){
-  this.route.paramMap.subscribe((params:ParamMap)=>{
-    let id = parseInt(params.get('id'));
-    this.taskId=id;
-    
+  
+    console.log(tid)
     this.repo.getData('task/getempfortask/'+tid)
     .subscribe(res => {
       //this.result = res as Observable<NewTask>;
-      this.result2 = res as any;
-      console.log(this.result2);
+      this.employee = res as any;
+      console.log(this.employee);
     },
     (error) => {
     //  this.handleErrors(error);n
     })
-   });
+   
 
   }
 
   public updateTask(id){
     this.router.navigate(['/task/update',id]);
   }
-  open(content) {
+  open(content,id) {
+    this.detailsTask(id);
+    this.getempfortask(id);
     this.modalService.open(content);
   }
 
