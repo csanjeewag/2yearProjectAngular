@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RepositoryService} from './../../ShareData/repository.service';
+import { RepositoryService} from './../../../ShareData/repository.service';
 import { Router } from '@angular/router';
-import { AuthServiceService } from "./../../AuthGards/auth-service.service";
-import {Employee} from './../_interfaces/employee.model';
+import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
+import {Employee} from './../../_interfaces/employee.model';
 import { Observable } from 'rxjs';
-import { FilterPipePipe } from "./../filter-pipe.pipe";
+import { FilterPipePipe } from "./../../filter-pipe.pipe";
 
 @Component({
   selector: 'app-show-employees-details',

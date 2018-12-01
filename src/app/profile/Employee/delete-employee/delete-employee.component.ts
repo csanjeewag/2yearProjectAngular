@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginUser} from './../_interfaces/login-user.model';
-import {  RepositoryService} from './../../ShareData/repository.service';
+import { LoginUser} from './../../_interfaces/login-user.model';
+import {  RepositoryService} from './../../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
