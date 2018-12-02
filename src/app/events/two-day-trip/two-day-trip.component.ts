@@ -48,7 +48,7 @@ export class TwoDayTripComponent implements OnInit {
 
      console.log(this.eventId);
 
-     this.repository.getData('getall/'+this.eventId)
+     this.repository.getData('event/getall/'+this.eventId)
      .subscribe(res => {
        this.event = res ;
        var myObjStr = JSON.stringify(res);
@@ -108,7 +108,7 @@ export class TwoDayTripComponent implements OnInit {
      
     };
     
-    let apiUrl = 'registerForTwoDayTrip';
+    let apiUrl = 'event/registerForTwoDayTrip';
   
     this.repository.postData(apiUrl, reg)
       .subscribe(res => {

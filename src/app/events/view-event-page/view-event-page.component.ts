@@ -21,9 +21,10 @@ export class ViewEventPageComponent implements OnInit {
     this.getparamId();
     
     this.destOrVen = "Venue";
-    
-      this.repository.getData('getall/'+this.eventId)
+    this.eventId="2019Trip";
+      this.repository.getData('event/getall/'+this.eventId)
       .subscribe(res => {
+      
         this.event = res ;
         var myObjStr = JSON.stringify(res);
      
@@ -40,7 +41,7 @@ export class ViewEventPageComponent implements OnInit {
        
        if (type == "Trip")
           this.destOrVen = "Destination";
-          this.image = "https://www.visitportugal.com/sites/www.visitportugal.com/files/mediateca/23_660x371.jpg";
+          this.image = "https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg";
 
        if (type == "BloodDonation")
           this.image = "https://img.timesnownews.com/story/1528893550-blood.PNG?d=600x450";
@@ -56,6 +57,8 @@ export class ViewEventPageComponent implements OnInit {
       //  this.handleErrors(error);n
       })
    
+
+      
 
   }
 

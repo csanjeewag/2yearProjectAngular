@@ -94,7 +94,7 @@ export class CreateEventPageForTripComponent implements OnInit {
     };
 
     
-    this.repository.getData('checkEvent/'+event.pKey)
+    this.repository.getData('event/checkEvent/'+event.pKey)
     .subscribe(res => {
       this.sameEvent = res ;
       var myObjStr = JSON.stringify(res);
@@ -117,7 +117,7 @@ export class CreateEventPageForTripComponent implements OnInit {
   private eEvent(event){
     if(this.sameEvent){
       
-      let apiUrl = 'createEvent';
+      let apiUrl = 'event/createEvent';
       this.repository.postData(apiUrl, event)
         .subscribe(res => {
             window.alert("Event is successfully created");
