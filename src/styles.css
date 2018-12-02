@@ -46,7 +46,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
   body{
    
-    background-color: rgba(196, 199, 199, 0.452);
+    background-color: rgba(196, 199, 199, 0.486);
   
     background-size: cover;
 
@@ -92,7 +92,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
       padding-left: 50px;
       padding-right: 50px;
       color: white;
-      
+      transition: 0.4s all ease-in-out;
       
   
   } 
@@ -323,7 +323,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     #icon {
       padding-top: 20px;
       width:150px;
-      
+      transition: 0.4s all ease-in-out;
    
     }
     #icon:hover{

@@ -1,10 +1,10 @@
 #navBar{
     position: sticky;
     top: 0;
-   
+   height: 4em;
     width: 100%;
     z-index: +1;
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(176,14,35);
 }
 #navBar a{
     color: rgb(216, 212, 212);
