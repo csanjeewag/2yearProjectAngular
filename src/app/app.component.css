@@ -1,24 +1,15 @@
-.titleBar{
-    background-color: rgb(176,14,31);
-    /* background-image: linear-gradient( rgba(252, 74, 74, 0.856),rgb(126, 126, 129),rgb(126, 126, 129),#5B5B5B,#212F3C); */
-    height: 70px;
-}
-<<<<<<< HEAD
+
 .titleBar h1{
     color: rgb(243, 243, 243);
     text-shadow: rgb(255, 255, 255);
     text-align: center;
 }
-=======
-
->>>>>>> 708335351460bfd6459547d3177ec985eec6e00c
-
 .titleBar img{
     height: 60px;
     
 }
-.titleBar h1{
+/* .titleBar h1{
     color: rgb(196,199,199);
     text-shadow: rgb(255, 255, 255);
    text-align: center;
-}
+} */
