@@ -1,11 +1,11 @@
 
   import { Component, OnInit } from '@angular/core';
   import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors,AsyncValidatorFn } from '@angular/forms';
-  import { Employee} from './../_interfaces/employee.model';
-  import {  RepositoryService} from './../../ShareData/repository.service';
+  import { Employee} from './../../_interfaces/employee.model';
+  import {  RepositoryService} from './../../../ShareData/repository.service';
   import { Router } from '@angular/router';
-  import { LoginUserInterfaceComponent } from "./../login-user-interface/login-user-interface.component";
-  import { EmailCheck } from "./../_interfaces/email-check";
+  import { LoginUserInterfaceComponent } from "./../../login-user-interface/login-user-interface.component";
+  import { EmailCheck } from "./../../_interfaces/email-check";
   import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
   import { Observable } from 'rxjs';
   import { map } from 'rxjs/operators';
@@ -91,7 +91,18 @@ import { ok } from 'assert';
     }
   
     private executeOwnerCreation(value) {
-  
+      // let owner: Employee = {
+      //   EmpId: ownerFormValue.id,
+      //   EmpName: ownerFormValue.name,
+      //   EmpContact: ownerFormValue.contact,
+      //   EmpAddress1: ownerFormValue.address1,
+      //   EmpAddress2: ownerFormValue.address2,
+      //   EmpEmail: ownerFormValue.email,
+      //   PositionPId: '',
+      //   EmpPassword:  ownerFormValue.password,
+      //   DepartmentDprtId: ownerFormValue.department,
+      //   EmpGender: ownerFormValue.gender,
+      // };
 
       let formData = new FormData();
       formData.append('EmpId', value.id);
@@ -104,7 +115,7 @@ import { ok } from 'assert';
       formData.append('EmpPassword',value.password);
       formData.append('DepartmentDprtId', value.department);
       formData.append('EmpGender',value.gender);
-      formData.append('ProjectId',value.project); 
+      formData.append('ProjectId',value.project);
       formData.append('EmpProfilePicture',this.FileImage);
 
       let apiUrl = 'employee/create';
@@ -150,7 +161,7 @@ import { ok } from 'assert';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.projects = res;
-        console.log(res)
+        
             
           },
           (error => {

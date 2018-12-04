@@ -1,9 +1,9 @@
 
 <div class="card">
-  <h5 class="card-header"><h2> Create a new role</h2></h5>
+  <h5 class="card-header"><h2> Update Project</h2></h5>
   <div class="card-body">
     <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
-    <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="createrole(projectForm.value)">
+    <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="updateproject(projectForm.value)">
           <div class="form-group">
               <label for="email" class="sr-only">DepartmentId</label>
               <input class="form-control" formControlName="projectId" id="projectId" placeholder="Project Id">
@@ -28,7 +28,7 @@
           
           <div class="btn-group" role="group" aria-label="Basic example">
           <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-          <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Create</button>
+          <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Update</button>
           
       </div> 
       </form>

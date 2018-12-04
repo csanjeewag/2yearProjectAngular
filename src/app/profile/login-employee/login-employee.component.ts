@@ -27,9 +27,13 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     public isNotEmail:any;
     public hiddenPassword:any;
     public Loading : any;
+    public EmployeeLoginView:any;
+    public EmployeeName:any;
+    public ImageUrl :any;
+    public profileImage:any="assets/_image/cslogo.png";
 
     ngOnInit() {
-    
+      this.ImageUrl = this.repository.ImageUrl;
       this.loginForm = new FormGroup({
         email: new FormControl('',[Validators.required,Validators.email]),
         pass: new FormControl('',[Validators.required])
@@ -113,12 +117,15 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     this.repository.postData(apiUrl,loginuse)
           .subscribe(res=>{
             this.Loading = false;
-            if(res==true)
-            {this.isNotEmail =false;  this.hiddenPassword = true;}
-            else 
-            {this.isNotEmail =true; this.hiddenPassword = false;}
-            return res;
+            this.EmployeeLoginView = res;
+            
+            this.SetViewLogin();
+          
+            this.isNotEmail =false;  this.hiddenPassword = true;
+           return true;
           },(error => {
+            this.Message = "email is not register!"
+            this.isNotEmail =true; this.hiddenPassword = false;
            this.Loading = false;
            return true;
           })
@@ -127,7 +134,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
       }
     public forgetpassword(value){
      this.wait = "please wait for while, check your email.."; 
-      console.log(value);
+      
       this.repository.getData('forgetpassword/'+value.email)
       .subscribe(res => {
         this.Message="For change password, go to your email.";
@@ -144,5 +151,11 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
         
       }
     }
+
+  public SetViewLogin()
+  {
+      this.profileImage = this.ImageUrl +"/"+ this.EmployeeLoginView.empProfilePicture;
+      this.EmployeeName = this.EmployeeLoginView.empName;
+  }
   }
   
