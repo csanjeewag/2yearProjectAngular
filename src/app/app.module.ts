@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { LoggedHeaderComponent } from "./SharePart/logged-header/logged-header.component";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,10 +22,11 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
     //LoggedHeaderComponent,
     LogingHeaderComponent,
     SidenavbarComponent,
-    
+    LoggedHeaderComponent
     
   ],
   imports: [
+   
     NgbModule,
     BrowserModule,
     AppRoutingModule,
