@@ -6,32 +6,131 @@
   </head>
 
 
-<body>
-    <div style="margin-left: 10cm;margin-right: 9cm">
-<h3>
-{{event.eventTitle}}
- </h3>
- </div>
-<br/><br/>
- <img src= {{image}} style="width:40%; margin-left: 8cm">
+<div id="wrapper">
 
- <br/><br/>
- <div style="margin-left: 8cm;margin-right: 8cm">
-<p >
-  {{event.eventDescription}}
-</p>
-<br/>
- <p>
-    <span class="glyphicon glyphicon-calendar"></span>
-    Date : {{event.startDate}}
- </p>
- <p>
-    <span class="glyphicon glyphicon-map-marker"></span>
-    {{destOrVen}} : {{event.destination}}
- </p>
- <br/><br/>
- <button type="button" class="btn btn-outline-success" (click)="register()">Register now!</button>
+    <div  id="sticky"class="panels" >
+        
+        <img id="image" src={{image}}>
+        
+          
+    </div>
+   <div id="second"  class="panels">
+
+
+     <div id ="secondNote">
+        <br/><br/><br/>
+     <p>{{event.eventTitle}}</p>
+     <br/>
+     <div class="row" id="inside">
+        <div class="col-xs-1" ></div>
+          <div class="col-xs-5">
+              <h2>About the Event</h2>
+              <p>{{event.eventDescription}}</p>
+            </div>
+     
+        
+        <div class="col-xs-3">
+            <h3>Where</h3>
+            <p>{{event.destination}}</p>
+          </div>
+          <div class="col-xs-3">
+              <h3>When</h3>
+              <p>{{event.startDate}}</p>
+            </div>
+      </div>
+      <br/><br/>
+     </div>
+   </div>
+
+
+
+
+  
+
+
+
+   
+    
+
+
+    <div id="forth"  class="panels">
+        <div id="forthNote">
+           
+          *ngIf="this.event.type == Trip"
+          <app-two-day-trip></app-two-day-trip>
+          
+          <br/><br/>
+        </div>
+
+       
+      </div>
+
+
+      <div id="b" class="panels">
+          <div id="note">
+              <br/><br/> 
+                <br/><br/>  <br/><br/>         
+                <div class="row" id="row">
+    
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3"id="row">
+                        <a href="{{event.url}}"  >
+                      <div class="card mb-5 text-center" style="width: 28rem;">
+                        <img class="card-img-top" id="cimage"src="https://www.fmdos.cl/wp-content/uploads/2018/07/IMG_6114.jpg" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Tasks</h4>
+                         
+                          
+                         
+                        </div>
+                      </div>
+                      </a>
+                    </div>
+                
+                <!--
+                    <div class="col-sm-3">
+                        <a href="events/twoDayTrip/2019Trip"  >
+                        <div class="card mb-5 text-center" style="width: 24rem;">
+                          <img class="card-img-top"id="cimage" src="https://blog.capterra.com/wp-content/uploads/2015/04/bigstock-Man-Having-an-Online-Registrat-73738582-720x537.jpg" alt="Card image cap">
+                          <div class="card-body">
+                            <h4 class="card-title">Register</h4>
+                           
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                    -->
+                
+                      <div class="col-sm-3">
+                          <a href="events/viewTask"  >
+                          <div class="card mb-5 text-center" style="width: 28rem;">
+                            <img class="card-img-top"id="cimage" src="https://i.harborcompliance.com/images/industries/payroll-tax/payroll-employer-tax.jpg" alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title">Registered Employees</h4>
+                              
+                              
+                             
+                            </div>
+                          </div>
+                          </a>
+                        </div>
+    
+                        <div class="col-sm-1"></div>
+    
+                </div>
+                  
+    <br/><br/>
+        </div>
+        
+        
+        </div>
+
 </div>
-  <br/><br/>
 
- </body>
+
+
+  
+
+
+
+

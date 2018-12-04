@@ -17,18 +17,23 @@ export class TwoDayTripComponent implements OnInit {
   public eventId;
   public event:any;
   regForms = [{'id':'Private', 'name':'use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
-  accom = [{'id':'SingleRoom', 'name':'single room'}, {'id':'DoubleRoom', 'name': 'Double Room'},{'id':'FamilyRoom', 'name': 'Family Room'}];
+  accom = [{'id':'SingleRoom', 'name':'single room'}, {'id':'DoubleRsoom', 'name': 'Double Room'},{'id':'FamilyRoom', 'name': 'Family Room'}];
   constructor(private repository : RepositoryService, private route:Router,private rou:ActivatedRoute) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
      
-      employeeId:new FormControl('',[Validators.required]),
+      name:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required]),
+      nic:new FormControl('',[Validators.required]),
+      dob:new FormControl('',[Validators.required]),
       transportationMode:new FormControl('',[Validators.required]),
-      numberOfFamilyMembers:new FormControl('',[Validators.required]),
       accomadation:new FormControl('',[Validators.required]),
-      
-      
+      mealType:new FormControl('',[Validators.required]),
+      gender:new FormControl('',[Validators.required]),
+      spouseName:new FormControl('',[Validators.required]),
+      spouseNic:new FormControl('',[Validators.required]),
+      spouseDob:new FormControl('',[Validators.required]),
       
     // year:new FormControl('',[Validators.required]),
      
@@ -48,9 +53,10 @@ export class TwoDayTripComponent implements OnInit {
 
      console.log(this.eventId);
 
-     this.repository.getData('getall/'+this.eventId)
+     this.repository.getData('event/getall/'+this.eventId)
      .subscribe(res => {
        this.event = res ;
+       console.log(res);
        var myObjStr = JSON.stringify(res);
        console.log(this.event.id);
  
@@ -98,17 +104,22 @@ export class TwoDayTripComponent implements OnInit {
   private executeRegistartion(registerFormValue) {
   
     let reg: TwoDayTrip = {
-      pKey:""+this.eventId+"-"+registerFormValue.employeeId,
       eventId:this.eventId,
-      employeeId: registerFormValue.employeeId,
+      name:registerFormValue.name,
+      email:registerFormValue.email,
+      nic:registerFormValue.nic,
+      dob:registerFormValue.dob,
       transportationMode:registerFormValue.transportationMode,
-      numberOfFamilyMembers:registerFormValue. numberOfFamilyMembers,
       accomadation: registerFormValue.accomadation,
-     
+      mealType:registerFormValue.mealType,
+      gender:registerFormValue.gender,
+      spouseName:registerFormValue.spouseName,
+      spouseNic:registerFormValue.spouseNic,
+      spouseDob:registerFormValue.spouseDob,
      
     };
     
-    let apiUrl = 'registerForTwoDayTrip';
+    let apiUrl = 'event/registerForTwoDayTrip';
   
     this.repository.postData(apiUrl, reg)
       .subscribe(res => {

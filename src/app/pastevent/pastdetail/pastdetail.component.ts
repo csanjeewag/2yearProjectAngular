@@ -30,22 +30,15 @@ export class PastdetailComponent implements OnInit {
   }
  public getEvent(id){
 
-  // this.repository.gettest(id)
-  // .subscribe(res => {
-  //   this.event =res;
-  // },(error) =>{
+  let url = "";
+  this.repository.getData(url)
+  .subscribe(res => {
+    this.event =res;
+  },(error) =>{
 
-  // })
+  })
  }
-  // public showblooddonation(){
-  //  this.x = true;
-  //  this.y=false;
-  // }
-  // public showcricketmatch(){
-  //   this.x = false;
-  //   this.y= true;
-  //  }
-
+ 
 
   }
 

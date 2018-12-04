@@ -25,7 +25,7 @@
     public FileImage : File;
     public ImageUrl :any;
     public profileImage:any="assets/_image/cslogo.png";
-
+public projects:any;
     constructor(private route: ActivatedRoute ,private router: Router,  private repository : RepositoryService,private auth:AuthServiceService) { }
   
     ngOnInit() {
@@ -37,7 +37,7 @@
       this.getDepartment();
       this.getRole();
       this.getEmployee();
-     
+     this.getProject();
 
       this.ownerForm = new FormGroup({
         id:new FormControl({value: '', disabled: !this.isAdmin},[Validators.required,Validators.maxLength(6)]),
@@ -48,7 +48,7 @@
         email:new FormControl('',[Validators.required,Validators.email]),
         role:new FormControl({value: '', disabled: !this.isAdmin},[Validators.required]),
         password:new FormControl({value: '', disabled:(!(this.userId==this.employeeId))},[Validators.required]),
-      
+        project:new FormControl('',[Validators.required]),
         department:new FormControl('',[Validators.required]),
         gender:new FormControl('',[Validators.required])
       })
@@ -84,6 +84,7 @@
       formData.append('EmpPassword',value.password);
       formData.append('DepartmentDprtId', value.department);
       formData.append('EmpGender',value.gender);
+      formData.append('ProjectId',value.project);
       formData.append('EmpProfilePicture',this.FileImage);
 
       
@@ -119,7 +120,7 @@
 
     public getDepartment(){
 
-      let apiUrl = 'project/getdepartments';
+      let apiUrl = 'department/getdepartments';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.departments = res;
@@ -132,7 +133,20 @@
           })
         )
     }
-    
+    public getProject(){
+
+      let apiUrl = 'Project/getprojects';
+      this.repository.getData(apiUrl)
+        .subscribe(res => {
+         this.projects = res;
+        
+            
+          },
+          (error => {
+        
+          })
+        )
+    }
   public getEmployee(){
 
     this.route.paramMap.subscribe((params:ParamMap)=>{
@@ -141,6 +155,7 @@
       
       this.repository.getData('employee/'+id)
       .subscribe(res => {
+        
         this.employee = res ;
         if(this.employee.empProfilePicture)
       { this.profileImage =this.ImageUrl+ this.employee.empProfilePicture;}
@@ -164,7 +179,7 @@
   this.ownerForm.controls['password'].setValue(this.employee.empPassword);
   this.ownerForm.controls['contact'].setValue(this.employee.empContact);
   this.ownerForm.controls['role'].setValue(this.employee.positionPId);
- 
+  this.ownerForm.controls['project'].setValue(this.employee.projectPrId);
   
   }
   onFileChange(file : FileList,id:number) {
@@ -176,7 +191,7 @@
     reader.onload = (event:any) => {
        this.profileImage = event.target.result;
   
-       console.log(event.target.result)
+       
     }
      reader.readAsDataURL(this.FileImage);
   }

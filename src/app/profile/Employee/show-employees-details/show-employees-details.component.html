@@ -1,9 +1,9 @@
 <app-logged-header></app-logged-header>
 
-<div id="table" class="container">
-    
+
+    <div class="col-md-8 container">
     	<div class="row">
-			<div class="col-md-12">
+			<!-- <div class="col-md-12">
 				<div class="tableWithHeader ">
 					<div class="Header">
 						<h3 class="panel-title">..All Employee Details..</h3>
@@ -21,9 +21,10 @@
 					<table class="table">
             <thead>
             <tr >
-                <th>ID</th>
+                <th></th>
               <th>Name</th>
               <th>Email</th>
+              <th>Project</th>
               <th>Address</th>
               <th>Position</th>
               <th></th>
@@ -33,16 +34,17 @@
              
             </tr></thead>
             <tbody>
-            <tr *ngFor="let i of result | filterPipe: filtertext" >
-              <td >{{i.empId}}</td>
+            <tr id="zoom1" *ngFor="let i of result | filterPipe: filtertext" >
+              <td id="zoom3" > <img [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" ></td>
               <td>{{i.empName}}</td>
               <td>{{i.empEmail}}</td>
+              <td>{{i.projectName}}</td>
               <td>{{i.empAddress1}} {{i.empAddress2}}</td>
               <td>{{i.empPosition}}</td>
               
-              <td><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
-                    <td><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
-                    <td *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/delete.png" alt="Cinque Terre" ></button></td>
+              <td id="zoom3" ><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
+                    <td id="zoom3" ><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
+                    <td id="zoom3" *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/delete.png" alt="Cinque Terre" ></button></td>
                  
              
             </tr>
@@ -54,5 +56,67 @@
 			
     </div>
     
+   <div>-->
+    	<div class="panel-body container">
+          <div class=" input-group mb-3" [class.error]="isNotEmail">
+              <div class="input-group-prepend">
+              <label (click)=filterInput() class="input-group-text" for="filter">Search.. </label>
+              </div>
+        <input  [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+         </div>
+         </div>
+        <br>
+        <br>
+
+
+    <div *ngFor="let i of result | filterPipe: filtertext" role="tabpanel" class="col-lg-12 tab-pane fade active show" id="day-1">
+
+      <div id="zoom1"  class="row schedule-item">
+        <div  id="Position" class="col-md-2"> <p>{{i.empPosition}}</p> </div>
+        <div class="col-md-10">
+          <div class="speaker">
+              <div class="row">
+                  <div class="col-md-2">
+                     <div id="zoom3"> <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" ></div> 
+                  </div>
+                  <div class="col-md-8">
+                      <h4> <h2 id="Name"> {{i.empName}}</h2><span>  </span></h4>
+                  </div>
+                  <div class="col-md-2">
+                      <td id="zoom3" ><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
+                      <td id="zoom3" ><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
+                      <td id="zoom3" *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/delete.png" alt="Cinque Terre" ></button></td>
+                   
+                  </div>
+                 
+              </div>
+
+           
+            <div class="row">
+                <div class="col-md-6">  <h6 id="Email"> {{i.empEmail}}</h6>  <p id="Address">{{i.empAddress1}} {{i.empAddress2}}</p>  </div>
+                <div id="Project" class="col-md-6"> <h4  id="zoom3">{{i.projectName}}</h4> </div>
+            </div>
+          </div>
+          
+          <div class="row">
+              <div class="col-md-6"> </div>
+              
+          </div>
+        
+        </div>
+ 
+      </div>
+     
+      <hr class="new1">
+
+    
+
+
+    
+     
+
+    
+    
+    </div>
    
   

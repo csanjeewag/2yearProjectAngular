@@ -1,8 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; 
+ 
+}
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+#zoom1{
+  transition: 0.5s all ease-in-out;
+}
+#zoom1:hover{
+  transform: scale(1.02);
+}
 
+
+#zoom2{
+  transition: 0.5s all ease-in-out;
+}
+#zoom2:hover{
+  transform: scale(1.05);
+}
+#zoom3{
+  transition: 0.5s all ease-in-out;
+}
+#zoom3:hover{
+  transform: scale(1.15);
+}
 
 .example-form {
     min-width: 150px;
@@ -45,7 +66,9 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
   body{
    
-    /* background-color: rgba(196, 199, 199, 0.452); */
+
+    background-color: rgba(196, 199, 199, 0.486);
+
   
     background-size: cover;
 
@@ -73,6 +96,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 #back{
     background-color: rgb(176, 14, 35);
       height: 50%;
+      background-attachment: fixed;
   }
   input{
     border-radius: 0px;
@@ -90,7 +114,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
       padding-left: 50px;
       padding-right: 50px;
       color: white;
-      
+      transition: 0.4s all ease-in-out;
       
   
   } 
@@ -321,7 +345,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     #icon {
       padding-top: 20px;
       width:150px;
-      
+      transition: 0.4s all ease-in-out;
    
     }
     #icon:hover{
