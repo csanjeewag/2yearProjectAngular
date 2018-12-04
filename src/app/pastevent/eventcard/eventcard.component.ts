@@ -12,4 +12,12 @@ export class EventcardComponent implements OnInit {
   ngOnInit() {
   }
 
+
+public event(){
+  console.log("fff");
+
 }
+
+
+}
+

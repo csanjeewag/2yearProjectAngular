@@ -73,61 +73,47 @@
 
 <!-- ############## NEW PART 2       ######################## -->
 
-<div class="row">
+<!-- <div class="row">
   <div class="container">
-    <div >
+    <div>
       <div class="gallery" class="row  card-group container">
-
         <div *ngFor="let i of result" class="col-md-4">
           <div class="grid-container">
             <div class="card">
-              <a><img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre"> </a>
-           
-              <!-- <div class="card-body">
-            <h5 class="card-title">{{i.caption}}</h5>
-            <p class="card-text">Description:{{i.description}}</p>
-            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
-            </div>
+              <a><img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre"> </a>   
+               </div>
           </div>
-
-
-
         </div>
-        <div *ngFor="let i of result" class="col-md-4">
-          <div class="grid-container">
-            <div class="card">
-              <a><img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre"> </a>
-           
-              <!-- <div class="card-body">
-            <h5 class="card-title">{{i.caption}}</h5>
-            <p class="card-text">Description:{{i.description}}</p>
-            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
-            </div>
-          </div>
-
-
-
-        </div>
-        <div *ngFor="let i of result" class="col-md-4">
-          <div class="grid-container">
-            <div class="card">
-              <a><img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre"> </a>
-           
-              <!-- <div class="card-body">
-            <h5 class="card-title">{{i.caption}}</h5>
-            <p class="card-text">Description:{{i.description}}</p>
-            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
-            </div>
-          </div>
-
-
-
-        </div>
-
       </div>
     </div>
   </div>
+</div>         -->
+              <!-- <div class="card-body">
+            <h5 class="card-title">{{i.caption}}</h5>
+            <p class="card-text">Description:{{i.description}}</p>
+            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
+           
+
+
+<div class="wrap">
+    <div *ngFor="let i of result" >
+	<!-- Define all of the tiles: -->
+	<div class="box">
+		<div class="boxInner">
+			<img  class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+			<div class="titleBox">
+				Butterfly
+			</div>
+		</div>
+	</div>
+	
 </div>
+</div>
+              <!-- <div class="card-body">
+            <h5 class="card-title">{{i.caption}}</h5>
+            <p class="card-text">Description:{{i.description}}</p>
+            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
+           
 
 
 
