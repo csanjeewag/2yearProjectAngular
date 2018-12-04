@@ -2,29 +2,80 @@
     margin-left: 350px
 }
 body{
-    background-color: white
+    background-color: rgba(255, 255, 255, 0.452);
 }
 
-
+#newForm{
+    background-color: white;
+    color:rgb(100, 100, 100);
+   
+    
+}
 
 #head{
     margin-left: 220px;
     color: rgb(83, 87, 85);
     font-family: 'Times New Roman'
 }
+#sticky{
+    
+    position:fixed;
+    top: 0;
+    z-index: -99; 
+  
+    height: 100%;
+    width: 100%
+    
 
+}
+.panels { 
+    position:relative;
+    height:40%;
+    min-height:40%;
+    width:100%;
+    z-index:100;
+   
+}#second{
+    margin-top:25%;
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    font-family: Verdana;
+    background-color: black;
+    opacity: 0.7;
+   
+ }
+
+#f{
+    margin-left: 8%
+}
+
+#image{
+    width: 100%;
+   
+   
+    
+}
+
+.ng-valid, .ng-valid.required  {
+    /*border-left: 10px solid #42A948;  green */
+   
+  }
+  
+  #wrapper { 
+    position:absolute;
+    height:100%;
+    width:100%;
+}
 
 em{
     color: rgb(199, 87, 87);
 }
 
-.ng-valid, .ng-valid.required  {
-    /*border-left: 10px solid #42A948;  green */
-    background-color: rgb(191, 252, 194);
-  }
-  
-  .ng-invalid:not(form)  {
-    /*border-left: 10px solid #a94442; red */
-    background-color: #fddcdc;
-  }
- 
+
+  .card{
+    box-shadow: 0 20px 30px 0 rgba(0,0,0,0.2);
+    
+    width:40%;
+    text-decoration: none;
+    overflow: hidden;
+    }

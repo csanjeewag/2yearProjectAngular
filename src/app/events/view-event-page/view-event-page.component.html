@@ -18,15 +18,17 @@
 
 
      <div id ="secondNote">
-        <br/>
+        <br/><br/><br/>
      <p>{{event.eventTitle}}</p>
      <br/>
      <div class="row" id="inside">
-       <div class="col-xs-1" ></div>
-        <div class="col-xs-5">
-          <h2>About the Event</h2>
-          <p>{{event.eventDescription}}</p>
-        </div>
+        <div class="col-xs-1" ></div>
+          <div class="col-xs-5">
+              <h2>About the Event</h2>
+              <p>{{event.eventDescription}}</p>
+            </div>
+     
+        
         <div class="col-xs-3">
             <h3>Where</h3>
             <p>{{event.destination}}</p>
@@ -38,70 +40,91 @@
       </div>
       <br/><br/>
      </div>
-
-    
-     
-
    </div>
-   
-    <div id="b" class="panels">
-      <div id="note">
-          <br/><br/> 
-            <br/><br/>         
-            <div class="row" id="row">
 
-                <div class="col-sm-1"></div>
-                <div class="col-sm-3"id="row">
-                    <a href="events/upComingEvents"  >
-                  <div class="card mb-5 text-center" style="width: 24rem;">
-                    <img class="card-img-top" id="cimage"src="https://media.urbanistnetwork.com/saigoneer/article-images/legacy/Vm1pSRPb.jpg" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Tasks</h4>
-                     
-                      
-                     
-                    </div>
-                  </div>
-                  </a>
-                </div>
-            
-            
-                <div class="col-sm-3">
-                    <a href="events/previousEvent"  >
-                    <div class="card mb-5 text-center" style="width: 24rem;">
-                      <img class="card-img-top"id="cimage" src="https://media.urbanistnetwork.com/saigoneer/article-images/legacy/Vm1pSRPb.jpg" alt="Card image cap">
-                      <div class="card-body">
-                        <h4 class="card-title">Register</h4>
-                       
-                      </div>
-                    </div>
-                    </a>
-                  </div>
-            
-            
-                  <div class="col-sm-3">
-                      <a href="events/viewTask"  >
-                      <div class="card mb-5 text-center" style="width: 24rem;">
-                        <img class="card-img-top"id="cimage" src="https://media.urbanistnetwork.com/saigoneer/article-images/legacy/Vm1pSRPb.jpg" alt="Card image cap">
+
+
+
+  
+
+
+
+   
+    
+
+
+    <div id="forth"  class="panels">
+        <div id="forthNote">
+           
+          *ngIf="this.event.type == Trip"
+          <app-two-day-trip></app-two-day-trip>
+          
+          <br/><br/>
+        </div>
+
+       
+      </div>
+
+
+      <div id="b" class="panels">
+          <div id="note">
+              <br/><br/> 
+                <br/><br/>  <br/><br/>         
+                <div class="row" id="row">
+    
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3"id="row">
+                        <a href="{{event.url}}"  >
+                      <div class="card mb-5 text-center" style="width: 28rem;">
+                        <img class="card-img-top" id="cimage"src="https://www.fmdos.cl/wp-content/uploads/2018/07/IMG_6114.jpg" alt="Card image cap">
                         <div class="card-body">
-                          <h4 class="card-title">Registered Employees</h4>
-                          
+                          <h4 class="card-title">Tasks</h4>
+                         
                           
                          
                         </div>
                       </div>
                       </a>
                     </div>
-
-                    <div class="col-sm-1"></div>
-
-            </div>
-              
-
-    </div>
+                
+                <!--
+                    <div class="col-sm-3">
+                        <a href="events/twoDayTrip/2019Trip"  >
+                        <div class="card mb-5 text-center" style="width: 24rem;">
+                          <img class="card-img-top"id="cimage" src="https://blog.capterra.com/wp-content/uploads/2015/04/bigstock-Man-Having-an-Online-Registrat-73738582-720x537.jpg" alt="Card image cap">
+                          <div class="card-body">
+                            <h4 class="card-title">Register</h4>
+                           
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                    -->
+                
+                      <div class="col-sm-3">
+                          <a href="events/viewTask"  >
+                          <div class="card mb-5 text-center" style="width: 28rem;">
+                            <img class="card-img-top"id="cimage" src="https://i.harborcompliance.com/images/industries/payroll-tax/payroll-employer-tax.jpg" alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title">Registered Employees</h4>
+                              
+                              
+                             
+                            </div>
+                          </div>
+                          </a>
+                        </div>
     
+                        <div class="col-sm-1"></div>
     
-    </div>
+                </div>
+                  
+    <br/><br/>
+        </div>
+        
+        
+        </div>
+
 </div>
 
 

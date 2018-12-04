@@ -11,14 +11,14 @@
     top: 0;
     z-index: -99; 
   
-    height: 100%;
+    height: 60%;
     width: 100%
     
 
 }
 
 #note{
-    background-color:rgba(196, 199, 199);
+    background-color:rgb(115, 120, 122);
     font-family: Arial;
     font-size: 10px
     
@@ -38,6 +38,7 @@
 }
 #cimage{
     overflow: hidden;
+    height: 160px;
 }
 
 #wrapper { 
@@ -56,24 +57,41 @@
 }
 
 #b{ 
-    margin-top:30%;
+    margin-top:65%;
     font-family: Verdana;
     font-size: 20px;
     
  }
  #second{
-    margin-top:25%;
+    margin-top:0%;
     font-size: 60px;
     color: rgb(255, 255, 255);
     font-family: Verdana;
     
    
  }
+
+ 
+
+ #forth{
+    margin-top:80%;
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    
+    min-height: 10; 
+    max-height: 10;
+   
+ }
+#forthNote{
+    background-color: white
+}
+
+
  #secondNote{
    
     text-align: center;
     background-color: black;
-    opacity: 0.6;
+    opacity: 0.7;
  }
  #inside{
      font-size: 20px;

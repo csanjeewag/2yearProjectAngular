@@ -17,17 +17,20 @@ export class ViewEventPageComponent implements OnInit {
   public eventId;
   public destOrVen;
   public image;
+  public t;
   ngOnInit() {
     this.getparamId();
     
     this.destOrVen = "Venue";
-    this.eventId="2019Trip";
+    this.eventId="48";
+    console.log("event id"+this.eventId);
       this.repository.getData('event/getall/'+this.eventId)
       .subscribe(res => {
-      
+        console.log("inside res"+res);
         this.event = res ;
-        var myObjStr = JSON.stringify(res);
-     
+        console.log("inside res"+this.event);
+       // var myObjStr = JSON.stringify(res);
+        console.log("type = "+this.event.type);
        console.log(this.event.destination);
        console.log(this.event.startDate);
        var year = this.event.startDate.split('-')[0];
@@ -35,18 +38,27 @@ export class ViewEventPageComponent implements OnInit {
        var day = this.event.startDate.split('-')[2].split('T')[0];
        var date = `${year}-${month}-${day}`
        this.event.startDate=date;
-       var type = this.event.pKey.split('-')[1];
-       console.log(type);
-       console.log(this.event.url);
+      
+       console.log(event.type);
        
-       if (type == "Trip")
-          this.destOrVen = "Destination";
-          this.image = "https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg";
+       
+      
 
-       if (type == "BloodDonation")
-          this.image = "https://img.timesnownews.com/story/1528893550-blood.PNG?d=600x450";
+       if (this.event.type == "BloodDonation")
+       console.log("type = "+event.type);
+          this.image = "http://wall2born.com/data/out/333/image-46761152-wallpapers-hd-nature.jpg";
 
-       if (type == "YearEndParty")
+          if (this.event.type == "OneDayTrip")
+          console.log("type = "+event.type);
+             this.image = "https://res.cloudinary.com/if-only/image/upload/v1499961729/Hotels/SRI%2C%20Heritance%20Kandalama/Heritance-Kandalama_hero.jpg";
+             this.t="<app-two-day-trip></app-two-day-trip>";
+
+          if (this.event.type == "Trip")
+          console.log("inside trip");
+          this.image = "https://res.cloudinary.com/if-only/image/upload/v1499961729/Hotels/SRI%2C%20Heritance%20Kandalama/Heritance-Kandalama_hero.jpg";
+          this.t="<app-two-day-trip></app-two-day-trip>";
+
+       if (event.type == "YearEndParty")
           this.image = "https://media.urbanistnetwork.com/saigoneer/article-images/legacy/Vm1pSRPb.jpg";
        //eventFormValue.startDate.split('-')[0]
        console.log(date);
