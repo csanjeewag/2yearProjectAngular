@@ -11,6 +11,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   transform: scale(1.02);
 }
 
+
 #zoom2{
   transition: 0.5s all ease-in-out;
 }
@@ -23,6 +24,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 #zoom3:hover{
   transform: scale(1.15);
 }
+
 .example-form {
     min-width: 150px;
     max-width: 500px;
@@ -64,7 +66,9 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
   body{
    
+
     background-color: rgba(196, 199, 199, 0.486);
+
   
     background-size: cover;
 
@@ -84,10 +88,10 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   }
   
   .ng-invalid:not(form)  {
-    border-bottom: 2px solid rgb(176, 14, 35); /* red */
+    /*border-bottom: 2px solid rgb(176, 14, 35);  red */
     border-radius: 0px;
     border: none;
-    border-bottom: 2px solid rgb(176, 14, 35);
+    border-bottom: 1px solid rgb(176, 14, 35);
   }
 #back{
     background-color: rgb(176, 14, 35);
