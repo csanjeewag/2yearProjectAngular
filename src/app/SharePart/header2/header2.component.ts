@@ -1,15 +1,15 @@
 
 
-
   import { Component, OnInit } from '@angular/core';
   import { Router } from '@angular/router';
   import { AuthServiceService } from "./../../AuthGards/auth-service.service";
   @Component({
-    selector: 'app-sidenavbar',
-    templateUrl: './sidenavbar.component.html',
-    styleUrls: ['./sidenavbar.component.css']
+    selector: 'app-header2',
+    templateUrl: './header2.component.html',
+    styleUrls: ['./header2.component.css']
   })
-  export class SidenavbarComponent implements OnInit {
+  export class Header2Component implements OnInit {
+  
   
     constructor( private router : Router, private auth :AuthServiceService) { }
   public islogged:any;
