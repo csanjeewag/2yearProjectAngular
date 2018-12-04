@@ -16,8 +16,8 @@ export class CreateEventPageForTripComponent implements OnInit {
     public msg: any;
     public sameEvent:any;
 
-    regForms = [{'id':'/events/oneDayTrip/', 'name':'One day trip'}, {'id':'/events/twoDayTrip/', 'name': 'Two day trip'}, {'id':'/events/bloodDonation/', 'name':'Blood donation'}, {'id':'/events/yearEndParty/', 'name': 'Year end party'}];
-    eventTypes = [{'id':'Trip', 'name':'One day trip'}, {'id':'Trip', 'name': 'Two day trip'}, {'id':'BloodDonation', 'name':'Blood donation'}, {'id':'YearEndParty', 'name': 'Year end party'}];
+   
+    eventTypes = [{'id':'OneDayTrip', 'name':'One day trip'}, {'id':'TwoDayTrip', 'name': 'Two day trip'}, {'id':'BloodDonation', 'name':'Blood donation'}, {'id':'YearEndParty', 'name': 'Year end party'}];
 
   constructor(private repository : RepositoryService) { }
 
@@ -87,14 +87,22 @@ export class CreateEventPageForTripComponent implements OnInit {
       destination:eventFormValue.destination,
       startDate: eventFormValue.startDate,
       endDate: eventFormValue.endDate,
-      pKey:`${eventFormValue.startDate.split('-')[0]}-${eventFormValue.type}`,
-      url:`${eventFormValue.url}${eventFormValue.startDate.split('-')[0]}${eventFormValue.type}`,
       closingDate:eventFormValue.closingDate,
       type:eventFormValue.type,
     };
 
-    
-    this.repository.getData('checkEvent/'+event.pKey)
+     
+    let apiUrl = 'event/createEvent';
+    this.repository.postData(apiUrl, event)
+      .subscribe(res => {
+          window.alert("Event is successfully created");
+        },
+        (error => {
+          this.msg="Can't create event! Please check entered details again";
+        
+        })
+      )
+    /*this.repository.getData('event/checkEvent/'+event.pKey)
     .subscribe(res => {
       this.sameEvent = res ;
       var myObjStr = JSON.stringify(res);
@@ -108,16 +116,16 @@ export class CreateEventPageForTripComponent implements OnInit {
    
   
     
-    })
+    })*/
 
    
     
   }
-
+/*
   private eEvent(event){
     if(this.sameEvent){
       
-      let apiUrl = 'createEvent';
+      let apiUrl = 'event/createEvent';
       this.repository.postData(apiUrl, event)
         .subscribe(res => {
             window.alert("Event is successfully created");
@@ -134,7 +142,7 @@ export class CreateEventPageForTripComponent implements OnInit {
       console.log(this.sameEvent);
        
     }
-  }
+  }*/
 
 
 }

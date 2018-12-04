@@ -15,6 +15,7 @@ import { UploadpasteventComponent } from './uploadpastevent/uploadpastevent.comp
 import { BudgetComponent } from './budget/budget.component';
 
 import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
+import { EventcardComponent } from './eventcard/eventcard.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header
       { path: 'imageview/:id', component: ImageviewComponent },
       { path: 'bdonation', component: BdonationComponent  },
       { path: 'budget', component: BudgetComponent  },
+      { path: 'eventcard', component: EventcardComponent  },
       { path: 'cricketinfo', component: CricketinfoComponent},
       { path: 'uploadpastevent', component: UploadpasteventComponent },
       { path: 'imageview', component: ImageviewComponent},
@@ -48,7 +50,7 @@ import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header
     ])
   ],
   declarations: [ ImageuploadComponent, ImageviewComponent, PastdetailComponent,
-    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent,LoggedHeaderComponent ],
+    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent,LoggedHeaderComponent, EventcardComponent ],
   exports: [RouterModule]
 
 })
