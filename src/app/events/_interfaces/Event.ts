@@ -5,8 +5,6 @@ export class Event {
     destination: string;
     startDate: Date;
     endDate: Date;
-    pKey:string;
-    url:string;
     closingDate:string;
     type:string;
 }
