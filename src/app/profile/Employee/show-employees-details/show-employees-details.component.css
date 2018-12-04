@@ -1,3 +1,33 @@
+#schedule .tab-pane {
+  transition: ease-in-out .2s;
+}
+#Position{
+  color: rgb(3, 9, 63)
+}
+#Name{
+  font-style: italic;
+  color: rgb(5, 13, 90);
+}
+#Project{
+  color: rgb(15, 28, 153);
+  font-stretch: expanded;
+  font-family: Arial, Helvetica, sans-serif;
+}
+hr.new1 {
+  border-top: 2px solid rgb(255, 255, 255);
+}
+
+#profilePicture{
+  width: 200px;
+}
+
+
+
+
+
+
+
+
 /* = body
 ------------------------*/
 body{
@@ -88,8 +118,11 @@ body{
     -moz-border-radius:100%;
     border-radius:100%;
   }
-  
-  
+  #profilePicture{
+    width: 75px;
+    
+  }
+ 
   /* = Responsive table
   ------------------------*/
   

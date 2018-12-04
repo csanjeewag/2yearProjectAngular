@@ -1,5 +1,5 @@
 .titleBar{
-    background-color: rgb(176,14,31);
+    background-color: rgba(176, 14, 30, 0);
     /* background-image: linear-gradient( rgba(252, 74, 74, 0.856),rgb(126, 126, 129),rgb(126, 126, 129),#5B5B5B,#212F3C); */
     height: 70px;
 }

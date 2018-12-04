@@ -22,6 +22,7 @@ import { ok } from 'assert';
     public errorMessage: string='';
     public ownerForm: FormGroup;
     public departments:any;
+    public projects:any;
     public roles:any;
     public isAvalibleemail:boolean;
     public IsLogin:any;
@@ -39,6 +40,7 @@ import { ok } from 'assert';
       
       this.getRoles();
       this.getDepartment();
+      this.getProject();
       //file
      
     
@@ -52,6 +54,7 @@ import { ok } from 'assert';
         confirmpassword: new FormControl ('',[Validators.required]),
         password:new FormControl('',[Validators.required]),      
         department:new FormControl('',[Validators.required]),
+        project:new FormControl('',[Validators.required]),
         gender:new FormControl('',[Validators.required])
       },{ validators: isvalidconfirmpassword })
     }
@@ -112,6 +115,7 @@ import { ok } from 'assert';
       formData.append('EmpPassword',value.password);
       formData.append('DepartmentDprtId', value.department);
       formData.append('EmpGender',value.gender);
+      formData.append('ProjectId',value.project);
       formData.append('EmpProfilePicture',this.FileImage);
 
       let apiUrl = 'employee/create';
@@ -142,6 +146,21 @@ import { ok } from 'assert';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.departments = res;
+        
+            
+          },
+          (error => {
+        
+          })
+        )
+    }
+
+    public getProject(){
+
+      let apiUrl = 'Project/getprojects';
+      this.repository.getData(apiUrl)
+        .subscribe(res => {
+         this.projects = res;
         
             
           },

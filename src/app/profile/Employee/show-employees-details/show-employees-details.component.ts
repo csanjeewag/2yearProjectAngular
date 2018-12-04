@@ -16,10 +16,12 @@ export class ShowEmployeesDetailsComponent implements OnInit {
   public result : any;
   public isAdmin:any;
   public toggle:any;
-
+  public ImageUrl:any;
+  public ProfileImage:any= "assets/_image/cslogo.png";
   constructor(private repo :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   ngOnInit() {
+    this.ImageUrl = this.repo.ImageUrl;
     this.getAllEmployee()
     this.isAdmin = this.auth.isAdmin();
    }
@@ -39,8 +41,8 @@ export class ShowEmployeesDetailsComponent implements OnInit {
       this.result = res ;
       var myObjStr = JSON.stringify(res);
    
-     console.log(this.result.empId);
-    // console.log(this.result);
+   
+ 
       
     },
     (error) => {

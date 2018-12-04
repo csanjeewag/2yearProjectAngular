@@ -9,7 +9,7 @@
   import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
   import { Observable } from 'rxjs';
   import { map } from 'rxjs/operators';
-  import { ok } from 'assert';
+import { ok } from 'assert';
 
 
   @Component({
@@ -22,6 +22,7 @@
     public errorMessage: string='';
     public ownerForm: FormGroup;
     public departments:any;
+    public projects:any;
     public roles:any;
     public isAvalibleemail:boolean;
     public IsLogin:any;
@@ -39,6 +40,7 @@
       
       this.getRoles();
       this.getDepartment();
+      this.getProject();
       //file
      
     
@@ -52,6 +54,7 @@
         confirmpassword: new FormControl ('',[Validators.required]),
         password:new FormControl('',[Validators.required]),      
         department:new FormControl('',[Validators.required]),
+        project:new FormControl('',[Validators.required]),
         gender:new FormControl('',[Validators.required])
       },{ validators: isvalidconfirmpassword })
     }
@@ -88,7 +91,7 @@
     }
   
     private executeOwnerCreation(value) {
- 
+  
 
       let formData = new FormData();
       formData.append('EmpId', value.id);
@@ -101,6 +104,7 @@
       formData.append('EmpPassword',value.password);
       formData.append('DepartmentDprtId', value.department);
       formData.append('EmpGender',value.gender);
+      formData.append('ProjectId',value.project); 
       formData.append('EmpProfilePicture',this.FileImage);
 
       let apiUrl = 'employee/create';
@@ -132,6 +136,21 @@
         .subscribe(res => {
          this.departments = res;
         
+            
+          },
+          (error => {
+        
+          })
+        )
+    }
+
+    public getProject(){
+
+      let apiUrl = 'Project/getprojects';
+      this.repository.getData(apiUrl)
+        .subscribe(res => {
+         this.projects = res;
+        console.log(res)
             
           },
           (error => {
@@ -188,6 +207,7 @@ onFileChange(file : FileList,id:number) {
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
+     console.log(event.target.result)
   }
    reader.readAsDataURL(this.FileImage);
 }
