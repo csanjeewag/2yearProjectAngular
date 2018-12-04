@@ -19,6 +19,7 @@
     public Message:any;
     public project:any;
     public projectID:any;
+    public PrId:any;
     ngOnInit() {
       this.getproject();
       this.projectForm = new FormGroup({
@@ -49,6 +50,7 @@
       if (this.projectForm.valid) {
         
         let formdata = new FormData;
+        formdata.append('PrId',this.PrId);
         formdata.append('ProjectId',value.projectId);
         formdata.append('ProjectName',value.projectName);
         formdata.append('ProjectDescription',value.projectDescription);   
@@ -60,7 +62,7 @@
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
             this.Message="Project updated!";
-              this.router.navigate(['/profile/admin/projects']);
+              this.router.navigate(['/profile/admin/project']);
          
             },
             (error => {
@@ -75,12 +77,11 @@
 
       
         this.projectID = this.route.snapshot.paramMap.get('id')
-        console.log(this.projectID)
         
         this.repository.getData('project/getproject/'+this.projectID)
         .subscribe(res => {
           this.project = res ;
-          console.log(res)
+          this.PrId = this.project.prId;
           this.fillproject();
         },
         (error) => {

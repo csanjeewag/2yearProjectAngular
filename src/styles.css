@@ -4,7 +4,25 @@ html, body { height: 100%;
  
 }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+#zoom1{
+  transition: 0.5s all ease-in-out;
+}
+#zoom1:hover{
+  transform: scale(1.02);
+}
 
+#zoom2{
+  transition: 0.5s all ease-in-out;
+}
+#zoom2:hover{
+  transform: scale(1.05);
+}
+#zoom3{
+  transition: 0.5s all ease-in-out;
+}
+#zoom3:hover{
+  transform: scale(1.15);
+}
 .example-form {
     min-width: 150px;
     max-width: 500px;
