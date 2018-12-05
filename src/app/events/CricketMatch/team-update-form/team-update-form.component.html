@@ -1,79 +1,101 @@
-<div class="container">
-    <br>
-      <h2>Team Form</h2>
-    <br>
-    <form [formGroup]="teamForm" autocomplete="off" novalidate (ngSubmit)="teamData(teamForm.value)">
+
   
-      <div class="form-group row">
-          <label for="inputTeamId" class="col-2 col-form-label" >Team Id :</label>
-          <div class="col-10">
-              <input formControlName="teamId" class="form-control" type="text" placeholder="Team Id" id="inputTeamId" >
-              <em *ngIf="validateControl('teamId') && hasError('teamId', 'required')">*Team Id is required</em>
-          </div>
+
+
+<div id="back">
+        
+    <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <h1>Team Form</h1>
+        </div>
+        <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+        <!-- Sign up Form -->
+        <form [formGroup]="teamForm" autocomplete="off" novalidate (ngSubmit)="teamData(teamForm.value)">
+  
+            <div class="form-group row">
+                <label for="inputTeamId" class="col-2 col-form-label" >Team Id :</label>
+                <div class="col-10">
+                    <input formControlName="teamId" class="form-control" type="text" placeholder="Team Id" id="inputTeamId" >
+                    <em *ngIf="validateControl('teamId') && hasError('teamId', 'required')">*Team Id is required</em>
+                </div>
+            </div>
+        
+              <div class="form-group row">
+                  <label for="inputTeamName" class="col-2 col-form-label" >Team Name :</label>
+                  <div class="col-10">
+                      <input formControlName="teamName" class="form-control" type="text" placeholder="Team Name" id="inputTeamName" >
+                      <em *ngIf="validateControl('teamName') && hasError('teamName', 'required')">*Team Name is required</em>
+                  </div>
+              </div>
+        
+              <div class="form-group row">
+                    <label for="inputTeamName" class="col-2 col-form-label" >Captain Id :</label>
+                    <div class="col-10">
+                        <input formControlName="teamCaptainId" class="form-control" type="text" placeholder="Captain Id" id="inputTeamName" >
+                        <em *ngIf="validateControl('teamCaptainId') && hasError('teamCaptainId', 'required')">*Team Name is required</em>
+                    </div>
+                </div>
+        
+              <div class="form-group row">
+                  <label for="inputTeamCaptainName" class="col-2 col-form-label">Captain Name : </label>
+                  <div class="col-10">
+                      <input formControlName="teamCaptainName" class="form-control" type="text" placeholder="Captain Name" id="inputTeamCaptainName">
+                      <em *ngIf="validateControl('teamCaptainName') && hasError('teamCaptainName', 'required')">*Team Caption Name is required</em>
+                  </div>
+              </div>
+        
+              <div class="form-group row">
+                    <label for="inputCaptainEmail" class="col-2 col-form-label">Caption Email : </label>
+                    <div class="col-10">
+                        <input formControlName="teamCaptainEmail" class="form-control" type="text" placeholder="Caption Email" id="inputCaptainEmail">
+                        <em *ngIf="validateControl('teamCaptainEmail') && hasError('teamCaptainEmail', 'required')">*Team Caption Email is required</em>
+                    </div>
+                </div> 
+        
+               <div class="form-group row">
+                <label for="inputCaptainContact" class="col-2 col-form-label">Captain Contact : </label>
+                <div class="col-10">
+                    <input formControlName="teamCaptainContact" class="form-control" type="tel" placeholder="Captain Contact" id="inputCaptainContact">
+                    <em *ngIf="validateControl('teamCaptainContact') && hasError('teamCaptainContact', 'required')">*Team Caption contact is required</em>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                    <label for="inputplayer" class="col-2 col-form-label">Members : </label>
+                    <div class="col-10">
+                        <select class="form-control">
+                            <option>Default select</option>
+                            <option> select</option>
+                            <option>Default </option>
+                            <option>Default p;</option>
+                            <option>gjk select</option>
+                        </select>
+                    </div>
+                </div>
+        
+        <br>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" id="btn-sub" class="btn btn-outline-danger" [disabled]="!teamForm.valid">Submit</button>
+              </div>
+        
+            </form>
+            <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+            
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a  id="crateAccountlink"  class="underlineHover" ></a>
+         
+        </div>
+    
       </div>
-  
-        <div class="form-group row">
-            <label for="inputTeamName" class="col-2 col-form-label" >Team Name :</label>
-            <div class="col-10">
-                <input formControlName="teamName" class="form-control" type="text" placeholder="Team Name" id="inputTeamName" >
-                <em *ngIf="validateControl('teamName') && hasError('teamName', 'required')">*Team Name is required</em>
-            </div>
-        </div>
-  
-        <div class="form-group row">
-              <label for="inputTeamName" class="col-2 col-form-label" >Captain Id :</label>
-              <div class="col-10">
-                  <input formControlName="teamCaptainId" class="form-control" type="text" placeholder="Captain Id" id="inputTeamName" >
-                  <em *ngIf="validateControl('teamCaptainId') && hasError('teamCaptainId', 'required')">*Team Name is required</em>
-              </div>
-          </div>
-  
-        <div class="form-group row">
-            <label for="inputTeamCaptainName" class="col-2 col-form-label">Captain Name : </label>
-            <div class="col-10">
-                <input formControlName="teamCaptainName" class="form-control" type="text" placeholder="Captain Name" id="inputTeamCaptainName">
-                <em *ngIf="validateControl('teamCaptainName') && hasError('teamCaptainName', 'required')">*Team Caption Name is required</em>
-            </div>
-        </div>
-  
-        <div class="form-group row">
-              <label for="inputCaptainEmail" class="col-2 col-form-label">Caption Email : </label>
-              <div class="col-10">
-                  <input formControlName="teamCaptainEmail" class="form-control" type="text" placeholder="Caption Email" id="inputCaptainEmail">
-                  <em *ngIf="validateControl('teamCaptainEmail') && hasError('teamCaptainEmail', 'required')">*Team Caption Email is required</em>
-              </div>
-          </div> 
-  
-         <div class="form-group row">
-          <label for="inputCaptainContact" class="col-2 col-form-label">Captain Contact : </label>
-          <div class="col-10">
-              <input formControlName="teamCaptainContact" class="form-control" type="tel" placeholder="Captain Contact" id="inputCaptainContact">
-              <em *ngIf="validateControl('teamCaptainContact') && hasError('teamCaptainContact', 'required')">*Team Caption contact is required</em>
-          </div>
-        </div>
-  
-        <div class="form-group row">
-              <label for="inputplayer" class="col-2 col-form-label">Members : </label>
-              <div class="col-10">
-                  <select class="form-control">
-                      <option>Default select</option>
-                      <option> select</option>
-                      <option>Default </option>
-                      <option>Default p;</option>
-                      <option>gjk select</option>
-                  </select>
-              </div>
-          </div>
-  
-  <br>
-        <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-              <button type="submit" class="btn btn-success" [disabled]="!teamForm.valid">Submit</button>
-        </div>
-  
-      </form>
-  </div>
-  
-  
-  
-  
+    </div>
+
+
+    </div>
+
+
+

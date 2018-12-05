@@ -1,34 +1,53 @@
 
-<br><br><br>
-<div class="card">
-        <h5 class="card-header"><h2>Update Department</h2></h5>
-        <div class="card-body">
-          <h5 class="card-title"><h3> {{Message}}</h3></h5>
-          <div class="container">
- 
-                <form [formGroup]="departmentForm" autocomplete="off" novalidate (ngSubmit)="createdepartment(departmentForm.value)">
-                  <div class="form-group">
-                      <label for="email" class="sr-only">DepartmentId</label>
-                      <input class="form-control" formControlName="departmentId" id="departmentId" placeholder="Department Id">
-                      <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'required')">*Email is required!</em>
-                      <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'email')">*This not a valid email!</em>
-              
-                  </div>
-                  <div class="form-group">
-                      <label for="key" class="sr-only">Password</label>
-                      <input type="text" formControlName="departmentName" id="departmentName" class="form-control" placeholder="Department Name">
-                      <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'required')">*password is required</em>
-                      <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                    
-                  </div>
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-                  <button type="submit" class="btn btn-success" [disabled]="!departmentForm.valid">Create</button>
+<br>
+
+<br>
+      <div >
+        
+        <div  class="wrapper fadeInDown col-md-12 container">
+          <div id="formContent">
+            <!-- Tabs Titles -->
+        
+            <!-- Icon -->
+            <div class="fadeIn first">
+              <h1>Update Department</h1>
+            </div>
+            <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+            <!-- Sign up Form -->
+            <form [formGroup]="departmentForm" autocomplete="off" novalidate (ngSubmit)="createdepartment(departmentForm.value)">
+                <div class="form-group">
+                    <label for="email" class="sr-only">DepartmentId</label>
+                    <input class="form-control" formControlName="departmentId" id="departmentId" placeholder="Department Id">
+                    <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'required')">*Department Id is required!</em>
+                    <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'email')">*This not a valid email!</em>
+            
+                </div>
+                <div class="form-group">
+                    <label for="key" class="sr-only">Password</label>
+                    <input type="text" formControlName="departmentName" id="departmentName" class="form-control" placeholder="Department Name">
+                    <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'required')">*Department name is required</em>
+                    <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
                   
-              </div> 
-              </form>
-              </div>
-       </div>
-      </div>
-
-
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
+                <button type="submit" class="btn btn-success" [disabled]="!departmentForm.valid">Update</button>
+                
+            </div> 
+            </form>  
+                <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+                
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+              <a  id="crateAccountlink"  class="underlineHover" ></a>
+             
+            </div>
+        
+          </div>
+        </div>
+    
+    
+        </div>
+    
+    
+    

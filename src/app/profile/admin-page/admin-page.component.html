@@ -19,13 +19,13 @@
           <div class="form-group col-md-6">
             <br>
               <div class="btn-group" role="group" aria-label="Basic example">
-                  <button (click) ="isdepartment()"  type="button" class="btn btn-secondary"> Create Departments</button>
-                  <button (click)="isrole()" type="button" class="btn btn-secondary"> Create Roles</button>
-                  <button (click)="isproject()" type="button" class="btn btn-secondary"> Create Project</button>
+                  <button id="btn" (click) ="isdepartment()"  type="button" class="btn"> Create Departments</button>
+                  <button id="btn"  (click)="isrole()" type="button" class="btn"> Create Roles</button>
+                  <button id="btn"  (click)="isproject()" type="button" class="btn"> Create Project</button>
                   <br>
                 </div>
                 <br><br><br>
-              <div *ngIf="department"><app-department-create></app-department-create></div>
+              <div  *ngIf="department"><app-department-create></app-department-create></div>
               <div *ngIf="role"><app-role-create></app-role-create></div>
               <div *ngIf="project"><app-project-create></app-project-create></div>
               
@@ -36,9 +36,9 @@
               <!-- <app-show-roles-details></app-show-roles-details> -->
               <br>
               <div class="btn-group" role="group" aria-label="Basic example">
-                  <button routerLink="/profile/admin/departments" routerLinkActive="active" type="button" class="btn btn-secondary">View Departments</button>
-                  <button routerLink="/profile/admin/roles" routerLinkActive="active" type="button" class="btn btn-secondary">View Roles</button>
-                  <button routerLink="/profile/admin/project" routerLinkActive="active" type="button" class="btn btn-secondary">View Projects</button>
+                  <button id="btn"  routerLink="/profile/admin/departments" routerLinkActive="active" type="button" class="btn ">View Departments</button>
+                  <button id="btn"  routerLink="/profile/admin/roles" routerLinkActive="active" type="button" class="btn ">View Roles</button>
+                  <button id="btn"  routerLink="/profile/admin/project" routerLinkActive="active" type="button" class="btn ">View Projects</button>
                   
                 </div>
               <router-outlet></router-outlet>
