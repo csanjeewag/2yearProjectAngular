@@ -6,8 +6,8 @@ import { environment } from './..//../environments/environment';
 })
 export class UserServiceService {
 
-  public urlAddress : string = environment.event_url;
-  //public urlAddress : string = environment.employee_url;
+  //public urlAddress : string = environment.event_url;
+  public urlAddress : string = environment.employee_url;
   public userurl : string = environment.employee_url;
   public mainUrl : string = environment.main_url;
   
