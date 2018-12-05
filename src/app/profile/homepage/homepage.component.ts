@@ -44,6 +44,10 @@ register(pKeys){
   this.router.navigate([this.urlAddress]);
   console.log(this.urlAddress);
 }
+public Task(){
+  this.router.navigate(['/task/']);
+
+}
 
 }
 
