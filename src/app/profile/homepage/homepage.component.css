@@ -26,23 +26,23 @@
     
  }
  #part2{
-    background-color: rgb(240, 241, 241);
+    background-color: rgb(187, 187, 187);
     height: 750px;  padding: 20px;
  }
  #part3{
-    background-color: rgba(196, 199, 199, 0.103);
+    background-color: rgba(247, 247, 247, 0.877);
     height: 750px;  padding: 20px;
  }
  #part0 h1{
      color: rgb(196,199,199);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
      text-align: center;
      font-size: 100px;
      font-weight: bold;
      position: relative;
      -webkit-animation: mymove 10s 1; /* Safari 4.0 - 8.0 */
-    animation: mymove 10s 10;
-    animation-direction: alternate;
+        animation: mymove 10s 10;
+        animation-direction: alternate;
  }
  @-webkit-keyframes mymove {
     from {top: 100px; color: rgb(196,199,199);}
@@ -85,16 +85,15 @@
     
     margin-left: 10%    
  }
- /* #cardDesk .card-deck{
-     margin-left: 20%;
-     margin-right: 20%;
-     margin-top: 2%;
+  #cardDesk{
+     
+     margin-top: 0;
 
  
- } */
+ } 
  .row{
-     padding: 10%
- }
+     padding-top: 5%
+      }
  
  #cardDesk .card {
      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -135,9 +134,9 @@
      transform: scale(1.05);
  }
  
- /* #cardDesk .container {
-     padding: 2px 1px;
- } */
+  #cardDesk .container {
+     padding: 2px 16px;
+ } 
 
  #bottomright{
     color: aliceblue;
@@ -161,6 +160,8 @@
    
    
 }
+#txt{
+margin-left: 90%}
 @-webkit-keyframes mycard {
     from {left: 100px; color: rgb(196,199,199);}
     to {right: 300px; color:rgb(165, 165, 165);}
