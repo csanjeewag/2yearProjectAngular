@@ -1,11 +1,11 @@
 #all{
-    margin-left: 350px
+    margin-left: 250px
 }
 
 
 
 #head{
-    margin-left: 220px;
+   
     color: rgb(38, 53, 45);
     font-family: 'Times New Roman'
 }
@@ -20,4 +20,8 @@ em{
     /*border-left: 10px solid #a94442; red */
     background-color: #ceb9b9;
   }
- 
+  .card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    overflow: hidden;
+}

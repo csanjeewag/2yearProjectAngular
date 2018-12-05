@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   department_url :"http://localhost:3005/department",
-
+  event_url :"http://localhost:5308/api", 
   employee_url :"http://localhost:5308/api", 
   //main_url :'https://789456.azurewebsites.net/',
   main_url :'http://localhost:5308/', 
