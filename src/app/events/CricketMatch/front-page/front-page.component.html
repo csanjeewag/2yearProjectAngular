@@ -1,3 +1,5 @@
+
+<app-sidenavbar></app-sidenavbar>
 <div class="row no-gutters">
   <div class="col-2"></div>
   <div class="col-8">
@@ -8,10 +10,16 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registor</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" [routerLink]="['CricketMatch/teamform']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Cricket Team</a>
-            <a class="dropdown-item" [routerLink]="['CricketMatch/employeeform']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Employee Participation</a>
-            <a class="dropdown-item" [routerLink]="['CricketMatch/detailsview']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Details of cricket</a>
-            </div>
+            <!-- <a class="dropdown-item" [routerLink]="['events/CricketMatch/teamform']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Cricket Team</a>
+            <a class="dropdown-item" [routerLink]="['events/CricketMatch/employeeform']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Employee Participation</a>
+            <a class="dropdown-item" [routerLink]="['events/CricketMatch/detailsview']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Details of cricket</a>
+            -->
+            <a  class="nav-link" routerLink="profile/home" routerLinkActive="active ">Cricket Team</a>
+            <a class="nav-link" routerLink="events/CricketMatch/employeeform" routerLinkActive="active ">Employee Participation</a>
+            <a class="nav-link" routerLink="events/CricketMatch/detailsview" routerLinkActive="active ">Details of cricket</a>
+           
+        
+        </div>
         </li>
     </ul>
   </div>

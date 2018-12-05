@@ -1,4 +1,7 @@
-<head>
+
+<app-header2></app-header2>
+
+<!-- <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,12 +24,6 @@
         <br/><br/><br/>
      <p>{{event.eventTitle}}</p>
      <br/>
-
-
-    
-
-
-
      <div class="row" id="inside">
         <div class="col-xs-1" ></div>
           <div class="col-xs-5">
@@ -45,10 +42,6 @@
             </div>
       </div>
       <br/><br/>
-      
-      
-      
-      
      </div>
    </div>
 
@@ -61,37 +54,19 @@
 
    
     
-   
-  
-    <div id="forth"  class="panels" *ngIf="this.event.type === 'OneDayTrip'">
-        <div id="forthNote"  >
-           <app-one-day-trip></app-one-day-trip>
 
+
+    <div id="forth"  class="panels">
+        <div id="forthNote">
+           
+          *ngIf="this.event.type == Trip"
+          <app-two-day-trip></app-two-day-trip>
+          
           <br/><br/>
         </div>
 
        
       </div>
-
-      <div id="forth"  class="panels" *ngIf="this.event.type === 'TwoDayTrip'">
-          <div id="forthNote"  >
-             <app-two-day-trip></app-two-day-trip>
-  
-            <br/><br/>
-          </div>
-  
-         
-        </div>
-
-        <div id="forth"  class="panels"  *ngIf="this.event.type === 'YearEndParty'">
-            <div id="forthNote" >
-               <app-year-end-party></app-year-end-party>
-    
-              <br/><br/>
-            </div>
-    
-           
-          </div>
 
 
       <div id="b" class="panels">
@@ -115,19 +90,6 @@
                       </a>
                     </div>
                 
-                <!--
-                    <div class="col-sm-3">
-                        <a href="events/twoDayTrip/2019Trip"  >
-                        <div class="card mb-5 text-center" style="width: 24rem;">
-                          <img class="card-img-top"id="cimage" src="https://blog.capterra.com/wp-content/uploads/2015/04/bigstock-Man-Having-an-Online-Registrat-73738582-720x537.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <h4 class="card-title">Register</h4>
-                           
-                          </div>
-                        </div>
-                        </a>
-                      </div>
-                    -->
                 
                       <div class="col-sm-3">
                           <a href="events/viewTask"  >
@@ -161,4 +123,110 @@
 
 
 
+ -->
 
+    
+ <div id="homeback" >
+ 
+ 
+ 
+  <div id="part0" >
+    <div class="row">
+      <div class="col">
+         <h1 id="mainH" >{{event.eventTitle}}</h1>
+ 
+      </div>
+      <div class="col" id="title">
+         <h2>About the Event</h2>
+               <p>{{event.eventDescription}}</p>
+ 
+      </div>
+      <div class="col" id="title">
+         <h3>When</h3>
+         <p>{{event.startDate}}</p>
+      </div>
+      <div class="col" id="title">
+         <h3>Where</h3>
+         <p>{{event.destination}}</p>
+       </div>
+    </div>
+  
+  </div>
+  
+  <div id="part1">
+    <h1 id="head">FEATURES</h1>
+      <div id="cardDesk" class="card-deck" >
+         
+          <div class="row">
+            <div class="col-2">
+ 
+            </div>
+              <div class="col-lg-4">
+                <img class="rounded-circle" src="assets\_image\t.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Task</h2>
+                <p>Visit here to see all upcomming events of the company.You can grab your chance to participate to the event by submiting the forum.You can enjoy your day with family members</p>
+                <p><a class="btn btn-secondary" href="#" role="button" (click)="Events()">View details &raquo;</a></p>
+              </div><!-- /.col-lg-4 -->
+              <div class="col-lg-4">
+                <img class="rounded-circle" src="assets\_image\e.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Registered Employees</h2>
+                <p>Visit here to see recently closed events and their details.You can get more details from here.Can generate reports easily.You can visit here to get Contact details of previous event also includes here</p>
+                <p><a class="btn btn-secondary" href="#" role="button" (click)="pastEvent()">View details &raquo;</a></p>
+              </div><!-- /.col-lg-4 -->
+              
+            </div>
+          
+          
+          
+        </div>
+  
+  </div>
+  
+  
+  
+  <!-- part 2 -->
+  
+  <div id="part2" >
+      <h1 id="head">REGISTER</h1>
+      <div id="forthNote" *ngIf="this.event.type ==='OneDayTrip'">
+            
+         <app-one-day-trip></app-one-day-trip>
+         
+         <br/><br/>
+       </div>
+    
+    </div>
+    <div id="part2" *ngIf="this.event.type ==='TwoDayTrip'">
+       <h1 id="head">REGISTER</h1>
+       <div id="forthNote">
+             
+          <app-two-day-trip></app-two-day-trip>
+          
+          <br/><br/>
+        </div>
+     
+     </div>
+     <!-- <div id="part2" *ngIf="this.event.type ==='YearEndParty'">
+         <h1 id="head">REGISTER</h1>
+         <div id="forthNote">
+               
+            <app-year-end-party> </app-year-end-party>
+ 
+            
+            <br/><br/>
+          </div>
+       
+       </div> -->
+  
+  <!-- end of part 2 -->
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  

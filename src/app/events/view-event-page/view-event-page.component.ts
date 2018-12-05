@@ -21,59 +21,49 @@ export class ViewEventPageComponent implements OnInit {
   public event:any;
   public eventId;
   public destOrVen;
-  public image;
+  public image = "https://res.cloudinary.com/if-only/image/upload/v1499961729/Hotels/SRI%2C%20Heritance%20Kandalama/Heritance-Kandalama_hero.jpg";
   public t;
   public date = new Date();
   ngOnInit() {
    
-    this.getparamId();
-    
-    this.destOrVen = "Venue";
-    this.eventId="1034";
-    console.log("event id"+this.eventId);
+   
+   
+    this.eventId="28";
+   
       this.repository.getData('event/getall/'+this.eventId)
       .subscribe(res => {
         console.log("inside res"+res);
         this.event = res ;
-        console.log("inside res"+this.event);
        // var myObjStr = JSON.stringify(res);
        
-       console.log(this.event.destination);
-       console.log(this.event.startDate);
+       
        var year = this.event.startDate.split('-')[0];
        var month = this.event.startDate.split('-')[1];
        var day = this.event.startDate.split('-')[2].split('T')[0];
        var date = `${year}-${month}-${day}`
        this.event.startDate=date;
-       console.log("eeeeeeeeeeeeeeeeeevent type"+this.event.type);
+      
       
        
       
 
        if (this.event.type === "BloodDonation"){
-       console.log("type = "+this.event.type);
           this.image = "http://wall2born.com/data/out/333/image-46761152-wallpapers-hd-nature.jpg";
        }
+
           if (this.event.type === "OneDayTrip"){
-          console.log("type = "+this.event.type);
-          console.log("inside trip");
-             this.image = "https://res.cloudinary.com/if-only/image/upload/v1499961729/Hotels/SRI%2C%20Heritance%20Kandalama/Heritance-Kandalama_hero.jpg";
-             
-          }
+           this.image = "https://res.cloudinary.com/if-only/image/upload/v1499961729/Hotels/SRI%2C%20Heritance%20Kandalama/Heritance-Kandalama_hero.jpg";
+             }
       
           if (this.event.type === "TwoDayTrip"){
-          console.log("inside 2 trip");
-          this.image = "https://res.cloudinary.com/if-only/image/upload/v1499961729/Hotels/SRI%2C%20Heritance%20Kandalama/Heritance-Kandalama_hero.jpg";
+          this.image = "https://media.urbanistnetwork.com/saigoneer/article-images/legacy/Vm1pSRPb.jpg";
           }
 
        if (this.event.type === 'YearEndParty'){
-       console.log("inside party");
           this.image = "https://media.urbanistnetwork.com/saigoneer/article-images/legacy/Vm1pSRPb.jpg";
        }
        //eventFormValue.startDate.split('-')[0]
-       console.log(date);
-       console.log(this.destOrVen);
-        
+      
       },
       (error) => {
       //  this.handleErrors(error);n
@@ -86,20 +76,7 @@ export class ViewEventPageComponent implements OnInit {
   }
  
 
-  getparamId(){
-    this.rou.paramMap.subscribe((params:ParamMap)=>{
-      let id =params.get('id');
-      console.log(id);
-      this.eventId=id;
-     });
+ 
 
-     console.log(this.eventId);
-  }
-
-  register(){
-  
-    ///this.router.navigate(['/profile/list',gonextId])
-    this.route.navigate([this.event.url]);
-  }
-
+ 
 }

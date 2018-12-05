@@ -88,7 +88,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
           .subscribe(res =>  {
                 this.result = res;
             this.Message="Your loggin Success!";
-           this.router.navigate(['/profile/list']);
+           this.router.navigate(['/profile/home']);
             this.Loading = false;
               localStorage.setItem('token',this.result.token );
           

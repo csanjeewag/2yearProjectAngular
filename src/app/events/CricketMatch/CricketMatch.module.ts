@@ -2,7 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { SidenavbarComponent } from "./../../SharePart/sidenavbar/sidenavbar.component";
 import { FrontPageComponent } from './front-page/front-page.component';
 import { RcFrontPageComponent } from './rc-front-page/rc-front-page.component';
 import { TeamFormComponent } from './team-form/team-form.component';
@@ -33,6 +33,6 @@ import { EmployeeUpdateFormComponent } from './employee-update-form/employee-upd
 
     ])
   ],
-  declarations: [FrontPageComponent, RcFrontPageComponent, TeamFormComponent, TeamRcViewComponent, EmployeePageComponent, EmployeeViewPageComponent, DetailsFormComponent, DetailsViewComponent, TeamUpdateFormComponent, EmployeeUpdateFormComponent, ]
+  declarations: [SidenavbarComponent,FrontPageComponent, RcFrontPageComponent, TeamFormComponent, TeamRcViewComponent, EmployeePageComponent, EmployeeViewPageComponent, DetailsFormComponent, DetailsViewComponent, TeamUpdateFormComponent, EmployeeUpdateFormComponent, ]
 })
 export class CricketMatchModule { }
