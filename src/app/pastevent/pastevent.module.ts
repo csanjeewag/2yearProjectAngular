@@ -17,6 +17,7 @@ import { BudgetComponent } from './budget/budget.component';
 import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
 import { EventcardComponent } from './eventcard/eventcard.component';
 
+import { Header1Component } from "./../SharePart/header1/header1.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -49,7 +50,7 @@ import { EventcardComponent } from './eventcard/eventcard.component';
 
     ])
   ],
-  declarations: [ ImageuploadComponent, ImageviewComponent, PastdetailComponent,
+  declarations: [Header1Component, ImageuploadComponent, ImageviewComponent, PastdetailComponent,
     BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent,LoggedHeaderComponent, EventcardComponent ],
   exports: [RouterModule]
 
