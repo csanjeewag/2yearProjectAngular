@@ -11,23 +11,37 @@ import { OneDayTrip} from './../_interfaces/oneDayTrip';
   styleUrls: ['./one-day-trip.component.css']
 })
 export class OneDayTripComponent implements OnInit {
+ 
   public errorMessage: string='';
-    public registerForm: FormGroup;
-    regForms = [{'id':'Private', 'name':'use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
+  public registerForm: FormGroup;
+  public eventId;
+  public event:any;
+  closeResult: string;
+  regForms = [{'id':'Private', 'name':'Use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
+  gender = [{'id':'male', 'name':'Male'}, {'id':'female', 'name': 'Female'}];
+ 
+  meal = [{'id':'vegi', 'name':'Vegi'}, {'id':'non vegi', 'name': 'Non vegi'}];
+  constructor(private repository : RepositoryService, private route:Router,private rou:ActivatedRoute,     ) { }
 
-  constructor(private repository : RepositoryService, private route:Router,private rou:ActivatedRoute) { }
+
+
   
- public eventId;
+
 
   ngOnInit() {
-
     this.registerForm = new FormGroup({
      
-      employeeId:new FormControl('',[Validators.required]),
+      name:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required]),
+      nic:new FormControl('',[Validators.required]),
+      dob:new FormControl('',[Validators.required]),
       transportationMode:new FormControl('',[Validators.required]),
-      numberOfFamilyMembers:new FormControl('',[Validators.required]),
       
-      
+      mealType:new FormControl('',[Validators.required]),
+      gender:new FormControl('',[Validators.required]),
+      spouseName:new FormControl('',[Validators.required]),
+      spouseNic:new FormControl('',[Validators.required]),
+      spouseDob:new FormControl('',[Validators.required]),
       
     // year:new FormControl('',[Validators.required]),
      
@@ -35,8 +49,8 @@ export class OneDayTripComponent implements OnInit {
     })
 
     this.getparamId();
-
   }
+
 
   getparamId(){
     this.rou.paramMap.subscribe((params:ParamMap)=>{
@@ -46,7 +60,22 @@ export class OneDayTripComponent implements OnInit {
      });
 
      console.log(this.eventId);
+
+     this.repository.getData('event/getall/'+this.event.id)
+     .subscribe(res => {
+       this.event = res ;
+       console.log(res);
+       var myObjStr = JSON.stringify(res);
+       console.log(this.event.id);
+ 
+     },
+     (error) => {
+     //  this.handleErrors(error);n
+                }
+    )
+    this.eventId=this.event.id;
   }
+
 
   public validateControl(controlName: string) {
     if (this.registerForm.controls[controlName].invalid && this.registerForm.controls[controlName].touched)
@@ -80,25 +109,45 @@ export class OneDayTripComponent implements OnInit {
   }
 
 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
   private executeRegistartion(registerFormValue) {
   
-    let reg: OneDayTrip = {
-      pKey:""+this.eventId+"-"+registerFormValue.employeeId,
+    let reg:OneDayTrip= {
       eventId:this.eventId,
-      employeeId: registerFormValue.employeeId,
+      name:registerFormValue.name,
+      email:registerFormValue.email,
+      nic:registerFormValue.nic,
+      dob:registerFormValue.dob,
       transportationMode:registerFormValue.transportationMode,
-      numberOfFamilyMembers:registerFormValue. numberOfFamilyMembers,
-     
-     
+      mealType:registerFormValue.mealType,
+      gender:registerFormValue.gender,
+      spouseName:registerFormValue.spouseName,
+      spouseNic:registerFormValue.spouseNic,
+      spouseDob:registerFormValue.spouseDob,
      
     };
     
-    let apiUrl = 'registerForOneDayTrip';
+    let apiUrl = 'event/registerForOneDayTrip';
   
     this.repository.postData(apiUrl, reg)
       .subscribe(res => {
        // this.router.navigate(['/profile/list']);
-         
+       
         },
         (error => {
          
@@ -107,5 +156,6 @@ export class OneDayTripComponent implements OnInit {
         })
       )
   }
+
 
 }

@@ -1,24 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { TwoDayTrip} from './../_interfaces/twoDayTrip';
 
+import {NgbModal,NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-two-day-trip',
   templateUrl: './two-day-trip.component.html',
-  styleUrls: ['./two-day-trip.component.css']
+  styleUrls: ['./two-day-trip.component.css'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class TwoDayTripComponent implements OnInit {
   public errorMessage: string='';
   public registerForm: FormGroup;
   public eventId;
   public event:any;
-  regForms = [{'id':'Private', 'name':'use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
-  accom = [{'id':'SingleRoom', 'name':'single room'}, {'id':'DoubleRsoom', 'name': 'Double Room'},{'id':'FamilyRoom', 'name': 'Family Room'}];
-  constructor(private repository : RepositoryService, private route:Router,private rou:ActivatedRoute) { }
+  closeResult: string;
+  regForms = [{'id':'Private', 'name':'Use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
+  gender = [{'id':'male', 'name':'Male'}, {'id':'female', 'name': 'Female'}];
+  accom = [{'id':'SingleRoom', 'name':'Single room'}, {'id':'DoubleRsoom', 'name': 'Double Room'},{'id':'FamilyRoom', 'name': 'Family Room'}];
+  meal = [{'id':'vegi', 'name':'Vegi'}, {'id':'non vegi', 'name': 'Non vegi'}];
+  constructor(private repository : RepositoryService, private route:Router,private rou:ActivatedRoute,      private modalService: NgbModal,config: NgbModalConfig,) { }
+
+
+
+  
+
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -53,7 +64,7 @@ export class TwoDayTripComponent implements OnInit {
 
      console.log(this.eventId);
 
-     this.repository.getData('event/getall/'+this.eventId)
+     this.repository.getData('event/getall/'+this.event.id)
      .subscribe(res => {
        this.event = res ;
        console.log(res);
@@ -101,6 +112,22 @@ export class TwoDayTripComponent implements OnInit {
   }
 
 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
   private executeRegistartion(registerFormValue) {
   
     let reg: TwoDayTrip = {
@@ -124,7 +151,7 @@ export class TwoDayTripComponent implements OnInit {
     this.repository.postData(apiUrl, reg)
       .subscribe(res => {
        // this.router.navigate(['/profile/list']);
-         
+       
         },
         (error => {
          
