@@ -62,9 +62,9 @@
    border-bottom: 0
  }
 
-/* .btn{
+ /* .btn{
  background-color: crimson
-} */
+}  */
 
 
 /* ########## start drag and drop css */
@@ -121,13 +121,13 @@
 
 .image-upload-wrap {
   margin-top: 20px;
-  border: 4px dashed #1FB264;
+  border: 4px dashed rgb(219, 141, 38);
   position: relative;
 }
 
 .image-dropping,
 .image-upload-wrap:hover {
-  background-color: #1FB264;
+  background-color: rgb(219, 214, 139);
   border: 4px dashed #ffffff;
 }
 
@@ -143,8 +143,9 @@
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
-  color: #15824B;
-  padding: 60px 0;
+  font-style: italic; 
+  color: rgb(134, 167, 150);
+  padding: 20px 0;
 }
 
 .file-upload-image {
@@ -153,8 +154,8 @@
   margin: auto;
   padding: 20px;
 }
-
-.remove-image {
+/* ## start remove facilty */
+/* .remove-image {
   width: 200px;
   margin: 0;
   color: #fff;
@@ -179,5 +180,5 @@
 .remove-image:active {
   border: 0;
   transition: all .2s ease;
-}
+} */
 /* ########## end drag and drop css */
