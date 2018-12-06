@@ -78,10 +78,21 @@
                           <input type="text" formControlName="Description" id="Description" class="form-control" placeholder=" Description">
                         </div>
                       </div>
+
                       <div class="form-group">
-                        <input class="inputfile" type="file" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)">
-            
-                      </div>
+
+                        <!-- <input class="inputfile" type="file" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)"> -->
+                        <div class="image-upload-wrap">
+                            <input class="file-upload-input" type='file' onchange="readURL(this);" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)" />
+                            <div class="drag-text">
+                              <h3>Drag and drop a file or select add Image</h3>
+                            </div>
+                          </div>
+                     </div>
+
+
+
+
                       <div class=" form-group">
                         <button type="submit" class="btn"  [disabled]="!imageuploadForm.valid">submit</button>
             
@@ -139,3 +150,55 @@
   <div class=".col-sm-5">
   </div>
 </div>> -->
+<!-- JAVA SCRIPT CODE start  -->
+<script>
+
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } 
+  
+}
+
+
+
+</script>
+<!-- ##### JAVA SCRIPT (drag and drop)  end  -->
+
+
+
+<!-- ############## Drag and drop -->
+
+<!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<div class="file-upload">
+  <!--   <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button> -->
+
+  <!-- <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3>Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded
+          Image</span></button>
+    </div>
+  </div>
+</div> --> 
+<!-- ####### COMMENT FOR TESTING. aulak nettan ain krnda balala -->
