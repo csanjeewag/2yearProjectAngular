@@ -28,7 +28,7 @@ export class ViewEventPageComponent implements OnInit {
    
    
    
-    this.eventId="28";
+    this.eventId="1";
    
       this.repository.getData('event/getall/'+this.eventId)
       .subscribe(res => {
