@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
+import { SharedModuleModule} from "./../shared-module/shared-module.module";
 
 import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
 import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
@@ -56,7 +57,6 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
 import { HomepageComponent } from './homepage/homepage.component';
 
-
 @NgModule({
   imports: [
 
@@ -70,7 +70,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     MatFormFieldModule,
     MatTabsModule,
     
-
+    SharedModuleModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

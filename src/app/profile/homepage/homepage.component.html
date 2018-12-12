@@ -1,6 +1,7 @@
 
     
-   <app-logged-header></app-logged-header>
+  <app-nav-bar></app-nav-bar>
+
 <div id="homeback" >
 
 
@@ -47,21 +48,21 @@
               <img class="rounded-circle" src="assets\_image\past.jpg" alt="Generic placeholder image" width="140" height="140">
               <h2>Beach Party</h2>
               <p>Visit here to see all upcomming events of the company.You can grab your chance to participate to the event by submiting the forum.You can enjoy your day with family members</p>
-              <p><a class="btn btn-secondary" href="#" role="button" (click)="Events()">View details &raquo;</a></p>
+              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="Events()">View details &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="rounded-circle" src="assets\_image\event.png" alt="Generic placeholder image" width="140" height="140">
               <h2>Annual trip</h2>
               <p>Visit here to see recently closed events and their details.You can get more details from here.Can generate reports easily.You can visit here to get Contact details of previous event also includes here</p>
-              <p><a class="btn btn-secondary" href="#" role="button" (click)="pastEvent()">View details &raquo;</a></p>
+              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="pastEvent()">View details &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
               <img class="rounded-circle" src="assets\_image\yearend.jpg" alt="Generic placeholder image" width="140" height="140">
               <h2>Year End Part</h2>
               <p>Visit here to see your task and all assign tasks categorized by evets.Also an overview of tasks.Assigned tasks for employees can do here.And also can manage them.RC can upload their details see all</p>
-              <p><a class="btn btn-secondary" role="button" (click)="Task()">View details &raquo;</a></p>
+              <p><a class="btn btn-secondary" role="button" routerLink="/events/vieweventpage">View details &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
-            <a id="txt">More..</a>
+            <a  id="txt">More..</a>
           </div>
         
         
@@ -89,19 +90,19 @@
                 <img class="rounded-circle" src="assets\_image\c.jpg" alt="Generic placeholder image" width="140" height="140">
                 <h2>Creative Sixes</h2>
                 <p>Visit here to see all upcomming events of the company.You can grab your chance to participate to the event by submiting the forum.You can enjoy your day with family members</p>
-                <p><a class="btn btn-secondary" href="#" role="button" (click)="Events()">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" routerLink="/pastevent/eventcard" role="button" (click)="Events()">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
               <div class="col-lg-4">
                 <img class="rounded-circle" src="assets\_image\b.jpg" alt="Generic placeholder image" width="140" height="140">
                 <h2>Blood Donation</h2>
                 <p>Visit here to see recently closed events and their details.You can get more details from here.Can generate reports easily.You can visit here to get Contact details of previous event also includes here</p>
-                <p><a class="btn btn-secondary" href="#" role="button" (click)="pastEvent()">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" routerLink="/pastevent/eventcard" role="button" (click)="pastEvent()">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
               <div class="col-lg-4">
                 <img class="rounded-circle" src="assets\_image\p.jpg" alt="Generic placeholder image" width="140" height="140">
                 <h2>Creative Anniversary</h2>
                 <p>Visit here to see your task and all assign tasks categorized by evets.Also an overview of tasks.Assigned tasks for employees can do here.And also can manage them.RC can upload their details see all</p>
-                <p><a class="btn btn-secondary" role="button" (click)="Task()">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" role="button" routerLink="/pastevent/eventcard">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
               <a id="txt">More..</a>
             </div>

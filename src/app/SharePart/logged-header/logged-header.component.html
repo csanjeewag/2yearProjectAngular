@@ -15,7 +15,10 @@
         <a class="nav-link" routerLink="/profile/home" routerLinkActive="active">Home </a>
       </li>
       <li class="nav-item">
-        <a *ngIf="islogged" class="nav-link" routerLink="/trip" routerLinkActive="active">Past Events</a>
+        <a *ngIf="islogged" class="nav-link" routerLink="/pastevent/eventcard" routerLinkActive="active">Past Events</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="islogged" class="nav-link" routerLink="/events/vieweventpage" routerLinkActive="active">UpComming Events</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/profile/list" routerLinkActive="active ">Members</a>
@@ -31,10 +34,10 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   Events        </a>
           <div id="drop" class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item " href="">Annual Trip</a>
-            <a class="dropdown-item "  href="">Cricket Tournement</a>
-            <a class="dropdown-item " href="">Blood Donation</a>
-            <a class="dropdown-item " href="">Beach Party</a>
+            <a  class="nav-link" routerLink="/events/vieweventpage" routerLinkActive="active ">Annual Trip</a>
+            <a class="nav-link" routerLink="/events/CricketMatch/frontpage/2" routerLinkActive="active ">Cricket Tournement</a>
+            <a class="nav-link" routerLink="/events/CricketMatch/frontpage/2" routerLinkActive="active ">Blood Donation</a>
+            <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Beach Party</a>
             
           </div>
         </li>

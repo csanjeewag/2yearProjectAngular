@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import {  RepositoryService} from './../../../ShareData/repository.service';
-import { Router } from '@angular/router';
-
+import { Router,ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-team-form',
   templateUrl: './team-form.component.html',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TeamFormComponent implements OnInit {
   
-  constructor(private repository: RepositoryService) { }
+  constructor(private route: ActivatedRoute, private router: Router,private repository: RepositoryService) { }
 
   public teamForm: FormGroup;
 
@@ -54,6 +54,7 @@ export class TeamFormComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
           console.log(res);
+          this.router.navigate(['/events/CricketMatch/teamview']);
           },
           (error => {
             console.log(error);

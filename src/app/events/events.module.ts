@@ -9,15 +9,18 @@ import { OneDayTripComponent } from './one-day-trip/one-day-trip.component';
 import { TwoDayTripComponent } from './two-day-trip/two-day-trip.component';
 import { EventHomePageComponent } from './event-home-page/event-home-page.component';
 import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
+import { Header2Component } from "./../SharePart/header2/header2.component";
 
+import { SharedModuleModule } from "./../shared-module/shared-module.module";
 
 @NgModule({
   imports: [
+    SharedModuleModule,
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'createEventPageForTrip', component:CreateEventPageForTripComponent},
-      {path:'viewEventPage', component:ViewEventPageComponent},
+      {path:'vieweventpage', component:ViewEventPageComponent},
       {path:'oneDayTrip/:id', component:OneDayTripComponent},
       {path:'twoDayTrip/:id', component:TwoDayTripComponent},
       {path:'yearEndParty/:id', component:TwoDayTripComponent},
@@ -25,6 +28,6 @@ import { YearEndPartyComponent } from './year-end-party/year-end-party.component
       { path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },       
     ]),
   ],
-  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent]
+  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent]
 })
 export class EventsModule { }

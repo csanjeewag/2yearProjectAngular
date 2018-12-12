@@ -25,12 +25,14 @@ import { AddInfoComponent } from './add-info/add-info.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
 //import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
 
+import { SharedModuleModule} from "./../shared-module/shared-module.module";
 
 
 @NgModule({
   imports: [
     CommonModule,
-
+    SharedModuleModule,
+    
     MatCheckboxModule,
     MatInputModule,
     MatRadioModule,
