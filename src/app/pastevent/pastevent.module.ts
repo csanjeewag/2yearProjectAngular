@@ -14,12 +14,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { UploadpasteventComponent } from './uploadpastevent/uploadpastevent.component';
 import { BudgetComponent } from './budget/budget.component';
 
+import { SharedModuleModule } from "./../shared-module/shared-module.module";
 
 import { EventcardComponent } from './eventcard/eventcard.component';
 
 import { Header1Component } from "./../SharePart/header1/header1.component";
 @NgModule({
   imports: [
+    SharedModuleModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

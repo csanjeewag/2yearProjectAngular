@@ -11,8 +11,11 @@ import { EventHomePageComponent } from './event-home-page/event-home-page.compon
 import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
 import { Header2Component } from "./../SharePart/header2/header2.component";
 
+import { SharedModuleModule } from "./../shared-module/shared-module.module";
+
 @NgModule({
   imports: [
+    SharedModuleModule,
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([

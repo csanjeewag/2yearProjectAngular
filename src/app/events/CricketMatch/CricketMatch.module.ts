@@ -14,9 +14,11 @@ import { DetailsViewComponent } from './details-view/details-view.component';
 import { TeamUpdateFormComponent } from './team-update-form/team-update-form.component';
 import { EmployeeUpdateFormComponent } from './employee-update-form/employee-update-form.component';
 
+import { SharedModuleModule } from "./../../shared-module/shared-module.module";
  
 @NgModule({
   imports: [
+    SharedModuleModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
