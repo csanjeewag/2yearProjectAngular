@@ -16,7 +16,7 @@ export class RepositoryService {
  public islogged:any; 
  public ImageUrl = this.envUrl.mainUrl;
   public getData(route: string) {
-    
+   
     return this.http.get(this.createCompleteRoute(route, this.envUrl.urlAddress),this.generateHeaders());
     
   }

@@ -22,13 +22,19 @@ export class ChangePositionComponent implements OnInit {
   public ImageUrl:any;
   public ProfileImage:any= "assets/_image/cslogo.png";
   public position:any;
+  public projects:any;
+  public departments:any;
+  public Loading:any;
   constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   ngOnInit() {
+  
     this.GetPositionDetails();
     this.ImageUrl = this.repository.ImageUrl;
     this.getAllEmployee()
     this.isAdmin = this.auth.isAdmin();
+    this.GetDepartmentDetails();
+    this.GetProjectDetails();
    }
 
   public detailsemployee( id) {
@@ -41,13 +47,10 @@ export class ChangePositionComponent implements OnInit {
 
   
  public  getAllEmployee(){
-    this.repository.getData('employee/getall')
+    this.repository.getData('employee/getallemployees')
     .subscribe(res => {
       this.result = res ;
-      var myObjStr = JSON.stringify(res);
-   
-   
- 
+
       
     },
     (error) => {
@@ -61,42 +64,106 @@ export class ChangePositionComponent implements OnInit {
 
   }
 
-  public deActiveEmployee(id){
+  public statechange(email,state){
+    this.Loading = email;
+    var State:any;
+    if(state ==1){
+      State = true;
+    }else{
+      State = false;
+    }
+    let formData = new FormData;
+    formData.append('EmpEmail', email);
 
-    if(confirm("Are you sure?")){
-    this.repository.getData('employee/deleteEmployee/'+id)
-    .subscribe(res => {
-      location.reload();
-    },
-    (error) => {
-    
-    })
-  }
-  else{
-
-  }
+    formData.append('IsActive', State);
+    if(confirm("Are you sure to change details of "+email+" ?")){
+      let apiUrl = 'employee/changeState';
+      
+      this.repository.postFile(apiUrl, formData)
+        .subscribe(res => {
+          this.getAllEmployee();
+          alert("Position change sucsses!")
+          this.Loading = null;
+          },
+          (error => {
+            alert("Position change failed!")
+            this.Loading = null;
+          })
+        )
+    }
   }
 
   public updateEmployee(id){
+
     this.router.navigate(['/profile/update',id]);
   }
   public filterInput(){
     this.toggle = !this.toggle;
   }
+
   public GetPositionDetails(){
     this.repository.getData('position/getroles')
     .subscribe(res => {
       this.position = res ;
-      console.log(res);
+    
   },
     (error) => {
     
     })
   }
 
-  public changeposition(id){
-   // console.log(positionId+" "+employeeId);
-    console.log("gc"+id)
+  public GetDepartmentDetails(){
+    this.repository.getData('department/getdepartments')
+    .subscribe(res => {
+      this.departments = res ;
+
+  },
+    (error) => {
+    
+    })
+  }
+
+  public GetProjectDetails(){
+    this.repository.getData('project/getprojects')
+    .subscribe(res => {
+      this.projects = res ;
+
+  },
+    (error) => {
+    
+    })
+  }
+
+  public changedetails(email,positionId,departmentId,projectId){
+  
+   
+    let formData = new FormData;
+    formData.append('EmpEmail', email);
+    if(positionId != ""){
+      formData.append('PositionPId',positionId);
+    }
+    if(departmentId != ""){
+      formData.append('DepartmentDprtId',departmentId);
+    }
+    if(projectId != ""){
+      formData.append('ProjectId',projectId);
+    }
+    
+    if(confirm("Are you sure to change details of "+email+" ?")){
+      let apiUrl = 'employee/updateemployeedetails';
+      
+      this.repository.postFile(apiUrl, formData)
+        .subscribe(res => {
+          this.getAllEmployee();
+          alert("Position change sucsses!")
+          },
+          (error => {
+            alert("Position change failed!")
+          })
+        )
+    }
+    
+    
   }
 
 }
