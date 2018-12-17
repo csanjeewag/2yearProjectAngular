@@ -13,9 +13,12 @@ import { Router} from '@angular/router';
 export class ImageuploadComponent implements OnInit {
   imageUrl : string = "../assets/_image/gallery-logo.png";
   fileToUpload : File =  null;
-  FileImage: File = null;
-  ImageUrl: any ="../assets/_image/cameralogo.jpg";
-  
+ // FileImage: File = null;
+
+ // ImageUrl: any ="../assets/_image/cameralogo.jpg";
+
+ public ImageUrl: Array<string> = [];
+ public FileImage: Array<File> = [];
   constructor(private repository : RepositoryService, private route : Router) { }
  public imageuploadForm: FormGroup;
 
@@ -24,7 +27,6 @@ export class ImageuploadComponent implements OnInit {
 
     this.imageuploadForm = new FormGroup({
       EventId: new FormControl('',[Validators.required]),
-      EventtypeId: new FormControl('',[Validators.required]),
       Caption: new FormControl('',[Validators.required]),
       Description: new FormControl('',[Validators.required]),
       Image: new FormControl ('',[Validators.required])
@@ -67,29 +69,46 @@ export class ImageuploadComponent implements OnInit {
       //   )
       // }
 
-    public onFileChange(file : FileList) {
+    // public onFileChange(file : FileList) {
     
 
-        this.FileImage = file.item(0);
+    //     this.FileImage = file.item(0);
+    //    //selected image viewing
+    //     var reader = new FileReader();
+    //     reader.onload = (event:any) => {
+    //        this.ImageUrl = event.target.result;
+    
+    //     }
+    //      reader.readAsDataURL(this.FileImage);
+    //   }
+
+      onFileChange(file : FileList) {
+    
+
+        this.FileImage[0] = file.item(0);
+   
        //selected image viewing
         var reader = new FileReader();
         reader.onload = (event:any) => {
-           this.ImageUrl = event.target.result;
-    
+           this.ImageUrl[0] = event.target.result;
+           
+           console.log(event.target.result)
         }
-         reader.readAsDataURL(this.FileImage);
+         reader.readAsDataURL(this.FileImage[0]);
+      
       }
+
 
       OnSubmit(value){
       console.log(value)
         let url = "pastevent/addimage";
         let formData = new FormData();
         formData.append('EventId',value.EventId);
-        formData.append('EventId',value.EventtypeId);
         formData.append('Caption',value.Caption);
         formData.append('Description',value.Description);
-        formData.append('Image', this.FileImage);
-        
+        formData.append('Image', this.FileImage[0]);
+     
+
         this.repository.postFile(url, formData)
               .subscribe(res=>{
 

@@ -78,7 +78,7 @@ import { ChangePositionComponent } from './Employee/change-position/change-posit
     RouterModule.forChild([
       { path: 'home', component: HomepageComponent},
       { path: 'list', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
-      { path: 'changeposition', component: ChangePositionComponent },
+      
       { path: 'login', component: LoginUserInterfaceComponent },
       { path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
       { path: 'delete/:id', component: DeleteEmployeeComponent },
@@ -91,7 +91,7 @@ import { ChangePositionComponent } from './Employee/change-position/change-posit
       { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
       
       { path: 'admin', component: AdminPageComponent, canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'},children:[
-        
+        { path: 'update', component: ChangePositionComponent },
         { path: 'roles', component: ShowRolesDetailsComponent },
         { path: 'project', component: ProjectViewComponent },
         { path: 'departments', component: ShowDepartmentsDetailsComponent},
