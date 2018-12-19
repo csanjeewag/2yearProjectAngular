@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RepositoryService } from "./../../ShareData/repository.service";
+import { ActivatedRoute } from '@angular/router';
+import { Router,ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-eventcard',
@@ -7,15 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventcardComponent implements OnInit {
 
-  constructor() { }
-
+  
+  constructor(private router: Router ,private repository:RepositoryService) { }
+  
+  public event:any;
   ngOnInit() {
+    this.eventname();
   }
 
 
-public event(){
-  console.log("fff");
+public eventname(){
+  let url = "pastevent/getevents";
+   this.repository.getData(url)
+    .subscribe(res => {
+      this.event =res;
+      console.log(res);
+    },(error) =>{
 
+    })
+
+}
+public moredetail(id){
+  console.log(id);
+    this.router.navigate(['pastevent/event/s/'+id]);
 }
 
 

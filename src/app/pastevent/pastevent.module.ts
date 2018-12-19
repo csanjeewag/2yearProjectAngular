@@ -30,11 +30,12 @@ import { EventcardComponent } from './eventcard/eventcard.component';
       { path: 'eventcard', component: EventcardComponent  },
       { path: 'cricketinfo', component: CricketinfoComponent},
       { path: 'uploadpastevent', component: UploadpasteventComponent },
-      { path: 'imageview', component: ImageviewComponent},
+      // { path: 'imageview', component: ImageviewComponent},
       { path: 'event', component: SidebarComponent,
       
        children: [
         { path: 's/:id', component: PastdetailComponent },
+      
       ]
     },
      

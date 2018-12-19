@@ -23,19 +23,7 @@ export class ImageviewComponent implements OnInit {
       this.eventId=id;
     })
     this.getimage(this.eventId);
-    
 
-    
-
-    
-    // this.repo.getimage('').subscribe(
-    //   res=>{
-    //     this.result=res;
-    //   },
-    // (error)=>{
-
-    // }
-    // )
   }
  public getimage(id){
    
