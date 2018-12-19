@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
 
   public getEvents(){
 
-    let url = "";
+    let url = "pastevent/getevents";
    this.repository.getData(url)
     .subscribe(res => {
       this.event =res;
@@ -37,4 +37,9 @@ export class SidebarComponent implements OnInit {
  console.log(id);
     this.router.navigate(['pastevent/event/s/'+id]);
   }
+  public  gotoEventImages(id){
+    console.log(id);
+       this.router.navigate(['pastevent/imageview/'+id]);
+       
+     }
 }

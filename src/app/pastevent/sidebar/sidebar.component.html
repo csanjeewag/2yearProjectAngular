@@ -11,7 +11,8 @@
           <br><br>
           <div id="topicside">Latest Topics </div>
           <div *ngFor="let e of event">
-            <a [class.click]="(ClickId==e.id)" (click)=gotoEvent(e.id)>{{e.username}}</a>
+            <a [class.click]="(ClickId==e.id)" (click)=gotoEvent(e.id)>{{e.eventName}}</a>
+            <a [class.click]="(ClickId==e.id)" (click)=gotoEventImages(e.id)>Images</a>
 
           </div>
 

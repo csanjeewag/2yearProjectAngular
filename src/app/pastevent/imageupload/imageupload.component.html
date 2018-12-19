@@ -83,7 +83,7 @@
 
                         <!-- <input class="inputfile" type="file" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)"> -->
                         <div class="image-upload-wrap">
-                            <input class="file-upload-input" type='file' onchange="readURL(this);" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)" />
+                            <input class="file-upload-input" type='file' onchange="readURL(this);" formControlName="Image" multiple accept="image/*" (change)="onFileChange($event.target.files)" />
                             <div class="drag-text">
                               <h3>Drag and drop Image</h3>
                             </div>

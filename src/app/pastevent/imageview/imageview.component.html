@@ -97,11 +97,11 @@
             <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
            
 
-
-<div class="wrap">
+<!-- b new comment -->
+<!-- <div class="wrap">
     <div *ngFor="let i of result" >
 	<!-- Define all of the tiles: -->
-	<div class="box">
+	<!-- <div class="box"> 
 		<div class="boxInner">
 			<img  class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
 			<div class="titleBox">
@@ -111,7 +111,23 @@
 	</div>
 	
 </div>
-</div>
+</div> -->
+
+
+<!--  -->
+
+<section class="no-touch">
+  <div class="wrap">
+    <div *ngFor="let i of result">
+      <div class="box">
+        <div class="boxInner">
+          <img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+          <div class="titleBox">Winding garden path</div>
+        </div>
+      </div>
+    </div>
+   </div>
+</section>
               <!-- <div class="card-body">
             <h5 class="card-title">{{i.caption}}</h5>
             <p class="card-text">Description:{{i.description}}</p>
