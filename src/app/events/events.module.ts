@@ -23,11 +23,7 @@ import { SelectAttributeComponent } from './select-attribute/select-attribute.co
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'createEventPageForTrip', component:CreateEventPageForTripComponent},
-<<<<<<< HEAD
-      {path:'v', component:ViewEventPageComponent},
-=======
       {path:'vieweventpage', component:ViewEventPageComponent},
->>>>>>> 5ea8a901a5a75a753ff2be5be2ce595f0064e8fa
       {path:'oneDayTrip/:id', component:OneDayTripComponent},
       {path:'twoDayTrip/:id', component:TwoDayTripComponent},
       {path:'yearEndParty/:id', component:TwoDayTripComponent},
