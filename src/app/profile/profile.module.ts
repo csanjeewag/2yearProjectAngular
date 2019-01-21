@@ -55,8 +55,12 @@ import { ForgetEmployeePasswordComponent } from './forget-employee-password/forg
 //admin
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { FilterPipePipe } from './filter-pipe.pipe';
+import { FilterPipePipe2 } from './filter-pipe.pipe';
+import { FilterPipePipe3 } from './filter-pipe.pipe';
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { ChangePositionComponent } from './Employee/change-position/change-position.component';
+import { EmployeePasswordChangeComponent } from './Employee/employee-password-change/employee-password-change.component';
 
 @NgModule({
   imports: [
@@ -89,9 +93,10 @@ import { ChangePositionComponent } from './Employee/change-position/change-posit
       { path: 'profile', component: EmployeeProfileComponent  },
       { path: 'register', component: EmployeeRegisterByLinkComponent  },
       { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
-      
+      { path: 'changepassword', component: EmployeePasswordChangeComponent  },
+      { path: 'update', component: ChangePositionComponent },
       { path: 'admin', component: AdminPageComponent, canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'},children:[
-        { path: 'update', component: ChangePositionComponent },
+       
         { path: 'roles', component: ShowRolesDetailsComponent },
         { path: 'project', component: ProjectViewComponent },
         { path: 'departments', component: ShowDepartmentsDetailsComponent},
@@ -103,7 +108,7 @@ import { ChangePositionComponent } from './Employee/change-position/change-posit
       
     ])
   ],
-  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent, ChangePositionComponent],
+  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe,FilterPipePipe2,FilterPipePipe3, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent, ChangePositionComponent, EmployeePasswordChangeComponent],
   exports: [RouterModule]
 })
 export class ProfileModule { }

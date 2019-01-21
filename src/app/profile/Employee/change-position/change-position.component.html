@@ -1,5 +1,6 @@
 <app-nav-bar></app-nav-bar>
 
+
     <div class="col-md-10 container">
     	<div class="row">
 			<div class="col-md-12">
@@ -7,15 +8,27 @@
 					<div class="Header">
 						<h3 class="panel-title">...</h3>
 						
-					</div>
+          </div>
+          <div class="row">
+              <div class="col-md-4">       
+               <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" />
+
+            </div>
+            <div class="col-md-4">       
+                <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" />
+             </div>
+             <div class="col-md-4">       
+                <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" />
+                <!-- <select class="form-control" formControlName="role" placeholder="Roles" id="role" >
+                    <option value="" selected disabled hidden> All Project </option>
+                    <option [(ngModel)]="filterproject"  [value]="p.projectName" *ngFor="let p of projects">{{p.projectName}}</option>
+                </select> -->
+              </div>
 					<div class="panel-body">
               <div class=" input-group mb-3" [class.error]="isNotEmail">
-                  <div class="input-group-prepend">
-                  <label (click)=filterInput() class="input-group-text" for="filter">Search.. </label>
-                  </div>
-						<input *ngIf="toggle" [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
              
-          
+            </div>
+         
           <div class="table-responsive" id="table">
 					<table class="table">
             <thead>
@@ -33,7 +46,7 @@
              
             </tr></thead>
             <tbody>
-            <tr id="zoom1" *ngFor="let i of result | filterPipe: filtertext" >
+            <tr id="zoom1" *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject  " >
               <td id="zoom3" > <img [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" width="100px" ></td>
               <td>{{i.empName}}</td>
               <td>{{i.empEmail}}</td>
@@ -72,8 +85,8 @@
                   </div>
                 </div>
                </td>
-               <td id="btn" *ngIf="(i.isActive)&&(Loading!=i.empEmail)" id="zoom3" ><button type="button" id="delete" class="btn" (click)=statechange(i.empEmail,0)>For Deactive</button></td>
-               <td id="btn" *ngIf="!(i.isActive)&&(Loading!=i.empEmail)" id="zoom3" ><button type="button" id="delete" class="btn" (click)=statechange(i.empEmail,1)>For Active</button></td>
+               <td id="btn" *ngIf="(i.isActive)&&(Loading!=i.empEmail)" id="zoom3" ><button type="button" id="delete" class="btn btn-secondary " (click)=statechange(i.empEmail,0)>For Deactive</button></td>
+               <td id="btn" *ngIf="!(i.isActive)&&(Loading!=i.empEmail)" id="zoom3" ><button type="button" id="delete" class="btn btn-secondary" (click)=statechange(i.empEmail,1)>For Active</button></td>
                <td id="btn" *ngIf="(Loading==i.empEmail)"><div ><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" ></div>
        
               

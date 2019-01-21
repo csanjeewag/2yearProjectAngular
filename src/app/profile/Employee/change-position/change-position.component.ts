@@ -166,4 +166,8 @@ export class ChangePositionComponent implements OnInit {
     
   }
 
+  public onChangem(a){
+    alert(a)
+  }
+
 }
