@@ -19,13 +19,17 @@ public result:any;
 public task:any;
 public goalText:any;
 public employeeId:any;
+public employees:Array<string> = [];
 public todaydate:Date;
+emailFormArray: Array<any> = [];
+
 
   constructor(private router: Router,  private repository : RepositoryService,config: NgbModalConfig, private modalService: NgbModal) { }
   
 
   ngOnInit() {
     this.getAllEmployee();
+    this.getToday();
     this.taskForm = new FormGroup({        
     
       //TaskId: new FormControl('',[Validators.required,Validators.maxLength(5)]),
@@ -35,7 +39,7 @@ public todaydate:Date;
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      EmployeeEmpId: new FormControl('',[Validators.required]),
+      EmployeeEmpId: new FormControl(''),
       //Admin: new FormControl('',[Validators.required]),
       },
       //{ validators: isvalidconfirmpassword }
@@ -59,17 +63,18 @@ public todaydate:Date;
   private executeTaskCreation(profileFormValue) {
     let t: NewTask = {
       
-    taskId:profileFormValue.TaskId,
+    //taskId:profileFormValue.TaskId,
     taskName:profileFormValue.TaskName,
-    eventName:profileFormValue.EventName,
+    eventName:'2',
     startDate:profileFormValue.StartDate,
     endDate:profileFormValue.EndDate,
     budgetedCost:profileFormValue.BudgetedCost,
     description:profileFormValue.Description,
     employeeEmpId:this.employeeId,
+    employees:this.employees,
     admin:profileFormValue.Admin,
     status:false,
-    addDate:profileFormValue.addDate
+    addDate:profileFormValue.addDate,
 
     };
 
@@ -137,29 +142,29 @@ this.employeeId=id;
   }
 
   public validateDate(group: FormGroup) {
-    ///TODO: Implement some better validation logic
     const invalid = group.get('startDate').value > group.get('endDate').value;
   
-    ///TODO: Implement some logic to mark controls dirty if is necessary.
   
     return invalid ? { 'invalidDate': true } : null;
   }
 
+  onChange(id:string,empName:string, isChecked: boolean) {
+    if(isChecked) {
+      this.employeeId=id;
+      this.employees.push(id);
+      this.emailFormArray.push(empName);
+      console.log(this.employeeId)
+
+    } else {
+      let index = this.emailFormArray.indexOf(empName);
+      this.emailFormArray.splice(index,1);
+    }
 }
 
-/*function ageRangeValidator(control: AbstractControl): { [key: string]: boolean } | null {
-  if (control.value !== undefined && (isNaN(control.value) || control.value < 18 || control.value > 45)) {
-      return { 'ageRange': true };
-  }
-  return null;
-} 
 
-export const isvalidconfirmpassword: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
-  const password = control.get('password');
-  const confirmpassword = control.get('confirmpassword');
-  
-  return password && confirmpassword && password.value === confirmpassword.value && confirmpassword.value !== ""? { 'ismatch': true } : null;
-};*/
+}
+
+
 
   
 

@@ -16,7 +16,7 @@ import { EventHomePageComponent } from './event-home-page/event-home-page.compon
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'createEventPageForTrip', component:CreateEventPageForTripComponent},
-      {path:'viewEventPage', component:ViewEventPageComponent},
+      {path:'v', component:ViewEventPageComponent},
       {path:'oneDayTrip/:id', component:OneDayTripComponent},
       {path:'twoDayTrip/:id', component:TwoDayTripComponent},
       {path:'eventHomePage', component:EventHomePageComponent},
