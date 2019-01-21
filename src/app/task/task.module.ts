@@ -27,12 +27,14 @@ import { MainTaskComponent } from './main-task/main-task.component';
 import { ContactsComponent } from './contacts/contacts.component';
 //import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
 
+import { SharedModuleModule} from "./../shared-module/shared-module.module";
 
 
 @NgModule({
   imports: [
     CommonModule,
-
+    SharedModuleModule,
+    
     MatCheckboxModule,
     MatInputModule,
     MatRadioModule,

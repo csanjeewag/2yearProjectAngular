@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
 
   public getEvents(){
 
-    let url = "";
+    let url = "pastevent/getevents";
    this.repository.getData(url)
     .subscribe(res => {
       this.event =res;

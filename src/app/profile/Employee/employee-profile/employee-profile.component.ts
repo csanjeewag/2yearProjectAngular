@@ -35,5 +35,15 @@ export class EmployeeProfileComponent implements OnInit {
    });
     
   }
+  public updateprofile(id){
+   
+    this.router.navigate(['/profile/update/'+id]);
+  }
+
+
+  public changepassword(id){
+    this.router.navigate(['/profile/changepassword']);
+   
+  }
 
 }

@@ -44,14 +44,14 @@
               </div>
               <div class="form-row">
                       <div class="form-group col-md-6">
-                          <input  placeholder="Password" class="form-control" type="password" formControlName="password" id="password">
+                          <input type="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"  placeholder="Password" class="form-control" type="password" formControlName="password" id="password">
                           <em *ngIf="validateControl('password') && hasError('password', 'required')">*Password is required</em>
                           <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">*Maximum allowed length is 6 characters.</em>
                           
                  
                       </div>
                       <div class="form-group col-md-6">
-                              <input  placeholder="Re Again Password" class="form-control" formControlName="confirmpassword" type="password" id="confirmpassword">
+                              <input type="password"  placeholder="Re Again Password" class="form-control" formControlName="confirmpassword" type="password" id="confirmpassword">
                               <em *ngIf="validateControl('confirmpassword') && hasError('confirmpassword', 'required')">*Password is required</em>
                               <em *ngIf="((ownerForm.errors?.ismatch) )">*confirm password is not match</em> 
                               
@@ -121,29 +121,18 @@
                       <em *ngIf="validateControl('gender') && hasError('gender', 'maxlength')">*Maximum allowed length is 6 characters.</em>
              
                     </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <div class="form-group">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                          <label class="form-check-label" for="invalidCheck2">
-                            <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
-                          </label>
-                        </div>
-                      </div>
-            
-                  </div>
-            </div>
+     
             <em *ngIf="isAvalibleemail"> This Email already registered!</em>
             <em id="error">{{message}}</em>
             <div class="form-row">
                 <div class="form-group container">
                           <div class="btn-group" role="group" aria-label="Basic example">
                               
-                              <button type="submit" class="btn" [disabled]="!ownerForm.valid">Next</button>
+                              <button *ngIf="(waiting)"  type="submit" class="btn" [disabled]="!ownerForm.valid">Next</button>
+                              <button *ngIf="!(waiting)" > <img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"> </button>
                           </div>
                           
-                          <div *ngIf="(waiting)" > <p id="waiting" *ngIf="wait"> Waiting for while... . .</p><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+                          <!-- <div *ngIf="(waiting)" > <p id="waiting" *ngIf="wait"> Waiting for while... . .</p><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div> -->
                           
    
                       </div>

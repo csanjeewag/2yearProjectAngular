@@ -24,6 +24,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
     public Message: {};
     public loginForm: FormGroup;
     public wait:any;
+    public LoadForget:any;
     public isNotEmail:any;
     public hiddenPassword:any;
     public Loading : any;
@@ -88,7 +89,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
           .subscribe(res =>  {
                 this.result = res;
             this.Message="Your loggin Success!";
-           this.router.navigate(['/profile/list']);
+           this.router.navigate(['/profile/home']);
             this.Loading = false;
               localStorage.setItem('token',this.result.token );
           
@@ -133,16 +134,19 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
           return false;
       }
     public forgetpassword(value){
+      this.LoadForget = true;
      this.wait = "please wait for while, check your email.."; 
       
-      this.repository.getData('forgetpassword/'+value.email)
+      this.repository.getData('employee/forgetpassword/'+value.email)
       .subscribe(res => {
         this.Message="For change password, go to your email.";
         this.wait = ""; 
+        this.LoadForget = false;
     },
       (error) => {
         this.Message="you can not change password.";
         this.wait = ""; 
+        this.LoadForget = false;
       })
     }  
     public  hiddenpassword(){

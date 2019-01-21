@@ -49,7 +49,7 @@ export class ViewEventPageComponent implements OnInit {
        var day = this.event.startDate.split('-')[2].split('T')[0];
        var date = `${year}-${month}-${day}`
        this.event.startDate=date;
-       console.log("eeeeeeeeeeeeeeeeeevent type"+this.event.type);
+      
       
       
        

@@ -2,7 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { SidenavbarComponent } from "./../../SharePart/sidenavbar/sidenavbar.component";
 import { FrontPageComponent } from './front-page/front-page.component';
 import { RcFrontPageComponent } from './rc-front-page/rc-front-page.component';
 import { TeamFormComponent } from './team-form/team-form.component';
@@ -14,9 +14,11 @@ import { DetailsViewComponent } from './details-view/details-view.component';
 import { TeamUpdateFormComponent } from './team-update-form/team-update-form.component';
 import { EmployeeUpdateFormComponent } from './employee-update-form/employee-update-form.component';
 
+import { SharedModuleModule } from "./../../shared-module/shared-module.module";
  
 @NgModule({
   imports: [
+    SharedModuleModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
@@ -33,6 +35,6 @@ import { EmployeeUpdateFormComponent } from './employee-update-form/employee-upd
 
     ])
   ],
-  declarations: [FrontPageComponent, RcFrontPageComponent, TeamFormComponent, TeamRcViewComponent, EmployeePageComponent, EmployeeViewPageComponent, DetailsFormComponent, DetailsViewComponent, TeamUpdateFormComponent, EmployeeUpdateFormComponent, ]
+  declarations: [SidenavbarComponent,FrontPageComponent, RcFrontPageComponent, TeamFormComponent, TeamRcViewComponent, EmployeePageComponent, EmployeeViewPageComponent, DetailsFormComponent, DetailsViewComponent, TeamUpdateFormComponent, EmployeeUpdateFormComponent, ]
 })
 export class CricketMatchModule { }
