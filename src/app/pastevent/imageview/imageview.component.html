@@ -1,5 +1,43 @@
-<!--<h1><span class="badge badge-secondary">Imagegallery</span></h1>-->
-<app-logged-header></app-logged-header>
+
+
+
+
+<!-- ########################### NEW PART  1   ##################################  -->
+
+<app-nav-bar></app-nav-bar>
+<!-- <app-logged-header></app-logged-header> -->
+
+<li class="nav-item">
+  <div class="row">
+    <div class="col-1">
+      <a class="nav-link" href="pastevent/imageupload"><button  class="btn" class="btn-large btn-submit" class="btn btn-outline-success">Upload
+          Image</button></a>
+
+    </div>
+   
+    <div class="col-10"></div>
+    <div class="col-1">
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="pastevent/imageview/1"> Blood Donation</a>
+            <a class="dropdown-item" href="pastevent/imageview/2"> Cricket Match</a>
+            <a class="dropdown-item" href="pastevent/imageview/3"> Annual trip</a>
+            <a class="dropdown-item" href="pastevent/budget">Budget</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+
+<!-- ##################### OLD PART 1   ############################## -->
+
+<!-- <app-logged-header></app-logged-header>
 
 <li class="nav-item">
   <div class="row">
@@ -28,25 +66,67 @@
 </li>
 <br><br>
 
-
-<!-- <div *ngFor="let i of result" class="card">
-
-  <img class="card-img-top" [src]="ImageUrl+i.ImageName" alt="Cinque Terre">
-  <div class="card-body">
-    <h5 class="card-title">{{i.ImageCaption}}</h5>
-    <p class="card-text">Discription:{{i.ImageComment}}</p>
-    <p class="card-text">EventId:{{i.ImageEventID}}</p>
-  </div>
-</div>
-
  -->
- 
+
+
+
+
+
+
+<!-- ############## NEW PART 2       ######################## -->
+
+<!-- <div class="row">
+  <div class="container">
+    <div>
+      <div class="gallery" class="row  card-group container">
+        <div *ngFor="let i of result" class="col-md-4">
+          <div class="grid-container">
+            <div class="card">
+              <a><img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre"> </a>   
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>         -->
+              <!-- <div class="card-body">
+            <h5 class="card-title">{{i.caption}}</h5>
+            <p class="card-text">Description:{{i.description}}</p>
+            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
+           
+
+
+<div class="wrap">
+    <div *ngFor="let i of result" >
+	<!-- Define all of the tiles: -->
+	<div class="box">
+		<div class="boxInner">
+			<img  class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+			<div class="titleBox">
+				Butterfly
+			</div>
+		</div>
+	</div>
+	
+</div>
+</div>
+              <!-- <div class="card-body">
+            <h5 class="card-title">{{i.caption}}</h5>
+            <p class="card-text">Description:{{i.description}}</p>
+            <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
+           
+
+
+
+
+
+
+<!-- #########################  OLD PART   2     ##################################################### -->
+<!--  
  <div class="row">
     <div class="col-1"> </div>
 
-
-
- 
 <div  class="col-10" class="row  card-group container">
   <div *ngFor="let i of result">
     <span class="border">
@@ -57,29 +137,11 @@
             <h5 class="card-title">{{i.caption}}</h5>
             <p class="card-text">Description:{{i.description}}</p>
             <!-- <p class="card-text">EventId:{{i.eventId}}</p> -->
-          </div>
+          <!-- </div>
         </div>
       </div>
     </span>
   </div>
 </div>
 
- <div class="col-1"></div>
-
-<!-- 
-<div class="alignr">
-<div class="row card-group container">
-    <div class="col-sm-4"*ngFor="let i of result;">
-      <div class="card mb-5" style="width: 20rem;">
-        <img class="card-img-top" src="ImageUrl+i.imageId" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{i.caption}}</h5>
-          <div class="btn btn-success" (click)="register(i.pKey)">View Event</div>
-          
-         
-        </div>
-      </div>
-    </div>
-    
-  </div>
-  </div> -->
+ <div class="col-1"></div> --> 

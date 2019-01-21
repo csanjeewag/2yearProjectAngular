@@ -23,13 +23,14 @@ export class SidebarComponent implements OnInit {
 
   public getEvents(){
 
-  //  this.repository.gettest("")
-  //   .subscribe(res => {
-  //     this.event =res;
-  //     console.log(res);
-  //   },(error) =>{
+    let url = "pastevent/getevents";
+   this.repository.getData(url)
+    .subscribe(res => {
+      this.event =res;
+      console.log(res);
+    },(error) =>{
 
-  //   })
+    })
   }
 
  public  gotoEvent(id){

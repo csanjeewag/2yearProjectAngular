@@ -20,5 +20,13 @@ a{
 }
 
 footer{
+
     color: rgb(51, 51, 51);
+}
+#header{
+   background-color: rgb(146, 20, 20);
+   color: #ffff;
+}
+#card-body{
+    background-color: #f9f9f9;
 }

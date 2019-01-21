@@ -1,23 +1,9 @@
-
-<app-logged-header></app-logged-header>
 <section class="testimonial py-5" id="testimonial">
     <div class="container">
         <div class="row ">
-            <div class="col-md-4 py-5 text-white text-center " id="sideA">
-                <div class="sideA">
-                    <div class="card-body">
-                        <img src="assets/_image/cslogo.png" style="width:30%">
-                        
-                        <h2 class="py-3">Assign Tasks</h2>
-                        <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
+            
   
-  </p>
-                    </div>
-                </div>
-            </div>
-  
-  
-            <div class="col-md-8 py-5 border" id="formV">
+            <div class="col-md-8  border ml-5" id="formV">
                     <form [formGroup]="taskForm"  autocomplete="off" novalidate (ngSubmit)="createTask(taskForm.value)">
 
                         
@@ -36,7 +22,12 @@
                 </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <input type="text" class="form-control"  placeholder="Responsible RC member" formControlName="EmployeeEmpId" id="EmployeeEmpId" [(ngModel)]="goalText">
+                          <!-- <input type="text" class="form-control"  placeholder="Responsible RC member" formControlName="EmployeeEmpId" id="EmployeeEmpId" [(ngModel)]="goalText"> -->
+                          <span class="sp1">Responsible RC</span>
+                          
+                              <div *ngFor="let j of emailFormArray;">
+                                  {{j}}
+                              </div>
                           
                           <!-- <form autocomplete="off" novalidate [formGroup]="employeeForm"(ngSubmit)="SelectEmployee(employeeForm.value)">
 
@@ -47,7 +38,6 @@
                                 Employee List
                               </button-->
                               <button class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
- 
                               <ng-template #content let-c="close" let-d="dismiss">
                                   <div class="modal-header">
                                     <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
@@ -55,19 +45,19 @@
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
+                                  <!-- employee list -->
                                   <div class="modal-body">
                                     <table class="table table-borderless">
-                                    <tr *ngFor="let i of result;">
-                                      <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td>
+                                        <tr *ngFor="let i of result;" class="form-check">
+                                      
+                                    <td><input type="checkbox" class="form-check-input" (change)="onChange(i.empId,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+                                    <!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
                                      
                                     </tr>
-                                    </table>
-                                    
-                  
-                                         
-                  
-                  
-                                  </div>
+                                    </table>                              
+                                    </div>
+
+                                     <!-- end -->
                                   <div class="modal-footer">
                                       <small class="text-muted">
                                          
