@@ -87,6 +87,7 @@ export class ImageuploadComponent implements OnInit {
 
     this.FileImage[0] = file.item(0);
     this.FileImage[1] = file.item(1);
+    this.FileImage[2] = file.item(2);
     //selected image viewing
     var reader = new FileReader();
     reader.onload = (event: any) => {
@@ -96,6 +97,7 @@ export class ImageuploadComponent implements OnInit {
     }
     reader.readAsDataURL(this.FileImage[0]);
     reader.readAsDataURL(this.FileImage[1]);
+    reader.readAsDataURL(this.FileImage[2]);
 
   }
 
@@ -109,6 +111,7 @@ export class ImageuploadComponent implements OnInit {
     formData.append('Description', value.Description);
     formData.append('Image', this.FileImage[0]);
     formData.append('Image', this.FileImage[1]);
+    formData.append('Image', this.FileImage[2]);
 
     this.repository.postFile(url, formData)
       .subscribe(res => {
