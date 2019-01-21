@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddtaskComponent } from './addtask/addtask.component';
 import { RouterModule } from '@angular/router';
 
-
+import { LogingHeaderComponent } from "./../SharePart/loging-header/loging-header.component";
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +15,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 
-import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
+//import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
 import { ViewTaskComponent } from './view-task/view-task.component';
 import { AuthLoginGuard } from '../AuthGards/auth-login.guard';
 import { AuthRoleGuard } from '../AuthGards/auth-role.guard';
@@ -64,6 +64,6 @@ import { ContactsComponent } from './contacts/contacts.component';
   
    ])
   ],
-  declarations: [AddtaskComponent,LoggedHeaderComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent, MainTaskComponent, ContactsComponent]
+  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent]
 })
 export class TaskModule { }

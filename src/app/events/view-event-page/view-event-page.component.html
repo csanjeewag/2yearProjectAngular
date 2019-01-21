@@ -21,6 +21,12 @@
         <br/><br/><br/>
      <p>{{event.eventTitle}}</p>
      <br/>
+
+
+    
+
+
+
      <div class="row" id="inside">
         <div class="col-xs-1" ></div>
           <div class="col-xs-5">
@@ -39,6 +45,10 @@
             </div>
       </div>
       <br/><br/>
+      
+      
+      
+      
      </div>
    </div>
 
@@ -51,19 +61,37 @@
 
    
     
+   
+  
+    <div id="forth"  class="panels" *ngIf="this.event.type === 'OneDayTrip'">
+        <div id="forthNote"  >
+           <app-one-day-trip></app-one-day-trip>
 
-
-    <div id="forth"  class="panels">
-        <div id="forthNote">
-           
-          *ngIf="this.event.type == Trip"
-          <app-two-day-trip></app-two-day-trip>
-          
           <br/><br/>
         </div>
 
        
       </div>
+
+      <div id="forth"  class="panels" *ngIf="this.event.type === 'TwoDayTrip'">
+          <div id="forthNote"  >
+             <app-two-day-trip></app-two-day-trip>
+  
+            <br/><br/>
+          </div>
+  
+         
+        </div>
+
+        <div id="forth"  class="panels"  *ngIf="this.event.type === 'YearEndParty'">
+            <div id="forthNote" >
+               <app-year-end-party></app-year-end-party>
+    
+              <br/><br/>
+            </div>
+    
+           
+          </div>
 
 
       <div id="b" class="panels">

@@ -30,6 +30,11 @@ export class ViewEventPageComponent implements OnInit {
    
     this.eventId="28";
    
+    this.getparamId();
+    
+    this.destOrVen = "Venue";
+    this.eventId="1034";
+    console.log("event id"+this.eventId);
       this.repository.getData('event/getall/'+this.eventId)
       .subscribe(res => {
         console.log("inside res"+res);
@@ -37,11 +42,14 @@ export class ViewEventPageComponent implements OnInit {
        // var myObjStr = JSON.stringify(res);
        
        
+       console.log(this.event.destination);
+       console.log(this.event.startDate);
        var year = this.event.startDate.split('-')[0];
        var month = this.event.startDate.split('-')[1];
        var day = this.event.startDate.split('-')[2].split('T')[0];
        var date = `${year}-${month}-${day}`
        this.event.startDate=date;
+       console.log("eeeeeeeeeeeeeeeeeevent type"+this.event.type);
       
       
        
@@ -72,6 +80,16 @@ export class ViewEventPageComponent implements OnInit {
 
      
     
+
+  }
+ 
+
+  getparamId(){
+    this.rou.paramMap.subscribe((params:ParamMap)=>{
+      let id =params.get('id');
+      console.log(id);
+      this.eventId=id;
+     });
 
   }
  

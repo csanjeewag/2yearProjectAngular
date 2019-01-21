@@ -14,7 +14,7 @@ export class ImageuploadComponent implements OnInit {
   imageUrl : string = "../assets/_image/gallery-logo.png";
   fileToUpload : File =  null;
   FileImage: File = null;
-  ImageUrl: any ="../assets/_image/gallery-logo.png";
+  ImageUrl: any ="../assets/_image/cameralogo.jpg";
   
   constructor(private repository : RepositoryService, private route : Router) { }
  public imageuploadForm: FormGroup;

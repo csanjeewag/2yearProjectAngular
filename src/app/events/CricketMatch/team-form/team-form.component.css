@@ -5,7 +5,15 @@ h2 {
 input, label{
     font-family: Arial, sans-serif;
 } 
- 
-#btn-sub {
+
+#btn {   
     background-color: rgb(176, 14, 35);
 }
+/*
+h2 {
+font-family: helvetica, sans-serif;
+}
+
+input, label{
+font-family: Arial, sans-serif;
+} */

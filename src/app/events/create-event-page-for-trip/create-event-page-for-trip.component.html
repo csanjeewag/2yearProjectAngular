@@ -4,16 +4,22 @@
 
     <br/><br/>
     <div id="all">
+
+        <div class="row">
+            <div class="col-md-5"></div>
       <div id="head">
     <h3>Add Event Details</h3>
     </div>
+</div>
     <br/><br/>
     
 
 
-    <div class="card text-center col xm-3">
+    <div class="card text-center"  style="width: 58rem;">
            
             <div class="card-body">
+                <div class="row">
+                <div class="col-md-1"></div>
                     <div class="col-md-8 py-5 border" id="newForm">
     
                             <form [formGroup]="eventForm" autocomplete="off" novalidate (ngSubmit)="createEvent(eventForm.value)">
@@ -109,9 +115,12 @@
                         </div>
                     
               
-            </div>
-           
-          </div>
+            </div></div>
+           </div>
+
+
+
+        
 
 
 

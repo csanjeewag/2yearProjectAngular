@@ -1,11 +1,13 @@
-
+#btn{
+    background-color: rgb(176, 14, 35);
+}
 h2{
     text-align: center;
-    color: brown;
+    color: rgb(176, 14, 35);
 }
 #showview{
 padding: 20px;
-    background: rgba(1, 0, 7, 0.7);  /* fallback for old browsers */
+background-color: rgba(160, 161, 161, 0.8); /* fallback for old browsers */
    
 }
 #createview{
@@ -16,5 +18,5 @@ padding: 20px;
 }
 
 .card{
-    background-color: rgba(247, 247, 247, 0.8);
+    background-color: rgba(196, 199, 199, 0.8);
 }

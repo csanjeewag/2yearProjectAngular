@@ -8,6 +8,7 @@ import { ViewEventPageComponent } from './view-event-page/view-event-page.compon
 import { OneDayTripComponent } from './one-day-trip/one-day-trip.component';
 import { TwoDayTripComponent } from './two-day-trip/two-day-trip.component';
 import { EventHomePageComponent } from './event-home-page/event-home-page.component';
+import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
 
 
 @NgModule({
@@ -19,10 +20,11 @@ import { EventHomePageComponent } from './event-home-page/event-home-page.compon
       {path:'v', component:ViewEventPageComponent},
       {path:'oneDayTrip/:id', component:OneDayTripComponent},
       {path:'twoDayTrip/:id', component:TwoDayTripComponent},
+      {path:'yearEndParty/:id', component:TwoDayTripComponent},
       {path:'eventHomePage', component:EventHomePageComponent},
       { path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },       
     ]),
   ],
-  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent]
+  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent]
 })
 export class EventsModule { }

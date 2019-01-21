@@ -10,11 +10,13 @@ import { Router,ParamMap } from '@angular/router';
 })
 export class ImageviewComponent implements OnInit {
   result : any;
-  ImageUrl: string = "https://789456.azurewebsites.net/";
+
+  ImageUrl: any; 
 
   constructor(private repo: RepositoryService, private route: ActivatedRoute) { }
   public eventId:any;
   ngOnInit() {
+    this.ImageUrl = this.repo.ImageUrl;
 
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = parseInt(params.get('id'));
