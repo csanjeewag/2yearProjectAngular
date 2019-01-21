@@ -24,6 +24,8 @@ public todaydate:Date;
 public goalText:any;
 public employeeId:any;
 public result:any;
+public employees:Array<any> = [];
+
   ngOnInit() {
     this.getTask();
     this.getAllEmployee();
@@ -51,7 +53,7 @@ public result:any;
     console.log("updateawaaa"+this.employeeId+" "+this.taskId+" "+this.goalText)
     let t: NewTask = {
       
-      taskId:this.taskId,
+      //taskId:this.taskId,
       taskName:profileFormValue.TaskName,
       eventName:profileFormValue.EventName,
       startDate:profileFormValue.StartDate,
@@ -59,6 +61,7 @@ public result:any;
       budgetedCost:profileFormValue.BudgetedCost,
       description:profileFormValue.Description,
       employeeEmpId:this.employeeId,
+      employees:this.employees,
       admin:profileFormValue.Admin,
       status:false,
       addDate:this.todaydate

@@ -1,0 +1,58 @@
+<!-- <app-logged-header></app-logged-header> -->
+
+
+
+
+<!-- view all contact types -->
+<!-- search from contact type -->
+
+
+
+<div class="row m-5">
+    <div class="card" style="width: 10rem;" *ngFor="let i of result;">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="d-block text-black-dark ">{{i.contactType}}</h3>
+            <button type="button"  (click)="viewAll(i.contactId)">view All</button>
+        </div>
+        </div>
+      </div>
+    
+
+<!-- form to add contact types -->
+
+<div class="card" style="width: 16rem;">
+    <div class="card">
+        <div class="card-body">
+            <button type="button"  (click)="open(content)">+</button>
+            <div class="modal fade">
+                    <ng-template #content let-c="close" let-d="dismiss" >
+                     <div class="modal-header">
+                       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                         <span aria-hidden="true">&times;</span>
+                       </button>
+                     </div>
+                     <div class="modal-body">
+
+                        <!-- body -->
+                        <form [formGroup]="ContactForm" (ngSubmit)="addContactType(ContactForm.value)">
+
+
+                                <input id="tbname" name="yourname" class="form-control" placeholder="Contact Type" formControlName="type">
+                                <button type="submit" class="btn btn-success" >Add Contact</button>
+
+                            
+                        
+                        </form>
+                     </div>
+                     
+                    </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+           
+    
+
+</div>
+

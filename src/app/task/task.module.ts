@@ -23,6 +23,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MyTaskComponent } from './my-task/my-task.component';
 import { AddInfoComponent } from './add-info/add-info.component';
 import { UpdateTaskComponent } from './update-task/update-task.component';
+import { MainTaskComponent } from './main-task/main-task.component';
+import { ContactsComponent } from './contacts/contacts.component';
 //import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
@@ -53,6 +55,8 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
        {path:'addinfo',component:AddInfoComponent},
        //{path:'details/:id', component: ShowTaskDetailsComponent},
        { path: 'update/:id', component: UpdateTaskComponent },
+       {path:'newtask',component:MainTaskComponent},
+       {path:'contact',component:ContactsComponent}
 
 
 
@@ -62,6 +66,6 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
   
    ])
   ],
-  declarations: [LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent]
+  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent]
 })
 export class TaskModule { }
