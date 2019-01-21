@@ -196,7 +196,7 @@ import { ok } from 'assert';
 
    this.repository.postData(apiUrl,loginuse)
          .subscribe(res=>{
-           console.log(res);
+           
            if(res==true)
            {this.isAvalibleemail=true }
            else 
@@ -218,7 +218,7 @@ onFileChange(file : FileList,id:number) {
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
-     console.log(event.target.result)
+   
   }
    reader.readAsDataURL(this.FileImage);
 }

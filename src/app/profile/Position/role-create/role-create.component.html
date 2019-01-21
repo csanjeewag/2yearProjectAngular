@@ -15,23 +15,26 @@
             <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
             <!-- Sign up Form -->
             <form [formGroup]="positionForm" autocomplete="off" novalidate (ngSubmit)="createrole(positionForm.value)">
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="email" class="sr-only">DepartmentId</label>
-                    <input class="form-control" formControlName="positionId" id="positionId" placeholder="Role Id">
+                    <input class="form-control" formControlName="positionId" id="positionId"  required>
+                    <label> Position Id</label>
                     <em *ngIf="validateControl('positionId') && hasError('positionId', 'required')">*Role Id is required!</em>
                     <em *ngIf="validateControl('positionId') && hasError('positionId', 'email')">*This not a valid email!</em>
             
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="key" class="sr-only">Name</label>
-                    <input type="text" formControlName="positionName" id="positionName" class="form-control" placeholder="Role Name">
+                    <input type="text" formControlName="positionName" id="positionName" class="form-control" required>
+                    <label> Position Name</label>
                     <em *ngIf="validateControl('positionName') && hasError('positionName', 'required')">*Role name is required</em>
                     <em *ngIf="validateControl('positionName') && hasError('positionName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
                   
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-12">
                     <label for="key" class="sr-only">Dis</label>
-                    <input type="text" formControlName="positionDis" id="positionDis" class="form-control" placeholder="Role Dis">
+                    <input type="text" formControlName="positionDis" id="positionDis" class="form-control" required>
+                    <label> Position Description</label>
                     <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'required')">*Description is required</em>
                     <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'maxlength')">*Maximum allowed length is 100 characters.</em>
                   
