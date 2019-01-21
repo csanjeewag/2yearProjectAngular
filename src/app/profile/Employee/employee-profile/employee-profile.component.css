@@ -28,6 +28,10 @@ em{
  #back{
     background-color: rgb(176, 14, 35);
       height: 50%;
+  }
+  #part0{
+    background-color: rgb(176, 14, 35);
+
   } 
 
   
@@ -103,13 +107,13 @@ body {
 .lh-100 { 
   line-height: 1; }
 
-  .cntent ,{
+  .cntent {
  margin-inline-start: 10%;
 margin-top: 05%; 
-padding-left: 5%}
+margin-left: 20%}
+
 td{
   padding: 5%;
-  width: auto
 }
 
 .lh-125 { line-height: 1.25; }

@@ -1,9 +1,14 @@
 export class OneDayTrip {
-      pKey:string
       eventId:string;
-      employeeId: string;
-      transportationMode: string;
-      numberOfFamilyMembers: string;
-      
+      name:string;
+      email:string;
+      nic:string;
+      dob:Date;
+      transportationMode:string;
+      mealType:string;
+      gender:string;
+      spouseName:string;
+      spouseNic:string;
+      spouseDob:Date;
     
 }

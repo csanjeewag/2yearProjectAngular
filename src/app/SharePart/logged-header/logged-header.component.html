@@ -3,29 +3,44 @@
 
 <nav id="navBar" class="navbar navbar-expand-lg navbar-dark ">
 
-  <a class="navbar-brand" href="#"><img src="assets/_image/cslogo.png" id="navbarimage"></a>
+    <img src="assets/_image/cslogo.png" id="navbarimage">CreativeEvent
 
   <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </a>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item active">
         <a class="nav-link" routerLink="/profile/home" routerLinkActive="active">Home </a>
       </li>
       <li class="nav-item">
-        <a *ngIf="islogged" class="nav-link" routerLink="/trip" routerLinkActive="active">Trip </a>
+        <a *ngIf="islogged" class="nav-link" routerLink="/pastevent/eventcard" routerLinkActive="active">Past Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile/list" routerLinkActive="active ">Employee</a>
+        <a *ngIf="islogged" class="nav-link" routerLink="/events/vieweventpage" routerLinkActive="active">UpComming Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/profile/login" routerLinkActive="active ">Login User</a>
+        <a class="nav-link" routerLink="/profile/list" routerLinkActive="active ">Members</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/task" routerLinkActive="active ">Task</a>
       </li>
       <li>
           <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Admin page</a>
      
       </li>
+      <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Events        </a>
+          <div id="drop" class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+            <a  class="nav-link" routerLink="/events/vieweventpage" routerLinkActive="active ">Annual Trip</a>
+            <a class="nav-link" routerLink="/events/CricketMatch/frontpage/2" routerLinkActive="active ">Cricket Tournement</a>
+            <a class="nav-link" routerLink="/events/CricketMatch/frontpage/2" routerLinkActive="active ">Blood Donation</a>
+            <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Beach Party</a>
+            
+          </div>
+        </li>
       <li>
           <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Admin</a>
      
@@ -35,9 +50,9 @@
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        {{EmployeeName}}
       </a>
-      <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item text-light" href="/profile/profile">Profile</a>
-        <a class="dropdown-item text-light" (click)="logout()" href="#">Log Out</a>
+      <div id="drop" class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" href="/profile/profile">Profile</a>
+        <a class="dropdown-item" (click)="logout()" href="#">Log Out</a>
         
       </div>
     </li>

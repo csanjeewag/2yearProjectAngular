@@ -1,5 +1,4 @@
 
-
 <!------ Include the above in your HEAD tag ---------->
 <div id = "back">
 <div class="wrapper fadeInDown col-md-4 container">
@@ -21,14 +20,14 @@
             <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
             <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
        
-            <div *ngIf="!hiddenPassword" class=" input-group mb-3" [class.error]="isNotEmail">
-                    <div class="input-group-prepend">
-                    <!-- <label class="input-group-text" for="email">Email </label> -->
-                    </div>
-                <input class="form-control" formControlName="email" id="email" placeholder="Enter Email" >
+            <div   *ngIf="!hiddenPassword" class=" input-group mb-3" [class.error]="isNotEmail">
+                  
+                <input formControlName="email" id="email" required >
+                <label >Email </label>
+              
             </div>
             </div>
-  
+           
             
             <div class="input-group">
                     <em *ngIf="validateControl('pass') && hasError('pass', 'required')">*password is required</em>
@@ -39,7 +38,9 @@
                     <div class="input-group-prepend">
                             <!-- <label class="input-group-text" for="pass">Password </label> -->
                             </div>
-                <input type="password" formControlName="pass" id="pass" class="form-control" placeholder="Password">
+                            <input type="password" formControlName="pass" required >
+                            <label >Password </label>
+                            <!-- <input type="password" formControlName="pass" id="pass" class="form-control" placeholder="Password"> -->
             </div>
                     
         </div>
@@ -63,9 +64,10 @@
         
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a *ngIf="!(hiddenPassword)" id="crateAccountlink"  class="underlineHover" (click)="crateAccount()">SignUp</a>
-      <div *ngIf="(hiddenPassword)" class="copy-text"><a id="crateAccountlink"  (click)="forgetpassword(loginForm.value)"> Forgot passward.</a></div>
-        
+      <a *ngIf="(!hiddenPassword)&& (!LoadForget)" id="crateAccountlink"  class="underlineHover" (click)="crateAccount()">SignUp</a>
+      <div *ngIf="((hiddenPassword) && (!LoadForget))" class="copy-text"><a id="crateAccountlink"  (click)="forgetpassword(loginForm.value)"> Forgot passward.</a></div>
+      <div *ngIf="(LoadForget)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
+
     </div>
 
   </div>

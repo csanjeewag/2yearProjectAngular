@@ -10,6 +10,8 @@ import{Info} from './../_interfaces/Info';
 })
 export class AddInfoComponent implements OnInit {
 
+  fileToUpload: File = null;
+
   public InfoForm: FormGroup;
   constructor(private router: Router,  private repository : RepositoryService) { }
 
@@ -76,6 +78,10 @@ export class AddInfoComponent implements OnInit {
   
       return false;
     }
+
+    handleFileInput(files: FileList) {
+      this.fileToUpload = files.item(0);
+  }
     
 
 

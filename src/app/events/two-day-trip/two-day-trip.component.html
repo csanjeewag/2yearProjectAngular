@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <body>
 
         
@@ -72,7 +73,7 @@
               <div class="form-group col-md-10"id="f">
           <label for="accomadation">Dietary Preferences</label>
           <select class="form-control" id="mealType" formControlName="mealType">
-            <option *ngFor="let contry of accom" [value]="contry.id">{{contry.name}}</option>
+            <option *ngFor="let contry of meal" [value]="contry.id">{{contry.name}}</option>
           </select>
           </div>
         </div>
@@ -80,7 +81,7 @@
 
         <div class="form-row">
             <div class="form-group col-md-10"id="f">
-        <label for="accomadation">Dietary Preferences</label>
+        <label for="accomadation">Gender</label>
         <select class="form-control" id="gender" formControlName="gender">
           <option *ngFor="let contry of accom" [value]="contry.id">{{contry.name}}</option>
         </select>
@@ -128,10 +129,10 @@
           
           
           <div class="form-row">
-              <div class="form-group">
+              <div class="form-group" id="f">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-danger" (click)="redirectToEventPage()" style="margin-left: 5px">Cancel</button>
-                            <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" style="margin-left: 25px">Register</button>
+                           
+                            <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" style="margin-left: 25px" >Register</button>
                         </div>
                     </div>
           </div>
@@ -148,7 +149,8 @@
 
 
 
-   
-   
+
+
+
   
      </body>

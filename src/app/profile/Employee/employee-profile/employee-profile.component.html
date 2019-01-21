@@ -1,4 +1,4 @@
-
+<app-nav-bar></app-nav-bar>
 <!-- <section class="testimonial py-5 container" id="testimonial">
     <div class="container">
         <div class="row ">
@@ -50,8 +50,7 @@
     </div>
   </section>
    -->
-   <div id="back">
-   <app-logged-header></app-logged-header>
+   
    <!-- <div class="row">
     <div class="col-8">
 
@@ -88,27 +87,37 @@
 
              
                 </div> -->
+                
                 <div class="row ">
                     <main role="main" class="container">
-                        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-silver rounded box-shadow">
+                        <div class="d-flex align-items-center p-3 my-3 text-white-50 rounded box-shadow" id="part0">
                           <img [src]="ProfileImage" width="150" height="150">
-
+                         
                           <div class="lh-100">
-                            <h6 class="mb-0 text-white lh-100">{{result.empName}}</h6>
+                            <h5 class="mb-0 text-white lh-100">{{result.empName}} </h5>
+                            <h5 class="mb-0 text-white lh-100"> <small (click)=updateprofile(result.empId) id="update" style="position:absolute; right:15%"> update
+                               <br><small (click)=changepassword(result.empEmail)> change Password</small></small> 
+                          </h5>
+                          <!-- <p (click)=changepassword(result.empEmail)> change Password</p>  -->
                             <small>{{result.empPosition}}</small>
                             <table class="cntent">
                                 <tr>
                                     <td><img src="assets/email.png" class="icon" width="25" height="25"></td>
-                                    <td><h5 class="mb-0 text-white lh-100">{{result.empEmail}}</h5></td>
+                                    <td class="pl-3"><h6 class="text-white lh-100">{{result.empEmail}}</h6></td>
                                 </tr>
                                 <tr>
-                                    <td><img src="assets/project.png" class="icon" width="25" height="25"></td>
-                                    <td><h5 class="mb-0 text-white lh-100">{{result.empDepartment}}</h5></td>
+                                    <td><img src="assets/_image/project.png" class="icon" width="25" height="25"></td>
+                                    <td class="pl-3"><h6 class="mb-0 text-white lh-100">{{result.empDepartment}}</h6></td>
                                 </tr>
                                 <tr>
-                                    <td><img src="assets/email.png" class="icon" width="25" height="25"></td>
-                                    <td><h5 class="mb-0 text-white lh-100"></h5>since 2018</td>
+                                    <td><img src="assets/_image/location.png" class="icon" width="25" height="25"></td>
+                                    <td class="pl-3"><h6 class="mb-0 text-white lh-100">{{result.empAddress1}}</h6></td>
                                 </tr>
+                                <tr>
+                                    <td><img src="assets/_image/calander.png" class="icon" width="25" height="25"></td>
+                                    <td class="pl-3"><h6 class="mb-0 text-white lh-100">{{result.empStartDate | date}}</h6></td>
+                                </tr>
+                                
 
                         
                         </table>
@@ -182,7 +191,6 @@
                       </main>
                   
                 </div>
-</div>
 
 
 

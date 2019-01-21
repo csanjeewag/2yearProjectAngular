@@ -4,14 +4,15 @@
  
   <div class="form-group col-md-6" id="page">
       <div class="card">
-          <div class="card-header">
-              <h4 *ngIf="!(RegisterSucces)">If you prefer to register, Event managment system, you can register!</h4>
+          <div class="card-header" id="header">
+              <h4 class=" text-center" *ngIf="!(RegisterSucces)">Event managment system!</h4>
               <h4 *ngIf="(RegisterSucces)"> Welcome you for Event Manegment System</h4>
           </div>
-          <div class="card-body">
+          <div class="card-body" id="card-body">
             <blockquote class="blockquote mb-0">
               <br>
               <h5>Hello, {{Name}}</h5><br>
+              <h5 *ngIf="!(RegisterSucces)">If you prefer to register, Event managment system in creative software, you can register!</h5>
               <h4 id="error">{{message}}</h4>
                 <form *ngIf="!(RegisterSucces)" [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
                     
@@ -20,9 +21,9 @@
                           <input  placeholder="Resiter code" class="form-control" type="text" formControlName="resitercode" id="resitercode">
                           <small *ngIf="validateControl('resitercode') && hasError('resitercode', 'required')">*register code is required</small>
                        </div>
-                       <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Register</button>
-                        </div>
+                       
+                            <button id="btn"  type="submit" [disabled]="!registerForm.valid">Register</button>
+                       
                   </div>
             </form>
             <div *ngIf="RegisterSucces">

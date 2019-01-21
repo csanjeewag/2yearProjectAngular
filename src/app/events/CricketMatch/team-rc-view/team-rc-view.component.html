@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <div class="row"> 
   <div class="col-md-offset-10 col-md-2">
     <h2>Team Details</h2>
@@ -30,13 +31,11 @@
             <!-- <td>{{team.criTeamParticipations}}</td>
             <td>{{team.criTeamVegitarion}}</td>
             <td>{{team.criTeamNonVegitarion}}</td> -->
-            <td><button type="button" id="update" class="btn btn-success" (click)="updateteam(team.teamId)">Update</button></td>
-            <td><button type="button" id="delete" class="btn btn-danger" (click)=deleteteam(i.empId)>Delete</button></td>
+            <td><button type="button" id="update" <!--(click)="updateteam(team.teamId)" -->><img src="assets/edit.png"></button></td>
+            <td><button type="button" id="delete" <!--(click)=deleteteam(i.empId)-->><img src="assets/delete.png"></button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
-<button type="button" id="update" class="btn btn-success" (click)="redirectToUpdatePage(owner.id)">Update</button>

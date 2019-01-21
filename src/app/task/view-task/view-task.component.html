@@ -1,131 +1,7 @@
-<app-logged-header></app-logged-header>
 
 
-<!-- <div class="container">
-<div class="row">
-  <div class="col-2">
-  
-  </div>
-  <div class="col-8">
-    <div class="tableWithHeader ">
-      <div class="Header">
-        <h3 class="panel-title">..Overview..</h3>
-        
-      </div>
-      
-      <div class="table-responsive" id="table">
-      <table class="table table-hover">
-        <thead>
-        <tr >
-          <th>Task</th> 
-          <th></th>
-          <th></th>          
-         
-        </tr></thead>
-        <tbody>
-        <tr *ngFor="let i of result;">
-          
-          <td>{{i.taskName}}</td>
-          <td>
-            
-
-
-              <ng-template #content let-c="close" let-d="dismiss">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="modal-basic-title">{{i.taskName}}</h4>
-                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  
-
-                  <table class="table table-borderless">
-                                  
-                    <tr>
-                      <th> Responsible RC</th>
-                      <td ><small class="text-muted">
-                        
-                            
-                        
-                        
-                        
-                      </small></td>
-                    </tr> 
-                    <tr>
-                      <th> Start Date</th>
-                      <td> <small class="text-muted">
-                        {{i.startDate |date }}
-                      </small></td>
-                    </tr>  
-                    <tr>
-                      <th> End Date</th>
-                      <td> <small class="text-muted">
-                        {{i.endDate | date}}
-                      </small></td>
-                    </tr>
-                    <tr>
-                      <th> Bugted Cost</th>
-                      <td> <small class="text-muted">
-                        {{i.budgetedCost}}
-                      </small></td>
-                    </tr> 
-                    <tr>
-                      <th> Status</th>
-                      <td> <small class="text-muted">
-                        {{stts}}
-                      </small></td>
-                    </tr>  
-                    <tr>
-                      <th> Description</th>
-                      <td> <small class="text-muted">
-                        {{i.description}}
-                      </small></td>
-                    </tr>  
-                                   
-        </table>
-
-
-
-
-
-
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <small class="text-muted">
-                       {{i.addDate | date}}
-                      </small>
-                  <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-                      
-                </div>
-              </ng-template>
-              
-              <button class="btn btn-info" (click)="open(content)">Details</button>
-
-
-              </td>
-          
-              <td><button type="button" id="update" class="btn btn-success" (click)=updateTask(i.taskId)>Update</button></td>
-                 
-             
-            </tr>
-            </tbody>
-          </table></div>
-        
-        </div>
-      </div>
-      <div class="col-2">
-           
-        </div>
-    </div>
-    </div>
-   -->
    <div class=" my-3 p-3 rounded box-shadow" >
-      <h6 class="border-bottom border-secondary pb-2 mb-0 font-weight-bold">Recent Tasks</h6>
+      <!-- <h6 class="border-bottom border-secondary pb-2 mb-0 font-weight-bold"></h6> -->
   
       <div  class="border-bottom border-secondary media text-muted " *ngFor="let i of result;">
   
@@ -152,7 +28,7 @@
                 <tr>
                   <th> Responsible RC</th>
                   <td *ngFor="let e of employee;"><small class="text-muted">
-                    {{e.empName}}<br>
+                    {{e.empName}}
                                              
                     
                   </small></td>

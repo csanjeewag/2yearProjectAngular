@@ -1,63 +1,151 @@
-<body>
 
+
+<app-nav-bar></app-nav-bar>
+         
+
+
+      <div >
         
-    <br/><br/>
-    <div id="all">
-      <div id="head">
-    <h3>Register for Annual Trip</h3>
-    </div>
-    <br/><br/>
-    
-    
-    <div class="col-md-8 py-5 border" id="newForm">
-    
-        <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="register(registerForm.value)">
-     
-           <div class="form-row">
-               <div class="form-group col-md-12">
-                 <label>Employee Id</label>
-                 <input  placeholder="" class="form-control" type="text" formControlName="employeeId" id="employeeId">
-                 <em *ngIf="validateControl('employeeId') && hasError('employeeId', 'required')">employeeId is required</em>
-                 </div>
-           </div>
-
-           <div class="form-row">
-              <div class="form-group col-md-12">
-          <label for="transportationMode">Transportation Mode</label>
-          <select class="form-control" id="url" formControlName="transportationMode">
-            <option *ngFor="let contry of regForms" [value]="contry.id">{{contry.name}}</option>
-          </select>
-          </div>
-        </div>
-     
-
-
-
-
-
-        <div class="form-row">
-            <div class="form-group col-md-12">
-              <label>Number of Family Members</label>
-              <input  placeholder="" class="form-control" type="text" formControlName="numberOfFamilyMembers" id="numberOfFamilyMembers">
-              <em *ngIf="validateControl('numberOfFamilyMembers') && hasError('numberOfFamilyMembers', 'required')">numberOfFamilyMembers is required</em>
-              </div>
-        </div>
-
-       <div class="form-row">
-          <div class="form-group">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-danger" (click)="redirectToEventPage()" style="margin-left: 5px">Cancel</button>
-                        <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" style="margin-left: 25px">Register</button>
-                    </div>
+            <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-8 container">
+              <div id="formContent">
+                <!-- Tabs Titles -->
+             
+                <!-- Icon -->
+                <div class="fadeIn first">
+                  <h1>Register </h1>
                 </div>
-      </div>          
-     
-         </form>
-    </div>
-    <br/><br/>
+                <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+                <!-- Sign up Form -->
+                <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="register(registerForm.value)">
+                      
+                            
+                       <div class="form-row">
+                         
+                           <div class="form-group col-md-12" id="f">
+                             <label></label>
+                             <input  placeholder="Name" class="form-control" type="text" formControlName="name" id="name">
+                             <em *ngIf="validateControl('name') && hasError('name', 'required')">Name is required</em>
+                             </div>
+                       </div>
+        
+                       <div class="form-row">
+                         
+                          <div class="form-group col-md-12" id="f">
+                            <label></label>
+                            <input  placeholder="Email" class="form-control" type="email" formControlName="email" id="email">
+                            <em *ngIf="validateControl('email') && hasError('email', 'required')">Name is required</em>
+                            </div>
+                      </div>
+            
+                       <div class="form-row">
+                          <div class="form-group col-md-12 "id="f">
+                            <label></label>
+                            <input  placeholder="NIC" class="form-control" type="text" formControlName="nic" id="nic">
+                            <em *ngIf="validateControl('nic') && hasError('nic', 'required')">NIC is required</em>
+                            </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col-md-12"id="f">
+                             <label></label>
+                            <input  placeholder="Date of Birth" class="form-control" type="date" formControlName="dob" id="dob">
+                            <em *ngIf="validateControl('dob') && hasError('dob', 'required')">Start date is required</em>
+                        </div>    
+          </div>
+            
+                       <div class="form-row">
+                          <div class="form-group col-md-12"id="f">
+                      <label for="transportationMode">Mode of Transportation</label>
+                      <select class="form-control" id="transportationMode" formControlName="transportationMode">
+                        <option *ngFor="let contry of regForms" [value]="contry.id">{{contry.name}}</option>
+                      </select>
+                      </div>
+                    </div>
+            
+                    
+        
+                  <div class="form-row">
+                      <div class="form-group col-md-12"id="f">
+                  <label for="accomadation">Dietary Preferences</label>
+                  <select class="form-control" id="mealType" formControlName="mealType">
+                    <option *ngFor="let contry of meal" [value]="contry.id">{{contry.name}}</option>
+                  </select>
+                  </div>
+                </div>
+        
+        
+                <div class="form-row">
+                    <div class="form-group col-md-12"id="f">
+                <label for="accomadation">Gender</label>
+                <select class="form-control" id="gender" formControlName="gender">
+                  <option *ngFor="let contry of accom" [value]="contry.id">{{contry.name}}</option>
+                </select>
+                </div>
+              </div>
+                 
+        
+                <!--
+                <label id="f" for="gender">Gender</label>
+                <div class="form-row">
+                    <div class="form-group col-md-10"id="f">
+                    <div class="radio col-md-2">
+                        <label><input type="radio" class="form-control" formControlName="gender">Male</label>
+                      </div>
+                      <div class="radio">
+                        <label><input type="radio" class="form-control" formControlName="gender">Female</label>
+                      </div>
+                      </div>
+              </div>
+            -->
+            
+            
+                    <div class="form-row">
+                        <div class="form-group col-md-4" id="f">
+                          <label></label>
+                          <input  placeholder="Spouse Name" class="form-control" type="text" formControlName="spouseName" id="numberOfFamilyMembers">
+                          
+                          </div>
+                   
+                        <div class="form-group col-md-4">
+                          <label></label>
+                          <input  placeholder="Spouse NIC" class="form-control" type="text" formControlName="spouseNic" id="numberOfFamilyMembers">
+                          
+                          </div>
+                    
+                        <div class="form-group col-md-4">
+                           <label> </label>
+                          <input  placeholder="Spouse Date of Birth" class="form-control" type="date" formControlName="spouseDob" id="dob">
+                          
+                      </div>    
+        </div>
+        
+        
+            
+                  
+                  
+                  <div class="form-row">
+                      <div class="form-group" id="f">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                   
+                                    <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid" style="margin-left: 25px" >Register</button>
+                                </div>
+                            </div>
+                  </div>
+                 
+                     </form>
+                    <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+                    
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                  <a  id="crateAccountlink"  class="underlineHover" ></a>
+                 
+                </div>
+            
+              </div>
+            </div>
+        
+      
+            </div>
+        
+        
+        
     
-    </div>
-
-   
-  
-     </body>

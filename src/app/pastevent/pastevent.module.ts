@@ -14,11 +14,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { UploadpasteventComponent } from './uploadpastevent/uploadpastevent.component';
 import { BudgetComponent } from './budget/budget.component';
 
-import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
+import { SharedModuleModule } from "./../shared-module/shared-module.module";
+
 import { EventcardComponent } from './eventcard/eventcard.component';
 
+import { Header1Component } from "./../SharePart/header1/header1.component";
 @NgModule({
   imports: [
+    SharedModuleModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -50,8 +53,8 @@ import { EventcardComponent } from './eventcard/eventcard.component';
 
     ])
   ],
-  declarations: [ ImageuploadComponent, ImageviewComponent, PastdetailComponent,
-    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent,LoggedHeaderComponent, EventcardComponent ],
+  declarations: [Header1Component, ImageuploadComponent, ImageviewComponent, PastdetailComponent,
+    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent, EventcardComponent ],
   exports: [RouterModule]
 
 })

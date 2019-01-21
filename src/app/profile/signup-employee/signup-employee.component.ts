@@ -53,8 +53,8 @@ import { ok } from 'assert';
         email:new FormControl('',[Validators.required,Validators.email]),
         confirmpassword: new FormControl ('',[Validators.required]),
         password:new FormControl('',[Validators.required]),      
-        department:new FormControl('',[Validators.required]),
-        project:new FormControl('',[Validators.required]),
+        department:new FormControl(''),
+        project:new FormControl(''),
         gender:new FormControl('',[Validators.required])
       },{ validators: isvalidconfirmpassword })
     }

@@ -16,11 +16,11 @@ export class EventHomePageComponent implements OnInit {
   ngOnInit() {
     this.getUpComingEvents()
    
-  
   }
-
+  
+  
   public  getUpComingEvents(){
-    this.repository.getData('v')
+    this.repository.getData('event/v')
     .subscribe(res => {
       this.events = res ;
       console.log(res);
@@ -39,6 +39,11 @@ export class EventHomePageComponent implements OnInit {
     this.urlAddress = "events/viewEventPage/"+pKeys;
     this.route.navigate([this.urlAddress]);
     console.log(this.urlAddress);
+    
   }
+
+
+ 
+
 
 }

@@ -33,10 +33,11 @@ export class PastdetailComponent implements OnInit {
   }
  public getEvent(id){
 
-  let url = "";
+  let url = "pastevent/getevent/"+id;
   this.repository.getData(url)
   .subscribe(res => {
     this.event =res;
+    console.log(res);
   },(error) =>{
 
   })

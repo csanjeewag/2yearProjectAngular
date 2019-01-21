@@ -1,0 +1,35 @@
+#navBar{
+    position: sticky;
+    top: 0;
+   height: 4em;
+    width: 100%;
+    z-index: +1;
+    background-color: rgb(176,14,35);
+}
+#navBar a{
+    color: rgb(216, 212, 212);
+    font-size: 12pt;
+}
+#navBar a:hover{
+    color: rgb(15, 1, 1);
+    
+    -webkit-text-shadow: 0 30px 60px 0 rgba(71, 70, 70, 0.3);
+    text-shadow: 0 30px 60px 0 rgba(247, 247, 247, 0.3);
+    font-size: 12.5pt;
+}
+#drop a:hover{
+    color: black;
+}
+#navbarDropdownMenuLink{
+height: 45px;
+}
+#navbarimage{
+    height: 50px;
+}
+#drop{
+    background-color: rgba(176, 14, 36, 0.815);
+}
+
+.x{
+    margin-left: 75%
+}

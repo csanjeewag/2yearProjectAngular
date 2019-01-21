@@ -1,88 +1,116 @@
-<div class="container">
-  <br>
-    <h2>Cricket rc front page</h2>
-  <br>
-    <form [formGroup]="rcFront" autocomplete="off" novalidate (ngSubmit)="rcFrontData(rcFront.value)">
 
-      <div class="form-group row" id="all">
-          <label for="inputEventId" class="col-2 col-form-label" >Event Id : </label>
-          <div class="col-10">
-              <input formControlName="rcFrontId" class="form-control" type="text" placeholder="Event Id" id="inputEventId">
-              <em *ngIf="validateControl('rcFrontId') && hasError('rcFrontId', 'required')">*Employee name is required</em>
-          </div>
-      </div>
 
-      <div class="form-group row" id="all">
-          <label for="inputMainTopic" class="col-2 col-form-label" >Main Topic</label>
-          <div class="col-10">
-              <input formControlName="rcFrontmainTopic" class="form-control" type="text" placeholder="main topic" id="inputMainTopic" row="2">
-              <em *ngIf="validateControl('rcFrontId') && hasError('rcFrontId', 'required')">*MainTopic is required</em>
-          </div>
-      </div>
 
-      <div class="form-group row" id="all">
-          <label for="inputSubTopic" class="col-2 col-form-label">Sub Topic</label>
-          <div class="col-10">
-              <input formControlName="rcFrontsubTopic" class="form-control" type="text" placeholder="sub topic" id="inputSubTopic">
-              <em *ngIf="validateControl('rcFrontId') && hasError('rcFrontId', 'required')">*SubTopic is required</em>
-          </div>
-      </div>
+<app-nav-bar></app-nav-bar>
 
-      <div class="form-group row" id="all">
-          <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-          <div class="col-sm-10">
-              <input formControlName="rcFrontdate" type="date" class="form-control" id="inputDate" >
-              <em *ngIf="validateControl('rcFrontdate') && hasError('rcFrontdate', 'required')">*Date is required</em>
-          </div>
-      </div>
-
-      <div class="form-group row" id="all">
-          <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-          <div class="col-sm-10">
-              <input formControlName="rcFronttime" type="time" class="form-control" id="inputTime">
-              <em *ngIf="validateControl('rcFronttime') && hasError('rcFronttime', 'required')">*Time is required</em>
-          </div>
-      </div>
-
-      <div class="form-group row" id="all">
-          <label for="inputPlace" class="col-sm-2 col-form-label">Place</label>
-          <div class="col-sm-10">
-              <input formControlName="rcFrontplace" type="text" class="form-control" id="inputPlace" placeholder="place">
-              <em *ngIf="validateControl('rcFrontplace') && hasError('rcFrontplace', 'required')">*Place is required</em>
-          </div>
-      </div>
-
-      <div class="form-group row" id="all">
-        <label for="inputLday" class="col-sm-2 col-form-label">Regitertion lastdate : </label>
-        <div class="col-sm-10">
-            <input formControlName="rcFrontrLastday" type="datetime-local" class="form-control" id="inputLday" placeholder="Regitertion lastdate">
-            <em *ngIf="validateControl('rcFrontrLastday') && hasError('rcFrontrLastday', 'required')">*Regitertion lastdate is required</em>
+<div id="back">
+        
+    <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <h1>Front Page Form</h1>
         </div>
-      </div>
+        <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+        <!-- Sign up Form -->
+        <form [formGroup]="rcFront" autocomplete="off" novalidate (ngSubmit)="rcFrontData(rcFront.value)">
 
-      <div class="form-group row" id="all">
-          <label for="inputContent1" class="col-2 col-form-label">Content1</label>
-          <div class="col-10">
-              <textarea formControlName="rcFrontcontent1" aria-label="With textarea" class="form-control" id="inputContent1" placeholder="Content1" rows="5"></textarea>
-              <em *ngIf="validateControl('rcFrontcontent1') && hasError('rcFrontcontent1', 'required')">*Content1 is required</em>
-          </div>
-      </div>
-
-      <div class="form-group row" id="all">
-          <label for="inputContent2" class="col-2 col-form-label">Content2</label>
-          <div class="col-10">
-              <textarea formControlName="rcFrontcontent2" aria-label="With textarea" class="form-control" id="inputContent2" placeholder="Content2" rows="5"></textarea>
-          </div>
-      </div>
-
-      <br>
-        <div class="row">
-            <div class="col-5"></div>
-            <div class="col-2">
-                <button type="button" id="btn-sub" class="btn btn-success" [disabled]="!rcFront.valid">Submit</button>
-            </div> 
-            <div class="col-5"></div>
+            <div class="form-group row" id="all">
+                <label for="inputEventId" class="col-2 col-form-label" >Event Id : </label>
+                <div class="col-10">
+                    <input formControlName="rcFrontId" class="form-control" type="text" placeholder="Event Id" id="inputEventId">
+                    <em *ngIf="validateControl('rcFrontId') && hasError('rcFrontId', 'required')">*Employee name is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputMainTopic" class="col-2 col-form-label" >Main Topic</label>
+                <div class="col-10">
+                    <input formControlName="rcFrontmainTopic" class="form-control" type="text" placeholder="main topic" id="inputMainTopic" row="2">
+                    <em *ngIf="validateControl('rcFrontId') && hasError('rcFrontId', 'required')">*MainTopic is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputSubTopic" class="col-2 col-form-label">Sub Topic</label>
+                <div class="col-10">
+                    <input formControlName="rcFrontsubTopic" class="form-control" type="text" placeholder="sub topic" id="inputSubTopic">
+                    <em *ngIf="validateControl('rcFrontId') && hasError('rcFrontId', 'required')">*SubTopic is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                    <input formControlName="rcFrontdate" type="date" class="form-control" id="inputDate" >
+                    <em *ngIf="validateControl('rcFrontdate') && hasError('rcFrontdate', 'required')">*Date is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
+                <div class="col-sm-10">
+                    <input formControlName="rcFronttime" type="time" class="form-control" id="inputTime">
+                    <em *ngIf="validateControl('rcFronttime') && hasError('rcFronttime', 'required')">*Time is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputPlace" class="col-sm-2 col-form-label">Place</label>
+                <div class="col-sm-10">
+                    <input formControlName="rcFrontplace" type="text" class="form-control" id="inputPlace" placeholder="place">
+                    <em *ngIf="validateControl('rcFrontplace') && hasError('rcFrontplace', 'required')">*Place is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+              <label for="inputLday" class="col-sm-2 col-form-label">Regitertion lastdate : </label>
+              <div class="col-sm-10">
+                  <input formControlName="rcFrontrLastday" type="datetime-local" class="form-control" id="inputLday" placeholder="Regitertion lastdate">
+                  <em *ngIf="validateControl('rcFrontrLastday') && hasError('rcFrontrLastday', 'required')">*Regitertion lastdate is required</em>
+              </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputContent1" class="col-2 col-form-label">Content1</label>
+                <div class="col-10">
+                    <textarea formControlName="rcFrontcontent1" aria-label="With textarea" class="form-control" id="inputContent1" placeholder="Content1" rows="5"></textarea>
+                    <em *ngIf="validateControl('rcFrontcontent1') && hasError('rcFrontcontent1', 'required')">*Content1 is required</em>
+                </div>
+            </div>
+      
+            <div class="form-group row" id="all">
+                <label for="inputContent2" class="col-2 col-form-label">Content2</label>
+                <div class="col-10">
+                    <textarea formControlName="rcFrontcontent2" aria-label="With textarea" class="form-control" id="inputContent2" placeholder="Content2" rows="5"></textarea>
+                </div>
+            </div>
+      
+            <br>
+              <div class="row">
+                  <div class="col-5"></div>
+                  <div class="col-2">
+                      <button type="button" id="btn" class="btn btn-outline-dangers" [disabled]="!rcFront.valid">Submit</button>
+                  </div> 
+                  <div class="col-5"></div>
+              </div>
+      
+          </form>
+            <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+            
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a  id="crateAccountlink"  class="underlineHover" ></a>
+         
         </div>
+    
+      </div>
+    </div>
 
-    </form>
-</div>
+
+    </div>
+
+
+
