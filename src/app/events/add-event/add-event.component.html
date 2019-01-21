@@ -65,7 +65,7 @@
                     <em *ngIf="validateControl('EventClosingDate') && hasError('EventClosingDate', 'email')">*This not a valid email!</em>
             
                 </div> 
-                <div class="form-group">
+                <div class="form-group" *ngIf="des">
                     <label for="email" class="sr-only">DepartmentId</label>
                     <input class="form-control" formControlName="EventDescription" id="EventDescription" placeholder="EventDescription">
                     <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>

@@ -18,8 +18,12 @@ export class AddEventComponent implements OnInit {
     public EventForm: FormGroup;
     public Message:any;
     public eventtypes:any;
+    public des:any;
     
     ngOnInit() {
+
+      this.des=false;
+
       this.getEvents();
       this.EventForm = new FormGroup({
         EventId: new FormControl('',[Validators.required]),
