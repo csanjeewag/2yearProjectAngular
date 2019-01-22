@@ -19,6 +19,7 @@ import { SharedModuleModule } from "./../shared-module/shared-module.module";
 import { EventcardComponent } from './eventcard/eventcard.component';
 
 import { Header1Component } from "./../SharePart/header1/header1.component";
+
 @NgModule({
   imports: [
     SharedModuleModule,
@@ -26,6 +27,7 @@ import { Header1Component } from "./../SharePart/header1/header1.component";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
+
       { path: 'imageupload', component: ImageuploadComponent },
       { path: 'imageview/:id', component: ImageviewComponent },
       { path: 'bdonation', component: BdonationComponent  },
@@ -54,7 +56,7 @@ import { Header1Component } from "./../SharePart/header1/header1.component";
     ])
   ],
   declarations: [Header1Component, ImageuploadComponent, ImageviewComponent, PastdetailComponent,
-    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent, EventcardComponent ],
+    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent, EventcardComponent, ],
   exports: [RouterModule]
 
 })
