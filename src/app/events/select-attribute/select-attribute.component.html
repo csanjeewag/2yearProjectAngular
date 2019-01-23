@@ -1,3 +1,79 @@
-<p>
-  select-attribute works!
-</p>
+<div >
+        
+  
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h1>Select Fields</h1>
+      </div>
+      <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+      <!-- Sign up Form -->
+      <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
+          
+          
+ <!--
+          <div class="form-group col-md-6">
+            
+           
+            <input type="checkbox" class="form-control" formControlName="StartDate" name="StartDate" id="StartDate" >
+          
+        </div>
+         -->
+        <table class="table table-borderless">
+            <tr class="form-check">
+            <td><input type="checkbox" class="form-check-input" formControlName="EndDate" id="EndDate">EndDate</td>
+            </tr>
+           
+            <tr class="form-check">
+                <td><input type="checkbox" class="form-check-input" formControlName="ClosingDate" id="ClosingDate">ClosingDate</td>
+                </tr>
+
+            <tr class="form-check">
+            <td><input type="checkbox" class="form-check-input" formControlName="Destination" id="Destination">Destination</td>
+            </tr>
+
+            <tr class="form-check">
+                <td><input type="checkbox" class="form-check-input" formControlName="Liquor" id="Liquor">Liquor</td>
+                </tr>
+
+            <tr class="form-check">
+                <td><input type="checkbox" class="form-check-input" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed">IsFamilyMembersAllowed</td>
+                </tr>
+        
+                <tr class="form-check">
+                    <td><input type="checkbox" class="form-check-input" formControlName="Venue" id="Venue">Venue</td>
+                    </tr>
+
+                    <tr class="form-check">
+                        <td><input type="checkbox" class="form-check-input" formControlName="NumberOfTeams" id="NumberOfTeams">numberOfTeams</td>
+                        </tr>
+    
+
+        </table>  
+
+        
+          <div class="btn-group" role="group" aria-label="Basic example">
+          <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+          <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Create</button>
+          
+      </div> 
+      </form>
+          <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+          
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a  id="crateAccountlink"  class="underlineHover" ></a>
+       
+      </div>
+  
+    </div>
+  
+
+
+  </div>
+
+
+
+

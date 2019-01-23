@@ -19,8 +19,8 @@
     public Message:any;
     
     ngOnInit() {
+      this.Message="Add Event Type";
       this.EventType = new FormGroup({
-        EventTypeId: new FormControl('',[Validators.required]),
         EventTypeName: new FormControl('',[Validators.required]),
         EventTypeDescription: new FormControl('',[Validators.required]),
        
@@ -46,13 +46,12 @@
       if (this.EventType.valid) {
         
       let formdata = new FormData;
-      formdata.append('EventTypeId',value.EventTypeId);
-      formdata.append('EventTypeName',value.EventTypeName);
+     formdata.append('EventTypeName',value.EventTypeName);
       formdata.append('EventTypeDescription',value.EventTypeDescription);   
         
        
-        let apiUrl = 'eventtype/createEventType';
-        
+        let apiUrl = 'EventType/createEventType';
+        console.log(formdata)
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
             this.Message="Event Type Created!";
@@ -68,15 +67,6 @@
       }
     }
   
-    public redirectToOwnerList(){
-      
-      this.EventType = new FormGroup({
-        EventTypeId: new FormControl('',[Validators.required]),
-        EventTypeName: new FormControl('',[Validators.required]),
-        EventTypeDescription: new FormControl('',[Validators.required]),
-       
-       })
-    }
-  
+    
   }
   

@@ -15,6 +15,7 @@ import { SharedModuleModule } from "./../shared-module/shared-module.module";
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { SelectAttributeComponent } from './select-attribute/select-attribute.component';
+import { UpdateEventComponent } from './update-event/update-event.component';
 
 @NgModule({
   imports: [
@@ -29,10 +30,13 @@ import { SelectAttributeComponent } from './select-attribute/select-attribute.co
       {path:'yearEndParty/:id', component:TwoDayTripComponent},
       {path:'addeventtype', component:AddEventTypeComponent},
       {path:'addevent', component:AddEventComponent},
+      {path:'addevent/:id', component:AddEventComponent},
+      {path:'updateevent/:id', component:UpdateEventComponent},
+      {path:'selectattributes/:id', component:SelectAttributeComponent},
       {path:'eventHomePage', component:EventHomePageComponent},
       { path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },       
     ]),
   ],
-  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent]
+  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent]
 })
 export class EventsModule { }

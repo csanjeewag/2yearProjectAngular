@@ -28,6 +28,7 @@ export class RepositoryService {
   
   }
   public postFile(route: string, body) {
+    console.log(body)
     return this.http.post(this.createCompleteRoutefile(route, this.envUrl.urlAddress),body, this.generateHeadersfile());
   
   

@@ -1,7 +1,7 @@
 
 
 
-      <div >
+     <div >
         
         <div  class="wrapper fadeInDown col-md-12 container">
           <div id="formContent">
@@ -14,27 +14,7 @@
             <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
             <!-- Sign up Form -->
             <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
-                <div class="form-group">
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
-                    <em *ngIf="validateControl('EventId') && hasError('EventId', 'required')">*Event Id is required!</em>
-                    <em *ngIf="validateControl('EventId') && hasError('EventId', 'email')">*This not a valid email!</em>
-            
-                </div>
-                <div class="form-group">
-                    <label for="key" class="sr-only">Name</label>
-                    <input type="text" formControlName="EventName" id="EventName" class="form-control" placeholder="Event Name">
-                    <em *ngIf="validateControl('EventName') && hasError('EventName', 'required')">*Event name is required</em>
-                    <em *ngIf="validateControl('EventName') && hasError('EventName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div>
-                <!-- <div class="form-group">
-                    <label for="key" class="sr-only">Dis</label>
-                    <input type="text" formControlName="EventType" id="EventType" class="form-control" placeholder="Event Type">
-                    <em *ngIf="validateControl('EventType') && hasError('EventType', 'required')">*Event type is required</em>
-                    <em *ngIf="validateControl('EventType') && hasError('EventType', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div> -->
+                
                 <div class="form-group">
                    
                     <select class="form-control" formControlName="EventType" placeholder="EventType" id="EventType">
@@ -45,39 +25,73 @@
                 
                   <div class="form-group">
                     <label for="email" class="sr-only">DepartmentId</label>
-                    <input type="date" class="form-control" formControlName="EventStartDate" id="EventStartDate" placeholder="EventStartDate">
-                    <em *ngIf="validateControl('EventStartDate') && hasError('EventStartDate', 'required')">*EventStartDate is required!</em>
-                    <em *ngIf="validateControl('EventStartDate') && hasError('EventStartDate', 'email')">*This not a valid email!</em>
-            
+                    <input type="date" class="form-control" formControlName="StartDate" id="StartDate" placeholder="EventStartDate">
+                    <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*EventStartDate is required!</em>
+                    
                 </div>
+                <div class="form-group">
+                        <label for="email" class="sr-only">DepartmentId</label>
+                        <input class="form-control" formControlName="EventDescription" id="EventDescription" placeholder="EventDescription">
+                        <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>
+                        
+                    </div> 
+                    
+                <div class="form-group">
+                        <label for="email" class="sr-only">DepartmentId</label>
+                        <input class="form-control" formControlName="EventTitle" id="EventTitle" placeholder="EventTitle">
+                        <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription is required!</em>
+                        
+                    </div> 
+    
+
+                
+                <div class="form-group" >
+                    <label for="email" class="sr-only">DepartmentId</label>
+                    <input type="date" class="form-control" formControlName="EndDate" id="EndDate" placeholder="EndDate">
+                    
+                </div>
+               
+                <div class="form-group ">
+                    <label for="email" class="sr-only">DepartmentId</label>
+                    <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" placeholder="ClosingDate">
+                   
+                </div>
+                <!--dont use closing date as ClosingDate-->
+            
+
+               
 
                 <div class="form-group">
                     <label for="email" class="sr-only">DepartmentId</label>
-                    <input type="date" class="form-control" formControlName="EventEndDate" id="EventEndDate" placeholder="EventEndDate">
-                    <em *ngIf="validateControl('EventEndDate') && hasError('EventEndDate', 'required')">*EventEndDate is required!</em>
-                    <em *ngIf="validateControl('EventEndDate') && hasError('EventEndDate', 'email')">*This not a valid email!</em>
-            
+                    <input class="form-control" formControlName="Destination" id="Destination" placeholder="Destination">
+                    
                 </div> 
                 <div class="form-group">
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input type="date" class="form-control" formControlName="EventClosingDate" id="EventClosingDate" placeholder="EventClosingDate">
-                    <em *ngIf="validateControl('EventClosingDate') && hasError('EventClosingDate', 'required')">*EventClosingDate is required!</em>
-                    <em *ngIf="validateControl('EventClosingDate') && hasError('EventClosingDate', 'email')">*This not a valid email!</em>
-            
+                     <input class="form-control" formControlName="Venue" id="Venue" placeholder="Venue">
+                    
                 </div> 
-                <div class="form-group" *ngIf="des">
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input class="form-control" formControlName="EventDescription" id="EventDescription" placeholder="EventDescription">
-                    <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>
-                    <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'email')">*This not a valid email!</em>
-            
-                </div> 
-
+                <div class="form-group">
+                    <input class="form-control" formControlName="Liquor" id="Liquor" placeholder="Whether liqour is allowed">
+                  
+               </div> 
+               <div class="form-group">
+                <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed" placeholder="Whether family members able to participate">
+               
+           </div> 
+           
+           <div class="form-group">
+            <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" placeholder="Number of teams">
+           
+       </div> 
+               
                 <div class="btn-group" role="group" aria-label="Basic example">
                 <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-                <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Create</button>
+                <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Create event</button>
+                 <button type="button" class="btn btn-success" [disabled]="!EventForm.valid" (click)="updateEvent(EventForm.value)">Add more fields</button>
                 
             </div> 
+
+            
             </form>
                 <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
                 
@@ -92,6 +106,7 @@
     
   
         </div>
+    
     
     
     
