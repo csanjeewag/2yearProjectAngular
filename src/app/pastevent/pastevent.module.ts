@@ -32,6 +32,7 @@ import { CommentComponent } from './comment/comment.component';
       { path: 'imageupload/:id', component: ImageuploadComponent },
       { path: 'imageview/:id', component: ImageviewComponent },
       { path: 'comment', component: CommentComponent },
+      { path: 'comment/:id', component: CommentComponent },
       { path: 'bdonation', component: BdonationComponent  },
       { path: 'budget', component: BudgetComponent  },
       { path: 'eventcard', component: EventcardComponent  },
