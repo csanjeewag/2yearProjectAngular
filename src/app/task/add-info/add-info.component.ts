@@ -21,7 +21,7 @@ public result2:any;
 public contactForm:FormGroup;
   ngOnInit() {
     this.getAllContactTypes();
-    this. getTaskForEmployee('1');
+    this. getTaskForEmployee(3);
     
     this.contactForm = new FormGroup({
       name:new FormControl(''),
@@ -53,7 +53,7 @@ public addContacts(value){
   formData.append('Contact2',value.num2);
   formData.append('InfoDescription',value.des);
   formData.append('IsComplete',value.iscomplete);
-  formData.append('EmpId',this.empid);
+  formData.append('Id',this.empid);
   formData.append('TaskId',this.taskId);
   //formData.append('ContactId',value.contactid);
 

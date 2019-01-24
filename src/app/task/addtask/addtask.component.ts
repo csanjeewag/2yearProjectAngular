@@ -78,10 +78,10 @@ emailFormArray: Array<any> = [];
 
     };
 
-    let apiUrl = '/task/create';
+    let apiUrl = 'task/create';
     this.repository.postData(apiUrl,t)
         .subscribe(res => {
-          this.router.navigate(['/task/list']);
+          this.router.navigate(['task/list']);
             
           },
           
