@@ -11,6 +11,11 @@ export class AuthServiceService {
 
   constructor( private repository : RepositoryService, private router: Router) { }
   public log:any;
+  public addeventId:any;
+
+public getaddeventId(){
+  return this.addeventId;
+}
 
  public loggout(){
     localStorage.removeItem('token');

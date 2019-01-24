@@ -21,6 +21,17 @@ export class UpdateEventComponent implements OnInit {
     public projectID:any;
     public PrId:any;
     public event:any;
+    public attribute:any;
+    public urlAddress:any;
+
+    public endDate:any;
+    public closingDate:any;
+    public destination:any;
+    public liquor:any;
+    public isFamilyMembersAllowed: any;
+    public numberOfTeams: any;
+   public venue: any;
+    
   
   ngOnInit() {
     this.getEvents();
@@ -31,14 +42,21 @@ export class UpdateEventComponent implements OnInit {
         EventType: new FormControl('',[Validators.required]),
         StartDate: new FormControl('',[Validators.required]),
         EventDescription: new FormControl('',[Validators.required]),
-        EndDate: new FormControl('',[Validators.required]),
-        ClosingDate: new FormControl('',[Validators.required]),
-        IsFamilyMembersAllowed: new FormControl('',[Validators.required]),
-        Liquor: new FormControl('',[Validators.required]),
-        Venue: new FormControl('',[Validators.required]),
-        NumberOfTeams: new FormControl('',[Validators.required]),
-        Destination:new FormControl('',[Validators.required]),
+        EndDate: new FormControl(''),
+        ClosingDate: new FormControl(''),
+        IsFamilyMembersAllowed: new FormControl(''),
+        Liquor: new FormControl(''),
+        Venue: new FormControl(''),
+        NumberOfTeams: new FormControl(''),
+        Destination:new FormControl(''),
        })
+       this.endDate =false;
+      this.closingDate=false;
+      this.destination=false;
+      this.liquor=false;
+      this.isFamilyMembersAllowed=false;
+      this.numberOfTeams=false;
+      this.venue=false;
   }
   
 
@@ -122,7 +140,7 @@ export class UpdateEventComponent implements OnInit {
     this.projectForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
     this.projectForm.controls['Venue'].setValue(this.event.venue);
     this.projectForm.controls['Liquor'].setValue(this.event.iquor);
-
+    this.getAttribute();
 
   }
   
@@ -151,4 +169,75 @@ export class UpdateEventComponent implements OnInit {
 
 
 }
+
+public updateAttribute(value){
+  if (this.projectForm.valid) {
+      
+    let formdata = new FormData;
+   formdata.append('Id',this.PrId);
+   formdata.append('EventTitle',value.EventTitle);
+   formdata.append('EventTypeId',value.EventType);   
+   formdata.append('StartDate',value.StartDate);
+   formdata.append('EventDescription',value.EventDescription); 
+  formdata.append('EndDate',value.EndDate);
+  formdata.append('ClosingDate',value.ClosingDate);
+  formdata.append('NumberOfTeams',value.NumberOfTeams);
+  formdata.append('Liquor',value.Liquor); 
+ formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
+ formdata.append('Venue',value.Venue);
+ formdata.append('Destination',value.Destination);
+
+ 
+   
+        let apiUrl = 'event/updateevent';
+    console.log("formdata"+formdata)
+    console.log("description = "+value.EventDescription)
+    
+    this.repository.postFile(apiUrl, formdata)
+      .subscribe(res =>  {
+        this.Message="Project updated!";
+        console.log("response = "+res)
+        this.urlAddress = "events/selectattributesforupdate/"+this.PrId;
+               this.router.navigate([this.urlAddress]);
+            
+          //this.router.navigate(['/profile/admin/project']);
+     
+        },
+        (error => {
+          this.Message="Failed,";
+        })
+      )
+  
+  }
 }
+
+
+
+public getAttribute(){
+  let apiUrl = 'event/getatribute/'+this.PrId;
+  console.log("inside get attribute")
+  this.repository.getData(apiUrl)
+    .subscribe(res => {
+     this.attribute = res;
+    console.log(res)
+        console.log("this is edn date"+this.attribute.endDate)
+        this.closingDate = this.attribute.closingDate;
+        this.destination = this.attribute.destination;
+        this.endDate = this.attribute.endDate;
+        this.isFamilyMembersAllowed = this.attribute.isFamilyMembersAllowed;
+        this.liquor = this.attribute.liquor;
+        this.venue = this.attribute.venue;
+        this.numberOfTeams = this.attribute.numberOfTeams;
+
+
+
+      },
+      (error => {
+    
+      })
+    )
+}
+
+}
+
+

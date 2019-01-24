@@ -4,6 +4,8 @@
   
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute  } from '@angular/router';
+  import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+ import { AuthServiceService } from "./../../AuthGards/auth-service.service";
   
   
 @Component({
@@ -13,8 +15,12 @@
 })
 export class AddEventComponent implements OnInit {
 
-    constructor(private router: Router,  private repository : RepositoryService,private route: ActivatedRoute) { }
-    
+    constructor(private auth: AuthServiceService ,private router: Router,  private repository : RepositoryService,private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
+      config.backdrop = 'static';
+      config.keyboard = false;
+    }
+   
+
     public EventForm: FormGroup;
     public Message:any;
     public eventtypes:any;
@@ -23,10 +29,26 @@ export class AddEventComponent implements OnInit {
     public event:any;
     public eventId:any;
     public attribute:any;
+
+    public endDate:any;
+    public closingDate:any;
+    public destination:any;
+    public liquor:any;
+    public isFamilyMembersAllowed: any;
+    public numberOfTeams: any;
+   public venue: any;
+   public modalRef: any;
+ 
     
     ngOnInit() {
 
-      this.des=false;
+      this.endDate =false;
+      this.closingDate=false;
+      this.destination=false;
+      this.liquor=false;
+      this.isFamilyMembersAllowed=false;
+      this.numberOfTeams=false;
+      this.venue=false;
 
       this.getEvents();
       this.getparamId();
@@ -85,13 +107,11 @@ export class AddEventComponent implements OnInit {
         
           
                let apiUrl = 'event/updateevent';
-           console.log("formdata"+formdata)
-           console.log("description = "+value.EventDescription)
-           
+          
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
                this.Message="Project updated!";
-               console.log("response = "+res)
+             
                this.urlAddress = "events/selectattributes/"+this.event.id;
                this.router.navigate([this.urlAddress]);
             
@@ -127,7 +147,27 @@ export class AddEventComponent implements OnInit {
               this.Message="Event Created!";
               console.log(res)
               this.event=res;
+              
               console.log(this.event.id);
+
+              let atformdata = new FormData;
+              atformdata.append('EventId',this.event.id);
+              let apiUrl = 'event/selectAttributes';
+      
+              this.repository.postFile(apiUrl, atformdata)
+                .subscribe(res =>  {
+                  //this.Message="attribute Created!";
+                   //   this.router.navigate(['/profile/admin/roles']);
+                   
+               
+                  },
+                  (error => {
+                    this.Message="Event Created Failed,Try Again!";
+                  })
+                )
+
+
+
               this.urlAddress = "events/selectattributes/"+this.event.id;
               this.router.navigate([this.urlAddress]);
                
@@ -138,6 +178,8 @@ export class AddEventComponent implements OnInit {
               })
             )
   
+
+            
 
 
 
@@ -173,9 +215,11 @@ export class AddEventComponent implements OnInit {
            
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
-               this.Message="Project updated!";
+               //this.Message="Project updated!";
                console.log("response = "+res)
-               
+               window.alert("Event has been succesfully Created")
+               this.urlAddress = "profile/home";
+  this.router.navigate([this.urlAddress]);
             
                },
                (error => {
@@ -203,11 +247,33 @@ export class AddEventComponent implements OnInit {
         
         this.repository.postFile(apiUrl1, formdata)
           .subscribe(res =>  {
-            this.Message="Event Created!";
+            window.alert("Event has been succesfully Created")
+
+             
             console.log(res)
             this.event=res;
-            console.log(this.event.id);
             
+            console.log(this.event.id);
+
+
+            let atformdata = new FormData;
+            atformdata.append('EventId',this.event.id);
+            let apiUrl = 'event/selectAttributes';
+    
+            this.repository.postFile(apiUrl, atformdata)
+              .subscribe(res =>  {
+                //this.Message="attribute Created!";
+                 //   this.router.navigate(['/profile/admin/roles']);
+                 this.urlAddress = "profile/home";
+                 this.router.navigate([this.urlAddress]);
+                },
+                (error => {
+                  this.Message="Event Created Failed,Try Again!";
+                })
+              )
+
+
+
          
             },
             (error => {
@@ -249,6 +315,31 @@ export class AddEventComponent implements OnInit {
           })
         )
     }
+
+    public getAttribute(){
+      let apiUrl = 'event/getatribute/'+this.eventId;
+      console.log("inside get attribute")
+      this.repository.getData(apiUrl)
+        .subscribe(res => {
+         this.attribute = res;
+        console.log(res)
+            console.log("this is edn date"+this.attribute.endDate)
+            this.closingDate = this.attribute.closingDate;
+            this.destination = this.attribute.destination;
+            this.endDate = this.attribute.endDate;
+            this.isFamilyMembersAllowed = this.attribute.isFamilyMembersAllowed;
+            this.liquor = this.attribute.liquor;
+            this.venue = this.attribute.venue;
+            this.numberOfTeams = this.attribute.numberOfTeams;
+
+
+
+          },
+          (error => {
+        
+          })
+        )
+    }
     getparamId(){
       this.route.paramMap.subscribe((params:ParamMap)=>{
         let id =params.get('id');
@@ -258,6 +349,7 @@ export class AddEventComponent implements OnInit {
         if(this.eventId!=null){
           this.getproject();
           this.fillproject();
+          
           /*
           this.repository.getData('event/getatribute/'+this.eventId)
     .subscribe(res => {
@@ -286,8 +378,9 @@ export class AddEventComponent implements OnInit {
     this.EventForm.controls['IsFamilyMembersAllowed'].setValue(this.event.isFamilyMembersAllowed);
     this.EventForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
     this.EventForm.controls['Venue'].setValue(this.event.venue);
-    this.EventForm.controls['Liquor'].setValue(this.event.iquor);
-
+    this.EventForm.controls['Liquor'].setValue(this.event.liquor);
+    console.log("before get attribute")
+    this.getAttribute();
 
   }
   
@@ -298,9 +391,16 @@ export class AddEventComponent implements OnInit {
       
       
       this.fillproject();
+      
     },
     (error) => {
     //  this.handleErrors(error);n
     })
 }
+
+
+
+
+
+
 }

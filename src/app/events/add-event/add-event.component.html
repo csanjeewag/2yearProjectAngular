@@ -3,92 +3,101 @@
 
      <div >
         
-        <div  class="wrapper fadeInDown col-md-12 container">
-          <div id="formContent">
+        <div  class="wrapper col-md-8 container">
+          <div id="formContent" >
             <!-- Tabs Titles -->
         
             <!-- Icon -->
-            <div class="fadeIn first">
+            <div id="title" style="color: rgb(43, 42, 42)">
               <h1>Create Event</h1>
             </div>
-            <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+            <h5 class="card-title"> </h5>
             <!-- Sign up Form -->
             <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
                 
-                <div class="form-group">
+                    <div class="form-group col-md-12">
+                              <input class="form-control" formControlName="EventTitle" id="EventTitle" required>
+                            <label >Event Title</label>
+                            <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">Event Title is required</em>
+                            
+                        </div> 
+
+                       
+
+                        <div class="form-group col-md-12">
+                                 <input class="form-control" formControlName="EventDescription" id="EventDescription" required>
+                                <label >Event Description</label>
+                                <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">Event Description is required</em>
+                                
+                            </div> 
+                            
+                        
+            
+
+                <div class="form-group col-md-12">
                    
-                    <select class="form-control" formControlName="EventType" placeholder="EventType" id="EventType">
-                            <option value="" selected disabled hidden>EventTypes</option>
+                    <select class="form-control" formControlName="EventType" id="EventType" required>
+                            <option value="" selected disabled hidden></option>
                             <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
                         </select>
+                        <label >Event Type</label>
                   </div>
                 
-                  <div class="form-group">
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input type="date" class="form-control" formControlName="StartDate" id="StartDate" placeholder="EventStartDate">
-                    <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*EventStartDate is required!</em>
+                  <div class="form-group col-md-12">
+                    <input type="date" class="form-control" formControlName="StartDate" id="StartDate" required>
+                    <label >Event Start Date</label>
+                    <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">EventStartDate is required</em>
                     
                 </div>
-                <div class="form-group">
-                        <label for="email" class="sr-only">DepartmentId</label>
-                        <input class="form-control" formControlName="EventDescription" id="EventDescription" placeholder="EventDescription">
-                        <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>
-                        
-                    </div> 
-                    
-                <div class="form-group">
-                        <label for="email" class="sr-only">DepartmentId</label>
-                        <input class="form-control" formControlName="EventTitle" id="EventTitle" placeholder="EventTitle">
-                        <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription is required!</em>
-                        
-                    </div> 
-    
+                
 
                 
-                <div class="form-group" >
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input type="date" class="form-control" formControlName="EndDate" id="EndDate" placeholder="EndDate">
-                    
+                <div class="form-group col-md-12" *ngIf="endDate" >
+                    <input type="date" class="form-control" formControlName="EndDate" id="EndDate" required>
+                    <label >Event End Date</label>
                 </div>
                
-                <div class="form-group ">
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" placeholder="ClosingDate">
-                   
+                <div class="form-group col-md-12" *ngIf="closingDate">
+                    <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" required>
+                    <label >Registration closing Date For Event</label>
                 </div>
                 <!--dont use closing date as ClosingDate-->
             
 
                
 
-                <div class="form-group">
+                <div class="form-group col-md-12"*ngIf="destination">
                     <label for="email" class="sr-only">DepartmentId</label>
-                    <input class="form-control" formControlName="Destination" id="Destination" placeholder="Destination">
-                    
+                    <input class="form-control" formControlName="Destination" id="Destination" required>
+                    <label >Destination of Event</label>
                 </div> 
-                <div class="form-group">
-                     <input class="form-control" formControlName="Venue" id="Venue" placeholder="Venue">
-                    
+                <div class="form-group col-md-12"*ngIf="venue">
+                     <input class="form-control" formControlName="Venue" id="Venue" required>
+                     <label >Venue</label>
+
                 </div> 
-                <div class="form-group">
-                    <input class="form-control" formControlName="Liquor" id="Liquor" placeholder="Whether liqour is allowed">
-                  
+                <div class="form-group col-md-12"*ngIf="liquor">
+                    <input class="form-control" formControlName="Liquor" id="Liquor" required>
+                    <label >Whether liqour is allowed</label>
                </div> 
-               <div class="form-group">
-                <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed" placeholder="Whether family members able to participate">
-               
+               <div class="form-group col-md-12"*ngIf="isFamilyMembersAllowed">
+                <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed" required>
+                <label >Whether family members able to participate</label>
+
            </div> 
            
-           <div class="form-group">
+           <div class="form-group col-md-12"*ngIf="numberOfTeams">
             <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" placeholder="Number of teams">
-           
+            <label >Number of teams</label>
+
        </div> 
                
                 <div class="btn-group" role="group" aria-label="Basic example">
                 <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
                 <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Create event</button>
+                <div class="col-sm-1"></div>
                  <button type="button" class="btn btn-success" [disabled]="!EventForm.valid" (click)="updateEvent(EventForm.value)">Add more fields</button>
-                
+                 
             </div> 
 
             
@@ -96,17 +105,28 @@
                 <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
                 
             <!-- Remind Passowrd -->
-            <div id="formFooter">
-              <a  id="crateAccountlink"  class="underlineHover" ></a>
-             
-            </div>
+            
         
           </div>
         </div>
     
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
   
         </div>
-    
-    
     
     

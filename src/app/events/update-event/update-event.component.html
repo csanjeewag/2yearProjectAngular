@@ -1,16 +1,32 @@
 <div >
         
-        <div  class="wrapper fadeInDown col-md-12 container">
+        <div  class="wrapper  col-md-8 container">
           <div id="formContent">
             <!-- Tabs Titles -->
         
             <!-- Icon -->
-            <div class="fadeIn first">
+            <div >
               <h1>Update Project</h1>
             </div>
             <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
             <!-- Sign up Form -->
             <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="updateproject(projectForm.value)">
+                    <div class="form-group col-md-12">
+                            <input class="form-control" formControlName="EventTitle" id="EventTitle" placeholder="EventTitle">
+                            <label >Event Title</label>
+
+                            <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription is required!</em>
+                            
+                        </div> 
+                        <div class="form-group col-md-12">
+                                <input class="form-control" formControlName="EventDescription" id="EventDescription" required>
+                                <label >Event Description</label>
+
+                               <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>
+                               
+                           </div> 
+                           
+                        
                     <div class="form-group">
                    
                             <select class="form-control" formControlName="EventType" placeholder="EventType" id="EventType">
@@ -19,75 +35,60 @@
                                 </select>
                           </div>
                         
-                          <div class="form-group">
-                            <label for="email" class="sr-only">DepartmentId</label>
-                            <input type="date" class="form-control" formControlName="StartDate" id="StartDate" placeholder="EventStartDate">
+                          <div class="form-group col-md-12">
+                             <input type="date" class="form-control" formControlName="StartDate" id="StartDate" required>
+                             <label >Start Date</label>
                             <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*EventStartDate is required!</em>
                             
                         </div>
-                        <div class="form-group">
-                                <label for="email" class="sr-only">DepartmentId</label>
-                                <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" placeholder="ClosingDate">
-                                <em *ngIf="validateControl('ClosingDate') && hasError('ClosingDate', 'required')">*EventStartDate is required!</em>
-                                
-                            </div>
-                            <div class="form-group">
-                                    <label for="email" class="sr-only">DepartmentId</label>
-                                    <input type="date" class="form-control" formControlName="EndDate" id="EndDate" placeholder="EndDate">
-                                    <em *ngIf="validateControl('EndDate') && hasError('EndDate', 'required')">*EventStartDate is required!</em>
-                                    
-                                </div>
-                        <div class="form-group">
-                                <label for="email" class="sr-only">DepartmentId</label>
-                                <input class="form-control" formControlName="EventDescription" id="EventDescription" placeholder="EventDescription">
-                                <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>
-                                
-                            </div> 
-                            
-                        <div class="form-group">
-                                <label for="email" class="sr-only">DepartmentId</label>
-                                <input class="form-control" formControlName="EventTitle" id="EventTitle" placeholder="EventTitle">
-                                <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription is required!</em>
-                                
-                            </div> 
-                            
+                        <div class="form-group col-md-12">
+                                 <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" required>
+                                <label >Closing Date</label>
 
-                            <div class="form-group">
-                                    <label for="email" class="sr-only">DepartmentId</label>
-                                    <input class="form-control" formControlName="Liquor" id="Liquor" placeholder="Liquor">
-                                    <em *ngIf="validateControl('Liquor') && hasError('Liquor', 'required')">*EventDescription is required!</em>
-                                    
+                            </div>
+                            <div class="form-group col-md-12">
+                                     <input type="date" class="form-control" formControlName="EndDate" id="EndDate" required>
+                                     <label >End Date</label>
+
+                                </div>
+                               
+                       
+                        
+
+                            <div class="form-group col-md-12" *ngIf="liquor">
+                                      <input class="form-control" formControlName="Liquor" id="Liquor" required>
+                                    <label >Whether liquor is allowed or not</label>
+
+                                   
                                 </div> 
-                                
-                            <div class="form-group">
-                                    <label for="email" class="sr-only">DepartmentId</label>
-                                    <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed" placeholder="IsFamilyMembersAllowed">
-                                    <em *ngIf="validateControl('IsFamilyMembersAllowed') && hasError('IsFamilyMembersAllowed', 'required')">*EventDescription is required!</em>
-                                    
+                               
+                            <div class="form-group col-md-12" *ngIf="isFamilyMembersAllowed">
+                                    <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed" required>
+                                    <label >Whether family members are allowed</label>
+
                                 </div> 
-                                <div class="form-group">
-                                        <label for="email" class="sr-only">DepartmentId</label>
-                                        <input class="form-control" formControlName="Venue" id="Venue" placeholder="Venue">
-                                        <em *ngIf="validateControl('Venue') && hasError('Venue', 'required')">*EventDescription is required!</em>
-                                        
+                                <div class="form-group" *ngIf="venue">
+                                        <input class="form-control" formControlName="Venue" id="Venue" required>
+                                        <label >Venue</label>
+
                                     </div> 
                                     
-                                <div class="form-group">
-                                        <label for="email" class="sr-only">DepartmentId</label>
-                                        <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" placeholder="NumberOfTeams">
-                                        <em *ngIf="validateControl('NumberOfTeams') && hasError('NumberOfTeams', 'required')">*EventDescription is required!</em>
-                                        
+                                <div class="form-group col-md-12" *ngIf="numberOfTeams">
+                                        <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" required>
+                                        <label >Number of Teams</label>
+
                                     </div> 
-                                    <div class="form-group">
-                                            <label for="email" class="sr-only">DepartmentId</label>
-                                            <input class="form-control" formControlName="Destination" id="Destination" placeholder="Destination">
-                                            <em *ngIf="validateControl('Destination') && hasError('Destination', 'required')">*EventDescription is required!</em>
-                                            
+                                    <div class="form-group col-md-12" *ngIf="destination">
+                                            <input class="form-control" formControlName="Destination" id="Destination" required>
+                                            <label >Destination</label>
+
                                         </div> 
                 
                 <div class="btn-group" role="group" aria-label="Basic example">
                 <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
                 <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Create</button>
+                <div class="col-sm-1"></div>
+                <button type="button" class="btn btn-success" [disabled]="!projectForm.valid"  (click)="updateAttribute(projectForm.value)">Add more field</button>
                 
             </div> 
             </form>
