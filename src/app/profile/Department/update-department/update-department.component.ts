@@ -73,12 +73,12 @@
 
       
         this.empId = this.route.snapshot.paramMap.get('id')
-        console.log(this.empId)
+        
         
         this.repository.getData('department/getdepartment/'+this.empId)
         .subscribe(res => {
           this.department = res ;
-          console.log(res)
+         
           this.filldepartment();
         },
         (error) => {

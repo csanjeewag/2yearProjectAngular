@@ -1,4 +1,6 @@
-import { NgModule, Component } from '@angular/core';
+//import { NgModule, Component } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { AddtaskComponent } from './addtask/addtask.component';
 import { RouterModule } from '@angular/router';
@@ -26,6 +28,8 @@ import { UpdateTaskComponent } from './update-task/update-task.component';
 import { MainTaskComponent } from './main-task/main-task.component';
 import { ContactsComponent } from './contacts/contacts.component';
 //import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
 
@@ -44,7 +48,8 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
     MatButtonToggleModule,
     MatFormFieldModule,
     MatTabsModule,
-
+    FileUploadModule,
+   
     FormsModule,
     ReactiveFormsModule,
      RouterModule.forChild([
@@ -56,8 +61,7 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
        //{path:'details/:id', component: ShowTaskDetailsComponent},
        { path: 'update/:id', component: UpdateTaskComponent },
        {path:'newtask',component:MainTaskComponent},
-       {path:'contact',component:ContactsComponent}
-
+       {path:'contact',component:ContactsComponent},
 
 
 
@@ -66,6 +70,9 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
   
    ])
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
   declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent]
 })
 export class TaskModule { }
