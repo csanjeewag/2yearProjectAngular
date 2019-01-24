@@ -10,10 +10,10 @@ import { Router,ParamMap } from '@angular/router';
 })
 export class ImageviewComponent implements OnInit {
   result : any;
-
+  
   ImageUrl: any; 
 
-  constructor(private repo: RepositoryService, private route: ActivatedRoute) { }
+  constructor(private router : Router, private repo: RepositoryService, private route: ActivatedRoute) { }
   public eventId:any;
   ngOnInit() {
     this.ImageUrl = this.repo.ImageUrl;
@@ -30,7 +30,8 @@ export class ImageviewComponent implements OnInit {
   this.repo.getData('PastEvent/getimages/'+id)
   .subscribe(res => {
     this.result = res ;
-    console.log(this.result)
+    console.log(this.result);
+    console.log(res);
     
   },
   (error) => {
@@ -38,6 +39,10 @@ export class ImageviewComponent implements OnInit {
   })
 
 
+ }
+ public gotoimageupload(id){
+  this.router.navigate(['pastevent/imageupload/'+id]);  
+  console.log(id); 
  }
 
 

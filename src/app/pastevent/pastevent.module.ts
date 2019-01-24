@@ -28,19 +28,20 @@ import { Header1Component } from "./../SharePart/header1/header1.component";
     ReactiveFormsModule,
     RouterModule.forChild([
 
-      { path: 'imageupload', component: ImageuploadComponent },
+      { path: 'imageupload/:id', component: ImageuploadComponent },
       { path: 'imageview/:id', component: ImageviewComponent },
       { path: 'bdonation', component: BdonationComponent  },
       { path: 'budget', component: BudgetComponent  },
       { path: 'eventcard', component: EventcardComponent  },
       { path: 'cricketinfo', component: CricketinfoComponent},
-      { path: 'uploadpastevent', component: UploadpasteventComponent },
+      { path: 'uploadpastevent/:id', component: UploadpasteventComponent },
       // { path: 'imageview', component: ImageviewComponent},
       { path: 'event', component: SidebarComponent,
       
        children: [
         { path: 's/:id', component: PastdetailComponent },
-      
+        // { path: '/:id', component: ImageviewComponent },
+        
       ]
     },
      

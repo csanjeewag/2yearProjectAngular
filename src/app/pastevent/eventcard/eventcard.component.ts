@@ -35,6 +35,8 @@ public moredetail(id){
     this.router.navigate(['pastevent/event/s/'+id]);
 }
 
-
+public Upgradeevent(id){
+   this.router.navigate(['pastevent/uploadpastevent/'+id]);
+}
 }
 

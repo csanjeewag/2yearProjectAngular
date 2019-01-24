@@ -17,14 +17,15 @@
               <div class="card-body">
 
                   <form [formGroup]="imageuploadForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(imageuploadForm.value)">
-                      <img [src]="ImageUrl" style="width:250px;height:200px">
+                      <img *ngIf="ImageUrl[0]" [src]="ImageUrl[0]" style="width:250px;height:200px">
+                   
                       <div class="input-field col s12">
             
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                           <label for="text" class="sr-only">EventId</label>
                           <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
                         </div>
-                       
+                        -->
                         <div class="form-group">
                           <label for="key" class="sr-only">Caption</label>
                           <input type="text" formControlName="Caption" id="Caption" class="form-control" placeholder=" Caption">

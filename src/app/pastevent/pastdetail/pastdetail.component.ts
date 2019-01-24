@@ -42,6 +42,11 @@ export class PastdetailComponent implements OnInit {
 
   })
  }
+ public  gotoEventImages(id){
+  console.log(id);
+     this.router.navigate(['pastevent/imageview/'+id]);
+     
+   }
 
   }
 
