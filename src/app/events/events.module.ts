@@ -43,7 +43,8 @@ import { SelectAttributeForUpdateComponent } from './select-attribute-for-update
       {path:'addregistrationform/:id', component:AddRegistrationFormComponent},
       {path:'addregistrationform', component:AddRegistrationFormComponent},
       {path:'eventHomePage', component:EventHomePageComponent},
-      { path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },       
+      //{ path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },  
+      { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        
     ]),
   ],
   declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent]
