@@ -1,9 +1,10 @@
 export interface Info {
-      infoId:number;
+      //infoId:number;
       type: string;
+      ctype: string;
       name:string;
       address: string;
-      cost: number;
-      description: string;
-
+      contact1:number;
+      contact2:number;
+      lastModifiedDate:Date;
 }

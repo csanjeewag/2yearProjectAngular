@@ -84,10 +84,7 @@ emailFormArray: Array<any> = [];
           this.router.navigate(['/task/list']);
             
           },
-          (error => {
-          //  this.errorHandler.handleError(error);
-          //  this.errorMessage = this.errorHandler.errorMessage;
-          })
+          
         )
     }
 

@@ -3,32 +3,97 @@ import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, Valid
 import {  RepositoryService} from './../../ShareData/repository.service';
 import { Router } from '@angular/router';
 import{Info} from './../_interfaces/Info';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
 @Component({
   selector: 'app-add-info',
   templateUrl: './add-info.component.html',
   styleUrls: ['./add-info.component.css']
 })
 export class AddInfoComponent implements OnInit {
-
-  fileToUpload: File = null;
-
-  public InfoForm: FormGroup;
-  constructor(private router: Router,  private repository : RepositoryService) { }
-
+  
+  constructor(private repository: RepositoryService, private route: Router,private modalService: NgbModal) { }
+public taskId:any;
+public result:any;
+public empid:any;
+public result2:any;
+public contactForm:FormGroup;
   ngOnInit() {
-    this.InfoForm = new FormGroup({        
+    this.getAllContactTypes();
+    this. getTaskForEmployee('1');
     
-      type:  new FormControl('',[Validators.required]),
-      name: new FormControl('',[Validators.required]),
-      address: new FormControl(''),
-      cost: new FormControl('',[Validators.required]),
-      description: new FormControl('',[Validators.required]),
+    this.contactForm = new FormGroup({
+      name:new FormControl(''),
+add:new FormControl(''),
+num1:new FormControl(''),
+num2:new FormControl(''),
+des:new FormControl(''),
+iscomplete:new FormControl(''),
+    })
+}
+
+public getAllContactTypes(){
+  this.repository.getData('contact/getalltypes')
+  .subscribe(res => {
+    this.result = res ;
+ 
+   console.log(this.result);
+    
+  })
+  
+}
+
+
+public addContacts(value){
+  let formData = new FormData();
+  formData.append('Name',value.name);
+  formData.append('Address',value.add);
+  formData.append('Contact1',value.num1);
+  formData.append('Contact2',value.num2);
+  formData.append('InfoDescription',value.des);
+  formData.append('IsComplete',value.iscomplete);
+  formData.append('EmpId',this.empid);
+  formData.append('TaskId',this.taskId);
+  //formData.append('ContactId',value.contactid);
+
+  let apiUrl = 'taskinfo/addinfodetails';
+    
+  this.repository.postData(apiUrl, formData)
+    .subscribe(res => {
       
       },
-      //{ validators: isvalidconfirmpassword }
-      );
-  }
-  public addTaskInfo(InfoFormValue) {
+      (error => {
+        
+      })
+    )
+
+}
+
+
+
+
+
+open(content,id) {
+  this.taskId=id;
+  this.modalService.open(content);
+}
+
+
+public  getTaskForEmployee(id){
+  this.repository.getData('task/gettaskforemp/'+id)
+  .subscribe(res => {
+    this.result2 = res ;
+    
+   console.log(this.result2);
+    
+  },
+  (error) => {
+  //  this.handleErrors(error);n
+  })
+}
+
+ /* public addTaskInfo(InfoFormValue) {
     console.log(InfoFormValue)
     if (this.InfoForm.valid) {
       this.executeInfoCreation(InfoFormValue);
@@ -38,12 +103,9 @@ export class AddInfoComponent implements OnInit {
 
   private executeInfoCreation(InfoFormValue) {
     let t: Info = {
-      infoId:1,
       type: InfoFormValue.type,
       name:InfoFormValue.name,
       address: InfoFormValue.address,
-      cost: InfoFormValue.cost,
-      description: InfoFormValue.description,
 
     };
 
@@ -60,29 +122,33 @@ export class AddInfoComponent implements OnInit {
         )
 
         alert("Successfully recorded");
-    }
+    }*/
    
    /* public redirectToTaskList(){
       this.router.navigate(['task']);
     }*/
 
-    public validateControl(controlName: string) {
-      if (this.InfoForm.controls[controlName].invalid && this.InfoForm.controls[controlName].touched)
+   /* public validateControl(controlName: string) {
+      if (this.imageuploadForm.controls[controlName].invalid && this.imageuploadForm.controls[controlName].touched)
         return true;
   
       return false;
     }
     public hasError(controlName: string, errorName: string) {
-      if (this.InfoForm.controls[controlName].hasError(errorName))
+      if (this.imageuploadForm.controls[controlName].hasError(errorName))
         return true;
   
       return false;
-    }
+    }*/
 
-    handleFileInput(files: FileList) {
-      this.fileToUpload = files.item(0);
   }
+
+    
+           
+           
+   
+    
     
 
 
-}
+

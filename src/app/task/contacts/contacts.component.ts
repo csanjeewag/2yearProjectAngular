@@ -46,22 +46,14 @@ export class ContactsComponent implements OnInit {
     this.modalService.open(content);
   }
  
-  // toggle() {
-  //   this.show = !this.show;
-
-  //   // CHANGE THE NAME OF THE BUTTON.
-  //   if(this.show)  
-  //     this.buttonName = "Add";
-  //   else
-  //     this.buttonName = "+";
-  // }
+  
 
   public addContactType(profileFormValue) {
     let ctype: ContactType = {
       
       contactType:profileFormValue.type,
   };
-  let apiUrl = '/contact/addcontact';
+  let apiUrl = '/contact/addcontacttype';
     this.repository.postData(apiUrl,ctype)
     
         .subscribe(res => {
@@ -81,6 +73,26 @@ public viewAll(id){
 
   })
   
+
+}
+public addContacts(value){
+  let formData = new FormData();
+  formData.append('Name',value.name);
+  formData.append('Address',value.add);
+  formData.append('Number1',value.num1);
+  formData.append('Number2',value.num2);
+  formData.append('Number3',value.num3);
+
+  let apiUrl = 'task/create';
+    
+  this.repository.postFile(apiUrl, formData)
+    .subscribe(res => {
+      
+      },
+      (error => {
+        
+      })
+    )
 
 }
 

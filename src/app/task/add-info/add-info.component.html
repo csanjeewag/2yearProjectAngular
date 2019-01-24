@@ -1,83 +1,68 @@
-<app-nav-bar></app-nav-bar>
+<div class="my-3 p-3 bg-white rounded box-shadow" *ngFor="let res of result2">
+  <h6 class="border-bottom border-gray pb-2 mb-0">Recent Tasks</h6>
+  <div class="media text-muted pt-3">
+    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+      <strong class="d-block text-gray-dark">{{res.taskName}}</strong>
+      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+    </p>
+    <button type="button" class="btn btn-link" (click)="open(content,res.taskId)">Add Details</button>
+  </div>
 
+</div>
 
-<section class="testimonial py-5" id="testimonial">
-    <div class="container">
-        <div class="row ">
-            
-  
-  
-            <div class="col-md-8 py-5 border" id="formV">
-                    <form [formGroup]="InfoForm"  autocomplete="off" novalidate (ngSubmit)="addTaskInfo(InfoForm.value)">
+<div class="modal fade">
+  <ng-template #content let-c="close" let-d="dismiss" >
+   <div class="modal-header">
+     <h4 class="modal-title" id="modal-basic-title">Contact Details</h4>
+     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="modal-body">
 
-                        
-                     <div class="form-row">
-                            <div class="input-group mb-3">
-                                    <select class="custom-select" id="inputGroupSelect02" formControlName="type">
-
-                                      <option selected>Select Type...</option>
-                                      <option value="1">Bus</option>
-                                      <option value="2">Hotel</option>
-                                      <option value="3">Restaurant</option>
-                                      <option value="3">Other</option>
-
-                                    </select>
-                                    
-                            </div>
-                        
-                        <div class="form-group col-md-6">
-                          <input type="text" class="form-control"  placeholder="Name" formControlName="name" id="name">
-                          <em *ngIf="validateControl('name') && hasError('name', 'required')">*Name is required</em>
-
-                        </div>
-                        <div class="form-group col-md-12">
-                              <input  placeholder="Address" class="form-control" type="text" formControlName="address" id="address">
-                     
-                         </div>
-                      </div>
-                      <div class="form-row">
-                             
-                              <div class="form-group col-md-6">
-                                      <input  placeholder="Cost" class="form-control" formControlName="cost" type="text" id="cost">
-                                      <em *ngIf="validateControl('cost') && hasError('cost', 'required')">*Cost is required</em>
-
-                                  </div>
-                      </div>
-  
-                      
-  
-                    <div class="form-row">
-                        
-                          
-                            <div class="form-group col-md-12">
-                                    <input  placeholder="Description/Contacts" class="form-control" type="textarea" formControlName="description" id="description">
-                                    <em *ngIf="validateControl('description') && hasError('description', 'required')">*Contact Detail are required</em>
-
-                                </div>
-                    </div>
-                    
-                    <!-- upload file -->
-                    <div class="form-group">
-                            <label for="file">Choose File</label>
-                            <input type="file"
-                                   id="file"
-                                   (change)="handleFileInput($event.target.files)">
-                        </div>
-                
-                    <!-- end uploading -->
-                    <div class="form-row">
-                        <div class="form-group">
-                                  <div class="btn-group" role="group" aria-label="Basic example">
-                                      <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-                                      <button type="submit" class="btn btn-success" [disabled]="!InfoForm.valid">Submit</button>
-
-                                    </div>
-                              </div>
-                    </div>
-                </form>
-            </div>  
+    <form [formGroup]="contactForm"  autocomplete="off" novalidate (ngSubmit)="addContacts(contactForm.value)">
+      
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Contact Type
+            </button>
+            <div class="dropdown-menu">
+              <button type="button"  *ngFor="let j of result">{{j.contactType}}</button>
+              
             </div>
-            </div>
-            </section>
+          </div>
+        
+      <input type="text" id="name" name="name" class="form-control" placeholder="Name" formControlName="name">
+      <input type="text" id="address" name="address" class="form-control" placeholder="Address" formControlName="add">
+      <input type="text" id="contact1" name="contact1" class="form-control" placeholder="Number 01" formControlName="num1">
+      <input type="text" id="address" name="address" class="form-control" placeholder="Number 02" formControlName="num2">
+      <input type="text" id="address" name="address" class="form-control" placeholder="Description" formControlName="des">
+      <button type="submit" class="btn" >Save</button>
 
-            
+    </form>   
+
+    </div>
+
+
+    <div class="modal-footer">
+        <small class="text-muted">
+          for ur task
+          </small>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+          
+    </div>
+    
+     
+ 
+    </ng-template>
+    </div>
+
+
+
+
+
+
+
+
+
+
