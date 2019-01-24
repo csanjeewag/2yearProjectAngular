@@ -22,7 +22,7 @@ export class AddEventComponent implements OnInit {
     
     ngOnInit() {
 
-      this.des=false;
+      this.des=true;
 
       this.getEvents();
       this.EventForm = new FormGroup({
