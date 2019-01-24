@@ -19,6 +19,7 @@ import { SharedModuleModule } from "./../shared-module/shared-module.module";
 import { EventcardComponent } from './eventcard/eventcard.component';
 
 import { Header1Component } from "./../SharePart/header1/header1.component";
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { Header1Component } from "./../SharePart/header1/header1.component";
 
       { path: 'imageupload/:id', component: ImageuploadComponent },
       { path: 'imageview/:id', component: ImageviewComponent },
+      { path: 'comment', component: CommentComponent },
       { path: 'bdonation', component: BdonationComponent  },
       { path: 'budget', component: BudgetComponent  },
       { path: 'eventcard', component: EventcardComponent  },
@@ -57,7 +59,7 @@ import { Header1Component } from "./../SharePart/header1/header1.component";
     ])
   ],
   declarations: [Header1Component, ImageuploadComponent, ImageviewComponent, PastdetailComponent,
-    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent, EventcardComponent, ],
+    BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent, EventcardComponent, CommentComponent, ],
   exports: [RouterModule]
 
 })
