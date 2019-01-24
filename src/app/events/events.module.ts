@@ -15,6 +15,11 @@ import { SharedModuleModule } from "./../shared-module/shared-module.module";
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { SelectAttributeComponent } from './select-attribute/select-attribute.component';
+import { UpdateEventComponent } from './update-event/update-event.component';
+import { AddRegistrationFormComponent } from './add-registration-form/add-registration-form.component';
+import { SelectAttributeRegistrationComponent } from './select-attribute-registration/select-attribute-registration.component';
+import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
+import { SelectAttributeForUpdateComponent } from './select-attribute-for-update/select-attribute-for-update.component';
 
 @NgModule({
   imports: [
@@ -23,16 +28,24 @@ import { SelectAttributeComponent } from './select-attribute/select-attribute.co
     ReactiveFormsModule,
     RouterModule.forChild([
       {path:'createEventPageForTrip', component:CreateEventPageForTripComponent},
-      {path:'vieweventpage', component:ViewEventPageComponent},
+      {path:'vieweventpage/:id', component:ViewEventPageComponent},
       {path:'oneDayTrip/:id', component:OneDayTripComponent},
       {path:'twoDayTrip/:id', component:TwoDayTripComponent},
       {path:'yearEndParty/:id', component:TwoDayTripComponent},
       {path:'addeventtype', component:AddEventTypeComponent},
       {path:'addevent', component:AddEventComponent},
+      {path:'addevent/:id', component:AddEventComponent},
+      {path:'updateevent/:id', component:UpdateEventComponent},
+      {path:'selectattributes/:id', component:SelectAttributeComponent},
+      {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
+      {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent},
+      {path:'employeeregistration/:id', component:EmployeeRegistrationComponent},
+      {path:'addregistrationform/:id', component:AddRegistrationFormComponent},
+      {path:'addregistrationform', component:AddRegistrationFormComponent},
       {path:'eventHomePage', component:EventHomePageComponent},
       { path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },       
     ]),
   ],
-  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent]
+  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent]
 })
 export class EventsModule { }

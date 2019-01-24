@@ -1,0 +1,18 @@
+form{
+    padding: 10px;
+    margin: 10px;
+}
+#msg{
+    color: rgb(180, 3, 3);
+    text-align: center;
+}
+em{
+    color: red;
+}
+h2{
+    color: brown;
+    text-align: center;
+}
+.card{
+    background-color: rgba(247, 247, 247, 0.363);
+}

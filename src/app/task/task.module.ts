@@ -29,7 +29,7 @@ import { MainTaskComponent } from './main-task/main-task.component';
 import { ContactsComponent } from './contacts/contacts.component';
 //import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
 import { FileUploadModule } from 'ng2-file-upload';
-import { FileDropModule } from 'ngx-file-drop';
+
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
 
@@ -49,7 +49,7 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
     MatFormFieldModule,
     MatTabsModule,
     FileUploadModule,
-    FileDropModule,
+   
     FormsModule,
     ReactiveFormsModule,
      RouterModule.forChild([

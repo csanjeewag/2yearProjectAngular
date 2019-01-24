@@ -4,12 +4,15 @@ import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/for
 import {  RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
   
+
 @Component({
-  selector: 'app-select-attribute',
-  templateUrl: './select-attribute.component.html',
-  styleUrls: ['./select-attribute.component.css']
+  selector: 'app-select-attribute-for-update',
+  templateUrl: './select-attribute-for-update.component.html',
+  styleUrls: ['./select-attribute-for-update.component.css']
 })
-export class SelectAttributeComponent implements OnInit {
+export class SelectAttributeForUpdateComponent implements OnInit {
+
+  
 
   constructor(private router: Router,  private repository : RepositoryService,private rou:ActivatedRoute) { }
   public EventForm: FormGroup;
@@ -57,7 +60,7 @@ export class SelectAttributeComponent implements OnInit {
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
           //this.Message="attribute updated!";
-          this.urlAddress = "events/addevent/"+this.EventId;
+          this.urlAddress = "events/updateevent/"+this.EventId;
           this.router.navigate([this.urlAddress]);
            //   this.router.navigate(['/profile/admin/roles']);
            
@@ -110,6 +113,5 @@ export class SelectAttributeComponent implements OnInit {
     
 
   }
-
 
 }

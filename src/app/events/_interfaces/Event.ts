@@ -6,5 +6,10 @@ export class Event {
     startDate: Date;
     endDate: Date;
     closingDate:string;
-    type:string;
+    eventType:string;
+    liquor:string;
+    isFamilyMembersAllowed:string;
+    venue:string;
+
+
 }
