@@ -20,7 +20,8 @@ export class AddEventComponent implements OnInit {
       config.keyboard = false;
     }
    
-
+    public FileImage:File;
+    public ImageUrl:any;
     public EventForm: FormGroup;
     public Message:any;
     public eventtypes:any;
@@ -95,6 +96,7 @@ export class AddEventComponent implements OnInit {
           formdata.append('EventTitle',value.EventTitle);
           formdata.append('EventTypeId',value.EventType);   
           formdata.append('StartDate',value.StartDate);
+          formdata.append('EventImage', this.FileImage);
           formdata.append('EventDescription',value.EventDescription); 
          formdata.append('EndDate',value.EndDate);
          formdata.append('ClosingDate',value.ClosingDate);
@@ -129,7 +131,9 @@ export class AddEventComponent implements OnInit {
         formdata.append('EventTitle',value.EventTitle);
         formdata.append('EventTypeId',value.EventType);   
         formdata.append('StartDate',value.StartDate);
-        formdata.append('EventDescription',value.EventDescription); 
+        formdata.append('EventDescription',value.EventDescription);
+        formdata.append('EventImage', this.FileImage);
+
        //formdata.append('EndDate',value.EndDate);
       // formdata.append('ClosingDate',value.CDate);   
       
@@ -206,6 +210,7 @@ export class AddEventComponent implements OnInit {
         formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
         formdata.append('Venue',value.Venue);
         formdata.append('Destination',value.Destination);
+        formdata.append('EventImage', this.FileImage);
      
         
           
@@ -232,7 +237,9 @@ export class AddEventComponent implements OnInit {
       formdata.append('EventTitle',value.EventTitle);
       formdata.append('EventTypeId',value.EventType);   
       formdata.append('StartDate',value.StartDate);
-      formdata.append('EventDescription',value.EventDescription); 
+      formdata.append('EventDescription',value.EventDescription);
+      formdata.append('EventImage', this.FileImage);
+
      //formdata.append('EndDate',value.EndDate);
     // formdata.append('ClosingDate',value.CDate);   
     
@@ -291,17 +298,6 @@ export class AddEventComponent implements OnInit {
     }
   
 
-
-
-
-
-
-
-
-
-
-
-   
     public getEvents(){
       let apiUrl = 'eventtype/getalleventtypes';
       this.repository.getData(apiUrl)
@@ -398,7 +394,19 @@ export class AddEventComponent implements OnInit {
     })
 }
 
+onFileChange(file : FileList,id:number) {
+    
 
+  this.FileImage = file.item(0);
+ //selected image viewing
+  var reader = new FileReader();
+  reader.onload = (event:any) => {
+     this.ImageUrl = event.target.result;
+
+     console.log(event.target.result)
+  }
+   reader.readAsDataURL(this.FileImage);
+}
 
 
 
