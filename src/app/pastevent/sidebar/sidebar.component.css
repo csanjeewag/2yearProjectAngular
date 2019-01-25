@@ -13,7 +13,7 @@
     text-decoration: none;
     font-size: 25px;
     text-align: left;
-    color: #e6cd5b;
+    color: #000000;
     display: block;
    
     width: 100%;
@@ -22,19 +22,19 @@
 
 .sidenav a:hover {
     color: #f1f1f1;
-    background-color: rgb(112, 112, 109);
+    background-color: rgb(214, 63, 63);
 }
 .click{
     
     background-color: rgb(139, 136, 136);
 }
 #topicside{
-   font-style: italic;
-   font-size: 250%;
+   font-style: oblique;
+   font-size: 200%;
    color: black;
 
 }
 #topicside a{
     width: 100%;
-    background-color: rgb(255, 196, 196);
+    background-color: rgb(248, 38, 38);
 }

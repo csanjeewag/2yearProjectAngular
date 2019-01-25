@@ -43,6 +43,7 @@ export class AddEventComponent implements OnInit {
     
     ngOnInit() {
 
+      this.des=true;
       this.endDate =false;
       this.closingDate=false;
       this.destination=false;

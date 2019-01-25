@@ -5,17 +5,17 @@
 
     <div class="card">
       <!-- <h2 id="topicname">{{event.name}}</h2> -->
-      <img id="topicImage" class="card-img-top" src="http://static1.squarespace.com/static/56bab2bbf8baf30193d93777/t/56babb138259b5fc1ed7470d/1470952559453/"
+      <img id="topicImage" class="card-img-top" src=""
         alt="Card image cap">
       <div id="dateplace">
-       <div class="alert alert-success"> <h3  > 2018\04\04</h3>
+       <div class="alert alert-success"> <h3  >{{event.name}}</h3>
         
-        <h3>place ==> {{event.eventName}}</h3>
+       
         </div>
       </div>
       <div class="card-body">
 
-        <!-- <h5 class="card-title">Summary</h5> -->
+        <h5 class="card-title">{{event.eventName}}</h5>
 
         <div class="row">
           <div class="col-6">
@@ -48,11 +48,9 @@
           </div>
           <div class="col-6">
             <p>
-
-              A travel agent's role is to help people plan, choose and arrange their holiday.
-              They will usually work to a budget set out by whoever is planning the holiday.
-              They also offer advice and opinions on where to go and local tourist attractions,
-              events and customs.</p>
+              {{event.eventDescription}}
+    
+             </p>
 
           </div>
         </div>
@@ -62,10 +60,10 @@
           content.</p>
         <div class="row">
           <div class="col-6">
-            <div class="embed-responsive embed-responsive-16by9" id="topicVideo">
+            <!-- <div class="embed-responsive embed-responsive-16by9" id="topicVideo">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/slp-jZZt7ik?ecver=1"
                 allowfullscreen></iframe>
-            </div>
+            </div> -->
           </div>
           <div class="col-6">
               <ul class="list-group list-group-flush">
@@ -89,10 +87,13 @@
       <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Menu
+          <i class="fa fa-bars" aria-hidden="true">Menu</i>
+
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <a class="dropdown-item" href="pastevent/imageview/1"> Gallery </a>
+          <!-- <a class="dropdown-item" href="pastevent/imageview/9"> Gallery </a> -->
+          <a class="dropdown-item"  (click)=gotoEventImages(event.id)>Images Gallery</a>
+
           <a class="dropdown-item" href="pastevent/uploadpastevent">Create Past Event</a>
           <a class="dropdown-item" href="pastevent/budget">More Details</a>
         </div>

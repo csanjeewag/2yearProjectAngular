@@ -3,6 +3,7 @@ import { RouterModule} from '@angular/router';
 import { Router,ParamMap } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import {RepositoryService} from '../../ShareData/repository.service';
+import { eventNames } from 'cluster';
 
 
 
@@ -14,11 +15,13 @@ import {RepositoryService} from '../../ShareData/repository.service';
 export class PastdetailComponent implements OnInit {
  public x:any;
  public y:any;
+ 
 
   constructor( private router : Router  , private route: ActivatedRoute , private repository: RepositoryService) { }
   public event:any;
   public Id:any;
   ngOnInit() {
+    
 
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = params.get('id');
@@ -34,12 +37,28 @@ export class PastdetailComponent implements OnInit {
   this.repository.getData(url)
   .subscribe(res => {
     this.event =res;
-    console.log(res);
+    console.log(this.event)
   },(error) =>{
 
   })
  }
- 
+ public  gotoEventImages(id){
+  console.log(id);
+     this.router.navigate(['pastevent/imageview/'+id]);
+     
+   }
 
   }
 
+  //////////////
+  // public getEvents(){
+
+  //   let url = "pastevent/getevents";
+  //  this.repository.getData(url)
+  //   .subscribe(res => {
+  //     this.event =res;
+  //     console.log(res);
+  //   },(error) =>{
+
+  //   })
+  // }

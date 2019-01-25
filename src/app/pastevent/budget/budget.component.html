@@ -1,5 +1,96 @@
-<app-nav-bar></app-nav-bar>
-<!-- <app-logged-header></app-logged-header> -->
-<p>
-  budget works!
-</p>
+<div class="row">
+    <div *ngFor="let e of result;">
+        
+            <div class="card" style="width: 18rem;">
+               
+                <div class="card-body">
+                    <h5 class="card-title">{{e.taskName}}</h5>
+       
+                </div>
+            </div>
+       
+    </div>
+</div>
+
+
+##############################################
+
+
+<div class=" my-3 p-3 rounded box-shadow">
+        
+      
+        <div class="border-bottom border-secondary media text-muted " *ngFor="let i of result;">
+      
+          <p class="media-body pb-3 mb-0 lh-125">
+            <strong class="d-block text-black-dark ">{{ i.taskName}}
+            </strong>
+            {{i.description}}
+          </p>
+          <button type="button" class="btn btn-link" (click)="open(content,i.taskId)">More</button>
+          <div class="modal fade">
+            <ng-template #content let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">{{i.taskName}}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+      
+      
+                <table class="table table-borderless">
+      
+                  <tr>
+                    <th> Responsible RC</th>
+                    <td *ngFor="let e of employee;"><small class="text-muted">
+                        {{e.empName}}
+      
+      
+                      </small></td>
+                  </tr>
+                  <tr>
+                    <th> Start Date</th>
+                    <td> <small class="text-muted">
+                        {{i.startDate |date }}
+                      </small></td>
+                  </tr>
+                  <tr>
+                    <th> End Date</th>
+                    <td> <small class="text-muted">
+                        {{i.endDate | date}}
+                      </small></td>
+                  </tr>
+                  <tr>
+                    <th> Bugted Cost</th>
+                    <td> <small class="text-muted">
+                        {{i.budgetedCost}}
+                      </small></td>
+                  </tr>
+                  <tr>
+                    <th> Status</th>
+                    <td> <small class="text-muted">
+                        {{stts}}
+                      </small></td>
+                  </tr>
+                  <tr>
+                    <th> Description</th>
+                    <td> <small class="text-muted">
+                        {{i.description}}
+                      </small></td>
+                  </tr>
+      
+                </table>
+      
+              </div>
+              <div class="modal-footer">
+                <small class="text-muted">
+                  {{i.addDate | date}}
+                </small>
+                <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+      
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      
+      </div>
