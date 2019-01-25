@@ -92,7 +92,7 @@ export class ImageuploadComponent implements OnInit {
     this.repository.postFile(url, formData)
       .subscribe(res => {
 
-        this.route.navigate(['/pastevent/imageview/1']);
+        this.route.navigate(['/pastevent/imageview/10']);
 
         console.log(res);
       }, (error => {

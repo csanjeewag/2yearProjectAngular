@@ -44,6 +44,10 @@ export class ImageviewComponent implements OnInit {
   this.router.navigate(['pastevent/imageupload/'+id]);  
   console.log(id); 
  }
+ public gotocomment(id){
+  this.router.navigate(['pastevent/comment/'+id]);  
+  console.log(id); 
+ }
 
 
 

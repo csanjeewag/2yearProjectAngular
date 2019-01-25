@@ -37,7 +37,7 @@ export class PastdetailComponent implements OnInit {
   this.repository.getData(url)
   .subscribe(res => {
     this.event =res;
-    console.log(res);
+    console.log(this.event)
   },(error) =>{
 
   })

@@ -1,3 +1,5 @@
+<app-nav-bar></app-nav-bar>
+
 <div class="container">
 
 	<div class="comments-section">
@@ -23,8 +25,12 @@
 				</header>
 				<div *ngFor="let e of comment">
 					<div class="comment">
-						<div class="username">user {{e.author}} </div>
-						<img src="https://www.une.edu.au/__data/assets/image/0005/97178/blank-avatar.png" class="avatar" alt="user image" />
+						<div class="username">{{e.empName}} {{e.commentTime|date:'medium'}}</div>
+						
+						<img [src]= "ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
+
+						 <!-- <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" > -->
+
 						<p>{{e.commentIn}}</p>
 					</div>
 					
@@ -60,7 +66,7 @@
 					
 				
 				<div class=" form-group">
-					<button type="submit" class="btn" class="btn btn-outline-dark">submit</button>
+					<button type="submit" class="btn" class="btn btn-outline-dark" (click)="onClick()">submit</button>
 			
 				</div>
 			</form>

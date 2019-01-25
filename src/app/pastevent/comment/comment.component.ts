@@ -16,14 +16,16 @@ export class CommentComponent implements OnInit {
   public comment: any;
   public eventid: any;
   public author: any;
+  public ImageUrl:any;
 
   constructor(private router: Router, private repository: RepositoryService, private rout: ActivatedRoute, private auth: AuthServiceService) { }
 
   public commentForm: FormGroup;
   ngOnInit() {
-    this.eventid = this.rout.snapshot.paramMap.get('id')
+    this.ImageUrl = this.repository.ImageUrl;
+    this.eventid = this.rout.snapshot.paramMap.get('id');
     this.author = this.auth.tokencheckId();
-    this.getcomment();
+    this.getcomment(this.eventid);
 
     this.commentForm = new FormGroup({
       // EventId: new FormControl('', [Validators.required]),
@@ -33,13 +35,18 @@ export class CommentComponent implements OnInit {
     })
 
   }
+  onClick(){
+    // this.router.navigate(['pastevent/comment'+this.eventid]);
+    
+   
+  }
 
-  public getcomment() {
-    let url = "pastevent/getcomment";
+  public getcomment(id) {
+    let url = "pastevent/getcomment/"+id;
     this.repository.getData(url)
       .subscribe(res => {
         this.comment = res;
-
+       console.log(res)
       }, (error) => {
 
       })
@@ -51,13 +58,13 @@ export class CommentComponent implements OnInit {
     let url = "pastevent/addcomment";
     let formData = new FormData();
     formData.append('EventId', this.eventid);
-    formData.append('Author', this.author);
+    formData.append('EmployeeId', this.author);
     formData.append('CommentIn', value.CommentIn);
     console.log(this.author, this.eventid);
 
     this.repository.postFile(url,formData)
       .subscribe(res => {
-
+       
         console.log(res);
       }, (error => {
         console.log("error");
