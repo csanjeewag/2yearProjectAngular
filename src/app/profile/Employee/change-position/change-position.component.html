@@ -46,7 +46,7 @@
              
             </tr></thead>
             <tbody>
-            <tr id="zoom1" *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject  " >
+            <tr  *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject  " >
               <td id="zoom3" > <img [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" width="100px" ></td>
               <td>{{i.empName}}</td>
               <td>{{i.empEmail}}</td>
