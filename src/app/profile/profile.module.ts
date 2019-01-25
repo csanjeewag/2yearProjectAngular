@@ -86,10 +86,7 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
       { path: 'login', component: LoginUserInterfaceComponent },
       { path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
       { path: 'delete/:id', component: DeleteEmployeeComponent },
-      { path: 'cd', component: DepartmentCreateComponent },
-      { path: 'cp', component: RoleCreateComponent },
-      { path: 'update/:id', component: UpdateEmployeeComponent },
-      
+      { path: 'update/:id', component: UpdateEmployeeComponent },      
       { path: 'profile', component: EmployeeProfileComponent  },
       { path: 'register', component: EmployeeRegisterByLinkComponent  },
       { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },

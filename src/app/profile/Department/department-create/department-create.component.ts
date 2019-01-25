@@ -55,7 +55,7 @@ export class DepartmentCreateComponent implements OnInit {
         .subscribe(res =>  {
           this.Message="Department Created!";
              this.router.navigate(['/profile/admin/departments']);
-       
+              this.fill();
           },
           (error => {
             this.Message="Department Created Failed,Try Again!";
@@ -70,6 +70,12 @@ export class DepartmentCreateComponent implements OnInit {
     this.departmentForm = new FormGroup({
       departmentId: new FormControl('',),
       departmentName: new FormControl(''),})
+
+  }
+  
+  public fill(){
+    this.departmentForm.controls['departmentId'].setValue('');
+    this.departmentForm.controls['departmentName'].setValue('');
 
   }
   
