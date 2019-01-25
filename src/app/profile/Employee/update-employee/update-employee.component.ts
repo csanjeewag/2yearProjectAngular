@@ -88,7 +88,7 @@ public next:any;
     formData.append('EmpGender',value.gender);
     formData.append('ProjectId',value.project);
     formData.append('EmpProfilePicture',this.FileImage);
-
+    formData.append('StartDate',this.employee.startDate);
     
       let apiUrl = 'employee/updateemployee';
       

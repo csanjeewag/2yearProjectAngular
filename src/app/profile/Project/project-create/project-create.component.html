@@ -1,60 +1,44 @@
-
+<!-- 
 
 
       <div >
         
         <div  class="wrapper fadeInDown col-md-12 container">
           <div id="formContent">
-            <!-- Tabs Titles -->
-        
-            <!-- Icon -->
+         
             <div class="fadeIn first">
               <h1>Create Project</h1>
             </div>
             <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
-            <!-- Sign up Form -->
+     
             <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="createrole(projectForm.value)">
                 <div class="form-group col-md-12">
                    
-                    <!-- <input class="form-control" formControlName="projectId" id="projectId" placeholder="Project Id"> -->
-                    <input formControlName="projectId" required >
+                       <input formControlName="projectId" required >
                     <label> project Id</label>
                     <em *ngIf="validateControl('projectId') && hasError('projectId', 'required')">*Project Id is required!</em>
-                    <em *ngIf="validateControl('projectId') && hasError('projectId', 'email')">*This not a valid email!</em>
-            
+                   
                 </div>
                 <div class="form-group col-md-12">
                     
-                    <!-- <input type="text" formControlName="projectName" id="projectName" class="form-control" placeholder="Project Name"> -->
-                    <input formControlName="projectName" required >
+                     <input formControlName="projectName" required >
                     <label> Project Name</label>
                     <em *ngIf="validateControl('projectName') && hasError('projectName', 'required')">*Project name is required</em>
-                    <em *ngIf="validateControl('projectName') && hasError('projectName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
+                    
                 </div>
                 <div class="form-group col-md-12">
-                    
-                    <!-- <input type="text" formControlName="projectDescription" id="projectDescription" class="form-control" placeholder="Project Description"> -->
-                    <input formControlName="projectDescription" required >
+                     <input formControlName="projectDescription" required >
                     <label> Project Description</label>
                     <em *ngIf="validateControl('projectDescription') && hasError('projectDescription', 'required')">*Project details is required</em>
-                    <em *ngIf="validateControl('projectDescription') && hasError('projectDescription', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
+                   
                 </div>
                 
                 <div class="btn-group" role="group" aria-label="Basic example">
-                <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-                <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Create</button>
+                  <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Create</button>
                 
             </div> 
             </form>
-                <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-                
-            <!-- Remind Passowrd -->
-            <div id="formFooter">
-              <a  id="crateAccountlink"  class="underlineHover" ></a>
-             
-            </div>
+           
         
           </div>
         </div>
@@ -63,4 +47,81 @@
         </div>
     
     
+
+
+        <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                  <h3 class="card-title">Create Project</h3>
+                  <h6 class="card-subtitle mb-2 text-muted"><h6 id="msg">{{Message}}</h6></h6>
+                 
+                  <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="createrole(projectForm.value)">
+                        <div class="form-group col-md-12">
+                           
+                               <input formControlName="projectId" required >
+                            <label> project Id</label>
+                            <em *ngIf="validateControl('projectId') && hasError('projectId', 'required')">*Project Id is required!</em>
+                           
+                        </div>
+                        <div class="form-group col-md-12">
+                            
+                             <input formControlName="projectName" required >
+                            <label> Project Name</label>
+                            <em *ngIf="validateControl('projectName') && hasError('projectName', 'required')">*Project name is required</em>
+                            
+                        </div>
+                        <div class="form-group col-md-12">
+                             <input formControlName="projectDescription" required >
+                            <label> Project Description</label>
+                            <em *ngIf="validateControl('projectDescription') && hasError('projectDescription', 'required')">*Project details is required</em>
+                           
+                        </div>
+                        
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                          <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Create</button>
+                        
+                    </div> 
+                    </form>
+                   
+                </div>
+              </div>
+           -->
+    
+    
+              <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                      <h3 class="card-title">Create Project</h3>
+                      <h6 class="card-subtitle mb-2 text-muted"><h6 id="msg">{{Message}}</h6></h6>
+                      <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="createrole(projectForm.value)">
+                            <div class="form-group col-md-12">
+                               
+                                   <input formControlName="projectId" required >
+                                <label> project Id</label>
+                                <!-- <em *ngIf="validateControl('projectId') && hasError('projectId', 'required')">*Project Id is required!</em> -->
+                               
+                            </div>
+                            <div class="form-group col-md-12">
+                                
+                                 <input formControlName="projectName" required >
+                                <label> Project Name</label>
+                                <!-- <em *ngIf="validateControl('projectName') && hasError('projectName', 'required')">*Project name is required</em> -->
+                                
+                            </div>
+                            <div class="form-group col-md-12">
+                                 <input formControlName="projectDescription" required >
+                                <label> Project Description</label>
+                                <!-- <em *ngIf="validateControl('projectDescription') && hasError('projectDescription', 'required')">*Project details is required</em> -->
+                               
+                            </div>
+                            
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                              <button type="submit" id="btn" class="btn btn-success" [disabled]="!projectForm.valid">Create</button>
+                            
+                        </div> 
+                        </form>
+                    </div>
+                  </div>
+              
+        
+        
+      
     

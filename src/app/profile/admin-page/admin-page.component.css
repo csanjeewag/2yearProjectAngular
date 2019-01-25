@@ -3,11 +3,12 @@
 }
 h2{
     text-align: center;
-    color: rgb(176, 14, 35);
+    color: rgb(37, 2, 6);
 }
 #showview{
 padding: 20px;
-background-color: rgba(160, 161, 161, 0.8); /* fallback for old browsers */
+background-color: rgba(198, 201, 201, 0.8); /* fallback for old browsers */
+min-height: 40em;
    
 }
 #createview{

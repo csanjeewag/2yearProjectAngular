@@ -81,15 +81,15 @@ export class CreateEventPageForTripComponent implements OnInit {
 
   private executeEventCreation(eventFormValue) {
   
-    let event: Event = {
-      eventTitle: eventFormValue.eventTitle,
-      eventDescription: eventFormValue.eventDescription,
-      destination:eventFormValue.destination,
-      startDate: eventFormValue.startDate,
-      endDate: eventFormValue.endDate,
-      closingDate:eventFormValue.closingDate,
-      type:eventFormValue.type,
-    };
+    // let event: Event = {
+    //   eventTitle: eventFormValue.eventTitle,
+    //   eventDescription: eventFormValue.eventDescription,
+    //   destination:eventFormValue.destination,
+    //   startDate: eventFormValue.startDate,
+    //   endDate: eventFormValue.endDate,
+    //   closingDate:eventFormValue.closingDate,
+    //   type:eventFormValue.type,
+    // };
 
      
     let apiUrl = 'event/createEvent';

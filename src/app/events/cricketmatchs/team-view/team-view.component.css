@@ -1,0 +1,9 @@
+table tr th {
+    text-align: left;
+}
+.card-body{
+    margin: 1em;
+}
+#card{
+   margin-bottom: 1em;
+}

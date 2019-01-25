@@ -49,6 +49,17 @@ public Task(){
 
 }
 
+public onClick(){
+  this.urlAddress = "events/addevent";
+  this.router.navigate([this.urlAddress]);
+}
+
+public UpdateEvents(){
+  this.urlAddress="events/updateevent/2";
+  this.router.navigate([this.urlAddress]);
+
+}
+
 }
 
 
