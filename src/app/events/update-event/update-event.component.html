@@ -18,6 +18,12 @@
                             <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription is required!</em>
                             
                         </div> 
+
+                        <div class="form-group col-md-12">
+                            <h6>Add a Event Image <input type="file" (change)="onFileChange($event.target.files)" /></h6>
+                            <img  *ngIf="ImageUrl" [src]=ImageUrl id="icon" alt="User Icon" > 
+                          </div>
+                          
                         <div class="form-group col-md-12">
                                 <input class="form-control" formControlName="EventDescription" id="EventDescription" required>
                                 <label >Event Description</label>
