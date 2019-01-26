@@ -4,7 +4,7 @@ import {  RepositoryService} from './../../ShareData/repository.service';
 import { Router } from '@angular/router';
 import{Info} from './../_interfaces/Info';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { AuthServiceService} from "./../../AuthGards/auth-service.service";
 
 @Component({
   selector: 'app-add-info',
@@ -13,15 +13,19 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddInfoComponent implements OnInit {
   
-  constructor(private repository: RepositoryService, private route: Router,private modalService: NgbModal) { }
+  constructor(private repository: RepositoryService, private route: Router,private modalService: NgbModal,private auth:AuthServiceService) { }
 public taskId:any;
 public result:any;
 public empid:any;
 public result2:any;
 public contactForm:FormGroup;
+public ctypeid:any;
   ngOnInit() {
+    //this.empid=this.auth.tokencheckId();
+    this.empid=1;
+    console.log(this.empid);
     this.getAllContactTypes();
-    this. getTaskForEmployee(3);
+    this. getTaskForEmployee(this.empid);
     
     this.contactForm = new FormGroup({
       name:new FormControl(''),
@@ -29,6 +33,7 @@ add:new FormControl(''),
 num1:new FormControl(''),
 num2:new FormControl(''),
 des:new FormControl(''),
+cdes:new FormControl(''),
 iscomplete:new FormControl(''),
     })
 }
@@ -44,6 +49,10 @@ public getAllContactTypes(){
   
 }
 
+public contactType(typeid){
+  this.ctypeid=typeid;
+  console.log(this.ctypeid)
+}
 
 public addContacts(value){
   let formData = new FormData();
@@ -51,11 +60,12 @@ public addContacts(value){
   formData.append('Address',value.add);
   formData.append('Contact1',value.num1);
   formData.append('Contact2',value.num2);
+  formData.append('ContactDescription',value.cdes)
   formData.append('InfoDescription',value.des);
   formData.append('IsComplete',value.iscomplete);
   formData.append('Id',this.empid);
   formData.append('TaskId',this.taskId);
-  //formData.append('ContactId',value.contactid);
+  formData.append('ContactId',this.ctypeid);
 
   let apiUrl = 'taskinfo/addinfodetails';
     

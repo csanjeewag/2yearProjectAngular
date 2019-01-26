@@ -27,7 +27,7 @@ public result:any;
 public employees:Array<any> = [];
 
   ngOnInit() {
-    this.getTask();
+    this.gettask();
     this.getAllEmployee();
 
     this.taskForm = new FormGroup({        
@@ -48,37 +48,53 @@ public employees:Array<any> = [];
 
 
   
-  public updateTask(profileFormValue) {
+  public updateTask(value) {
 
-    console.log("updateawaaa"+this.employeeId+" "+this.taskId+" "+this.goalText)
-    let t: NewTask = {
+    
+    let formdata = new FormData;
+        formdata.append('TaskName',value.TaskName),
+        formdata.append('StartDate',value.StartDate),
+        formdata.append('EndDate',value.EndDate),
+      formdata.append('BudgetedCost',value.BudgetedCost),
+formdata.append('Description',value.Description),
+formdata.append('Status',value.Status)
+
+let apiUrl = 'project/updateproject';
+        
+        this.repository.postFile(apiUrl, formdata)
+          .subscribe(res =>  {
+            //this.Message="Project updated!";
+              this.router.navigate(['task/list']);
+         
+            },
+            (error => {
+              //this.Message="project updated Failed,Try Again!";
+            })
+          )
       
-      //taskId:this.taskId,
-      taskName:profileFormValue.TaskName,
-      eventName:profileFormValue.EventName,
-      startDate:profileFormValue.StartDate,
-      endDate:profileFormValue.EndDate,
-      budgetedCost:profileFormValue.BudgetedCost,
-      description:profileFormValue.Description,
-      employeeEmpId:this.employeeId,
-      employees:this.employees,
-      admin:profileFormValue.Admin,
-      status:false,
-      addDate:this.todaydate
-    };
+      }
 
-    let apiUrl = '/task/updatetask';
-    this.repository.postData(apiUrl,t)
-        .subscribe(res => {
-          this.router.navigate(['/task/list']);
-            
+      public gettask(){
+
+        this.route.paramMap.subscribe((params:ParamMap)=>{
+          let id = parseInt(params.get('id'));
+           this.taskId=id;
+          
+          this.repository.getData('task/'+id)
+          
+          .subscribe(res => {
+            this.task = res as any;
+            console.log( this.task)
+            this.fillTask();
           },
-          (error => {
-          //  this.errorHandler.handleError(error);
-          //  this.errorMessage = this.errorHandler.errorMessage;
+          (error) => {
+          //  this.handleErrors(error);n
           })
-        )
+         });
     }
+      
+
+        
     public fillTask(){
       //this.taskForm.controls['TaskId'].setValue(this.task.taskId);
       this.taskForm.controls['TaskName'].setValue(this.task.taskName);
@@ -97,21 +113,7 @@ public employees:Array<any> = [];
    
   public getTask(){
 
-    this.route.paramMap.subscribe((params:ParamMap)=>{
-      let id = parseInt(params.get('id'));
-       this.taskId=id;
-      
-      this.repository.getData('task/'+id)
-      
-      .subscribe(res => {
-        this.task = res as any;
-        console.log( this.task)
-        this.fillTask();
-      },
-      (error) => {
-      //  this.handleErrors(error);n
-      })
-     });
+    
    
   }
 

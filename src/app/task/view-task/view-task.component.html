@@ -11,6 +11,8 @@
         </strong>
           {{i.description}}
         </p>
+        <button type="button" class="btn btn-success" (click)="updateTask(i.taskId)">Update</button>
+
            <button type="button" class="btn btn-link" (click)="open(content,i.taskId)">More</button>
            <div class="modal fade">
            <ng-template #content let-c="close" let-d="dismiss" >

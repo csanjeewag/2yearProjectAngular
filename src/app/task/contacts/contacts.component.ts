@@ -4,6 +4,7 @@ import {  RepositoryService} from './../../ShareData/repository.service';
 import{ContactType} from './../_interfaces/ContactType';
 import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,17 +17,31 @@ export class ContactsComponent implements OnInit {
   public result:any;
   public show:boolean = false;
   public buttonName:any = '+';
-  public ContactForm:FormGroup;
+  public AddContactForm:FormGroup;
   public allcontacts:any;
+public ContactForm:FormGroup;
+public contactid:any;
+public ContactFormUpdate:FormGroup;
 
-
-  constructor( private repository : RepositoryService,config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor( private repository : RepositoryService,private router:Router,config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.getAllContactTypes();
 
-    this.ContactForm = new FormGroup({  
-      type: new FormControl(''),
+    this.AddContactForm = new FormGroup({  
+      oname:new FormControl(''),
+      address:new FormControl(''),
+      num1:new FormControl(''),
+      num2:new FormControl(''),
+      cd:new FormControl(''),
+      
+
+      }),
+      this.ContactForm=new FormGroup({
+        type:new FormControl('')
+      }),
+      this.ContactFormUpdate=new FormGroup({
+        type:new FormControl('')
 
       })
   }
@@ -41,51 +56,51 @@ export class ContactsComponent implements OnInit {
     })
     
   }
-  open(content) {
-   
+  open2(content,ctypeid) {
+    
     this.modalService.open(content);
+    this.contactid=ctypeid;
+   console.log('contact id-------->'+this.contactid);
   }
  
-  
+  open(content){
+    this.modalService.open(content);
 
-  public addContactType(profileFormValue) {
+  }
+
+  public addContactType(ContactForm) {
     let ctype: ContactType = {
       
-      contactType:profileFormValue.type,
+      contactType:ContactForm.type,
   };
-  let apiUrl = '/contact/addcontacttype';
+  let apiUrl = 'contact/addcontacttype';
     this.repository.postData(apiUrl,ctype)
     
         .subscribe(res => {
-          //this.router.navigate(['/task/list']);
             
           })
 
 }
 
 public viewAll(id){
-  this.repository.getData('contact/getallfortype/'+id)
-  .subscribe(res => {
-    //this.result = res as Observable<NewTask>;
-    this.allcontacts = res as any;
-    console.log(this.allcontacts);
- 
 
-  })
+    this.router.navigate(['task/viewcontact/'+id]);
   
 
 }
+
 public addContacts(value){
   let formData = new FormData();
-  formData.append('Name',value.name);
-  formData.append('Address',value.add);
+  formData.append('ContactContactId',this.contactid);
+  formData.append('Name',value.oname);
+  formData.append('Address',value.address);
   formData.append('Number1',value.num1);
   formData.append('Number2',value.num2);
-  formData.append('Number3',value.num3);
+  formData.append('ContactDescription',value.cd);
 
-  let apiUrl = 'task/create';
+  let apiUrl = 'contact/addcontactdetailnormally';
     
-  this.repository.postFile(apiUrl, formData)
+  this.repository.postData(apiUrl, formData)
     .subscribe(res => {
       
       },
@@ -93,6 +108,9 @@ public addContacts(value){
         
       })
     )
+
+}
+public updateContactType(value){
 
 }
 
