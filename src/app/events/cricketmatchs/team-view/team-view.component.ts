@@ -13,9 +13,15 @@ export class TeamViewComponent implements OnInit {
   
   public teams:any;
   public eventId:any;
+  public event:any;
+  public ImageUrl:any;
+
   ngOnInit() {
+    this.ImageUrl = this.repository.ImageUrl;
     this.eventId = this.route.snapshot.paramMap.get('id')
     this.getCricketTeams();
+    this.getEventDetails();
+    
   }
 
   public getCricketTeams(){
@@ -25,6 +31,19 @@ export class TeamViewComponent implements OnInit {
     .subscribe(res => {
       this.teams = res;
      console.log(this.teams);
+    },(error =>{
+
+    })
+    )
+  }
+
+  public getEventDetails(){
+    let apiAddress: string = "Event/getall/"+this.eventId;
+
+    this.repository.getData(apiAddress)
+    .subscribe(res => {
+      this.event = res;
+     console.log(this.event);
     },(error =>{
 
     })

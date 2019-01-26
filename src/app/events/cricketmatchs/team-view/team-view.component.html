@@ -1,16 +1,23 @@
 <app-nav-bar></app-nav-bar>
 
-<div >
-        
+<div class="container" >
+    <p class="media-body pb-3 mb-0 lh-125">
+        <strong class="d-block text-black-dark ">{{event.eventTitle}}
+          <img [src]="ImageUrl+event.eventImageUrl" width="200" height="200" class="rounded-circle margin-left ml-2">
+        </strong>
+        {{event.startDate |date}}
+        {{event.venue}}
+    </p>   
+   
+    <hr style="border-top: 1px dotted rgb(197, 175, 175);">
     <div class=" col-md-10 container">
       <div >
  
         <div >
           <h1>Registered Teams...</h1>
-
-        
         </div>
-        <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+
+        <!-- <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5> -->
         <div class="row">
         <div *ngFor="let team of teams;">
        
@@ -29,13 +36,10 @@
 
                 </div>
               </div>
-             
-        
             
             </div>
           </div>
-    
-    
+     
       </div>
     </div>
 </div>

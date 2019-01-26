@@ -1,0 +1,73 @@
+<app-nav-bar></app-nav-bar>
+
+<div id="back">
+        
+    <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <br>
+        <div class="fadeIn first">
+          <h1>Email Form</h1>
+        </div>
+        <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+        <!-- Sign up Form -->
+        <form [formGroup]="Form" autocomplete="off" novalidate (ngSubmit)="emailData(Form.value)">
+
+          <div class="form-group row">
+            <div class="col-10">
+                <input formControlName="formTopic" class="form-control" type="text" id="inputFormTopic" required>
+                <label for="inputFormTopic" >Topic :</label>
+                <em *ngIf="validateControl('formTopic') && hasError('formTopic', 'required')">*Topic is required</em>
+            </div>
+          </div>
+
+          <!-- <div class="form-group row">
+            <div class="col-10">
+                <textarea formControlName="formTopic" class="form-control rounded-0" id="inputFormTopic" placeholder=" Topic of Email :" rows="2" required></textarea>
+                <em *ngIf="validateControl('formTopic') && hasError('formTopic', 'required')">*Topic is required</em>
+            </div>
+          </div> -->
+  
+        
+          <div class="form-group row">
+            <div class="col-10">
+                <textarea formControlName="formDiscription1" class="form-control rounded-0" id="inputFormDiscription1" placeholder="Discription 1 :" rows="3" required></textarea>
+                <em *ngIf="validateControl('formDiscription1') && hasError('formDiscription1', 'required')">*Discription 1 is required</em>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-10">
+                <textarea formControlName="formDiscription2" class="form-control rounded-0" id="inputFormDiscription2" placeholder="Discription 2 :" rows="3" required></textarea>
+                <em *ngIf="validateControl('formDiscription2') && hasError('formDiscription2', 'required')">*Discription 2 is required</em>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-10">
+                <textarea formControlName="formDiscription3" class="form-control rounded-0" id="inputFormDiscription3" placeholder="Discription 3 :" rows="3" ></textarea>
+            </div>
+          </div>
+
+          <br><br>
+          <div class="row">
+              <div class="col-5"></div>
+                <div class="col-2">
+                    <button type="submit" id="btn-sub"  class="btn btn-outline-danger" [disabled]="!Form.valid" routerLink="/cricketmatchs/alert" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Submit</button>
+                </div> 
+                <!-- <a routerLink="/user/bob" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Bob</a>-->
+              <div class="col-5"></div>
+          </div>
+        
+        </form>
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a  id="crateAccountlink"  class="underlineHover" ></a>
+        </div>
+    
+      </div>
+    </div>
+
+</div>

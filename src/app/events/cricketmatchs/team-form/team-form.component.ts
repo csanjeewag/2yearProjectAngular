@@ -14,6 +14,8 @@ export class TeamFormComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, private router: Router,private repository: RepositoryService,private modalService: NgbModal) {}
 
+  public message = "successful Email.";
+
   public teamForm: FormGroup;
   public result:any;    
   public captainId:any;
@@ -23,6 +25,7 @@ export class TeamFormComponent implements OnInit {
   public name:any;
   public Message:any;
   public eventId:any;
+  public $scope:any;
 
   ngOnInit() {
     this.eventId = this.route.snapshot.paramMap.get('id')
@@ -51,12 +54,16 @@ export class TeamFormComponent implements OnInit {
     return false;
   }
 
+  public myFunc(){
+    alert(this.message);
+  }
+
   public teamData(value){
     console.log(value)
     let formData = new FormData();
     formData.append('EventId',this.eventId);
     formData.append('TeamName',value.teamName);
-    formData.append('VegeCount',value.teamVegeCount);
+    formData.append('VageCount',value.teamVegeCount);
     formData.append('LiquorCount',value.teamLiquor);
     formData.append('Description',value.discription);
     formData.append('TeamCaptainId',this.captainId);
@@ -75,6 +82,7 @@ export class TeamFormComponent implements OnInit {
     formData.append('TeamMembers',this.employees[12]);
     formData.append('TeamMembers',this.employees[13]);
     formData.append('TeamMembers',this.employees[14]);
+    
     let apiUrl = 'Cricketmatch/addteam';
     
       this.repository.postFile(apiUrl, formData)
@@ -103,7 +111,6 @@ export class TeamFormComponent implements OnInit {
   }
   onChange(id:string,empName:string, isChecked: boolean) {
     if(isChecked) {
-      this.captainId=id;
       this.employees.push(id);
       this.emailFormArray.push(empName);
     } else {
