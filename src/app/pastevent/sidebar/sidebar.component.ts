@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   
 
  public event:any;
+ public ClickId:any;
 
   ngOnInit() {
     this.getEvents();
@@ -33,8 +34,9 @@ export class SidebarComponent implements OnInit {
   }
 
  public  gotoEvent(id){
- console.log(id);
+  this.ClickId=id;
     this.router.navigate(['pastevent/event/s/'+id]);
+  
   }
   public  gotoEventImages(id){
     console.log(id);

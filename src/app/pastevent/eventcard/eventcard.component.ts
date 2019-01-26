@@ -14,7 +14,9 @@ export class EventcardComponent implements OnInit {
   constructor(private router: Router ,private repository:RepositoryService) { }
   
   public event:any;
+  public ImageUrl:any;
   ngOnInit() {
+    this.ImageUrl = this.repository.ImageUrl;
     this.eventname();
   }
 

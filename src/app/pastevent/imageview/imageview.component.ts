@@ -21,6 +21,7 @@ export class ImageviewComponent implements OnInit {
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = parseInt(params.get('id'));
       this.eventId=id;
+      this.repo.commenteventId = this.eventId;
     })
     this.getimage();
 
@@ -30,6 +31,7 @@ export class ImageviewComponent implements OnInit {
   this.repo.getData('PastEvent/getimages/'+id)
   .subscribe(res => {
     this.result = res ;
+    console.log(this.result);
   
   },
   (error) => {

@@ -6,7 +6,6 @@ import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/for
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
 
 
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -23,7 +22,8 @@ export class CommentComponent implements OnInit {
   public commentForm: FormGroup;
   ngOnInit() {
     this.ImageUrl = this.repository.ImageUrl;
-    this.eventid = this.rout.snapshot.paramMap.get('id');
+    //  this.eventid = this.rout.snapshot.paramMap.get('id');
+    this.eventid = this.repository.commenteventId;
     this.author = this.auth.tokencheckId();
     this.getcomment();
 
@@ -43,7 +43,7 @@ export class CommentComponent implements OnInit {
     this.repository.getData(url)
       .subscribe(res => {
         this.comment = res;
-      
+      console.log(res)
       }, (error) => {
 
       })
