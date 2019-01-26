@@ -13,9 +13,9 @@ export class SidebarComponent implements OnInit {
   
   constructor(private router: Router ,private repository:RepositoryService) { }
   
- public eventtopic = [{'topic':'gfxgbx'},{'topic':'cgh'},{'topic':'jgjh'}]
- public eventt = [{'topic':'blood donation'},{'topic':'cricket match 2018'},{'topic':'blood donation 15'}]
+
  public event:any;
+ public ClickId:any;
 
   ngOnInit() {
     this.getEvents();
@@ -34,7 +34,13 @@ export class SidebarComponent implements OnInit {
   }
 
  public  gotoEvent(id){
- console.log(id);
+  this.ClickId=id;
     this.router.navigate(['pastevent/event/s/'+id]);
+  
   }
+  public  gotoEventImages(id){
+    console.log(id);
+       this.router.navigate(['pastevent/imageview/'+id]);
+       
+     }
 }

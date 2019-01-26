@@ -10,10 +10,10 @@ import { Router,ParamMap } from '@angular/router';
 })
 export class ImageviewComponent implements OnInit {
   result : any;
-
+  
   ImageUrl: any; 
 
-  constructor(private repo: RepositoryService, private route: ActivatedRoute) { }
+  constructor(private router : Router, private repo: RepositoryService, private route: ActivatedRoute) { }
   public eventId:any;
   ngOnInit() {
     this.ImageUrl = this.repo.ImageUrl;
@@ -21,33 +21,46 @@ export class ImageviewComponent implements OnInit {
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = parseInt(params.get('id'));
       this.eventId=id;
+      this.repo.commenteventId = this.eventId;
     })
-    this.getimage(this.eventId);
-    
+    this.getimage();
 
-    
-
-    
-    // this.repo.getimage('').subscribe(
-    //   res=>{
-    //     this.result=res;
-    //   },
-    // (error)=>{
-
-    // }
-    // )
   }
- public getimage(id){
-   
+ public getimage(){
+   let id = this.eventId;
   this.repo.getData('PastEvent/getimages/'+id)
   .subscribe(res => {
     this.result = res ;
-    console.log(this.result)
-    
+    console.log(this.result);
+  
   },
   (error) => {
   //  this.handleErrors(error);n
   })
+
+
+ }
+ public gotoimageupload(id){
+  this.router.navigate(['pastevent/imageupload/'+id]);  
+  
+ }
+ public gotocomment(id){
+  this.router.navigate(['pastevent/comment/'+id]);  
+   
+ }
+ public deleteimage(id){
+  let url = "pastevent/deleteimage";        
+  let formData = new FormData();
+  formData.append('Caption', id);
+
+ this.repo.postFile(url,formData)
+      .subscribe( img => {
+        this.getimage();
+        
+      }, (error => {
+     
+      })
+      )
 
 
  }

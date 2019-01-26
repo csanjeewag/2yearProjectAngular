@@ -4,7 +4,7 @@ import {  RepositoryService} from './../../ShareData/repository.service';
 import { Router } from '@angular/router';
 import{Info} from './../_interfaces/Info';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { AuthServiceService} from "./../../AuthGards/auth-service.service";
 
 @Component({
   selector: 'app-add-info',
@@ -13,15 +13,19 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AddInfoComponent implements OnInit {
   
-  constructor(private repository: RepositoryService, private route: Router,private modalService: NgbModal) { }
+  constructor(private repository: RepositoryService, private route: Router,private modalService: NgbModal,private auth:AuthServiceService) { }
 public taskId:any;
 public result:any;
 public empid:any;
 public result2:any;
 public contactForm:FormGroup;
+public ctypeid:any;
+
   ngOnInit() {
+    this.empid=this.auth.tokencheckId();
+    console.log(this.empid);
     this.getAllContactTypes();
-    this. getTaskForEmployee(3);
+    this. getTaskForEmployee(this.empid);
     
     this.contactForm = new FormGroup({
       name:new FormControl(''),
@@ -29,6 +33,7 @@ add:new FormControl(''),
 num1:new FormControl(''),
 num2:new FormControl(''),
 des:new FormControl(''),
+cdes:new FormControl(''),
 iscomplete:new FormControl(''),
     })
 }
@@ -38,28 +43,35 @@ public getAllContactTypes(){
   .subscribe(res => {
     this.result = res ;
  
-   console.log(this.result);
+   
     
   })
   
 }
 
+public contactType(typeid){
+  this.ctypeid=typeid;
+
+}
 
 public addContacts(value){
+  console.log(value);
+
   let formData = new FormData();
   formData.append('Name',value.name);
   formData.append('Address',value.add);
   formData.append('Contact1',value.num1);
   formData.append('Contact2',value.num2);
+  formData.append('ContactDescription',value.cdes)
   formData.append('InfoDescription',value.des);
-  formData.append('IsComplete',value.iscomplete);
-  formData.append('Id',this.empid);
-  formData.append('TaskId',this.taskId);
-  //formData.append('ContactId',value.contactid);
+  //formData.append('IsComplete',value.iscomplete);
+  formData.append('EmployeeId',this.empid);
+  formData.append('TaskTaskId',this.taskId);
+  formData.append('ContactContactId',this.ctypeid);
 
   let apiUrl = 'taskinfo/addinfodetails';
     
-  this.repository.postData(apiUrl, formData)
+  this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
       
       },
@@ -76,6 +88,7 @@ public addContacts(value){
 
 open(content,id) {
   this.taskId=id;
+  console.log(this.taskId);
   this.modalService.open(content);
 }
 
@@ -85,7 +98,7 @@ public  getTaskForEmployee(id){
   .subscribe(res => {
     this.result2 = res ;
     
-   console.log(this.result2);
+   
     
   },
   (error) => {

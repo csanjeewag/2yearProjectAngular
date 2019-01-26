@@ -124,24 +124,11 @@
                           </div>
                         </div>
                   
-                        <div class="my-3 p-3 bg-white rounded box-shadow" *ngFor="let res of result2">
-                          <h6 class="border-bottom border-gray pb-2 mb-0">Recent Tasks</h6>
-                          <div class="media text-muted pt-3">
-                            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                              <strong class="d-block text-gray-dark">{{res.taskName}}</strong>
-                              Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                            </p>
-
-                            <form [formGroup]="statusForm"  autocomplete="off" novalidate (ngSubmit)="onSubmit(statusForm.value)">
-                            <input type="checkbox" class="form-check-input" (change)="onChange($event.target.checked)">
-                              
-                            </form>
+                        
+                        <app-add-info></app-add-info>
 
 
-                          </div>
 
-                        </div>
-                  
                         <div class="my-3 p-3 bg-white rounded box-shadow">
                           <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
                           <div class="media text-muted pt-3">

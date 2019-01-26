@@ -1,137 +1,29 @@
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+.card-deck{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20%;
+    width: 25em;
+    
 
-#team {
-    background: #eee;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: primary-color;
-    border-color: primary-color;}
-    hover {
-    background-color: hover-color;
-    border-color: hover-color;
-    box-shadow: none;
-    outline: none;
-    }
-focus {
-    background-color: hover-color;
-    border-color: hover-color;
-    box-shadow: none;
-    outline: none;
-  }
-
-
-section {
-    padding: 60px 0;
+.card {
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    transition: 0.3s;
+    width: 100%
 }
 
-section .section-title {
-    text-align: center;
-    color: primary-color;
-    margin-bottom: 50px;
-    text-transform: uppercase;
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-#team .card {
-    border: none;
-    background: #ffffff;
+.container {
+    padding: 2px 16px;
 }
-
-.image-flip:hover .backside,
-.image-flip.hover .backside {
-    -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    border-radius: .25rem;
+.card-img-top{
+    width: 100%
 }
-
-.image-flip:hover .frontside,
-.image-flip.hover .frontside {
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-}
-
-.mainflip {
-    -webkit-transition: 1s;
-    -webkit-transform-style: preserve-3d;
-    -ms-transition: 1s;
-    -moz-transition: 1s;
-    transform: perspective(1000px);
-    transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transition: 1s;
-    transform-style: preserve-3d;
-    position: relative;
-}
-
-.frontside {
-    position: relative;
-    transform: rotateY(0deg);
-    transform: rotateY(0deg);
-    z-index: 2;
-    margin-bottom: 30px;
-}
-
-.backside {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: white;
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-    -webkit-box-shadow: box-shadow;
-    -moz-box-shadow: box-shadow;
-    box-shadow: box-shadow;
-}
-
-.frontside,
-.backside {
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: 1s;
-    -webkit-transform-style: preserve-3d;
-    -moz-transition: 1s;
-    -moz-transform-style: preserve-3d;
-    -o-transition: 1s;
-    -o-transform-style: preserve-3d;
-    -ms-transition: 1s;
-    -ms-transform-style: preserve-3d;
-    transition: 1s;
-    transform-style: preserve-3d;
-}
-
-.frontside .card,
-.backside .card {
-    min-height: 312px;
-}
-
-.backside .card a {
-    font-size: 18px;
-    color: primary-color;
-}
-hover {
-    color:hover-color;
-    }
-
-
-.frontside .card .card-title,
-.backside .card .card-title {
-    color: primary-color;
-}
-
-.frontside .card .card-body img {
-    width: 120px;
-    height: 120px;
-    /* border-radius: 50%; */
+#crateAccountlink{
+    color: brown;
 }

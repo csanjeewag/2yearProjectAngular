@@ -60,7 +60,7 @@ export class RoleCreateComponent implements OnInit {
         .subscribe(res =>  {
           this.Message="role Created!";
               this.router.navigate(['/profile/admin/roles']);
-           
+           this.fill();
        
           },
           (error => {
@@ -79,6 +79,12 @@ export class RoleCreateComponent implements OnInit {
       positionDis: new FormControl('',)
       
      })
+  }
+  public fill(){
+    this.positionForm.controls['positionId'].setValue('');
+    this.positionForm.controls['positionName'].setValue('');
+    this.positionForm.controls['positionDis'].setValue('');
+
   }
 
 }

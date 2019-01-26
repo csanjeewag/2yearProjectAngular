@@ -45,7 +45,7 @@
       return false;
     }
   
-    public createrole(PositionFormvalue) {
+    public updaterole(PositionFormvalue) {
   
       if (this.positionForm.valid) {
         

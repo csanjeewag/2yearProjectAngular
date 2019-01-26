@@ -6,22 +6,13 @@
     </h5>
     <div class="card-body">
         <h5 class="card-title">
-            <h3 id="msg">{{Message}}</h3>
+           
         </h5>
-        <form [formGroup]="summaryForm" autocomplete="off" novalidate (ngSubmit)="createrole(summaryForm.value)">
+        <form [formGroup]="summaryForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(summaryForm.value)">
 
-            <div class="form-group">
-                <label for="email" class="sr-only">TypeId</label>
-                <input class="form-control" formControlName="TypeId" id="TypeId" placeholder="TypeId">
-               
-               
+            
 
-            </div>
-
-            <div class="form-group">
-                <label for="email" class="sr-only">EventId</label>
-                <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
-            </div>
+            
             <div class="form-group">
                 <label for="key" class="sr-only">Summary</label>
                 <input type="text" formControlName="summary" id="summary" class="form-control" placeholder=" Summary">
@@ -40,6 +31,7 @@
                 <input class="form-control" formControlName="Real_Budget" id="Real_Budget" placeholder="Real Budget">
 
             </div>
+            
 
 
             <div class="btn-group" role="group" aria-label="Basic example">

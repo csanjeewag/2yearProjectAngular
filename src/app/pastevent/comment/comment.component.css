@@ -1,0 +1,59 @@
+* {
+  -moz-box-sizing:border-box; 
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body {
+  margin:0 auto; 
+  padding:1rem; 
+  max-width: 100%; 
+  font-family:sans-serif; 
+  color:#333; 
+  background-color:#CCC;
+  font-size:12pt;
+}
+h1 {
+  color:#555;
+  font-weight:normal;
+  border-bottom:2px solid #CCC;
+  margin-bottom:2rem;
+}
+#comments {
+  background-color:#FFF;
+  padding:1rem 2rem; 
+  width: 100%;
+}
+.comment {
+  position:relative; 
+  margin:2rem 0 0 0;
+  background-color:#EEE; 
+  border:2px solid #AAA; 
+  -webkit-border-radius:0.25rem; 
+  -moz-border-radius:0.25rem; 
+  border-radius:0.25rem; 
+  font-size:10pt;
+ 
+
+}
+.username {
+  position:absolute;
+  top:-1.5em;
+  left:0;
+  margin-left:2rem;
+  font-weight:bold;
+}
+.comment p {
+  margin:0.5rem 0.5rem 0.5rem 2rem;
+}
+.avatar {
+  position:absolute; 
+  max-width:3rem; 
+  max-height:3rem; 
+  border:2px solid #AAA; 
+  -webkit-border-radius:1.5rem; 
+  -moz-border-radius:1.5rem; 
+  border-radius:1.5rem; 
+  top:-1.5rem; 
+  left:-1.5rem;
+}

@@ -1,4 +1,22 @@
 <app-nav-bar></app-nav-bar>
+<br>
+        <br>
+<div class="col-md-10 col-lg-8 col-sm-12 container">
+    <div class="row">
+
+        <div class="col-md-4">       
+            <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" />
+        
+         </div>
+         <div class="col-md-4">       
+             <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" />
+          </div>
+          <div class="col-md-4">       
+             <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" />
+           </div>
+          </div>
+</div>
+
 
     <div class="col-md-8 container">
     	<div class="row">
@@ -56,19 +74,12 @@
     </div>
     
    <div>-->
-    	<div class="panel-body container">
-          <div class=" input-group mb-3" [class.error]="isNotEmail">
-              <div class="input-group-prepend">
-              <label (click)=filterInput() class="input-group-text" for="filter">Search.. </label>
-              </div>
-        <input  [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
-         </div>
-         </div>
+    	
         <br>
         <br>
 
 
-    <div *ngFor="let i of result | filterPipe: filtertext" role="tabpanel" class="col-lg-12 tab-pane fade active show" id="day-1">
+    <div *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject" role="tabpanel" class="col-lg-12 tab-pane fade active show" id="day-1">
 
       <div id="zoom1"  class="row schedule-item">
         <div  id="Position" class="col-md-2"> <p>{{i.empPosition}}</p> </div>
