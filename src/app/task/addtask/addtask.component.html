@@ -8,11 +8,8 @@
 
                         
                      <div class="form-row">
-                        <!--div class="form-group col-md-6">
-                          <input  placeholder="Task ID" class="form-control" type="text" formControlName="TaskId" id="TaskID">
-                          <em *ngIf="validateControl('TaskId') && hasError('TaskId', 'required')">*ID is required</em>
-                          
-                        </div-->
+                        
+                       
                     
                     <div class="form-group col-md-12">
                       <input  placeholder="Task Name" class="form-control" type="text" formControlName="TaskName" id="TaskName">
@@ -29,14 +26,10 @@
                                   {{j}}
                               </div>
                           
-                          <!-- <form autocomplete="off" novalidate [formGroup]="employeeForm"(ngSubmit)="SelectEmployee(employeeForm.value)">
-
-                          </form> -->
+                        
 
                           <em *ngIf="validateControl('EmployeeEmpId') && hasError('EmployeeEmpId', 'required')">*Name is required</em>
-                          <!--button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
-                                Employee List
-                              </button-->
+                          
                               <button class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
                               <ng-template #content let-c="close" let-d="dismiss">
                                   <div class="modal-header">
@@ -70,15 +63,7 @@
                       
                       </div>
                       <div class="form-row">
-                              <!--div class="form-group col-md-6">
-                                    <select class="form-control" formControlName="EventName" placeholder="Event" id="EventName">
-                                            <option value="" selected disabled hidden>Event</option>
-                                             <option [value]="d.dprtId" *ngFor="let d of departments">{{d.dprtName}}</option> 
-                                        </select>
-                         
-                              </div>
-                              <em *ngIf="validateControl('EventName') && hasError('EventName', 'required')">*Event is required</em-->
-               
+                              
                               <div class="form-group col-md-6">
                                       <input  placeholder="Budgeted Cost" class="form-control" formControlName="BudgetedCost" type="text" id="bcost">
                                       <em *ngIf="validateControl('BudgetedCost') && hasError('BudgetedCost', 'required')">*Budgeted Cost is required</em>

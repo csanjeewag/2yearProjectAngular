@@ -1,0 +1,19 @@
+
+  <table  class="table table-borderless">
+    <tr>
+      <th>Contact Person</th>
+      <th>Address</th>
+      <th>Contact number</th>
+      <th>Contact number</th>
+      
+    </tr>
+    <tr class="border-bottom border-secondary " *ngFor="let i of result;">
+  <td>{{i.name}} : <strong>{{i.contactDescription}}</strong></td>
+
+<td>{{i.address}}</td>
+<td>{{i.number1}}</td>
+<td>{{i.number2}}</td>
+<td> <button type="button" class="btn btn-success" (click)="deleteDetail(i.contactDetailId)"> Delete</button>  </td>
+<td> <button type="button" class="btn btn-success" (click)="updateDetail(i.contactDetailId)"> Update</button></td>
+</tr>
+  </table>

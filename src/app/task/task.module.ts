@@ -32,6 +32,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
+import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
        { path: 'update/:id', component: UpdateTaskComponent },
        {path:'newtask',component:MainTaskComponent},
        {path:'contact',component:ContactsComponent},
+       {path:'viewcontact/:id',component:ViewcontactsComponent},
 
 
 
@@ -73,6 +75,6 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent]
+  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent, ViewcontactsComponent]
 })
 export class TaskModule { }
