@@ -13,20 +13,22 @@ import { eventNames } from 'cluster';
   styleUrls: ['./pastdetail.component.css']
 })
 export class PastdetailComponent implements OnInit {
- public x:any;
- public y:any;
- 
+
+
 
   constructor( private router : Router  , private route: ActivatedRoute , private repository: RepositoryService) { }
   public event:any;
+  public ImageUrl:any;
   public Id:any;
+  public task:any;
   ngOnInit() {
     
-
+    this.ImageUrl = this.repository.ImageUrl;
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id = params.get('id');
       this.Id=id;
       this.getEvent(id);
+      this.getTask();
     })
    
   
@@ -42,6 +44,18 @@ export class PastdetailComponent implements OnInit {
 
   })
  }
+ public getTask(){
+
+  let url = "task/getall/"+this.Id;
+  this.repository.getData(url)
+  .subscribe(res => {
+    this.task =res;
+    console.log(this.task)
+  },(error) =>{
+
+  })
+ }
+
  public  gotoEventImages(id){
   console.log(id);
      this.router.navigate(['pastevent/imageview/'+id]);
@@ -49,6 +63,7 @@ export class PastdetailComponent implements OnInit {
    }
 
   }
+  
 
   //////////////
   // public getEvents(){

@@ -1,86 +1,4 @@
-
-<div id="backcolor" class="row">
-
-  <div class="col-10">
-
-    <div class="card">
-      <!-- <h2 id="topicname">{{event.name}}</h2> -->
-      <img id="topicImage" class="card-img-top" src=""
-        alt="Card image cap">
-      <div id="dateplace">
-       <div class="alert alert-success"> <h3  >{{event.name}}</h3>
-        
-       
-        </div>
-      </div>
-      <div class="card-body">
-
-        <h5 class="card-title">{{event.eventName}}</h5>
-
-        <div class="row">
-          <div class="col-6">
-            <!-- <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA6AOpVo7os9fipuhp3i0vdJaxYqrq7UwD_rVw7WUMCxP-mfbg"
-                alt="Card image cap"> -->
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA6AOpVo7os9fipuhp3i0vdJaxYqrq7UwD_rVw7WUMCxP-mfbg"
-                    alt="First slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="https://media.gettyimages.com/photos/cricket-batsman-hitting-ball-during-cricket-match-in-stadium-picture-id518022060?s=612x612"
-                    alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="https://media.gettyimages.com/photos/cricket-batsman-in-action-picture-id125141741?s=612x612"
-                    alt="Third slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="https://ichef.bbci.co.uk/news/976/cpsprodpb/13250/production/_92861487_gettyimages-627980766.jpg"
-                    alt="Third slide">
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="http://www.paklink.com.au/wp-content/uploads/2016/12/The-sunset-cast-brilliant-shades-of-red-and-orange-over-Canberras-Manuka-Oval..jpg"
-                    alt="Third slide">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-6">
-            <p>
-              {{event.eventDescription}}
-    
-             </p>
-
-          </div>
-        </div>
-
-
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <div class="row">
-          <div class="col-6">
-            <!-- <div class="embed-responsive embed-responsive-16by9" id="topicVideo">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/slp-jZZt7ik?ecver=1"
-                allowfullscreen></iframe>
-            </div> -->
-          </div>
-          <div class="col-6">
-              <ul class="list-group list-group-flush">
-                  <li class="list-group-item">treasurer :  </li>
-                  <li class="list-group-item">Chairman :</li>
-          
-                </ul>
-          </div>
-        </div>
-
-      </div>
-
-     
-      
-    </div>
-  </div>
-
+<!-- 
   <div class="col-1">
     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
   
@@ -91,7 +9,7 @@
 
         </button>
         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <!-- <a class="dropdown-item" href="pastevent/imageview/9"> Gallery </a> -->
+
           <a class="dropdown-item"  (click)=gotoEventImages(event.id)>Images Gallery</a>
 
           <a class="dropdown-item" href="pastevent/uploadpastevent">Create Past Event</a>
@@ -99,6 +17,43 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div class="card w-100"  >
+    <div class="card-body">
+      <h1 class="card-title">{{event.eventTitle}}</h1>
+      <h3>{{event.startDate|date}}</h3>
+  
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <img class="card-img-top" [src]="ImageUrl+event.eventImageUrl" class="card w-100" alt="Card image cap">
+
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <p class="card-text">{{event.venue}}</p>
+          <h3>{{event.endDate|date}}</h3>
+          <p class="card-text"> {{event.eventDescription}} </p>
+        </div>
+
+        <h3 class="border-bottom border-gray">Tasks of {{event.eventTitle}}</h3>
+        <div class="col-sm-12 col-md-10">
+          <div class="my-3 p-3 bg-white rounded box-shadow" *ngFor="let res of task">
+            
+            <div class="media text-muted pt-3">
+              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">{{res.taskName}}</strong>
+               budget cost:  {{res.budgetedCost | currency:'Rs'}}<br>
+                {{res.description}}
+               </p>
+              <!-- <button type="button" class="btn btn-link" (click)="open(content,res.taskId)">Add Details</button> -->
+            </div>
+          
+          </div>
+        </div>
+
+      </div>
+  
+      
+     
+      <a (click)=gotoEventImages(event.id) class="btn" id="btn">Gallery</a>
+    </div>
   </div>
-    <div class="col-1"></div>
-</div>

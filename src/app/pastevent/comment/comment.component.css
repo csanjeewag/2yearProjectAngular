@@ -7,7 +7,7 @@
 body {
   margin:0 auto; 
   padding:1rem; 
-  max-width:640px; 
+  max-width: 100%; 
   font-family:sans-serif; 
   color:#333; 
   background-color:#CCC;
@@ -22,7 +22,7 @@ h1 {
 #comments {
   background-color:#FFF;
   padding:1rem 2rem; 
-  width: 600px;
+  width: 100%;
 }
 .comment {
   position:relative; 

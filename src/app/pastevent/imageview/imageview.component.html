@@ -30,27 +30,45 @@
   </div>
 </li> -->
 
-<li class="nav-item">
-
-  <a class="nav-link" > <button class="btn" class="btn btn-outline-dark" (click)=gotoimageupload(eventId)>Image Upload</button></a>
-  <a class="nav-link" > <button class="btn" class="btn btn-outline-dark" (click)=gotocomment(eventId)>Comment section</button></a>
-</li>
 
 
-<section class="no-touch">
-  <div class="wrap">
-    <div *ngFor="let i of result">
-      <div class="box">       
-        <div class="boxInner">
-          <img class="images" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
-         
-          <div class="titleBox"> <button  (click)=deleteimage(i.imageId) id="btn">delete </button></div>
-        </div>
-        
+<div class="card w-90">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <button class="btn" (click)=gotoimageupload(eventId)>Image Upload</button>  
+    <div class="row">
+      <div class="col-sm-12 col-md-9">
+        <section class="no-touch">
+          <div class="wrap">
+            <div *ngFor="let i of result">
+              <div class="box">       
+                <div class="boxInner">
+                  <img id="zoom2"  class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                    {{i.author}}
+                 
+                  <div  class="titleBox"> <button  (click)=deleteimage(i.imageId) id="btn">delete </button></div>
+                </div>
+                
+              </div>
+              
+            </div>
+           </div>
+        </section>
+
       </div>
-      
+      <div class="col-sm-12 col-md-3">
+        
+        <app-comment></app-comment>
+      </div>
     </div>
-   </div>
-</section>
+
+
+  </div>
+</div>
+
+
+
+
 
 
