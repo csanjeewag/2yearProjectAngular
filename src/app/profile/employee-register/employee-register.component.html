@@ -12,12 +12,13 @@
       
           <!-- Login Form -->
           <h4 id="error">{{message}}</h4>
-          <h5> Check your email, and type code here to registration finish!</h5>
+          <h5> Check your email, and type code here to complete your registration!</h5>
           <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
                        
                   <div class="form-row">
                       <div class="form-group col-md-12">
-                        <input  placeholder="Resiter code" class="form-control" type="text" formControlName="resitercode" id="resitercode">
+                        <input  placeholder="Register code" class="form-control" type="text" formControlName="resitercode" id="resitercode" required>
+                        <label>Register code</label>
                         <em *ngIf="validateControl('resitercode') && hasError('resitercode', 'required')">*register code is required</em>
                      </div>
                  

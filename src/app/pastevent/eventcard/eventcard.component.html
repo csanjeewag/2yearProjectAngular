@@ -1,139 +1,27 @@
-
 <app-nav-bar></app-nav-bar>
 <section id="team" class="pb-5">
-  <div class="container">
-      <h5 class="section-title h1">Events</h5>
-      <div class="row">
-          <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                  <div class="mainflip">
-                      <div class="frontside">
-                          <div class="card">
-                              <div class="card-body text-center">
-                                  <p><img class="img-fluid" src="data:image/jpeg;base64,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" alt="card image"></p>
-                                  <h4 class="card-title">Blood donation</h4>
-                                  <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                  <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-bandcamp "></i></a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="backside">
-                          <div class="card">
-                              <div class="card-body text-center mt-4">
-                                  <h4 class="card-title"> Info</h4>
-                                  <p class="card-text">This is basic card with image on top, title, description and button.
-                                    This is basic card with image on top, title, description and button.This is basic card with image on top,
-                                     title, description and button.</p>
-                                  <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" target="_blank" href="pastevent/imageview/1">
-                                            <i class="fa fa-camera-retro fa-1x"><a > Gallery</a></i>
-                                        </a>
-                                    </li>
-                                    
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" target="_blank" href="#">
-                                            <i (click)=event() class="fa fa-angle-double-down" aria-hidden="true">More</i>
-                                        </a>
-                                    </li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- ./Team member -->
-           <!-- Team member -->
-           <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                <div class="mainflip">
-                    <div class="frontside">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <p><img class="img-fluid" src="https://images-na.ssl-images-amazon.com/images/I/41OXEL%2Bqt7L._SX425_.jpg" alt="card image"></p>
-                                <h4 class="card-title">Annual Cricket-match</h4>
-                                <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-bandcamp "></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <div class="card">
-                            <div class="card-body text-center mt-4">
-                                <h4 class="card-title">Trip Info</h4>
-                                <p class="card-text">This is basic card with image on top, title, description and button.
-                                  This is basic card with image on top, title, description and button.This is basic card with image on top,
-                                   title, description and button.</p>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" target="_blank" href="pastevent/imageview/2">
-                                            <i class="fa fa-camera-retro fa-1x"><a > Gallery</a></i>
-                                        </a>
-                                    </li>
-                                    
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" target="_blank" href="#">
-                                            <i (click)=event() class="fa fa-angle-double-down" aria-hidden="true">More</i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+    <div class="container">
+       
+        <div class="row">
+
+
+
+            <div *ngFor="let e of event">
+
+                <div (click)=moredetail(e.id) class="card-deck">
+
+                    <div class="card">
+                        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBK3FmyjIENz16NWEl1iJcIWj8I5n8hs-rl5JPixzw-XppNfKx"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{e.eventName}}</h5>
+                            <a id="btn" [class.click]="(ClickId==e.id)" (click)=moredetail(e.id)>moredetail</a>
+                            <br>
+                            <a id="btn" [class.click]="(ClickId==e.id)" (click)=Upgradeevent(e.id)>Upgrade</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- ./Team member -->
-         <!-- Team member -->
-         <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                <div class="mainflip">
-                    <div class="frontside">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <p><img class="img-fluid" src="https://seoimgak.mmtcdn.com/blog/sites/default/files/road-trip-indian-license.jpg" alt="card image"></p>
-                                <h4 class="card-title">Annual Trip</h4>
-                                <p class="card-text">This is basic card with image on top, title, description and button.</p>
-                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-bandcamp "></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="backside">
-                        <div class="card">
-                            <div class="card-body text-center mt-4">
-                                <h4 class="card-title">Trip Info</h4>
-                                <p class="card-text">This is basic card with image on top, title, description and button.
-                                  This is basic card with image on top, title, description and button.This is basic card with image on top,
-                                   title, description and button.</p>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" target="_blank" href="pastevent/imageview/3">
-                                            <i class="fa fa-camera-retro fa-1x"><a > Gallery</a></i>
-                                        </a>
-                                    </li>
-                                    
-                                    <li class="list-inline-item">
-                                        <a class="social-icon text-xs-center" target="_blank" href="#">
-                                            <i (click)=event() class="fa fa-angle-double-down" aria-hidden="true">More</i>
-                                        </a>
-                                    </li>
-                                    
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ./Team member -->
-         
-
-         <a href="pastevent/event" class="">More</a>
-
-      </div>
-  </div>
+    </div>
 </section>
-<!-- Team -->

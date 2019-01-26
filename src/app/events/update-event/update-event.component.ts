@@ -16,6 +16,8 @@ export class UpdateEventComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,  private repository : RepositoryService) { }
 
   public projectForm: FormGroup;
+  public FileImage:File;
+  public ImageUrl:any;
     public Message:any;
     public eventtypes:any;
     public projectID:any;
@@ -92,6 +94,7 @@ export class UpdateEventComponent implements OnInit {
    formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
    formdata.append('Venue',value.Venue);
    formdata.append('Destination',value.Destination);
+   formdata.append('EventImage', this.FileImage);
 
    
      
@@ -186,6 +189,7 @@ public updateAttribute(value){
  formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
  formdata.append('Venue',value.Venue);
  formdata.append('Destination',value.Destination);
+ formdata.append('EventImage', this.FileImage);
 
  
    
@@ -236,6 +240,19 @@ public getAttribute(){
     
       })
     )
+}
+onFileChange(file : FileList,id:number) {
+    
+
+  this.FileImage = file.item(0);
+ //selected image viewing
+  var reader = new FileReader();
+  reader.onload = (event:any) => {
+     this.ImageUrl = event.target.result;
+
+     console.log(event.target.result)
+  }
+   reader.readAsDataURL(this.FileImage);
 }
 
 }

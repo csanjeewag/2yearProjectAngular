@@ -6,7 +6,9 @@
 			<div class="col-md-12">
 				<div class="tableWithHeader ">
 					<div class="Header">
-						<h3 class="panel-title">..All Department Details..</h3>
+						<h3 class="panel-title">..All Position Details.. 
+              <!-- <button type="button" class="btn  btn-sm" data-toggle="modal" data-target="#myModal">create</button> -->
+            </h3>
 						
 					</div>
 					
@@ -14,9 +16,10 @@
 					<table class="table table-hover">
             <thead>
             <tr >
-                <th>Role Id</th>
-              <th>Role Name</th>
-              <th>Role Discription</th>
+                <th>Position Id</th>
+              <th>Position Name</th>
+              <th>Position Discription</th>
+              <th> Update</th>
               <th></th>
               <th *ngIf="isAdmin"></th>
              
@@ -27,9 +30,13 @@
               <td>{{i.positionName}}</td>
               <td>{{i.positionDis}}</td>
               
-                 <td><button type="button" id="update" class="btn btn-success" (click)=updateRoles(i.positionId)>Update</button></td>
+                 <td><button type="button" id="update" class="btn btn-success" (click)=updateRoles(i.positionId)><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button> </td>
                     <td *ngIf="isAdmin"><button type="button" id="delete" class="btn btn-danger" (click)=deleteEmployee(i.empId)>Delete</button></td>
                  
+                    <td  *ngIf="(i.isActive)&&(Loading!=i.positionId)" ><button id="btn" type="button" id="delete" class="btn" (click)=DeActive(i.positionId)>Deactive</button></td>
+                    <td  *ngIf="!(i.isActive)&&(Loading!=i.positionId)"><button id="btn" type="button" id="delete" class="btn" (click)=Active(i.positionId)>Active</button></td>
+                    <td *ngIf="(Loading==i.positionId)"><div ><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" ></div>
+                     </td>  
              
             </tr>
             </tbody>
@@ -40,3 +47,30 @@
 			
 		</div>
 	</div>
+  <div class="container">
+    
+    <!-- Trigger the modal with a button -->
+   
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <!-- <h4 class="modal-title">Modal Header</h4> -->
+          </div>
+          <div class="modal-body">
+            <app-role-create></app-role-create>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  

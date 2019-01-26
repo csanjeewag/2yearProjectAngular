@@ -1,0 +1,79 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+
+	<div class="comments-section">
+
+		<div class="row">
+			<!-- <div *ngFor="let e of comment">
+				<div class="card">
+				<div class="comment-post">
+			
+					<div class="col-xs-2"><img src="http://i63.tinypic.com/2ypkhte.jpg" /></div>
+					<div class="col-xs-9">
+						<p><span class="comment-author">{{e.author}}</span>
+							<span class="comment-time">30 minutes ago</span></p>
+						<p class="comment-content">{{e.commentIn}}
+					</p>
+					</div>			
+				</div>
+				</div>
+			</div> -->
+			<section id="comments">
+				<header>
+					<h1>Comments</h1>
+				</header>
+				<div *ngFor="let e of comment">
+					<div class="comment">
+						<div class="username">{{e.empName}} {{e.commentTime|date:'medium'}}</div>
+						
+						<img [src]= "ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
+
+						 <!-- <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" > -->
+
+						<p>{{e.commentIn}}</p>
+					</div>
+					
+						
+					
+				</div>
+			
+			</section>
+
+
+
+
+
+
+
+
+
+
+            
+
+			
+
+			
+			<form [formGroup]="commentForm" autocomplete="off"  (ngSubmit)="OnSubmit(commentForm.value)">
+				
+					
+						<!-- <textarea></textarea> -->
+						<div class="form-group">
+							<label for="key" class="sr-only">Description</label>
+							<input type="text" formControlName="CommentIn" class="form-control" placeholder=" Comment">
+						</div>
+						
+					
+				
+				<div class=" form-group">
+					<button type="submit" class="btn" class="btn btn-outline-dark" (click)="onClick()">submit</button>
+			
+				</div>
+			</form>
+			
+
+		</div>
+	  
+	</div>
+  
+</div>

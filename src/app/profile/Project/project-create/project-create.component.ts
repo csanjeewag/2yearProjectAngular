@@ -57,8 +57,8 @@
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
             this.Message="project Created!";
-                this.router.navigate(['/profile/admin/roles']);
-             
+                this.router.navigate(['/profile/admin/project']);
+             this.fill();
          
             },
             (error => {
@@ -77,6 +77,12 @@
         projectDescription: new FormControl('',[Validators.required]),
        
        })
+    }
+
+    public fill(){
+      this.projectForm.controls['projectId'].setValue('');
+      this.projectForm.controls['projectName'].setValue('');
+      this.projectForm.controls['projectDescription'].setValue('');
     }
   
   }

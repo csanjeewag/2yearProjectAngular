@@ -15,13 +15,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { SidenavbarComponent } from './SharePart/sidenavbar/sidenavbar.component';
 //import {LandingPageComponent} from './landing-page/landing-page.component'
 import { AuthServiceService } from "./AuthGards/auth-service.service";
-
+                                              
 @NgModule({
   declarations: [
     AppComponent,
    
-
-    
+  
     
   ],
   imports: [
