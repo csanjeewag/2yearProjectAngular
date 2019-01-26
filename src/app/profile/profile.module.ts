@@ -15,6 +15,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTabsModule} from '@angular/material/tabs';
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
+import { TaskModule } from "./../task/task.module";
 
 import { LoggedHeaderComponent} from "./../SharePart/logged-header/logged-header.component";
 import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
@@ -76,6 +77,7 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
     MatTabsModule,
     
     SharedModuleModule,
+    TaskModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
