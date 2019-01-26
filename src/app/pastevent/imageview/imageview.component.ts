@@ -22,17 +22,15 @@ export class ImageviewComponent implements OnInit {
       let id = parseInt(params.get('id'));
       this.eventId=id;
     })
-    this.getimage(this.eventId);
+    this.getimage();
 
   }
- public getimage(id){
-   
+ public getimage(){
+   let id = this.eventId;
   this.repo.getData('PastEvent/getimages/'+id)
   .subscribe(res => {
     this.result = res ;
-    console.log(this.result);
-    console.log(res);
-    
+  
   },
   (error) => {
   //  this.handleErrors(error);n
@@ -42,11 +40,27 @@ export class ImageviewComponent implements OnInit {
  }
  public gotoimageupload(id){
   this.router.navigate(['pastevent/imageupload/'+id]);  
-  console.log(id); 
+  
  }
  public gotocomment(id){
   this.router.navigate(['pastevent/comment/'+id]);  
-  console.log(id); 
+   
+ }
+ public deleteimage(id){
+  let url = "pastevent/deleteimage";        
+  let formData = new FormData();
+  formData.append('Caption', id);
+
+ this.repo.postFile(url,formData)
+      .subscribe( img => {
+        this.getimage();
+        
+      }, (error => {
+     
+      })
+      )
+
+
  }
 
 

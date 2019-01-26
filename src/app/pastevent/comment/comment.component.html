@@ -19,61 +19,52 @@
 				</div>
 				</div>
 			</div> -->
-			<section id="comments">
-				<header>
-					<h1>Comments</h1>
-				</header>
-				<div *ngFor="let e of comment">
-					<div class="comment">
-						<div class="username">{{e.empName}} {{e.commentTime|date:'medium'}}</div>
-						
-						<img [src]= "ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
+			<div class="col-4">
+				<section id="comments">
+					<header>
+						<h1>Comments</h1>
+					</header>
+					<div *ngFor="let e of comment">
+						<div class="comment">
+							<div class="username">{{e.empName}} {{e.commentTime|date:'medium'}}</div>
 
-						 <!-- <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" > -->
+							<img [src]="ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
 
-						<p>{{e.commentIn}}</p>
-					</div>
-					
-						
-					
-				</div>
-			
-			</section>
+							<!-- <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" > -->
 
+							<p>{{e.commentIn}}</p>
 
-
-
-
-
-
-
-
-
-            
-
-			
-
-			
-			<form [formGroup]="commentForm" autocomplete="off"  (ngSubmit)="OnSubmit(commentForm.value)">
-				
-					
-						<!-- <textarea></textarea> -->
-						<div class="form-group">
-							<label for="key" class="sr-only">Description</label>
-							<input type="text" formControlName="CommentIn" class="form-control" placeholder=" Comment">
 						</div>
-						
-					
-				
-				<div class=" form-group">
-					<button type="submit" class="btn" class="btn btn-outline-dark" (click)="onClick()">submit</button>
-			
-				</div>
-			</form>
-			
+						<button id="btn" (click)=deletecomment(e.commentId)>delete </button>
+					</div>
+				</section>
+
+
+
+
+
+				<form [formGroup]="commentForm" autocomplete="off" (ngSubmit)="OnSubmit(commentForm.value)">
+
+
+					<!-- <textarea></textarea> -->
+					<div class="form-group">
+						<label for="key" class="sr-only">Description</label>
+						<input type="text" formControlName="CommentIn" class="form-control" placeholder=" Comment">
+					</div>
+
+
+
+					<div class=" form-group">
+						<button type="submit" class="btn" class="btn btn-outline-dark">submit</button>
+
+					</div>
+				</form>
+			</div>
+			<div class="col=8"></div>
+
 
 		</div>
-	  
+
 	</div>
-  
+
 </div>
