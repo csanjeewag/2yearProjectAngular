@@ -65,7 +65,7 @@ emailFormArray: Array<any> = [];
       
     //taskId:profileFormValue.TaskId,
     taskName:profileFormValue.TaskName,
-    eventName:'2',
+    eventId:'2',
     startDate:profileFormValue.StartDate,
     endDate:profileFormValue.EndDate,
     budgetedCost:profileFormValue.BudgetedCost,

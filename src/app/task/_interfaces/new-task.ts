@@ -1,7 +1,7 @@
 export interface NewTask {
     //taskId:number;
     taskName:string;
-    eventName:string;
+    eventId:string;
     startDate:Date;
     endDate:Date;
     budgetedCost:number;

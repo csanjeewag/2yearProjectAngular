@@ -51,7 +51,7 @@ public ContactFormUpdate:FormGroup;
     .subscribe(res => {
       this.result = res ;
    
-     console.log(this.result);
+   
       
     })
     
@@ -60,7 +60,7 @@ public ContactFormUpdate:FormGroup;
     
     this.modalService.open(content);
     this.contactid=ctypeid;
-   console.log('contact id-------->'+this.contactid);
+  
   }
  
   open(content){
@@ -90,6 +90,8 @@ public viewAll(id){
 }
 
 public addContacts(value){
+  console.log(value);
+  console.log(this.contactid);
   let formData = new FormData();
   formData.append('ContactContactId',this.contactid);
   formData.append('Name',value.oname);
@@ -100,7 +102,7 @@ public addContacts(value){
 
   let apiUrl = 'contact/addcontactdetailnormally';
     
-  this.repository.postData(apiUrl, formData)
+  this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
       
       },

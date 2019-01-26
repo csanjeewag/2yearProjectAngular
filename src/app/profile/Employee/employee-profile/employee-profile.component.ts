@@ -25,7 +25,7 @@ export class EmployeeProfileComponent implements OnInit {
     this.repository.getData('employee/getall/'+this.auth.tokencheckId())
     .subscribe(res => {
       this.result = res ;
-      
+      console.log(this.result)
       if(this.result.empProfilePicture)
       { this.ProfileImage =this.ImageUrl+ this.result.empProfilePicture;}
     },
