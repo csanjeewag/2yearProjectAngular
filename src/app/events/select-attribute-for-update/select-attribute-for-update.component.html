@@ -21,38 +21,54 @@
           
         </div>
          -->
-        <table class="table table-borderless">
-            <tr class="form-check">
-            <td><input type="checkbox" class="form-check-input" formControlName="EndDate" id="EndDate">EndDate</td>
-            </tr>
-           
-            <tr class="form-check">
-                <td><input type="checkbox" class="form-check-input" formControlName="ClosingDate" id="ClosingDate">ClosingDate</td>
-                </tr>
-
-            <tr class="form-check">
-            <td><input type="checkbox" class="form-check-input" formControlName="Destination" id="Destination">Destination</td>
-            </tr>
-
-            <tr class="form-check">
-                <td><input type="checkbox" class="form-check-input" formControlName="Liquor" id="Liquor">Liquor</td>
-                </tr>
-
-            <tr class="form-check ">
-                <td><input type="checkbox" class="form-check-input " formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed">IsFamilyMembersAllowed</td>
-                </tr>
-        
+         <table class="table table-borderless">
                 <tr class="form-check">
-                    <td><input type="checkbox" class="form-check-input" formControlName="Venue" id="Venue">Venue</td>
+                <td><input type="checkbox" class="form-check-input" formControlName="EndDate" id="EndDate">End Date of Event</td>
+                </tr>
+               
+                <tr class="form-check">
+                    <td><input type="checkbox" class="form-check-input" formControlName="ClosingDate" id="ClosingDate">Closing Date for Registration</td>
                     </tr>
-
+    
+                <tr class="form-check">
+                <td><input type="checkbox" class="form-check-input" formControlName="Destination" id="Destination">Destination</td>
+                </tr>
+    
+                <tr class="form-check">
+                    <td><input type="checkbox" class="form-check-input" formControlName="Liquor" id="Liquor">Whether Liquor is Allowed</td>
+                    </tr>
+    
+                <tr class="form-check ">
+                    <td><input type="checkbox" class="form-check-input " formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed">Whether Family Members Allowed</td>
+                    </tr>
+            
                     <tr class="form-check">
-                        <td><input type="checkbox" class="form-check-input" formControlName="NumberOfTeams" id="NumberOfTeams">numberOfTeams</td>
+                        <td><input type="checkbox" class="form-check-input" formControlName="Venue" id="Venue">Venue</td>
                         </tr>
     
-
-        </table>  
-
+                        <tr class="form-check">
+                            <td><input type="checkbox" class="form-check-input" formControlName="NumberOfTeams" id="NumberOfTeams">Number of Teams</td>
+                            </tr>
+    
+                            <tr class="form-check">
+                                    <td><input type="checkbox" class="form-check-input" formControlName="budgetedCost" id="budgetedCost">Budgeted Cost of Event</td>
+                                    </tr>
+                    
+                                <tr class="form-check ">
+                                    <td><input type="checkbox" class="form-check-input " formControlName="actualCost" id="actualCost">Actual Cost of Event</td>
+                                    </tr>
+                            
+                                    <tr class="form-check">
+                                        <td><input type="checkbox" class="form-check-input" formControlName="mainOrganiZer" id="mainOrganiZer">Main OrganiZer of Event</td>
+                                        </tr>
+                    
+                                        <tr class="form-check">
+                                            <td><input type="checkbox" class="form-check-input" formControlName="summary" id="summary">Summary of Event</td>
+                                            </tr>
+        
+                                           
+            </table>  
+    
         
           <div class="btn-group" role="group" aria-label="Basic example">
           <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->

@@ -11,7 +11,13 @@ export class AuthServiceService {
 
   constructor( private repository : RepositoryService, private router: Router) { }
   public log:any;
+public eventId:any;
 
+public addEventId(id){
+  console.log("event id = "+this.eventId);
+this.eventId=id;
+console.log("event id = "+this.eventId);
+}
 
 
  public loggout(){
