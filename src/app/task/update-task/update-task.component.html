@@ -13,24 +13,31 @@
                     
                     <div class="form-group col-md-12">
                       <input  placeholder="Task Name" class="form-control" type="text" formControlName="TaskName" id="TaskName">
-                      <em *ngIf="validateControl('TaskName') && hasError('TaskName', 'required')">*Task is required</em>
+                      <!-- <em *ngIf="validateControl('TaskName') && hasError('TaskName', 'required')">*Task is required</em> -->
              
                  </div>
                 </div>
-                    <div class="form-row">
+                <div class="form-row">
                         <div class="form-group col-md-6">
-                          <!-- <input type="text" class="form-control"  placeholder="Responsible RC member" formControlName="EmployeeEmpId" id="EmployeeEmpId" [(ngModel)]="goalText"> -->
-                          <span class="sp1">Responsible RC</span>
+                         <b> Responsible Member</b>
+                         <button type="button"  class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
+   
                           
                               <div *ngFor="let j of emailFormArray;">
-                                  {{j}}
+                                  - {{j}}<br>
+                              </div>
+                          
+                              <div>
+                                  <u>Previous members</u>
+                                  <div *ngFor="let e of employee;">-{{e.empName}} </div>
+                      
+                      
+                                     
                               </div>
                           
                         
 
-                          <em *ngIf="validateControl('EmployeeEmpId') && hasError('EmployeeEmpId', 'required')">*Name is required</em>
                           
-                              <button class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
                               <ng-template #content let-c="close" let-d="dismiss">
                                   <div class="modal-header">
                                     <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
@@ -40,14 +47,14 @@
                                   </div>
                                   <!-- employee list -->
                                   <div class="modal-body">
-                                    <table class="table table-borderless">
-                                        <tr *ngFor="let i of result;" class="form-check">
-                                      
-                                    <td><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
-                                    <!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
-                                     
-                                    </tr>
-                                    </table>                              
+                                        <table class="table table-borderless">
+                                                <tr *ngFor="let i of result;" class="form-check">
+                                              
+                                            <td><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+                                            <!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
+                                             
+                                            </tr>
+                                            </table>                         
                                     </div>
 
                                      <!-- end -->
@@ -66,7 +73,7 @@
                               
                               <div class="form-group col-md-6">
                                       <input  placeholder="Budgeted Cost" class="form-control" formControlName="BudgetedCost" type="text" id="bcost">
-                                      <em *ngIf="validateControl('BudgetedCost') && hasError('BudgetedCost', 'required')">*Budgeted Cost is required</em>
+                                      <!-- <em *ngIf="validateControl('BudgetedCost') && hasError('BudgetedCost', 'required')">*Budgeted Cost is required</em> -->
                                       
                                   </div>
                       </div>
@@ -76,13 +83,13 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input  placeholder="Start Date" class="form-control" type="date" formControlName="StartDate" id="StartDate">
-                            <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*Start date is required</em>
-                            <em></em>
+                         
+                            <!-- <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*Start date is required</em> -->
+                            
                         </div>
                         <div class="form-group col-md-6">
                               <input  placeholder="End Date" class="form-control" type="date" formControlName="EndDate" id="edate">
-                              <em *ngIf="validateControl('EndDate') && hasError('EndDate', 'required')&& validateDate()">*End date is required</em>
-                              <!-- <em *ngIf="DateControl('StartDate','EndDate')">*Not valid Date</em> -->
+                              <!-- <em *ngIf="validateControl('EndDate') && hasError('EndDate', 'required')&& validateDate()">*End date is required</em> -->
 
                           </div>
                           <!--div class="form-group col-md-6">
@@ -95,6 +102,11 @@
                                     <input  placeholder="Description" class="form-control" type="textarea" formControlName="Description" id="description">
                            
                                 </div>
+                                <div>
+                                        <input type="checkbox" class="form-check-input" (change)="onChangeStatus($event.target.checked)">Is Complete
+
+                                </div>
+
                     </div>
                     
                 
@@ -103,8 +115,7 @@
                         <div class="form-group">
                                   <div class="btn-group" role="group" aria-label="Basic example">
                                       <button type="button" class="btn btn-danger" (click)="redirectToTaskList()">Cancel</button>
-                                      <button type="submit" class="btn btn-success"  [disabled]="!taskForm.valid">Add Task</button>
-                                      <button type="button" class="btn btn-success" [disabled]="!taskForm.valid" (click)="sendEmail()">Send Email</button>
+                                      <button type="submit" class="btn btn-success"  [disabled]="!taskForm.valid">Update</button>
 
                                     </div>
                               </div>

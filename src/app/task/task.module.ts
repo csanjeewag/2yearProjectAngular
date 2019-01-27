@@ -33,6 +33,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
 import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
+import { ViewTaskInfoComponent } from './view-task-info/view-task-info.component';
 
 
 @NgModule({
@@ -64,7 +65,7 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
        {path:'newtask',component:MainTaskComponent},
        {path:'contact',component:ContactsComponent},
        {path:'viewcontact/:id',component:ViewcontactsComponent},
-
+        {path:'viewtaskinfo/:id',component:ViewTaskInfoComponent}
 
 
        //{ path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'} },

@@ -13,6 +13,7 @@ export class ViewcontactsComponent implements OnInit {
   constructor(private router:Router,private repository:RepositoryService,private rou:ActivatedRoute) { }
 public cid:any;
 public result:any;
+public Loading:any;
   ngOnInit() {
     this.getparamId();
     this.viewAll();
@@ -40,5 +41,21 @@ public result:any;
       if(this.cid!=null){
         
       }})
+}
+
+public deleteDetail(id){
+  this.Loading = id;
+  this.repository.getData('contact/deactivedetail/'+id)
+  .subscribe(res => {
+   this.viewAll();
+
+  this.Loading = false;
+console.log('deleted');
+  
+},
+ (error) => {
+ this.Loading =false;
+ })
+
 }
 }
