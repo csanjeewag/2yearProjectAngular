@@ -36,11 +36,12 @@ export class ShowEmployeesDetailsComponent implements OnInit {
 
   
  public  getAllEmployee(){
+  
     this.repo.getData('employee/getall')
     .subscribe(res => {
       this.result = res ;
-      var myObjStr = JSON.stringify(res);
-   
+      console.log(res)
+     
    
  
       
@@ -77,6 +78,10 @@ export class ShowEmployeesDetailsComponent implements OnInit {
   }
   public filterInput(){
     this.toggle = !this.toggle;
+  }
+  public getdetails(id){
+    console.log(id)
+    this.router.navigate(['/profile/lists/',id]);
   }
 
 }

@@ -32,6 +32,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
+import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
 
 
 @NgModule({
@@ -59,9 +60,10 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
        {path:'mytask',component:MyTaskComponent},
        {path:'addinfo',component:AddInfoComponent},
        //{path:'details/:id', component: ShowTaskDetailsComponent},
-       { path: 'update/:id', component: UpdateTaskComponent },
+       { path: 'updatetask/:id', component: UpdateTaskComponent },
        {path:'newtask',component:MainTaskComponent},
        {path:'contact',component:ContactsComponent},
+       {path:'viewcontact/:id',component:ViewcontactsComponent},
 
 
 
@@ -73,7 +75,7 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
+  declarations: [ViewcontactsComponent,MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
   exports:[AddtaskComponent, ViewTaskComponent]
 })
 export class TaskModule { }

@@ -18,7 +18,7 @@
       this.islogged = this.auth.islogged();
       this.isAdmin= this.auth.isAdmin();
       this.EmployeeName = this.auth.tokenGetName();
-      //console.log(this.EmployeeName)
+      console.log(this.EmployeeName)
     }
   
     public  logout(){

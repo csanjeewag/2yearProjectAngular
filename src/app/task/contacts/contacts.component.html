@@ -12,8 +12,10 @@
     <div style="width: 10rem; height :10rem; background-color:#fff;" class="p-2 m-2" *ngFor="let i of result;">
         
             <h6 class="d-block text-black-dark ">{{i.contactType}}</h6>
-            <button type="submit"  formtarget="_blank" (click)="viewAll(i.contactId)">view All</button><br>
-            <button type="button"  (click)="open(content2)">Add New</button>
+            <button type="button" class="btn" (click)="viewAll(i.contactId)">view All</button><br>
+            <button type="button" class="btn" (click)="open2(content2,i.contactId)">Add New</button>
+            <button type="button" class="btn btn-success" (click)="open2(content3,i.contactId)">Update</button>
+            <button type="button" class="btn btn-success" (click)="delete(i.contactId)">Delete</button>
 
         </div>
 
@@ -31,12 +33,13 @@
                 <form [formGroup]="AddContactForm" (ngSubmit)="addContacts(AddContactForm.value)">
 
 
-                        <input id="name" name="name" class="form-control" placeholder="Name of Owner" formControlName="name">
-                        <input id="add" name="add" class="form-control" placeholder="Address" formControlName="address">
+                        <input  class="form-control" placeholder="Name of Owner" formControlName="oname">
+                        <input class="form-control" placeholder="Address" formControlName="address">
 
-                        <input id="num1" name="num1" class="form-control" placeholder="Contact Number" formControlName="num1">
-                        <input id="num2" name="num2" class="form-control" placeholder="Contact Number" formControlName="num2">
+                        <input class="form-control" placeholder="Contact Number" formControlName="num1">
+                        <input class="form-control" placeholder="Contact Number" formControlName="num2">
 
+                        <input class="form-control" placeholder="Contact Description" formControlName="cd">
 
 
                         <button type="submit" class="btn btn-success" >Add Contacts</button>
@@ -79,8 +82,39 @@
                     </ng-template>
             </div>
         </div>
+
+
+
+
+        <!-- update cotact type -->
     
            
+        <div class="p-2 m-2" style="width: 10rem; height :10rem; background-color:#fff;">
+                
+                <div class="modal fade">
+                        <ng-template #content3 let-c="close" let-d="dismiss" >
+                         <div class="modal-header">
+                           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                             <span aria-hidden="true">&times;</span>
+                           </button>
+                         </div>
+                         <div class="modal-body">
+    
+                            <!-- body -->
+                            <form [formGroup]="ContactFormUpdate" (ngSubmit)="updateContactType(ContactFormUpdate.value)">
+    
+    
+                                    <input  class="form-control" placeholder="Contact Type" formControlName="type">
+                                    <button type="submit" class="btn btn-success" >Update</button>
+    
+                                
+                            
+                            </form>
+                         </div>
+                         
+                        </ng-template>
+                </div>
+            </div>
     
 </div>
 

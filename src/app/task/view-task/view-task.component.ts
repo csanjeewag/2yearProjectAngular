@@ -48,6 +48,7 @@ public changeStatus(status){
     }
 }
  
+
 public detailsTask(tid) {
 
 
@@ -102,12 +103,14 @@ public getempfortask(tid){
   }
 
   public updateTask(id){
-    this.router.navigate(['/task/update',id]);
+    this.router.navigate(['/task/update'+id]);
   }
   open(content,id) {
     this.detailsTask(id);
     this.getempfortask(id);
     this.modalService.open(content);
   }
+
+  
 
 }

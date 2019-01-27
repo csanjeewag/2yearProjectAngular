@@ -15,22 +15,23 @@
       <a class="nav-link" routerLink="/profile/home" routerLinkActive="active">Home </a>
     </li>
     <li class="nav-item">
-      <a *ngIf="islogged" class="nav-link" routerLink="/pastevent/eventcard" routerLinkActive="active">Past Events</a>
+      <a *ngIf="islogged" class="nav-link" routerLink="/pastevent/eventcard" routerLinkActive="active">Previous Events</a>
     </li>
     <li class="nav-item">
-      <a *ngIf="islogged" class="nav-link" routerLink="/events/vieweventpage" routerLinkActive="active">UpComming Events</a>
+      <a *ngIf="islogged" class="nav-link" routerLink="/events/addevent" routerLinkActive="active">UpComming Events</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" routerLink="/profile/list" routerLinkActive="active ">Members</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/task" routerLinkActive="active ">Task</a>
+      <a class="nav-link" routerLink="/profile/update" routerLinkActive="active ">Update Members</a>
     </li>
+
     <li class="nav-item">
-      <a class="nav-link" routerLink="/task/contacts" routerLinkActive="active ">Contact</a>
+      <a class="nav-link" routerLink="/task/contact" routerLinkActive="active ">Contact</a>
     </li>
     <li>
-        <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Admin page</a>
+        <a class="nav-link" routerLink="/profile/admin/departments" routerLinkActive="active ">Admin page</a>
    
     </li>
     <li class="nav-item dropdown" >

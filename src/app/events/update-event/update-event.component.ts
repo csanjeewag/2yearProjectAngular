@@ -17,6 +17,8 @@ export class UpdateEventComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,  private repository : RepositoryService,config: NgbModalConfig, private modalService: NgbModal) { }
 
   public projectForm: FormGroup;
+  public FileImage:File;
+  public ImageUrl:any;
     public Message:any;
     public eventtypes:any;
     public projectID:any;
@@ -110,6 +112,7 @@ export class UpdateEventComponent implements OnInit {
         formdata.append('MainOrganiZer',value.mainOrganiZer);
         formdata.append('Summary',value.summary);
      
+   formdata.append('EventImage', this.FileImage);
 
    
      
@@ -216,6 +219,7 @@ public updateAttribute(value){
         formdata.append('MainOrganiZer',value.mainOrganiZer);
         formdata.append('Summary',value.summary);
      
+ formdata.append('EventImage', this.FileImage);
 
  
    
@@ -272,6 +276,19 @@ public getAttribute(){
 }
 public createAttribute(content){
 window.alert("Event has been succesfully updated");}
+onFileChange(file : FileList,id:number) {
+    
+
+  this.FileImage = file.item(0);
+ //selected image viewing
+  var reader = new FileReader();
+  reader.onload = (event:any) => {
+     this.ImageUrl = event.target.result;
+
+     console.log(event.target.result)
+  }
+   reader.readAsDataURL(this.FileImage);
+}
 
 }
 

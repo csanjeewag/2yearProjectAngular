@@ -10,9 +10,10 @@
       <!-- <div id="demo" class="collapse"> -->
         <div class="sidenav">
           <br><br>
-          <div id="topicside">Latest Topics </div>
+          <div id="topicside"></div>
           <div *ngFor="let e of event">
-            <a [class.click]="(ClickId==e.id)" (click)=gotoEvent(e.id)>{{e.eventName}}</a>
+            <a [class.click]="(ClickId==e.id)" (click)=gotoEvent(e.id)>{{e.eventTitle}}</a>
+         
 
           </div>
 

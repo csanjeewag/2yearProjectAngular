@@ -22,7 +22,7 @@ export class RepositoryService {
  public curentEventId:any;
 
 
-
+public commenteventId:any;
  public currentEventId(id){
   this.curentEventId=id;
  
@@ -40,14 +40,14 @@ export class RepositoryService {
   }
  
   public postData(route: string, body) {
-    console.log('repo awa');
-    console.log(body);
+  
+
     return this.http.post(this.createCompleteRoute(route, this.envUrl.urlAddress),body, this.generateHeaders());
   
   
   }
   public postFile(route: string, body) {
-    console.log(body)
+  
     return this.http.post(this.createCompleteRoutefile(route, this.envUrl.urlAddress),body, this.generateHeadersfile());
   
   

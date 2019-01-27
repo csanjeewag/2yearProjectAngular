@@ -169,7 +169,7 @@
             <!-- Icon -->
             <div class="fadeIn first">
           
-                    <img [src]="profileImage" style="width:40%">
+                    <img [src]="profileImage" id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2" >
               <h1>Update User</h1>
             </div>
             
@@ -294,11 +294,11 @@
                         </div>
 
                     <div id="fillAfter" *ngIf="next"> 
-                        <p> Enter your password to continue this change</p>
+                        <p> Enter your password to continue this changes</p>
                             <div class="form-row container">
                                     <div class="form-group col-md-6 container">
                                         <!-- <input  placeholder="Password" class="form-control" type="password" formControlName="password" id="password"> -->
-                                        <input type="password" class="form-control" type="text" formControlName="password"required>
+                                        <input  type="password" class="form-control"  formControlName="password" required>
                                         <label>Password</label>
                                         <em *ngIf="validateControl('password') && hasError('password', 'required')">*Password is required</em>
                                         <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">*Maximum allowed length is 6 characters.</em>
@@ -314,7 +314,7 @@
                         <div class="form-group container">
                                   <div class="btn-group" role="group" aria-label="Basic example">
                                       <button type="button" class="btn btn-danger" (click)="Next()">Cancel</button>
-                                      <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Submit Form</button>
+                                      <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Update</button>
                                   </div>
                               </div>
                     </div>

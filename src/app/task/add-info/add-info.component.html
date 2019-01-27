@@ -27,7 +27,7 @@
               Contact Type
             </button>
             <div class="dropdown-menu">
-              <button type="button"  *ngFor="let j of result">{{j.contactType}}</button>
+              <button type="button" (click)="contactType(j.contactId)" *ngFor="let j of result">{{j.contactType}}</button>
               
             </div>
           </div>
@@ -37,6 +37,8 @@
       <input type="text" id="contact1" name="contact1" class="form-control" placeholder="Number 01" formControlName="num1">
       <input type="text" id="address" name="address" class="form-control" placeholder="Number 02" formControlName="num2">
       <input type="text" id="address" name="address" class="form-control" placeholder="Description" formControlName="des">
+      <input type="text" id="address" name="address" class="form-control" placeholder="Contact Description" formControlName="cdes">
+
       <button type="submit" class="btn" >Save</button>
 
     </form>   

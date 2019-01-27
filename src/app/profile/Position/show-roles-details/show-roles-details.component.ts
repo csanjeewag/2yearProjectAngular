@@ -13,16 +13,15 @@ export class ShowRolesDetailsComponent implements OnInit {
   constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   public roles:any;
-
+  public Loading:any;
   ngOnInit() {
     this.getAllRoles()
   }
 
   public  getAllRoles(){
-    this.repository.getData('position/getroles')
+    this.repository.getData('position/getallroles')
     .subscribe(res => {
       this.roles = res ;
-      console.log(res);
   },
     (error) => {
     
@@ -37,4 +36,28 @@ export class ShowRolesDetailsComponent implements OnInit {
    this.router.navigate(['/profile/admin']);
    
   }
+
+  public DeActive(id){
+    this.Loading = id;
+      this.repository.getData('position/deactive/'+id)
+   .subscribe(res => {
+    this.getAllRoles();
+    this.Loading = false;
+ },
+   (error) => {
+   this.Loading =false;
+   })
+  }
+
+  public Active(id){
+   this.Loading =id;
+   this.repository.getData('position/active/'+id)
+.subscribe(res => {
+ this.getAllRoles();
+ this.Loading =false;
+},
+(error) => {
+ this.Loading =false;
+})
+}
 }
