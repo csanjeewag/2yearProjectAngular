@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 import { UserServiceService} from './user-service.service';
 import { Observable } from 'rxjs';
 
+
 interface userIdIsUnique {
   unique: boolean
 }
@@ -19,6 +20,8 @@ export class RepositoryService {
 
  public eventId:any;
  public curentEventId:any;
+
+
 
  public currentEventId(id){
   this.curentEventId=id;

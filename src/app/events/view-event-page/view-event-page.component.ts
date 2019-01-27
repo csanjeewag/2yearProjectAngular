@@ -24,8 +24,7 @@ export class ViewEventPageComponent implements OnInit {
   public eventId:any;
   public date:any;
   public attribute:any;
-  public closeDate:any;
-  public eventEndDate:any;
+  
   public urlAddress:any;
 
   public endDate:any;
@@ -91,7 +90,6 @@ export class ViewEventPageComponent implements OnInit {
         this.venue = this.attribute.venue;
         this.numberOfTeams = this.attribute.numberOfTeams;
 
-  this.getDates();
 
       },
       (error => {
@@ -100,18 +98,7 @@ export class ViewEventPageComponent implements OnInit {
     )
  }
  
-public getDates(){
-         this.date=""+this.event.startDate;
-         let x=this.date.split("T");
-         this.date=x[0];
-         this.closeDate=""+this.event.closingDate;
-         let y = this.closeDate.split("T");
-         this.closeDate=y[0];
-         this.eventEndDate=""+this.event.endDate;
-         let z=this.eventEndDate.split("T");
-         this.eventEndDate=z[0];
 
-}
 
 public deleteEmployee(content){
   this.modalService.open(content);

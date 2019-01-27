@@ -40,6 +40,9 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
       {path:'addevent/:id', component:AddEventComponent},
       {path:'updateevent/:id', component:UpdateEventComponent},
       {path:'viewEmployee/:id', component:ViewEmployeeComponent},
+
+      {path:'deleteEmployee/:id', component:DeleteEmployeeComponent},
+
       {path:'selectattributes/:id', component:SelectAttributeComponent},
       {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
       {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent},

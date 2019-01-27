@@ -16,14 +16,14 @@
               
                   <div class="form-group col-md-12">
                             <input class="form-control" formControlName="name" id="name" required>
-                          <label >name</label>
-                          <em *ngIf="validateControl('name') && hasError('name', 'required')">Event Title is required</em>
+                          <label >Name</label>
+                          <em *ngIf="validateControl('name') && hasError('name', 'required')">Name is required</em>
                           
                       </div> 
 
                       <div class="form-group col-md-12" *ngIf="nic">
                                <input class="form-control" formControlName="nic" id="nic" required>
-                              <label > nic</label>
+                              <label >NIC</label>
                               
                           </div> 
                           
@@ -36,7 +36,7 @@
                           <option value="" selected disabled hidden></option>
                           <option [value]="e.id" *ngFor="let e of regForms">{{e.name}}</option>
                       </select>
-                      <label >Event Type</label>
+                      <label >Prefered Transport Type</label>
                 </div>
                 
               
@@ -46,7 +46,7 @@
                           <option value="" selected disabled hidden></option>
                           <option [value]="e.id" *ngFor="let e of accom">{{e.name}}</option>
                       </select>
-                      <label >Event Type</label>
+                      <label >Prefered Accomadation Type</label>
                 </div>
                 <div class="form-group col-md-12" *ngIf="mealType">
                  
@@ -54,18 +54,18 @@
                           <option value="" selected disabled hidden></option>
                           <option [value]="e.id" *ngFor="let e of meal">{{e.name}}</option>
                       </select>
-                      <label >Event Type</label>
+                      <label >Prefered Meal Type</label>
                 </div>
               
                 <div class="form-group col-md-12" *ngIf="dob">
                   <input type="date" class="form-control" formControlName="dob" id="dob" required>
-                  <label >dob</label>
+                  <label >Date of Birth</label>
                   
               </div>
              
               <div class="form-group col-md-12" *ngIf="spouseDob" >
                   <input type="date" class="form-control" formControlName="spouseDob" id="spouseDob" required>
-                  <label >spouseDob</label>
+                  <label >Spouce Date of Birth</label>
               </div>
              
               
@@ -74,7 +74,7 @@
               <div class="form-group col-md-12" *ngIf="gender">
                 <div class ="row">
                     <div class="form-group col-md-4 " >
-                      <label class="gender">Gender:</label>
+                      <label class="gender">Gender</label>
                     </div>
                     <div class="form-group col-md-1">
                             <label class="gender">Male:</label>
@@ -97,11 +97,11 @@
               <div class="form-group col-md-12" *ngIf="spouseName">
                   <label for="email" class="sr-only">DepartmentId</label>
                   <input class="form-control" formControlName="spouseName" id="spouseName" required>
-                  <label >spouseName</label>
+                  <label >Spouse Name</label>
               </div> 
               <div class="form-group col-md-12" *ngIf="spouseNic">
                    <input class="form-control" formControlName="spouseNic" id="spouseNic" required>
-                   <label >spouseNic</label>
+                   <label >Spouse NIC</label>
 
               </div> 
               

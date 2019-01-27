@@ -141,9 +141,7 @@ this.empId=7;
 
   }
 
-  checkEmployee(){
-
-  }
+  
 
 
 
@@ -193,7 +191,7 @@ this.empId=7;
       console.log("get the  param id"+id)
      
          this.eventId=this.repository.curentEventId;
-         console.log("event id = "+this.repository.eventId)
+         console.log("event id = "+this.repository.curentEventId)
          this.getAttribute();
     
 

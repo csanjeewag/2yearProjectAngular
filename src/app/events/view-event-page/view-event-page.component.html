@@ -17,9 +17,10 @@
               <p class="card-text">{{event.eventDescription}}</p>
               <p *ngIf="destination"class="card-text">Destination: {{event.destination}}</p>
               <p *ngIf="venue" class="card-text">Venue: {{event.venue}}</p>
-              <p class="card-text">Date: {{date}}</p>
-              <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{closeDate}}</p>
-              <p class="card-text" *ngIf="endDate">EndDate of Event: {{eventEndDate}}</p>
+              <p class="card-text">{{event.startDate | date: 'dd/MM/yyyy'}}</p>
+
+              <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{event.closingDate | date: 'dd/MM/yyyy'}}</p>
+              <p class="card-text" *ngIf="endDate">EndDate of Event: {{event.endDate | date: 'dd/MM/yyyy'}}</p>
               <p class="card-text" *ngIf="isFamilyMembersAllowed">Whether Family Members Allowed: {{event.isFamilyMembersAllowed}}</p>
               <p class="card-text" *ngIf="liquor">Liquor: {{event.liquor}}</p>
               <p class="card-text" *ngIf="numberOfTeams">Number of Teams: {{event.numberOfTeams}}</p>

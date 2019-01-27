@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
   
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute } from '@angular/router';
-  import { Event } from './../_interfaces/Event';
+  import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
   
 
 @Component({
@@ -13,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateEventComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private router: Router,  private repository : RepositoryService) { }
+  constructor(private route: ActivatedRoute,private router: Router,  private repository : RepositoryService,config: NgbModalConfig, private modalService: NgbModal) { }
 
   public projectForm: FormGroup;
     public Message:any;
@@ -24,6 +25,10 @@ export class UpdateEventComponent implements OnInit {
     public attribute:any;
     public urlAddress:any;
 
+    public budgetedCost:any;
+    public actualCost:any;
+    public mainOrganiZer:any;
+    public summary:any;
     public endDate:any;
     public closingDate:any;
     public destination:any;
@@ -49,6 +54,10 @@ export class UpdateEventComponent implements OnInit {
         Venue: new FormControl(''),
         NumberOfTeams: new FormControl(''),
         Destination:new FormControl(''),
+        budgetedCost: new FormControl(''),
+        actualCost: new FormControl(''),
+        mainOrganiZer: new FormControl(''),
+        summary: new FormControl(''),
        })
        this.endDate =false;
       this.closingDate=false;
@@ -57,6 +66,10 @@ export class UpdateEventComponent implements OnInit {
       this.isFamilyMembersAllowed=false;
       this.numberOfTeams=false;
       this.venue=false;
+      this.budgetedCost=false;
+      this.actualCost=false;
+      this.mainOrganiZer=false;
+      this.summary=false;
   }
   
 
@@ -92,6 +105,11 @@ export class UpdateEventComponent implements OnInit {
    formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
    formdata.append('Venue',value.Venue);
    formdata.append('Destination',value.Destination);
+   formdata.append('BudgetedCost',value.budgetedCost); 
+        formdata.append('ActualCost',value.actualCost);
+        formdata.append('MainOrganiZer',value.mainOrganiZer);
+        formdata.append('Summary',value.summary);
+     
 
    
      
@@ -133,13 +151,18 @@ export class UpdateEventComponent implements OnInit {
     this.projectForm.controls['EventDescription'].setValue(this.event.eventDescription);
     this.projectForm.controls['Destination'].setValue(this.event.destination);
     this.projectForm.controls['EventType'].setValue(this.event.eventTypeId);
-    this.projectForm.controls['StartDate'].setValue(this.event.startDate);
+   this.projectForm.controls['StartDate'].setValue(this.event.StartDate);
     this.projectForm.controls['EndDate'].setValue(this.event.endDate);
     this.projectForm.controls['ClosingDate'].setValue(this.event.closingDate);
     this.projectForm.controls['IsFamilyMembersAllowed'].setValue(this.event.isFamilyMembersAllowed);
     this.projectForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
     this.projectForm.controls['Venue'].setValue(this.event.venue);
-    this.projectForm.controls['Liquor'].setValue(this.event.iquor);
+    this.projectForm.controls['Liquor'].setValue(this.event.liquor);
+    this.projectForm.controls['budgetedCost'].setValue(this.event.budgetedCost);
+    this.projectForm.controls['actualCost'].setValue(this.event.actualCost);
+    this.projectForm.controls['mainOrganiZer'].setValue(this.event.mainOrganiZer);
+    this.projectForm.controls['summary'].setValue(this.event.summary);
+
     this.getAttribute();
 
   }
@@ -188,6 +211,11 @@ public updateAttribute(value){
  formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
  formdata.append('Venue',value.Venue);
  formdata.append('Destination',value.Destination);
+ formdata.append('BudgetedCost',value.budgetedCost); 
+        formdata.append('ActualCost',value.actualCost);
+        formdata.append('MainOrganiZer',value.mainOrganiZer);
+        formdata.append('Summary',value.summary);
+     
 
  
    
@@ -197,12 +225,12 @@ public updateAttribute(value){
     
     this.repository.postFile(apiUrl, formdata)
       .subscribe(res =>  {
-        this.Message="Project updated!";
         console.log("response = "+res)
+        
         this.urlAddress = "events/selectattributesforupdate/"+this.PrId;
-               this.router.navigate([this.urlAddress]);
+              this.router.navigate([this.urlAddress]);
             
-          //this.router.navigate(['/profile/admin/project']);
+         
      
         },
         (error => {
@@ -230,7 +258,10 @@ public getAttribute(){
         this.liquor = this.attribute.liquor;
         this.venue = this.attribute.venue;
         this.numberOfTeams = this.attribute.numberOfTeams;
-
+        this.budgetedCost = this.attribute.budgetedCost;
+        this.actualCost = this.attribute.actualCost;
+        this.mainOrganiZer = this.attribute.mainOrganiZer;
+        this.summary = this.attribute.summary;
 
 
       },
@@ -239,6 +270,8 @@ public getAttribute(){
       })
     )
 }
+public createAttribute(content){
+window.alert("Event has been succesfully updated");}
 
 }
 

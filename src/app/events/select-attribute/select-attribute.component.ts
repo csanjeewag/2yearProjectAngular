@@ -31,6 +31,10 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
       IsFamilyMembersAllowed: new FormControl(''),
       Venue: new FormControl(''),
       NumberOfTeams: new FormControl(''),
+      budgetedCost: new FormControl(''),
+      actualCost: new FormControl(''),
+      mainOrganiZer: new FormControl(''),
+      summary: new FormControl(''),
       })
   }
 
@@ -49,7 +53,10 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
     formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
     formdata.append('Venue',value.Venue);
     formdata.append('NumberOfTeams',value.NumberOfTeams);
-    
+    formdata.append('BudgetedCost',value.budgetedCost); 
+    formdata.append('ActualCost',value.actualCost);
+    formdata.append('MainOrganiZer',value.mainOrganiZer);
+    formdata.append('Summary',value.summary);
     
 
    
@@ -107,6 +114,10 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
     this.EventForm.controls['NumberOfTeams'].setValue(this.attribute.numberOfTeams);
     this.EventForm.controls['Venue'].setValue(this.attribute.venue);
     this.EventForm.controls['Liquor'].setValue(this.attribute.liquor);
+    this.EventForm.controls['budgetedCost'].setValue(this.attribute.budgetedCost);
+    this.EventForm.controls['actualCost'].setValue(this.attribute.actualCost);
+    this.EventForm.controls['mainOrganiZer'].setValue(this.attribute.mainOrganiZer);
+    this.EventForm.controls['summary'].setValue(this.attribute.summary);
     console.log("liquor = ")
     
 

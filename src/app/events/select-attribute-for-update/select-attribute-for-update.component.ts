@@ -33,6 +33,10 @@ export class SelectAttributeForUpdateComponent implements OnInit {
       IsFamilyMembersAllowed: new FormControl(''),
       Venue: new FormControl(''),
       NumberOfTeams: new FormControl(''),
+      budgetedCost: new FormControl(''),
+      actualCost: new FormControl(''),
+      mainOrganiZer: new FormControl(''),
+      summary: new FormControl(''),
       })
   }
 
@@ -51,6 +55,10 @@ export class SelectAttributeForUpdateComponent implements OnInit {
     formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
     formdata.append('Venue',value.Venue);
     formdata.append('NumberOfTeams',value.NumberOfTeams);
+    formdata.append('BudgetedCost',value.budgetedCost); 
+    formdata.append('ActualCost',value.actualCost);
+    formdata.append('MainOrganiZer',value.mainOrganiZer);
+    formdata.append('Summary',value.summary);
     
     
 
@@ -109,6 +117,10 @@ export class SelectAttributeForUpdateComponent implements OnInit {
     this.EventForm.controls['NumberOfTeams'].setValue(this.attribute.numberOfTeams);
     this.EventForm.controls['Venue'].setValue(this.attribute.venue);
     this.EventForm.controls['Liquor'].setValue(this.attribute.liquor);
+    this.EventForm.controls['budgetedCost'].setValue(this.attribute.budgetedCost);
+    this.EventForm.controls['actualCost'].setValue(this.attribute.actualCost);
+    this.EventForm.controls['mainOrganiZer'].setValue(this.attribute.mainOrganiZer);
+    this.EventForm.controls['summary'].setValue(this.attribute.summary);
     console.log("liquor = ")
     
 

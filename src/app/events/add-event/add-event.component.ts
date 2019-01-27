@@ -30,6 +30,12 @@ export class AddEventComponent implements OnInit {
     public eventId:any;
     public attribute:any;
 
+    
+
+    public budgetedCost:any;
+    public actualCost:any;
+    public mainOrganiZer:any;
+    public summary:any;
     public endDate:any;
     public closingDate:any;
     public destination:any;
@@ -49,24 +55,36 @@ export class AddEventComponent implements OnInit {
       this.isFamilyMembersAllowed=false;
       this.numberOfTeams=false;
       this.venue=false;
+      this.budgetedCost=false;
+      this.actualCost=false;
+      this.mainOrganiZer=false;
+      this.summary=false;
+
 
       this.getEvents();
       this.getparamId();
       
       this.EventForm = new FormGroup({
-       // EventId: new FormControl('',[Validators.required]),
+       
        EventTitle: new FormControl('',[Validators.required]),
        EventType: new FormControl('',[Validators.required]),
        StartDate: new FormControl('',[Validators.required]),
        EventDescription: new FormControl('',[Validators.required]),
+
        EndDate: new FormControl(''),
-       ClosingDate: new FormControl(''),
-       
+       ClosingDate: new FormControl(''),       
         Destination: new FormControl(''),
         Venue: new FormControl(''),
         Liquor: new FormControl(''),
         IsFamilyMembersAllowed: new FormControl(''),
         NumberOfTeams: new FormControl(''),
+        budgetedCost: new FormControl(''),
+        actualCost: new FormControl(''),
+        mainOrganiZer: new FormControl(''),
+        summary: new FormControl(''),
+
+        
+     
        })
        
     }
@@ -91,7 +109,7 @@ export class AddEventComponent implements OnInit {
 
         
           let formdata = new FormData;
-          formdata.append('Id',this.eventId);
+          formdata.append('Id',this.repository.eventId);
           formdata.append('EventTitle',value.EventTitle);
           formdata.append('EventTypeId',value.EventType);   
           formdata.append('StartDate',value.StartDate);
@@ -103,6 +121,10 @@ export class AddEventComponent implements OnInit {
         formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
         formdata.append('Venue',value.Venue);
         formdata.append('Destination',value.Destination);
+        formdata.append('BudgetedCost',value.budgetedCost); 
+        formdata.append('ActualCost',value.actualCost);
+        formdata.append('MainOrganiZer',value.mainOrganiZer);
+        formdata.append('Summary',value.summary);
      
         
           
@@ -111,8 +133,9 @@ export class AddEventComponent implements OnInit {
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
                this.event=res;
+               console.log("event returned = "+this.event);
                console.log("updating the event befor go to select attribute");
-              //console.log("id of event = message id"+this.event.id);
+              this.repository.addEventId(this.event.id);
             console.log("reading the event id from auth service  = "+this.repository.eventId)
                this.urlAddress = "events/selectattributes/"+this.repository.eventId;
                this.router.navigate([this.urlAddress]);
@@ -212,7 +235,10 @@ export class AddEventComponent implements OnInit {
         formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed);
         formdata.append('Venue',value.Venue);
         formdata.append('Destination',value.Destination);
-     
+        formdata.append('BudgetedCost',value.budgetedCost); 
+        formdata.append('ActualCost',value.actualCost);
+        formdata.append('MainOrganiZer',value.mainOrganiZer);
+        formdata.append('Summary',value.summary);
         
           
                let apiUrl = 'event/updateevent';
@@ -336,8 +362,13 @@ export class AddEventComponent implements OnInit {
             this.liquor = this.attribute.liquor;
             this.venue = this.attribute.venue;
             this.numberOfTeams = this.attribute.numberOfTeams;
+            this.budgetedCost = this.attribute.budgetedCost;
+            this.actualCost = this.attribute.actualCost;
+            console.log("this is actual cost"+this.attribute.actualCost)
+            this.mainOrganiZer = this.attribute.mainOrganiZer;
+            this.summary = this.attribute.summary;
 
-
+            
 
           },
           (error => {
@@ -384,6 +415,13 @@ export class AddEventComponent implements OnInit {
     this.EventForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
     this.EventForm.controls['Venue'].setValue(this.event.venue);
     this.EventForm.controls['Liquor'].setValue(this.event.liquor);
+    this.EventForm.controls['budgetedCost'].setValue(this.event.budgetedCost);
+    this.EventForm.controls['actualCost'].setValue(this.event.actualCost);
+    this.EventForm.controls['mainOrganiZer'].setValue(this.event.mainOrganiZer);
+    this.EventForm.controls['summary'].setValue(this.event.summary);
+
+    
+
     console.log("before get attribute")
     this.getAttribute();
 
@@ -394,7 +432,7 @@ export class AddEventComponent implements OnInit {
     .subscribe(res => {
       this.event = res ;
       
-      
+      console.log("get projrct");
       this.fillproject();
       
     },
