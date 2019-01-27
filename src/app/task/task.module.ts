@@ -76,6 +76,6 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
     CUSTOM_ELEMENTS_SCHEMA
 ],
   declarations: [ViewcontactsComponent,MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
-  exports:[AddtaskComponent, ViewTaskComponent]
+  exports:[AddtaskComponent, ViewTaskComponent,AddInfoComponent]
 })
 export class TaskModule { }
