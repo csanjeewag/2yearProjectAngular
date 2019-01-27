@@ -1,0 +1,68 @@
+<app-nav-bar></app-nav-bar>
+<div id="back">
+
+  <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
+    <div id="formContent">
+
+      <br>
+      <div class="fadeIn first">
+        <h1>Schedule Form</h1>
+      </div>
+      <br>
+      <h5 class="card-title">
+        <h3 id="msg">{{Message}}</h3>
+      </h5>
+
+      <!-- Full table part -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive">
+
+              <!-- Start Table -->
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Team name </th>
+                    <th>Captain </th>
+                    <th>Registation Date</th>
+                    <th>Schedule Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let s of schedule">
+                    <td>{{s.teamName}}</td>
+                    <td>{{s.capatain}}</td>
+                    <td>{{s.registerdate | date}}</td>
+                    <td class="">
+                      <input #newHero type="number" min="1" max="16" required (keyup.enter)="addHero(newHero.value)"
+                        (blur)="addHero(newHero.value); newHero.value='' ">
+                      <button (click)="addHero(newHero.value)" (click)="addId(s.id)" id="btn" class="btn btn-secondary">Add</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- End Table -->
+
+            </div>
+          </div>
+          <br><br>
+          <div class="col-2"></div>
+          <div class="col-4"><button type="submit" id="btn-sub" (click)="submitData()" class="btn btn-danger btn-sm">Submit</button></div>
+          <div class="col-6"></div>
+        </div>
+      </div>
+      <!--End Full table part -->
+      
+      <br>
+      <div id="formFooter">
+        <a id="crateAccountlink" class="underlineHover"></a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+{{schedulearray|json}}

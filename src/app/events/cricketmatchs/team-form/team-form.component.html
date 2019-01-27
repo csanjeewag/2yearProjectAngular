@@ -1,149 +1,167 @@
 <app-nav-bar></app-nav-bar>
 
 <div id="back">
-        
+
     <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
-      <div id="formContent">
-        <!-- Tabs Titles -->
-        <br>
-        <div class="fadeIn first">
-          <h1>Cricket Team Form</h1>
+        <div id="formContent">
+
+            <br>
+            <div class="fadeIn first">
+                <h1>Cricket Team Form</h1>
+            </div>
+            <h5 class="card-title">
+                <h3 id="msg">{{Message}}</h3>
+            </h5>
+
+            <!-- Start Form -->
+            <form [formGroup]="teamForm" autocomplete="off" novalidate (ngSubmit)="teamData(teamForm.value)">
+
+                <div class="form-group row">
+                    <div class="col-10">
+                        <input formControlName="teamName" class="form-control" type="text" id="inputTeamName" required>
+                        <label for="inputTeamName">Team Name :</label>
+                        <!-- <em *ngIf="validateControl('teamName') && hasError('teamName', 'required')">*Team Name is required</em> -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="inputTeamCaptainName">Captain Name : </label>
+                        <div class="row">
+                            <div class="col-9 col-sm-9">
+                                <span class="sp1">
+                                    <div>{{name}}</div>
+                                </span>
+                            </div>
+                            <div class="col-3 col-sm-3">
+                                <button type="button" class="btn btn-link btn-sm" id="btn" (click)="open(content2)">Select
+                                    Captain</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="col-10" style="border-color: rgb(141, 13, 30)">
+
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="inputTeamCaptainName">Team Member : </label>
+                        <div class="row">
+                            <div class="col-9 col-sm-9">
+                                <span class="sp1">
+                                    <div *ngFor="let j of emailFormArray;">{{j}}</div>
+                                </span>
+                                <!-- <em *ngIf="validateControl('teamMember') && hasError('teamMember', 'required')">*Name is required</em> -->
+                            </div>
+                            <div class="col-3 col-sm-3">
+                                <button type="button" class="btn btn-link btn-sm" id="btn" (click)="open(content)">Select Team
+                                    Member</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="col-10" style="border-color: rgb(141, 13, 30)">
+
+                <div class="form-group row">
+                    <div class="col-10">
+                        <input formControlName="teamVegeCount" class="form-control" type="number" id="inputVegeCount"
+                            min="0" required>
+                        <label for="inputVegeCount">Vegetarion Member :</label>
+                        <!-- <em *ngIf="validateControl('teamVegeCount') && hasError('teamVegeCount', 'required')">*Team Id is required</em> -->
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-10">
+                        <input formControlName="teamLiquor" class="form-control" type="number" id="inputLiquor" min="0"
+                            required>
+                        <label for="inputLiquor">Liquor :</label>
+                        <!-- <em *ngIf="validateControl('teamLiquor') && hasError('teamLiquor', 'required')">*Team Id is required</em> -->
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-10">
+                        <textarea formControlName="discription" class="form-control rounded-0" id="FormTextarea"
+                            placeholder="Enter Something....." rows="3" required></textarea>
+                        <!-- <label for="FormTextarea">Enter Something.....</label> -->
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2">
+                        <button type="submit" id="btn-sub" (click)="myFunc()" class="btn btn-outline-danger" [disabled]="!teamForm.valid">Submit</button>
+                    </div>
+                    <div class="col-5"></div>
+                </div>
+
+            </form>
+            <!-- End Form -->
+
+            <div id="formFooter">
+                <a id="crateAccountlink" class="underlineHover"></a>
+            </div>
+
         </div>
-        <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
-        <!-- Sign up Form -->
-        <form [formGroup]="teamForm" autocomplete="off" novalidate (ngSubmit)="teamData(teamForm.value)">
-        
-            <div class="form-group row">
-                <div class="col-10">
-                    <input formControlName="teamName" class="form-control" type="text" id="inputTeamName" required>
-                    <label for="inputTeamName" >Team Name :</label>
-                    <!-- <em *ngIf="validateControl('teamName') && hasError('teamName', 'required')">*Team Name is required</em> -->
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-sm-10">
-                    <label for="inputTeamCaptainName">Captain Name : </label>   
-                  <div class="row">
-                    <div class="col-9 col-sm-9">   
-                        <span class="sp1"><div>{{name}}</div></span>
-                    </div>
-                    <div class="col-3 col-sm-3">
-                        <button type="button" class="btn btn-link btn-sm" (click)="open(content2)">Select Captain</button>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <hr class="col-10" style="border-color: rgb(141, 13, 30)">
-
-            <div class="row">
-                <div class="col-sm-10">
-                    <label for="inputTeamCaptainName">Team Member : </label>  
-                  <div class="row">
-                    <div class="col-9 col-sm-9">
-                        <span class="sp1"><div *ngFor="let j of emailFormArray;">{{j}}</div></span>
-                        <!-- <em *ngIf="validateControl('teamMember') && hasError('teamMember', 'required')">*Name is required</em> -->
-                    </div>
-                    <div class="col-3 col-sm-3">
-                        <button type="button" class="btn btn-link btn-sm" (click)="open(content)">Select Team Member</button>  
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <hr class="col-10" style="border-color: rgb(141, 13, 30)">
-
-            <div class="form-group row">
-                <div class="col-10">
-                    <input formControlName="teamVegeCount" class="form-control" type="number" id="inputVegeCount" min="0" required>
-                    <label for="inputVegeCount" >Vegetarion Member :</label>
-                    <!-- <em *ngIf="validateControl('teamVegeCount') && hasError('teamVegeCount', 'required')">*Team Id is required</em> -->
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-10">
-                    <input formControlName="teamLiquor" class="form-control" type="number" id="inputLiquor" min="0" required>
-                    <label for="inputLiquor" >Liquor :</label>
-                    <!-- <em *ngIf="validateControl('teamLiquor') && hasError('teamLiquor', 'required')">*Team Id is required</em> -->
-                </div>
-            </div>      
-<!--start textarea-->
-            <div class="form-group row">
-                <div class="col-10">
-                    <textarea formControlName="discription" class="form-control rounded-0" id="FormTextarea" placeholder="Enter Something....." rows="3" required></textarea>
-                    <!-- <label for="FormTextarea">Enter Something.....</label> -->
-                </div>
-            </div>
-<!--end texttarea-->
-            <br><br>
-            <div class="row">
-                <div class="col-5"></div>
-                <div class="col-2">
-                    <button type="submit" id="btn-sub" (click)="myFunc()" class="btn btn-outline-danger" [disabled]="!teamForm.valid">Submit</button>
-                </div> 
-                <div class="col-5"></div>
-            </div>
-        
-        </form>
-            
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-          <a  id="crateAccountlink"  class="underlineHover" ></a>
-        </div>
-    
-      </div>
     </div>
 
 </div>
 
-    <ng-template #content let-c="close" let-d="dismiss">
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
-            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-              
+<!-- Get Employee -->
+<ng-template #content let-c="close" let-d="dismiss">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <!-- employee list -->
-        <div class="modal-body">
+    <div class="modal-body">
         <table class="table table-borderless">
-            <tr *ngFor="let i of result;" class="form-check">      
-                <td><input type="checkbox" class="radio" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+            <tr *ngFor="let i of result;" class="form-check">
+                <td><input type="checkbox" class="radio" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"
+                        name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
             </tr>
-        </table>                              
-        </div>
+        </table>
+    </div>
     <!-- end -->
 
-        <div class="modal-footer">
-          <small class="text-muted"></small>
+    <div class="modal-footer">
+        <small class="text-muted"></small>
         <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-        </div>
-    </ng-template>
+    </div>
 
+</ng-template>
+<!-- End Emploee  -->
 
-
-<!-- 22222222222 -->
-
-    <ng-template #content2 let-c="close" let-d="dismiss">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
-                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                  
-        <!-- employee list -->
-            <div class="modal-body">
-            <table class="table table-borderless">
-                <tr *ngFor="let i of result;" class="form-check">      
-                    <td><input type="radio" class="form-check-input" (change)="onChange2(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
-                </tr>
-            </table>                              
-            </div>
-        <!-- end -->
+<!-- Get Captain  -->
+<ng-template #content2 let-c="close" let-d="dismiss">
     
-            <div class="modal-footer">
-              <small class="text-muted"></small>
-            <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-            </div>
-    </ng-template>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <!-- employee list -->
+    <div class="modal-body">
+        <table class="table table-borderless">
+            <tr *ngFor="let i of result;" class="form-check">
+                <td><input type="radio" class="form-check-input" (change)="onChange2(i.id,i.empName, $event.target.checked)"
+                        name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+            </tr>
+        </table>
+    </div>
+    <!-- end -->
+
+    <div class="modal-footer">
+        <small class="text-muted"></small>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+    </div>
+
+</ng-template>
+<!-- End Captain  -->

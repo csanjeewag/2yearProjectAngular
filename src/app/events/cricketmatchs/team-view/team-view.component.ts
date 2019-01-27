@@ -20,8 +20,7 @@ export class TeamViewComponent implements OnInit {
     this.ImageUrl = this.repository.ImageUrl;
     this.eventId = this.route.snapshot.paramMap.get('id')
     this.getCricketTeams();
-    this.getEventDetails();
-    
+    this.getEventDetails();    
   }
 
   public getCricketTeams(){
