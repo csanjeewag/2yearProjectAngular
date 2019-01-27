@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 import {  RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
+import { AuthServiceService } from "./../../AuthGards/auth-service.service";
   
 @Component({
   selector: 'app-select-attribute',
@@ -11,15 +12,15 @@ import { Router,ParamMap } from '@angular/router';
 })
 export class SelectAttributeComponent implements OnInit {
 
-  constructor(private router: Router,  private repository : RepositoryService,private rou:ActivatedRoute) { }
+  constructor(private auth: AuthServiceService,private router: Router,  private repository : RepositoryService,private rou:ActivatedRoute) { }
   public EventForm: FormGroup;
   public Message:any;
   public EventId:any;
   public urlAddress:any;
   public attribute:any;
   ngOnInit() {
-    this.getparamId();
-
+   // this.getparamId();
+console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository.eventId);
   this.getAttribute();
     this.EventForm = new FormGroup({
     
@@ -40,7 +41,7 @@ export class SelectAttributeComponent implements OnInit {
     
     let formdata = new FormData;
     formdata.append('Id',this.attribute.id);
-    formdata.append('EventId',this.EventId);
+    formdata.append('EventId',this.repository.eventId);
     formdata.append('EndDate',value.EndDate);
     formdata.append('ClosingDate',value.ClosingDate);
     formdata.append('Destination',value.Destination);
@@ -57,7 +58,7 @@ export class SelectAttributeComponent implements OnInit {
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
           //this.Message="attribute updated!";
-          this.urlAddress = "events/addevent/"+this.EventId;
+          this.urlAddress = "events/addevent/"+this.repository.eventId;
           this.router.navigate([this.urlAddress]);
            //   this.router.navigate(['/profile/admin/roles']);
            
@@ -85,12 +86,12 @@ export class SelectAttributeComponent implements OnInit {
 
 
   public getAttribute(){
-    let apiUrl = 'event/getatribute/'+this.EventId;
+    let apiUrl = 'event/getatribute/'+this.repository.eventId;
     console.log("inside get attribute")
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
-      console.log(res)
+      console.log("this is the attribute returned"+res)
           this.fiilEvent();
         },
         (error => {

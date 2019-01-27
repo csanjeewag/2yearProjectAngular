@@ -1,6 +1,6 @@
 
   import { Component, OnInit } from '@angular/core';
-  import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
+  import { FormControl, FormGroup, Validators} from '@angular/forms';
   
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute  } from '@angular/router';
@@ -110,9 +110,11 @@ export class AddEventComponent implements OnInit {
           
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
-               this.Message="Project updated!";
-             
-               this.urlAddress = "events/selectattributes/"+this.event.id;
+               this.event=res;
+               console.log("updating the event befor go to select attribute");
+              //console.log("id of event = message id"+this.event.id);
+            console.log("reading the event id from auth service  = "+this.repository.eventId)
+               this.urlAddress = "events/selectattributes/"+this.repository.eventId;
                this.router.navigate([this.urlAddress]);
             
                },
@@ -147,11 +149,13 @@ export class AddEventComponent implements OnInit {
               this.Message="Event Created!";
               console.log(res)
               this.event=res;
-              
+              console.log("id of event = message id"+this.event.id);
+            this.repository.addEventId(this.event.id);
+            console.log("reading the event id from auth service  = "+this.repository.eventId)
               console.log(this.event.id);
 
               let atformdata = new FormData;
-              atformdata.append('EventId',this.event.id);
+              atformdata.append('EventId',this.repository.eventId);
               let apiUrl = 'event/selectAttributes';
       
               this.repository.postFile(apiUrl, atformdata)
@@ -159,17 +163,19 @@ export class AddEventComponent implements OnInit {
                   //this.Message="attribute Created!";
                    //   this.router.navigate(['/profile/admin/roles']);
                    
-               
+               console.log("inside select attribute cfreation");
+               this.urlAddress = "events/selectattributes/"+this.repository.eventId;
+              this.router.navigate([this.urlAddress]);
                   },
                   (error => {
                     this.Message="Event Created Failed,Try Again!";
+                    console.log("inside select attribute cfreation. errorrrrr");
                   })
                 )
 
 
 
-              this.urlAddress = "events/selectattributes/"+this.event.id;
-              this.router.navigate([this.urlAddress]);
+              
                
            
               },
@@ -194,7 +200,7 @@ export class AddEventComponent implements OnInit {
       if (this.EventForm.valid) {
         if(this.eventId!=null){
           let formdata = new FormData;
-          formdata.append('Id',this.eventId);
+          formdata.append('Id',this.repository.eventId);
           formdata.append('EventTitle',value.EventTitle);
           formdata.append('EventTypeId',value.EventType);   
           formdata.append('StartDate',value.StartDate);
@@ -248,16 +254,15 @@ export class AddEventComponent implements OnInit {
         this.repository.postFile(apiUrl1, formdata)
           .subscribe(res =>  {
             window.alert("Event has been succesfully Created")
-
+              
              
             console.log(res)
             this.event=res;
-            
-            console.log(this.event.id);
-
-
+            console.log("id of event = message id"+this.event.id);
+            this.repository.addEventId(this.event.id);
+            console.log("reading the event id from auth service  = "+this.repository.eventId)
             let atformdata = new FormData;
-            atformdata.append('EventId',this.event.id);
+            atformdata.append('EventId',this.repository.eventId);
             let apiUrl = 'event/selectAttributes';
     
             this.repository.postFile(apiUrl, atformdata)

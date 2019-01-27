@@ -55,7 +55,7 @@ public employees:Array<any> = [];
       
       //taskId:this.taskId,
       taskName:profileFormValue.TaskName,
-      eventName:profileFormValue.EventName,
+      eventId:profileFormValue.EventName,
       startDate:profileFormValue.StartDate,
       endDate:profileFormValue.EndDate,
       budgetedCost:profileFormValue.BudgetedCost,

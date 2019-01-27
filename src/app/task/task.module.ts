@@ -28,7 +28,7 @@ import { UpdateTaskComponent } from './update-task/update-task.component';
 import { MainTaskComponent } from './main-task/main-task.component';
 import { ContactsComponent } from './contacts/contacts.component';
 //import { LoginUserInterfaceComponent } from './login-user-interface/login-user-interface.component';
-import { FileUploadModule } from 'ng2-file-upload';
+//import { FileUploadModule } from 'ng2-file-upload';
 
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
@@ -48,7 +48,7 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
     MatButtonToggleModule,
     MatFormFieldModule,
     MatTabsModule,
-    FileUploadModule,
+    //FileUploadModule,
    
     FormsModule,
     ReactiveFormsModule,
@@ -73,6 +73,7 @@ import { SharedModuleModule} from "./../shared-module/shared-module.module";
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent]
+  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
+  exports:[AddtaskComponent, ViewTaskComponent]
 })
 export class TaskModule { }

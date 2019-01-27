@@ -36,7 +36,7 @@ export class UpdateEventComponent implements OnInit {
   ngOnInit() {
     this.getEvents();
     this.getparamId();
-    this.getproject();
+    
       this.projectForm = new FormGroup({
         EventTitle: new FormControl('',[Validators.required]),
         EventType: new FormControl('',[Validators.required]),
@@ -145,10 +145,11 @@ export class UpdateEventComponent implements OnInit {
   }
   
   public getproject(){
+    console.log("inside get project");
  this.repository.getData('event/getall/'+this.PrId)
     .subscribe(res => {
       this.event = res ;
-      
+      console.log("event = "+this.event);
       
       this.fillproject();
     },
@@ -164,6 +165,7 @@ export class UpdateEventComponent implements OnInit {
   this.route.paramMap.subscribe((params:ParamMap)=>{
     let id =params.get('id');
     this.PrId=id;
+    this.getproject();
     console.log("id of the evenet = "+id)
    });
 

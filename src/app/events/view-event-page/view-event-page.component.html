@@ -1,20 +1,96 @@
 <!-- <app-logged-header></app-logged-header> -->
 
 <app-nav-bar></app-nav-bar>
-<div class="row mb-2">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="card flex-md-row mb-4 box-shadow h-md-250">
-        <div class="card-body d-flex flex-column align-items-start">
-          
-          <h3 class="mb-0">
-            <a class="text-dark">{{event.eventTitle}}</a> 
-          </h3>
-          
-          <p class="card-text mb-auto">{{event.eventDescription}}</p>
+
+<br/><br/>
+
+<section>
+    <div class="container">
+      <div class="card">
+        <div class="row">
+            
+          <div class="col-md-6">
+           
+            <div class="card-block" id="dis">
+              <br/>
+              <h4 class="card-title">{{event.eventTitle}}</h4>
+              <p class="card-text">{{event.eventDescription}}</p>
+              <p *ngIf="destination"class="card-text">Destination: {{event.destination}}</p>
+              <p *ngIf="venue" class="card-text">Venue: {{event.venue}}</p>
+              <p class="card-text">Date: {{date}}</p>
+              <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{closeDate}}</p>
+              <p class="card-text" *ngIf="endDate">EndDate of Event: {{eventEndDate}}</p>
+              <p class="card-text" *ngIf="isFamilyMembersAllowed">Whether Family Members Allowed: {{event.isFamilyMembersAllowed}}</p>
+              <p class="card-text" *ngIf="liquor">Liquor: {{event.liquor}}</p>
+              <p class="card-text" *ngIf="numberOfTeams">Number of Teams: {{event.numberOfTeams}}</p>
+
+            </div>
+           
+          </div>
+          <div class="col-md-6">
+            <div class="card-img-bottom" id="division">
+                <img class="card-img " id="image" style="width: 100%; height: 400px;"src="assets/_image/trip.jpg">
+
+            </div>
+          </div>
         </div>
-        <img class="card-img-right flex-auto d-none d-md-block" style="width: 50%; height: 50%;"src="assets/_image/trip.jpg" alt="Card image cap">
       </div>
     </div>
-    <div class="col-md-2"></div>
-   </div>
+  </section>
+
+<br/><br/>
+
+
+
+<div class="row">
+    <div id="form" class="col-sm-9">
+        <app-employee-registration></app-employee-registration>
+      </div>
+      <div class="col-sm-1">
+          <button type="button" class="btn btn-link"(click)="updateEvent()">Update Event</button>
+          <button type="button" class="btn btn-link" (click)="deleteEmployee(content)">Delete Registered Employee</button>
+          <button type="button" class="btn btn-link" (click)="viewEmployee()">View Registered Employees</button>
+        </div>
+</div>
+<br/><br/>
+  
+          <br/>
+  <div class="row mb-1">
+  <div class="col-md-1"></div>
+      <div class="col-md-10">
+          <h4 class="border-bottom border-secondary pb-2 mb-0">Assign Task </h4>  
+          <app-addtask></app-addtask>
+        </div>
+      </div>
+      <br/><br/>
+      <div class="row mb-1">
+          <div class="col-md-1"></div>
+              <div class="col-md-10">
+                  <h4 class="border-bottom border-secondary pb-2 mb-0">Recently Added Task </h4>  
+                  <app-view-task></app-view-task>
+                </div>
+              </div>
+              <br/><br/>
+
+              <ng-template #content let-c="close" let-d="dismiss">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Delete Employee</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <!-- employee list -->
+                  <div class="modal-body">
+                     <app-delete-employee></app-delete-employee>                             
+                    </div>
+
+                     <!-- end -->
+                  <div class="modal-footer">
+                      <small class="text-muted">
+                         
+                        </small>
+                    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+                  </div>
+                </ng-template>     
+              
+  

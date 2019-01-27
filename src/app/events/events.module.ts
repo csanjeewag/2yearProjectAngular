@@ -12,6 +12,7 @@ import { YearEndPartyComponent } from './year-end-party/year-end-party.component
 import { Header2Component } from "./../SharePart/header2/header2.component";
 
 import { SharedModuleModule } from "./../shared-module/shared-module.module";
+import { TaskModule } from "./../task/task.module";
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { SelectAttributeComponent } from './select-attribute/select-attribute.component';
@@ -20,10 +21,12 @@ import { AddRegistrationFormComponent } from './add-registration-form/add-regist
 import { SelectAttributeRegistrationComponent } from './select-attribute-registration/select-attribute-registration.component';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 import { SelectAttributeForUpdateComponent } from './select-attribute-for-update/select-attribute-for-update.component';
-
+import { ViewEmployeeComponent } from './view-employee/view-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 @NgModule({
   imports: [
     SharedModuleModule,
+    TaskModule,
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([
@@ -36,6 +39,7 @@ import { SelectAttributeForUpdateComponent } from './select-attribute-for-update
       {path:'addevent', component:AddEventComponent},
       {path:'addevent/:id', component:AddEventComponent},
       {path:'updateevent/:id', component:UpdateEventComponent},
+      {path:'viewEmployee/:id', component:ViewEmployeeComponent},
       {path:'selectattributes/:id', component:SelectAttributeComponent},
       {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
       {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent},
@@ -46,6 +50,6 @@ import { SelectAttributeForUpdateComponent } from './select-attribute-for-update
       { path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },       
     ]),
   ],
-  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent]
+  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent]
 })
 export class EventsModule { }
