@@ -17,23 +17,36 @@ export class ViewTaskComponent implements OnInit {
   public taskId:any;
   public taskdetails:any;
   public employee:any;
-  public eid:any;
+  public eventId:any;
 public Loading:any;
+public completedtasks:any;
+
   constructor(private repo :RepositoryService,private router: Router, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
   config.backdrop = 'static';
   config.keyboard = false;
   }
  
   ngOnInit() {
-    this.eid=this.repo.curentEventId;
-    this.getAllTask();
-    //this.getEventById(this.eid);
+    this.eventId=this.repo.curentEventId;
+  
+  //  this.getAllTask();
+    this.getEventById(this.eventId);
     this.changeStatus(status);
       //this.isAdmin = this.auth.isAdmin();
   }
 
-public getEventById(eid){
-  this.repo.getData('task/'+eid)
+public getEventById(eventId){
+  console.log(eventId)
+  this.repo.getData('task/getall/'+this.eventId)
+  .subscribe(res => {
+    this.result = res ;
+
+   console.log(this.result);
+    
+  },
+  (error) => {
+
+  })
 }
 
 
@@ -58,8 +71,8 @@ public detailsTask(tid) {
       .subscribe(res => {
         //this.result = res as Observable<NewTask>;
         this.taskdetails = res as any;
-        console.log(this.taskdetails);
-     
+     this.changeStatus(this.taskdetails.status)
+     console.log(this.taskdetails.status);
 
       },
       (error) => {
@@ -103,7 +116,7 @@ public getempfortask(tid){
   }
 
   public updateTask(id){
-    this.router.navigate(['/task/update/'+id]);
+    this.router.navigate(['/task/updatetask/'+id]);
   }
   open(content,id) {
     this.detailsTask(id);
@@ -113,7 +126,7 @@ public getempfortask(tid){
 
   public deleteTask(id){
     this.Loading = id;
-    this.repo.getData('task/create/'+id)
+    this.repo.getData('task/deletetask/'+id)
     .subscribe(res => {
     this.getAllTask()
     this.Loading = false;
@@ -123,6 +136,19 @@ public getempfortask(tid){
    (error) => {
    this.Loading =false;
    })
+  }
+
+  public getcompletedtasks(){
+    this.repo.getData('task/getcompletedtasks/')
+    .subscribe(res => {
+      //this.result = res as Observable<NewTask>;
+      this.completedtasks = res as any;
+      console.log(this.employee);
+    },
+    (error) => {
+    //  this.handleErrors(error);n
+    })
+   
   }
   
 

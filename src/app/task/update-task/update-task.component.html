@@ -1,4 +1,7 @@
+
+<app-nav-bar></app-nav-bar>
 <section class="testimonial py-5" id="testimonial">
+
     <div class="container">
         <div class="row ">
             
@@ -6,12 +9,23 @@
             <div class="col-md-8  border ml-5" id="formV">
                     <form [formGroup]="taskForm"  autocomplete="off" novalidate (ngSubmit)="updateTask(taskForm.value)">
 
+                        <div class="form-group">
+                            <table>
+                                <tr>
+                                    <td><b>Is Complete</b> </td>
+                                    <td><input type="checkbox" id="inlineCheckbox1" class="form-check-input" (change)="onChangeStatus($event.target.checked)">
+                                    </td>
+                                </tr>
+                            </table>
+                                            
+                        </div>
                         
                      <div class="form-row">
                         
                        
                     
                     <div class="form-group col-md-12">
+
                       <input  placeholder="Task Name" class="form-control" type="text" formControlName="TaskName" id="TaskName">
                       <!-- <em *ngIf="validateControl('TaskName') && hasError('TaskName', 'required')">*Task is required</em> -->
              
@@ -102,17 +116,17 @@
                                     <input  placeholder="Description" class="form-control" type="textarea" formControlName="Description" id="description">
                            
                                 </div>
-                                <div>
-                                        <input type="checkbox" class="form-check-input" (change)="onChangeStatus($event.target.checked)">Is Complete
-
-                                </div>
+                                                             
 
                     </div>
+                   
                     
                 
                     
                     <div class="form-row">
                         <div class="form-group">
+
+                                
                                   <div class="btn-group" role="group" aria-label="Basic example">
                                       <button type="button" class="btn btn-danger" (click)="redirectToTaskList()">Cancel</button>
                                       <button type="submit" class="btn btn-success"  [disabled]="!taskForm.valid">Update</button>

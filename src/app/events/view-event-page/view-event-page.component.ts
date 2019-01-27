@@ -49,8 +49,8 @@ export class ViewEventPageComponent implements OnInit {
   }
  
   public getproject(){
-   
-
+    this.repository.curentEventId = this.PrId;
+  
     this.repository.getData('event/getall/'+this.PrId)
        .subscribe(res => {
          this.event = res ;
@@ -70,6 +70,7 @@ export class ViewEventPageComponent implements OnInit {
       this.PrId=id;
       console.log("id of the evenet = "+id)
       this.repository.currentEventId(this.PrId);
+    
       this.getproject();
      });
   

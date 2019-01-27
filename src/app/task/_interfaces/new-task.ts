@@ -1,5 +1,5 @@
 export interface NewTask {
-    //taskId:number;
+    taskId:number;
     taskName:string;
     eventId:string;
     startDate:Date;
