@@ -1,3 +1,4 @@
+
 <div class=" my-3 p-3 rounded box-shadow">
   <!-- <h6 class="border-bottom border-secondary pb-2 mb-0 font-weight-bold"></h6> -->
 
@@ -5,15 +6,15 @@
 
     <p class="media-body pb-3 mb-0 lh-125">
       <strong class="d-block text-black-dark ">{{i.taskName}}
-        <img src="assets/_image/images.jpg" width="25" height="25" class="rounded-circle margin-left ml-2">
-      </strong>
-      {{i.description}}
+     </strong>
+     {{i.description}}
+
+     <img *ngIf="i.status" src="https://img.icons8.com/color/48/000000/checked.png">
+
     </p>
-    <button type="button" class="btn btn-link" (click)="open(content,i.taskId)">More</button>
+    <button type="button" class="btn btn-link" (click)="open(content,i.taskId,i.status)">More</button>
     <button type="button" class="btn btn-link" (click)="updateTask(i.taskId)">Update</button>
     <button type="button" class="btn btn-link" (click)="deleteTask(i.taskId)">Delete</button>
-    <button type="button" class="btn btn-link" (click)="changeStatus(i.taskId)">change status</button>
-
 
     <div class="modal fade">
       <ng-template #content let-c="close" let-d="dismiss">

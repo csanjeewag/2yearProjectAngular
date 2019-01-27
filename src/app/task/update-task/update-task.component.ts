@@ -62,9 +62,9 @@ public taskstatus:any;
         // formdata.append('BudgetedCost',value.BudgetedCost),
         // formdata.append('Description',value.Description),
         // formdata.append('Status',value.Status)
-
+        taskId:this.taskId,
         taskName:value.TaskName,
-        eventId:'2',
+        eventId:this.repository.curentEventId,
         startDate:value.StartDate,
         endDate:value.EndDate,
         budgetedCost:value.BudgetedCost,
@@ -111,6 +111,7 @@ let apiUrl = 'task/create';
 
         
     public fillTask(){
+      
       this.taskForm.controls['TaskName'].setValue(this.task.taskName);
       this.taskForm.controls['StartDate'].setValue(this.task.startDate);
       this.taskForm.controls['EndDate'].setValue(this.task.endDate);
@@ -153,6 +154,7 @@ public  getAllEmployee(){
 
 onChange(id:string,empName:string, isChecked: boolean) {
   if(isChecked) {
+    console.log(empName)
     this.employeeId=id;
     this.employees.push(id);
     this.emailFormArray.push(empName);
