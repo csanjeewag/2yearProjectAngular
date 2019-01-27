@@ -83,10 +83,10 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'home', component: HomepageComponent},
-      { path: 'list', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
+      { path: 'lists', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
       
       { path: 'login', component: LoginUserInterfaceComponent },
-      { path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
+      { path: 'lists/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
       { path: 'delete/:id', component: DeleteEmployeeComponent },
       { path: 'update/:id', component: UpdateEmployeeComponent },      
       { path: 'profile', component: EmployeeProfileComponent  },

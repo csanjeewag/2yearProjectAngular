@@ -60,7 +60,7 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
        {path:'mytask',component:MyTaskComponent},
        {path:'addinfo',component:AddInfoComponent},
        //{path:'details/:id', component: ShowTaskDetailsComponent},
-       { path: 'update/:id', component: UpdateTaskComponent },
+       { path: 'updatetask/:id', component: UpdateTaskComponent },
        {path:'newtask',component:MainTaskComponent},
        {path:'contact',component:ContactsComponent},
        {path:'viewcontact/:id',component:ViewcontactsComponent},
