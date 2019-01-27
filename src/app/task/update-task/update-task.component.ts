@@ -26,9 +26,13 @@ public employeeId:any;
 public result:any;
 public employees:Array<any> = [];
 public emailFormArray:any;
+public employee:any;
+public taskstatus:any;
   ngOnInit() {
     this.gettask();
     this.getAllEmployee();
+    this.getempfortask(this.taskId);
+
 
     this.taskForm = new FormGroup({        
     
@@ -39,7 +43,7 @@ public emailFormArray:any;
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      EmployeeId: new FormControl('',[Validators.required]),
+      //EmployeeEmpId: new FormControl('',[Validators.required]),
       //Admin: new FormControl('',[Validators.required]),
       },
       //{ validators: isvalidconfirmpassword }
@@ -65,9 +69,9 @@ public emailFormArray:any;
         endDate:value.EndDate,
         budgetedCost:value.BudgetedCost,
         description:value.Description,
-        employeeId:this.employeeId,
+        //employeeId:this.employeeId,
         employees:this.employees,
-        status:value.status,
+        status:this.taskstatus,
         addDate:value.addDate,
     };
 let apiUrl = 'task/create';
@@ -107,15 +111,12 @@ let apiUrl = 'task/create';
 
         
     public fillTask(){
-      //this.taskForm.controls['TaskId'].setValue(this.task.taskId);
       this.taskForm.controls['TaskName'].setValue(this.task.taskName);
-      //this.taskForm.controls['EventName'].setValue(this.task.eventName);
       this.taskForm.controls['StartDate'].setValue(this.task.startDate);
       this.taskForm.controls['EndDate'].setValue(this.task.endDate);
       this.taskForm.controls['BudgetedCost'].setValue(this.task.budgetedCost);
       this.taskForm.controls['Description'].setValue(this.task.description);
-      this.taskForm.controls['EmployeeEmpId'].setValue(this.task.employeeEmpId);
-      //this.taskForm.controls['Admin'].setValue(this.task.admin);
+      
       console.log()
       }
       
@@ -163,6 +164,13 @@ onChange(id:string,empName:string, isChecked: boolean) {
   }
 }
 
+onChangeStatus(isChecked: boolean){
+  if(isChecked){
+    this.taskstatus=true;
+  }
+}
+
+
 
   public validateControl(controlName: string) {
     if (this.taskForm.controls[controlName].invalid && this.taskForm.controls[controlName].touched)
@@ -176,6 +184,23 @@ onChange(id:string,empName:string, isChecked: boolean) {
       return true;
 
     return false;
+  }
+
+  public getempfortask(tid){
+  
+    console.log(tid)
+    this.repository.getData('task/getempfortask/'+tid)
+    .subscribe(res => {
+      //this.result = res as Observable<NewTask>;
+      this.employee = res as any;
+      console.log(this.employee);
+
+    },
+    (error) => {
+    //  this.handleErrors(error);n
+    })
+   
+
   }
 
 

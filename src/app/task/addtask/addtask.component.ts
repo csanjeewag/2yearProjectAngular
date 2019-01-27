@@ -45,7 +45,7 @@ public errorMessage:any;
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      EmployeeEmpId: new FormControl(''),
+      //EmployeeEmpId: new FormControl(''),
       //Admin: new FormControl('',[Validators.required]),
       },
       //{ validators: isvalidconfirmpassword }
@@ -54,8 +54,8 @@ public errorMessage:any;
 
    
     
-    public redirectToTaskList(){
-      this.router.navigate(['task']);
+    public redirect(){
+      this.router.navigate(['task/addtask']);
     }
 
 
@@ -71,16 +71,14 @@ public errorMessage:any;
   private executeTaskCreation(profileFormValue) {
     let t: NewTask = {
       
-    //taskId:profileFormValue.TaskId,
     taskName:profileFormValue.TaskName,
     eventId:'2',
     startDate:profileFormValue.StartDate,
     endDate:profileFormValue.EndDate,
     budgetedCost:profileFormValue.BudgetedCost,
     description:profileFormValue.Description,
-    employeeId:this.employeeId,
+    //employeeId:this.employeeId,
     employees:this.employees,
-    //admin:profileFormValue.Admin,
     status:false,
     addDate:profileFormValue.addDate,
 
@@ -183,7 +181,7 @@ public getallevents(){
 compareTwoDates(){
   if(new Date(this.taskForm.controls['EndDate'].value)<new Date(this.taskForm.controls['StartDate'].value)){
     this.error1={
-      isError:true,errorMessage:'End date before strat date'};
+      isError:true,errorMessage:'*End date before strat date'};
   }
   else{
     this.error1={isError:true,errorMessage:''};
@@ -194,7 +192,7 @@ compareTwoDates2(){
   this.eventdate=this.event.eventDate;
   //this.eventdate=2019-1-30;
   if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.eventdate)){
-     this.error2={isError:true,errorMessage:'Event date before Task strat date'};
+     this.error2={isError:true,errorMessage:'*Event date before Task strat date'};
   }
   
 else{
