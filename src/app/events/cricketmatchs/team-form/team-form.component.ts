@@ -25,6 +25,7 @@ export class TeamFormComponent implements OnInit {
   public eventId:any;
 
   ngOnInit() {
+    
     this.eventId = this.route.snapshot.paramMap.get('id')
     this.getAllEmployee();
     this.teamForm = new FormGroup({
@@ -103,9 +104,20 @@ export class TeamFormComponent implements OnInit {
   }
   onChange(id:string,empName:string, isChecked: boolean) {
     if(isChecked) {
-      this.captainId=id;
-      this.employees.push(id);
-      this.emailFormArray.push(empName);
+          this.Message = '';
+            if(this.captainId==id){
+              this.Message='you can not selete captain again';
+            }
+             else{
+              if(this.employees.indexOf(id)<0 )
+              {
+                this.employees.push(id);
+                this.emailFormArray.push(empName);
+
+              }
+             }  
+             
+     
     } else {
       let index = this.emailFormArray.indexOf(empName);
       this.emailFormArray.splice(index,1);
@@ -116,6 +128,7 @@ onChange2(id:string,empName:string, isChecked: boolean) {
     this.captainId=id;
     //this.employees.push(id);
     this.name=empName;
+ 
 
   } else {
     // let index = this.emailFormArray.indexOf(empName);

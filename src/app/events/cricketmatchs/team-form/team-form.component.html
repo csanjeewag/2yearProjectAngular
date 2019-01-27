@@ -31,7 +31,7 @@
                         <span class="sp1"><div >{{name}}</div></span>
                     </div>
                     <div class="col-3 col-sm-3">
-                        <button type="button" class="btn btn-link btn-sm" (click)="open(content2)">Select Captain</button>
+                        <button  type="button" class="btn btn-link btn-sm" (click)="open(content2)">Select Captain</button>
                     </div>
                   </div>
                 </div>
@@ -105,12 +105,13 @@
               <span aria-hidden="true">&times;</span>
             </button>
         </div>
-              
+        <h3 id="msg">{{Message}}</h3>
     <!-- employee list -->
         <div class="modal-body">
         <table class="table table-borderless">
-            <tr *ngFor="let i of result;" class="form-check">      
-                <td><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+            <tr *ngFor="let i of result;" class="form-check">
+
+                <td *ngIf="i.id!=captainId"><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
             </tr>
         </table>                              
         </div>
@@ -124,7 +125,7 @@
 
 
 
-<!-- 22222222222 -->
+<!-- cccc -->
 
     <ng-template #content2 let-c="close" let-d="dismiss">
             <div class="modal-header">
@@ -138,7 +139,7 @@
             <div class="modal-body">
             <table class="table table-borderless">
                 <tr *ngFor="let i of result;" class="form-check">      
-                    <td><input type="checkbox" class="form-check-input" (change)="onChange2(i.empId,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+                    <td><input type="checkbox" class="form-check-input" (change)="onChange2(i.id,i.empName, $event.target.checked)" name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
                 </tr>
             </table>                              
             </div>
