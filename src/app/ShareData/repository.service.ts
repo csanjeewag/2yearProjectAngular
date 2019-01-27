@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 import { UserServiceService} from './user-service.service';
 import { Observable } from 'rxjs';
 
+
 interface userIdIsUnique {
   unique: boolean
 }
@@ -15,6 +16,23 @@ export class RepositoryService {
  constructor( private http: HttpClient, private envUrl:UserServiceService , private userurl :UserServiceService) { }
  public islogged:any; 
  public ImageUrl = this.envUrl.mainUrl;
+
+
+ public eventId:any;
+ public curentEventId:any;
+
+
+public commenteventId:any;
+ public currentEventId(id){
+  this.curentEventId=id;
+ 
+ }
+ public addEventId(id){
+  this.eventId=id;
+  }
+ 
+
+
   public getData(route: string) {
    
     return this.http.get(this.createCompleteRoute(route, this.envUrl.urlAddress),this.generateHeaders());

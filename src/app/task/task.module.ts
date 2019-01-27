@@ -61,7 +61,7 @@ import { ViewTaskInfoComponent } from './view-task-info/view-task-info.component
        {path:'mytask',component:MyTaskComponent},
        {path:'addinfo',component:AddInfoComponent},
        //{path:'details/:id', component: ShowTaskDetailsComponent},
-       { path: 'update/:id', component: UpdateTaskComponent },
+       { path: 'updatetask/:id', component: UpdateTaskComponent },
        {path:'newtask',component:MainTaskComponent},
        {path:'contact',component:ContactsComponent},
        {path:'viewcontact/:id',component:ViewcontactsComponent},
@@ -76,7 +76,7 @@ import { ViewTaskInfoComponent } from './view-task-info/view-task-info.component
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent, ViewcontactsComponent, ViewTaskInfoComponent],
-  exports:[AddInfoComponent],
+  declarations: [ViewcontactsComponent,MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
+  exports:[AddtaskComponent, ViewTaskComponent,AddInfoComponent]
 })
 export class TaskModule { }

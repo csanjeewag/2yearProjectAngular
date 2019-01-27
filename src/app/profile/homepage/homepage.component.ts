@@ -12,6 +12,7 @@ export class HomepageComponent implements OnInit {
   constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   ngOnInit() {
+    console.log("reading id from auth service inside home page"+this.repository.eventId);
   }
   public urlAddress;
   public events:any;

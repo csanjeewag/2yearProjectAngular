@@ -8,10 +8,11 @@
             <!-- Tabs Titles -->
         
             <!-- Icon -->
-            <div id="title" style="color: rgb(43, 42, 42)">
+            <div id="title" style="color: rgb(70, 65, 65)">
               <h1>Create Event</h1>
             </div>
-            <h5 class="card-title"> </h5>
+
+           
             <!-- Sign up Form -->
             <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
                 
@@ -92,8 +93,32 @@
            </div> 
            
            <div class="form-group col-md-12"*ngIf="numberOfTeams">
-            <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" placeholder="Number of teams">
+            <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" required>
             <label >Number of teams</label>
+
+       </div> 
+
+       <div class="form-group col-md-12"*ngIf="budgetedCost">
+            <input type="number" class="form-control" formControlName="budgetedCost" id="budgetedCost" required>
+            <label >Budgeted Cost</label>
+
+       </div> 
+
+       <div class="form-group col-md-12"*ngIf="actualCost">
+            <input type="number" class="form-control" formControlName="actualCost" id="actualCost" required>
+            <label >Actual Cost</label>
+
+       </div> 
+      
+       <div class="form-group col-md-12"*ngIf="mainOrganiZer">
+            <input  type="number" class="form-control" formControlName="mainOrganiZer" id="mainOrganiZer" required>
+            <label >Main Organizer</label>
+
+       </div> 
+
+       <div class="form-group col-md-12"*ngIf="summary">
+            <input class="form-control" formControlName="summary" id="summary" required>
+            <label >Summary of Event</label>
 
        </div> 
                

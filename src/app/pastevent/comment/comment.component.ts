@@ -6,7 +6,6 @@ import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/for
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
 
 
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -23,9 +22,10 @@ export class CommentComponent implements OnInit {
   public commentForm: FormGroup;
   ngOnInit() {
     this.ImageUrl = this.repository.ImageUrl;
-    this.eventid = this.rout.snapshot.paramMap.get('id');
+    //  this.eventid = this.rout.snapshot.paramMap.get('id');
+    this.eventid = this.repository.commenteventId;
     this.author = this.auth.tokencheckId();
-    this.getcomment(this.eventid);
+    this.getcomment();
 
     this.commentForm = new FormGroup({
       // EventId: new FormControl('', [Validators.required]),
@@ -35,23 +35,32 @@ export class CommentComponent implements OnInit {
     })
 
   }
-  onClick(){
-    // this.router.navigate(['pastevent/comment'+this.eventid]);
-    
-   
-  }
 
-  public getcomment(id) {
+
+  public getcomment() {
+    let id = this.eventid;
     let url = "pastevent/getcomment/"+id;
     this.repository.getData(url)
       .subscribe(res => {
         this.comment = res;
-       console.log(res)
+      console.log(res)
       }, (error) => {
 
       })
 
   }
+
+  public deletecomment(id){
+    let url = "pastevent/deletecomment/"+id;        
+   
+  console.log(url);
+   this.repository.getData(url)
+        .subscribe( img => {
+          this.getcomment();       
+        }, (error => {     
+        })
+        )
+   }
 
   OnSubmit(value) {
     console.log(value)
@@ -64,17 +73,12 @@ export class CommentComponent implements OnInit {
 
     this.repository.postFile(url,formData)
       .subscribe(res => {
-       
+        this.getcomment();
         console.log(res);
       }, (error => {
         console.log("error");
       })
       )
   }
-
-
-
-
-
 
 }

@@ -1,3 +1,83 @@
-<p>
-  select-attribute-registration works!
-</p>
+<div >
+        
+  
+  <div id="formContent" >
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div >
+      <h1>Select Fields</h1>
+    </div>
+    <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+    <!-- Sign up Form -->
+    <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
+        
+        
+<!--
+        <div class="form-group col-md-6">
+          
+         
+          <input type="checkbox" class="form-control" formControlName="StartDate" name="StartDate" id="StartDate" >
+        
+      </div>
+      
+       -->
+       
+      <table class="table table-borderless">
+          <tr class="form-check">
+          <td><input type="checkbox" class="form-check-input" formControlName="nic" id="nic">NIC</td>
+          </tr>
+         
+          <tr class="form-check">
+              <td><input type="checkbox" class="form-check-input" formControlName="transportationMode" id="transportationMode">Transport Type</td>
+              </tr>
+
+          <tr class="form-check">
+          <td><input type="checkbox" class="form-check-input" formControlName="accomadation" id="accomadation">Accomadation Type</td>
+          </tr>
+
+          <tr class="form-check">
+              <td><input type="checkbox" class="form-check-input" formControlName="mealType" id="mealType">Meal Type</td>
+              </tr>
+              <tr class="form-check">
+                <td><input type="checkbox" class="form-check-input" formControlName="dob" id="dob">Date of Birth</td>
+                </tr>
+
+          <tr class="form-check ">
+              <td><input type="checkbox" class="form-check-input " formControlName="gender" id="gender">Gender</td>
+              </tr>
+      
+              <tr class="form-check">
+                  <td><input type="checkbox" class="form-check-input" formControlName="spouseName" id="spouseName">Spouse Name</td>
+                  </tr>
+
+                  <tr class="form-check">
+                      <td><input type="checkbox" class="form-check-input" formControlName="spouseNic" id="spouseNic">Spouse NIC</td>
+                      </tr>
+                      <tr class="form-check">
+                        <td><input type="checkbox" class="form-check-input" formControlName="spouseDob" id="spouseDob">Spouse Date of Birth</td>
+                        </tr>
+  
+
+      </table>  
+
+      
+        <div class="btn-group" role="group" aria-label="Basic example">
+        <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+        <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Add Attributes</button>
+        
+    </div> 
+    </form>
+        <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+        
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a  id="crateAccountlink"  class="underlineHover" ></a>
+     
+    </div>
+
+  </div>
+
+
+
+</div>

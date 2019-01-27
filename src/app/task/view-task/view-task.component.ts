@@ -17,13 +17,15 @@ export class ViewTaskComponent implements OnInit {
   public taskId:any;
   public taskdetails:any;
   public employee:any;
-  public eid=2;
+  public eid:any;
 public Loading:any;
   constructor(private repo :RepositoryService,private router: Router, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
   config.backdrop = 'static';
   config.keyboard = false;
   }
+ 
   ngOnInit() {
+    this.eid=this.repo.curentEventId;
     this.getAllTask();
     //this.getEventById(this.eid);
     this.changeStatus(status);

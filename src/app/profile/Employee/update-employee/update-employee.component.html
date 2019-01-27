@@ -169,7 +169,7 @@
             <!-- Icon -->
             <div class="fadeIn first">
           
-                    <img [src]="profileImage" style="width:40%">
+                    <img [src]="profileImage" id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2" >
               <h1>Update User</h1>
             </div>
             
@@ -314,7 +314,7 @@
                         <div class="form-group container">
                                   <div class="btn-group" role="group" aria-label="Basic example">
                                       <button type="button" class="btn btn-danger" (click)="Next()">Cancel</button>
-                                      <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Submit Form</button>
+                                      <button type="submit" class="btn btn-info" [disabled]="!ownerForm.valid">Update</button>
                                   </div>
                               </div>
                     </div>
