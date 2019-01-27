@@ -22,10 +22,10 @@
                           <!-- <input type="text" class="form-control"  placeholder="Responsible RC member" formControlName="EmployeeEmpId" id="EmployeeEmpId" [(ngModel)]="goalText"> -->
                           <span class="sp1">Responsible RC</span>
                           
-                              <div *ngFor="let j of emailFormArray;">
+                              <!-- <div *ngFor="let j of emailFormArray;">
                                   {{j}}
                               </div>
-                          
+                           -->
                         
 
                           <em *ngIf="validateControl('EmployeeEmpId') && hasError('EmployeeEmpId', 'required')">*Name is required</em>
@@ -95,6 +95,11 @@
                                     <input  placeholder="Description" class="form-control" type="textarea" formControlName="Description" id="description">
                            
                                 </div>
+                                <div>
+                                        <input type="checkbox" class="form-check-input" (change)="x()" class="form-control" formControlName="Status" >Is Complete
+
+                                </div>
+
                     </div>
                     
                 
@@ -104,7 +109,6 @@
                                   <div class="btn-group" role="group" aria-label="Basic example">
                                       <button type="button" class="btn btn-danger" (click)="redirectToTaskList()">Cancel</button>
                                       <button type="submit" class="btn btn-success"  [disabled]="!taskForm.valid">Add Task</button>
-                                      <button type="button" class="btn btn-success" [disabled]="!taskForm.valid" (click)="sendEmail()">Send Email</button>
 
                                     </div>
                               </div>

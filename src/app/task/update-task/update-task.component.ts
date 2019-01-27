@@ -25,7 +25,7 @@ public goalText:any;
 public employeeId:any;
 public result:any;
 public employees:Array<any> = [];
-
+public emailFormArray:any;
   ngOnInit() {
     this.gettask();
     this.getAllEmployee();
@@ -39,7 +39,7 @@ public employees:Array<any> = [];
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      EmployeeEmpId: new FormControl('',[Validators.required]),
+      EmployeeId: new FormControl('',[Validators.required]),
       //Admin: new FormControl('',[Validators.required]),
       },
       //{ validators: isvalidconfirmpassword }
@@ -51,17 +51,28 @@ public employees:Array<any> = [];
   public updateTask(value) {
 
     
-    let formdata = new FormData;
-        formdata.append('TaskName',value.TaskName),
-        formdata.append('StartDate',value.StartDate),
-        formdata.append('EndDate',value.EndDate),
-      formdata.append('BudgetedCost',value.BudgetedCost),
-formdata.append('Description',value.Description),
-formdata.append('Status',value.Status)
+    let t:NewTask={
+        // formdata.append('TaskName',value.TaskName),
+        // formdata.append('StartDate',value.StartDate),
+        // formdata.append('EndDate',value.EndDate),
+        // formdata.append('BudgetedCost',value.BudgetedCost),
+        // formdata.append('Description',value.Description),
+        // formdata.append('Status',value.Status)
 
-let apiUrl = 'project/updateproject';
+        taskName:value.TaskName,
+        eventId:'2',
+        startDate:value.StartDate,
+        endDate:value.EndDate,
+        budgetedCost:value.BudgetedCost,
+        description:value.Description,
+        employeeId:this.employeeId,
+        employees:this.employees,
+        status:value.status,
+        addDate:value.addDate,
+    };
+let apiUrl = 'task/create';
         
-        this.repository.postFile(apiUrl, formdata)
+        this.repository.postData(apiUrl, t)
           .subscribe(res =>  {
             //this.Message="Project updated!";
               this.router.navigate(['task/list']);
@@ -111,15 +122,10 @@ let apiUrl = 'project/updateproject';
 
      
    
-  public getTask(){
 
-    
-   
-  }
 
   open(content) {
     this.modalService.open(content);
-    //console.log("opencome")
   }
 
   public selectEmp(id,Name)
@@ -130,13 +136,12 @@ console.log(this.employeeId+""+Name);
 }  
   
 public  getAllEmployee(){
-  this.repository.getData('')
+  this.repository.getData('employee')
   .subscribe(res => {
     this.result = res ;
     //var myObjStr = JSON.stringify(res);
  
    console.log(this.result);
-   console.log(this.result.empId);
   },
   (error) => {
   //  this.handleErrors(error);n
@@ -145,7 +150,18 @@ public  getAllEmployee(){
     
    
 
+onChange(id:string,empName:string, isChecked: boolean) {
+  if(isChecked) {
+    this.employeeId=id;
+    this.employees.push(id);
+    this.emailFormArray.push(empName);
+    console.log(this.employeeId)
 
+  } else {
+    let index = this.emailFormArray.indexOf(empName);
+    this.emailFormArray.splice(index,1);
+  }
+}
 
 
   public validateControl(controlName: string) {

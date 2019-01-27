@@ -14,11 +14,11 @@ export class ViewTaskComponent implements OnInit {
   public result : any;
   public stts:string;
   public isAdmin:any;
-  public taskId;
+  public taskId:any;
   public taskdetails:any;
   public employee:any;
   public eid=2;
-
+public Loading:any;
   constructor(private repo :RepositoryService,private router: Router, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
   config.backdrop = 'static';
   config.keyboard = false;
@@ -73,7 +73,7 @@ public detailsTask(tid) {
     this.repo.getData('task/getall')
     .subscribe(res => {
       this.result = res ;
-      var myObjStr = JSON.stringify(res);
+      //var myObjStr = JSON.stringify(res);
    
      //console.log(this.result.taskId);
      console.log(this.result);
@@ -101,7 +101,7 @@ public getempfortask(tid){
   }
 
   public updateTask(id){
-    this.router.navigate(['/task/update'+id]);
+    this.router.navigate(['/task/update/'+id]);
   }
   open(content,id) {
     this.detailsTask(id);
@@ -109,6 +109,19 @@ public getempfortask(tid){
     this.modalService.open(content);
   }
 
+  public deleteTask(id){
+    this.Loading = id;
+    this.repo.getData('task/create/'+id)
+    .subscribe(res => {
+    this.getAllTask()
+    this.Loading = false;
+  console.log('deleted');
+    this.getAllTask();
+  },
+   (error) => {
+   this.Loading =false;
+   })
+  }
   
 
 }

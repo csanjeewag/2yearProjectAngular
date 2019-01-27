@@ -10,6 +10,11 @@
       {{i.description}}
     </p>
     <button type="button" class="btn btn-link" (click)="open(content,i.taskId)">More</button>
+    <button type="button" class="btn btn-link" (click)="updateTask(i.taskId)">Update</button>
+    <button type="button" class="btn btn-link" (click)="deleteTask(i.taskId)">Delete</button>
+    <button type="button" class="btn btn-link" (click)="changeStatus(i.taskId)">change status</button>
+
+
     <div class="modal fade">
       <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">

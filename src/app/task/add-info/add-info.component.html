@@ -1,11 +1,13 @@
+<h6 class="border-bottom border-gray pb-2 mb-0">Recent Tasks</h6>
+
 <div class="my-3 p-3 bg-white rounded box-shadow" *ngFor="let res of result2">
-  <h6 class="border-bottom border-gray pb-2 mb-0">Recent Tasks</h6>
   <div class="media text-muted pt-3">
     <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
       <strong class="d-block text-gray-dark">{{res.taskName}}</strong>
-      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-    </p>
+{{res.description}}    
+</p>
     <button type="button" class="btn btn-link" (click)="open(content,res.taskId)">Add Details</button>
+    <button type="button" class="btn btn-link" (click)="viewInfoDetails(res.taskId)">View Added Details</button>
   </div>
 
 </div>
@@ -23,23 +25,25 @@
     <form [formGroup]="contactForm"  autocomplete="off" novalidate (ngSubmit)="addContacts(contactForm.value)">
       
         <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              Contact Type
+            <button class="btn btn- dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Contact Type
             </button>
-            <div class="dropdown-menu">
-              <button type="button" (click)="contactType(j.contactId)" *ngFor="let j of result">{{j.contactType}}</button>
+            {{ctypename}}
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button type="button" class="dropdown-item" (click)="contactType(j.contactId,j.contactType)" *ngFor="let j of result">{{j.contactType}}</button>
+            
               
             </div>
           </div>
         
       <input type="text" id="name" name="name" class="form-control" placeholder="Name" formControlName="name">
       <input type="text" id="address" name="address" class="form-control" placeholder="Address" formControlName="add">
-      <input type="text" id="contact1" name="contact1" class="form-control" placeholder="Number 01" formControlName="num1">
-      <input type="text" id="address" name="address" class="form-control" placeholder="Number 02" formControlName="num2">
+      <input type="number" id="contact1" name="contact1" class="form-control" placeholder="Number 01" formControlName="num1">
+      <input type="number" id="address" name="address" class="form-control" placeholder="Number 02" formControlName="num2">
       <input type="text" id="address" name="address" class="form-control" placeholder="Description" formControlName="des">
       <input type="text" id="address" name="address" class="form-control" placeholder="Contact Description" formControlName="cdes">
 
-      <button type="submit" class="btn" >Save</button>
+      <button type="submit" class="btn btn-primary">Save</button>
 
     </form>   
 
@@ -47,9 +51,7 @@
 
 
     <div class="modal-footer">
-        <small class="text-muted">
-          for ur task
-          </small>
+        
       <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
           
     </div>
