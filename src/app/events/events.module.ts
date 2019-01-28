@@ -42,6 +42,8 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
       {path:'updateevent/:id', component:UpdateEventComponent},
       {path:'viewEmployee/:id', component:ViewEmployeeComponent},
       {path:'addPoll', component:AddPollComponent},
+      {path:'viewPoll/:id', component:ViewPollComponent},
+
 
       {path:'selectattributes/:id', component:SelectAttributeComponent},
       {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},

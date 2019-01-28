@@ -13,9 +13,9 @@ export class AddPollComponent implements OnInit {
   constructor(private router: Router,  private repository : RepositoryService) { }
   public pollForm: FormGroup;
   public poll:any;
-  public pollId;any;
+  
   ngOnInit() {
-    this.pollId=1;
+  
     this.pollForm = new FormGroup({
       title: new FormControl('',[Validators.required]),
       description: new FormControl(''),
