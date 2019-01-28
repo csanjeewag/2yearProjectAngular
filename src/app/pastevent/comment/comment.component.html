@@ -27,9 +27,12 @@
 					<div *ngFor="let e of comment">
 						<div class="comment">
 							<div class="username">{{e.empName}}</div>
-				
-							<img [src]="ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
-				
+				<div *ngIf="e.empProfilePicture; else notdp">
+							<img   [src]="ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
+				</div>
+				<ng-template #notdp>
+						<img src="assets/_image/nodp.jpg" class="avatar" alt="user image">
+				</ng-template>
 							<!-- <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" > -->
 				
 							<p>{{e.commentIn}}</p>
