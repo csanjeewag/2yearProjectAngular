@@ -19,18 +19,17 @@
                 </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                          <!-- <input type="text" class="form-control"  placeholder="Responsible RC member" formControlName="EmployeeEmpId" id="EmployeeEmpId" [(ngModel)]="goalText"> -->
-                          <span class="sp1">Responsible RC</span>
+                         <b> Responsible Member</b>
+                         <button type="button"  class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
+   
                           
                               <div *ngFor="let j of emailFormArray;">
-                                  {{j}}
+                                  - {{j}}<br>
                               </div>
                           
                         
 
-                          <em *ngIf="validateControl('EmployeeEmpId') && hasError('EmployeeEmpId', 'required')">*Name is required</em>
-                          
-                              <button class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
+                         
                               <ng-template #content let-c="close" let-d="dismiss">
                                   <div class="modal-header">
                                     <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
@@ -65,7 +64,7 @@
                       <div class="form-row">
                               
                               <div class="form-group col-md-6">
-                                      <input  placeholder="Budgeted Cost" class="form-control" formControlName="BudgetedCost" type="text" id="bcost">
+                                      <input  placeholder="Budgeted Cost" class="form-control" formControlName="BudgetedCost" type="number" id="bcost">
                                       <em *ngIf="validateControl('BudgetedCost') && hasError('BudgetedCost', 'required')">*Budgeted Cost is required</em>
                                       
                                   </div>
@@ -75,26 +74,29 @@
   
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input  placeholder="Start Date" class="form-control" type="date" formControlName="StartDate" id="StartDate">
+                        <b>Start Date</b>                            
+                        <input  placeholder="Start Date" class="form-control" type="date" formControlName="StartDate" id="StartDate" (blur)="compareTwoDates2()">
                             <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*Start date is required</em>
-                            <em></em>
+                            <div *ngIf="error2.isError" style="font-style: italic" >
+                                {{ error2.errorMessage }}
+                                
+                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                              <input  placeholder="End Date" class="form-control" type="date" formControlName="EndDate" id="edate">
-                              <em *ngIf="validateControl('EndDate') && hasError('EndDate', 'required')&& validateDate()">*End date is required</em>
-                              <!-- <em *ngIf="DateControl('StartDate','EndDate')">*Not valid Date</em> -->
+                                <b>End Date</b>                            
+
+                              <input  class="form-control" type="date" formControlName="EndDate" id="edate" (blur)="compareTwoDates()">
+                              <div *ngIf="error1.isError" style="font-style: italic" >
+                                {{ error1.errorMessage }}
+                             </div>                             
 
                           </div>
-                          <!--div class="form-group col-md-6">
-                                <input  placeholder="Admin" class="form-control" type="text" formControlName="Admin" id="Admin">
-
-                                <em *ngIf="validateControl('Admin') && hasError('Admin', 'required')">*Admin is required</em>
-                       
-                          </div-->
+                         
                             <div class="form-group col-md-12">
                                     <input  placeholder="Description" class="form-control" type="textarea" formControlName="Description" id="description">
                            
                                 </div>
+                               
                     </div>
                     
                 
@@ -102,9 +104,8 @@
                     <div class="form-row">
                         <div class="form-group">
                                   <div class="btn-group" role="group" aria-label="Basic example">
-                                      <button type="button" class="btn btn-danger" (click)="redirectToTaskList()">Cancel</button>
+                                      <button type="reset" class="btn btn-danger" value="Reset" (click)="redirect()">Reset</button>
                                       <button type="submit" class="btn btn-success"  [disabled]="!taskForm.valid">Add Task</button>
-                                      <button type="button" class="btn btn-success" [disabled]="!taskForm.valid" (click)="sendEmail()">Send Email</button>
 
                                     </div>
                               </div>

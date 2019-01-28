@@ -118,8 +118,7 @@ export class UpdateEventComponent implements OnInit {
    
      
           let apiUrl = 'event/updateevent';
-      console.log("formdata"+formdata)
-      console.log("description = "+value.EventDescription)
+   
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {

@@ -22,7 +22,12 @@ public employeeId:any;
 public employees:Array<string> = [];
 public todaydate:Date;
 emailFormArray: Array<any> = [];
-
+public eventid:any;
+public event:any;
+public eventdate:any;
+error1:any={isError:false,errorMessage:''};
+error2:any={isError:false,errorMessage:''};
+public errorMessage:any;
 
   constructor(private router: Router,  private repository : RepositoryService,config: NgbModalConfig, private modalService: NgbModal) { }
   
@@ -30,6 +35,7 @@ emailFormArray: Array<any> = [];
   ngOnInit() {
     this.getAllEmployee();
     this.getToday();
+    this.getallevents();
     this.taskForm = new FormGroup({        
     
       //TaskId: new FormControl('',[Validators.required,Validators.maxLength(5)]),
@@ -39,15 +45,17 @@ emailFormArray: Array<any> = [];
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      EmployeeEmpId: new FormControl(''),
+      //EmployeeEmpId: new FormControl(''),
       //Admin: new FormControl('',[Validators.required]),
       },
       //{ validators: isvalidconfirmpassword }
       );
     }
+
+   
     
-    public redirectToTaskList(){
-      this.router.navigate(['task']);
+    public redirect(){
+      this.router.navigate(['task/addtask']);
     }
 
 
@@ -62,17 +70,15 @@ emailFormArray: Array<any> = [];
 
   private executeTaskCreation(profileFormValue) {
     let t: NewTask = {
-      
-    //taskId:profileFormValue.TaskId,
+      taskId:0,
     taskName:profileFormValue.TaskName,
     eventId:this.repository.curentEventId,
     startDate:profileFormValue.StartDate,
     endDate:profileFormValue.EndDate,
     budgetedCost:profileFormValue.BudgetedCost,
     description:profileFormValue.Description,
-    employeeEmpId:this.employeeId,
+    //employeeId:this.employeeId,
     employees:this.employees,
-    admin:profileFormValue.Admin,
     status:false,
     addDate:profileFormValue.addDate,
 
@@ -159,7 +165,46 @@ this.employeeId=id;
 }
 
 
+public getallevents(){
+  this.repository.getData('Event/getall/'+this.eventid)
+      .subscribe(res => {
+        this.event = res ;
+
+       console.log(this.result);
+        
+      },
+      (error) => {
+      //  this.handleErrors(error);n
+      })
 }
+
+compareTwoDates(){
+  if(new Date(this.taskForm.controls['EndDate'].value)<new Date(this.taskForm.controls['StartDate'].value)){
+    this.error1={
+      isError:true,errorMessage:'*End date before strat date'};
+  }
+  else{
+    this.error1={isError:true,errorMessage:''};
+
+  }
+}
+compareTwoDates2(){
+  this.eventdate=this.event.eventDate;
+  //this.eventdate=2019-1-30;
+  if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.eventdate)){
+     this.error2={isError:true,errorMessage:'*Event date before Task strat date'};
+  }
+  
+else{
+  this.error2={isError:false,errorMessage:''};
+}
+    
+
+  }
+ 
+}
+
+
 
 
 
