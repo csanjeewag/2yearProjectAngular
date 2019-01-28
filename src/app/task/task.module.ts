@@ -76,7 +76,7 @@ import { ViewTaskInfoComponent } from './view-task-info/view-task-info.component
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  declarations: [ViewcontactsComponent,MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
+  declarations: [ViewTaskInfoComponent,ViewcontactsComponent,MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent],
   exports:[AddtaskComponent, ViewTaskComponent,AddInfoComponent]
 })
 export class TaskModule { }
