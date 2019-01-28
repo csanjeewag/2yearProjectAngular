@@ -1,5 +1,31 @@
+#event{
+    text-align: left;
+}
+#event:hover{
+    background-color: rgba(0, 0, 0, 0.281);
+    transition: 2s;
+}
+#head{
+    text-align: center;
+}
 
 
+
+#event h2{
+    text-align: center;
+}
+#event h5{
+    text-align: right;
+}
+#event img{
+ 
+    width: 200px;
+    height: 200px;
+}
+#viewmore{
+    align-items: center
+
+}
 #homeback{
     background-image: url("http://www.pezproductions.ca/blog/wp-content/uploads/2015/07/corp-event.jpg");
     background-position: center;
@@ -21,17 +47,17 @@
 }
 #part1{
     background-color: rgba(196, 199, 199, 0.671);
-    height: 750px;
+    min-height: 750px;
     padding: 20px;
     
  }
  #part2{
     background-color: rgb(187, 187, 187);
-    height: 750px;  padding: 20px;
+    min-height: 750px;  padding: 20px;
  }
  #part3{
     background-color: rgba(247, 247, 247, 0.877);
-    height: 750px;  padding: 20px;
+    min-height: 750px;  padding: 20px;
  }
  #part0 h1{
      color: rgb(196,199,199);
