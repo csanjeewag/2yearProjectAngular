@@ -12,10 +12,12 @@ export class ScheduleViewComponent implements OnInit {
   constructor(private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
   public eventId:any;
   public teams:any;
+  public captains:any;
 
   ngOnInit() {
     this.eventId = this.route.snapshot.paramMap.get('id')
     this.getTeamSchedule();
+    this.getCaptainSchedule();
   }
 
   public getTeamSchedule(){
@@ -29,6 +31,23 @@ export class ScheduleViewComponent implements OnInit {
 
     })
     )
+  }
+  public getCaptainSchedule(){
+    let apiAddress: string = "Cricketmatch/getcaptainsheduler/"+this.eventId;
+
+    this.repository.getData(apiAddress)
+    .subscribe(res => {
+      this.captains = res;
+     console.log(this.captains);
+    },(error =>{
+
+    })
+    )
+  }
+  
+
+  public redirectToAddSchedule(){
+    this.router.navigate(['events/cricketmatchs/scheduleform/'+this.eventId]);
   }
 
 }

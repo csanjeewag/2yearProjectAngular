@@ -2,6 +2,7 @@
 <div id="back">
 
   <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
+      <div class="col-lg-10 col-md-6 col-sm-12">
     <div id="formContent">
       <br>
       <div class="fadeIn first">
@@ -51,8 +52,7 @@
         <div class="row">
           <div class="col-5"></div>
           <div class="col-2">
-            <button type="submit" id="btn-sub" class="btn btn-outline-danger" [disabled]="!Form.valid" routerLink="/cricketmatchs/alert"
-              routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Submit</button>
+            <button type="submit" id="btn-sub" class="btn btn-outline-danger" [disabled]="!Form.valid" (click)="sendEmail()">Submit</button>
           </div>
           <!--button shou router for email view form-->
           <div class="col-5"></div>
@@ -65,6 +65,7 @@
         <a id="crateAccountlink" class="underlineHover"></a>
       </div>
 
+    </div>
     </div>
   </div>
 

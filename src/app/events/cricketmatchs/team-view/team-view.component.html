@@ -1,82 +1,90 @@
 <app-nav-bar></app-nav-bar>
 <br>
-<!-- start header card -->
-<div class="row">
-  <div class="col-sm-12 col-md-4"></div>
-  <div class="col-sm-12 col-md-2 my-auto">
-    <div class="card-body">
-      <h5 class="card-title"><i>{{event.eventTitle}}</i></h5>
-      <p> Date : {{event.startDate |date}}</p>
-      <p> Ground : {{event.venue}}</p>
-    </div>
-  </div>
-  <div class="col-sm-12 col-md-4">
+<div>
+  <!-- start header card -->
+  <div class="row">
+    <div class="col-sm-12 col-md-1"></div>
 
-    <div class="card w-100">
-      <div class="card" id="zoom1">
-        <img class="card-img-top" [src]="ImageUrl+event.eventImageUrl" alt="Card image cap">
+    <div class="col-sm-12 col-md-2 my-auto" >
+      <button type="button" (click)="redirectToAddTeam()" class="btn btn-link">Add Team</button><br>
+      <button type="button" (click)="redirectToSendMail()" class="btn btn-link">Send Mail</button><br>
+      <button type="button" (click)="redirectToTeamSchedule()" class="btn btn-link">Team Schedule</button>
+    </div>
+
+    <div class="col-sm-12 col-md-1"></div>
+  
+    <div class="col-sm-12 col-md-4 my-auto">
+      <div class="card-body">
+        <h2 class="card-title"><i>{{event.eventTitle}}</i></h2>
+        <h4> Date : {{event.startDate |date}}</h4>
+        <h4> Ground : {{event.venue}}</h4>
       </div>
     </div>
-  </div>
-  <div class="col-sm-12 col-md-2">
-  </div>
-</div>
-<!-- end header card -->
-
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-md-10">
-
-    <hr style="border-top: 1px dotted rgb(197, 175, 175);">
-    <div class=" col-md-12 container">
-
-      <div>
-        <h2>Registered Teams...</h2>
-      </div>
-      <br>
-
-      <!--start card part -->
-      <div class="row">
-        <div *ngFor="let team of teams;" id="card" class=" col-lg-4 col-md-6 col-sm-10">
-
-          <!-- CARD add -->
-
-          <div class="card col-12">
-            <div class="card-body">
-              <h5 class="card-title">{{team.teamName}}</h5>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <p class="card-text"><b>Captain :</b> {{team.capatain}}</p>
-              </li>
-              <li class="list-group-item">
-                <b>Member :</b>
-                <div *ngFor="let t of team.employeeNames;">
-                  <p class="card-text"> {{t}}</p>
-                </div>
-              </li>
-              <li class="list-group-item"><b>Vegitarian Count : </b> {{team.vegeCount}}</li>
-              <li class="list-group-item"><b>Liquor Count : </b> {{team.liquorCount}}</li>
-              <li class="list-group-item">
-                <p class="card-text">{{team.description}}</p>
-              </li>
-              <li class="list-group-item"><small><b>Date : </b> {{team.registerdate|date}}</small></li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Update</a>
-              <a href="#" class="card-link">Delete</a>
-            </div>
-          </div>
-
-          <!-- end CARD  -->
-
+  
+    <div class="col-sm-12 col-md-3">
+      <div class="card w-100">
+        <div class="card" id="zoom1">
+          <img class="card-img-top" [src]="ImageUrl+event.eventImageUrl" alt="Card image cap">
         </div>
       </div>
-      <!-- end card part -->
-
     </div>
-
+  
+    <div class="col-sm-12 col-md-2"></div>
   </div>
-  <div class="col-1"></div>
+  <!-- end header card -->
+
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-md-10">
+  
+      <hr style="border-top: 1px dotted rgb(197, 175, 175);">
+      <div class=" col-md-12 container">
+      
+        <div><h4>Registered Teams...</h4></div>
+        <br>
+      
+        <!--start card part -->
+        <div class="row">
+          <div *ngFor="let team of teams;" id="card" class=" col-lg-4 col-md-6 col-sm-10">
+      
+            <!-- CARD add -->
+      
+            <div class="card col-12">
+              <div class="card-body">
+                <h5 class="card-title"><i>{{team.teamName}}</i></h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p class="card-text"><b>Captain :</b> {{team.capatain}}</p>
+                </li>
+                <li class="list-group-item">
+                  <b>Member :</b>
+                  <div *ngFor="let t of team.employeeNames;">
+                    <p class="card-text"> {{t}}</p>
+                  </div>
+                </li>
+                <li class="list-group-item"><b>Vegitarian Count : </b> {{team.vegeCount}}</li>
+                <li class="list-group-item"><b>Liquor Count : </b> {{team.liquorCount}}</li>
+                <li class="list-group-item">
+                  <p class="card-text">{{team.description}}</p>
+                </li>
+                <li class="list-group-item"><small><b>Date : </b> {{team.registerdate|date}}</small></li>
+              </ul>
+              <div class="card-body">
+                <button (click)="deleteCard(team.id)" (click)="delete()" class="btn btn-link">Delete</button>
+              </div>
+            </div>
+      
+            <!-- end CARD  -->
+      
+          </div>
+        </div>
+        <!-- end card part -->
+      
+      </div>
+  
+    </div>
+    <div class="col-1"></div>
+  </div>
 </div>
 

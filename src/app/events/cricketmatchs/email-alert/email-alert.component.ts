@@ -32,4 +32,8 @@ export class EmailAlertComponent implements OnInit {
     )
   }
 
+  public composeMail(){
+    this.router.navigate(['events/cricketmatchs/emailform/'+this.eventId]);
+  }
+
 }

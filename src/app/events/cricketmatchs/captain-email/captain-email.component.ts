@@ -13,8 +13,9 @@ import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
 export class CaptainEmailComponent implements OnInit {
 
   constructor(private auth :AuthServiceService,private route: ActivatedRoute, private router: Router, private repository: RepositoryService ) { }
- 
-  public Message:any;
+  
+    public msg = "Success Email Details.";
+    public Message:any;
     public Form: FormGroup;
     public eventId: any;
     public logId:any;
@@ -40,6 +41,10 @@ export class CaptainEmailComponent implements OnInit {
       return true;
     return false;
   }
+
+  public sendEmail(){
+    alert(this.msg);
+  }
   
   public emailData(value){
     console.log(value);
@@ -59,6 +64,7 @@ export class CaptainEmailComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
          this.Message = res;
+         this.router.navigate(['events/cricketmatchs/emailview/'+this.eventId]);
           },
           (error => {
             this.Message = "try again, something wrong";

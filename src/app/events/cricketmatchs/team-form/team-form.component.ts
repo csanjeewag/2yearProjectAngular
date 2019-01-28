@@ -3,6 +3,7 @@ import { RepositoryService } from './../../../ShareData/repository.service'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { min } from 'rxjs/operators';
 
 @Component({
   selector: 'app-team-form',
@@ -14,7 +15,7 @@ export class TeamFormComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, private router: Router,private repository: RepositoryService,private modalService: NgbModal) {}
 
-  public message = "successful Email.";
+  public message = "Successful .";
 
   public teamForm: FormGroup;
   public result:any;    
@@ -88,6 +89,8 @@ export class TeamFormComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
          this.Message = res;
+          this.router.navigate(['events/cricketmatchs/teamview/'+this.eventId]);
+
           },
           (error => {
             
