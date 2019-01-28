@@ -26,8 +26,9 @@
                        
 
                         <div class="form-group col-md-12">
-                                 <input class="form-control" formControlName="EventDescription" id="EventDescription" required>
-                                <label >Event Description</label>
+                                <label >Event Description</label><br/>
+                                 <textarea class="form-control" formControlName="EventDescription" id="EventDescription" ></textarea>
+                                
                                 <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">Event Description is required</em>
                                 
                             </div> 
@@ -36,13 +37,16 @@
             
 
                 <div class="form-group col-md-12">
-                   
+                        <label>Event Type</label><br/>
                     <select class="form-control" formControlName="EventType" id="EventType" required>
+                            
                             <option value="" selected disabled hidden></option>
                             <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
                         </select>
-                        <label >Event Type</label>
+                       
                   </div>
+
+                  
                   
                    <div class="form-group col-md-12">
                   <h6>Add a Event Image <input type="file" (change)="onFileChange($event.target.files)" /></h6>
@@ -82,6 +86,7 @@
                      <label >Venue</label>
 
                 </div> 
+                
                 <div class="form-group col-md-12"*ngIf="liquor">
                     <input class="form-control" formControlName="Liquor" id="Liquor" required>
                     <label >Whether liqour is allowed</label>

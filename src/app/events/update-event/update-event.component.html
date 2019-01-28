@@ -24,18 +24,19 @@
                             <img  *ngIf="ImageUrl" [src]=ImageUrl id="icon" alt="User Icon" > 
                           </div>
                           
-                        <div class="form-group col-md-12">
-                                <input class="form-control" formControlName="EventDescription" id="EventDescription" required>
-                                <label >Event Description</label>
-
-                               <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">*EventDescription is required!</em>
-                               
-                           </div> 
+                          <div class="form-group col-md-12">
+                                <label >Event Description</label><br/>
+                                 <textarea class="form-control" formControlName="EventDescription" id="EventDescription" ></textarea>
+                                
+                                <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">Event Description is required</em>
+                                
+                            </div> 
                            
                         
                     <div class="form-group">
-                   
-                            <select class="form-control" formControlName="EventType" placeholder="EventType" id="EventType">
+                            <label>Event Type</label><br/>
+                            <select class="form-control" formControlName="EventType" id="EventType">
+                                
                                     <option value="" selected disabled hidden>EventTypes</option>
                                     <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
                                 </select>
@@ -73,7 +74,7 @@
                                     <label >Whether family members are allowed</label>
 
                                 </div> 
-                                <div class="form-group" *ngIf="venue">
+                                <div class="form-group col-md-12" *ngIf="venue">
                                         <input class="form-control" formControlName="Venue" id="Venue" required>
                                         <label >Venue</label>
 
@@ -116,7 +117,7 @@
                 
                 <div class="btn-group" role="group" aria-label="Basic example">
                 <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-                <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid" (click)="updateAttribute(projectForm.value)">Save Changes</button>
+                <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid" (click)="updateproject(projectForm.value)">Save Changes</button>
                 <div class="col-sm-1"></div>
                 <button type="button" class="btn btn-success" [disabled]="!projectForm.valid"  (click)="updateAttribute(projectForm.value)">Add more field</button>
                 

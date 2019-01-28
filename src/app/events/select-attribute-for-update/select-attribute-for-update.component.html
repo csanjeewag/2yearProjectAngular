@@ -1,14 +1,14 @@
-<div >
+<div class="wrapper  col-md-8 container">
         
   
-    <div id="formContent" >
+    <div id="formContent" class="col-md-10">
       <!-- Tabs Titles -->
   
       <!-- Icon -->
       <div >
         <h1>Select Fields</h1>
       </div>
-      <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+      <h5 class="card-title"> </h5>
       <!-- Sign up Form -->
       <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
           
@@ -79,11 +79,7 @@
           <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
           
       <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a  id="crateAccountlink"  class="underlineHover" ></a>
-       
-      </div>
-  
+      
     </div>
   
 

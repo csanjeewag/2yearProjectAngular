@@ -24,6 +24,9 @@ export class ViewEventPageComponent implements OnInit {
   public eventId:any;
   public date:any;
   public attribute:any;
+  public form:any;
+  public today :any;
+  public register:any;
   
   public urlAddress:any;
 
@@ -44,6 +47,9 @@ export class ViewEventPageComponent implements OnInit {
     this.isFamilyMembersAllowed=false;
     this.numberOfTeams=false;
     this.venue=false;
+    this.today = new Date();
+    this.register=false;
+
    this.getparamId();
    
   }
@@ -54,11 +60,14 @@ export class ViewEventPageComponent implements OnInit {
     this.repository.getData('event/getall/'+this.PrId)
        .subscribe(res => {
          this.event = res ;
-         
+         if(this.today>this.event.closingDate){
+           this.register='true';
+           console.log("register"+this.register)
+         }
          this.getAttribute();
        },
        (error) => {
-       //  this.handleErrors(error);n
+       
        })
       
    
@@ -89,7 +98,7 @@ export class ViewEventPageComponent implements OnInit {
         this.liquor = this.attribute.liquor;
         this.venue = this.attribute.venue;
         this.numberOfTeams = this.attribute.numberOfTeams;
-
+        this.getForm();
 
       },
       (error => {
@@ -115,5 +124,22 @@ public viewEmployee(){
   this.route.navigate([this.urlAddress]);
   
 }
+
+public getForm(){
+  let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+  console.log("inside get form")
+  this.repository.getData(apiUrl)
+    .subscribe(res => {
+     this.form = res;
+    console.log(res)
+       
+      },
+      (error => {
+    
+      })
+    )
+}
+
+
  
 }
