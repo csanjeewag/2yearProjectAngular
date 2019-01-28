@@ -4,6 +4,7 @@ import { error } from 'util';
 import { ActivatedRoute } from '@angular/router';
 import { Router, ParamMap } from '@angular/router';
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-imageview',
@@ -16,7 +17,7 @@ export class ImageviewComponent implements OnInit {
   ImageUrl: any;
   greeting: any;
   public author: any;
-  constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService) { }
+  constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
   public eventId: any;
   ngOnInit() {
     this.ImageUrl = this.repo.ImageUrl;
@@ -45,6 +46,10 @@ export class ImageviewComponent implements OnInit {
         })
 
 
+  }
+
+  open(image) {
+    this.modalService.open(image);
   }
   public gotoimageupload(id) {
     this.router.navigate(['pastevent/imageupload/' + id]);

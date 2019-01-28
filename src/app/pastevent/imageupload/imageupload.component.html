@@ -4,7 +4,7 @@
   <li class="nav-item">
 
    <h2>Image Upload</h2>
-    <button class="btn" (click)=gotoimageupload()>Image Upload</button> 
+    <a class="btn" (click)=gotoimageview()><img src="assets/_image/cameralogo.jpg" width="75" height="50" class="rounded-circle margin-left ml-2"></a> 
   </li>
   <div class="container">
     
@@ -21,7 +21,7 @@
 
             <form [formGroup]="imageuploadForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(imageuploadForm.value)">
               <img *ngIf="ImageUrl[0]" [src]="ImageUrl[0]" style="width:250px;height:200px">
-                <img [src]="ImageUrl[1]"  style="width:250px;height:200px">
+                
               <div class="input-field col s12">
 
                 <!-- <div class="form-group">

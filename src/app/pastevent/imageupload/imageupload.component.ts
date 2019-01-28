@@ -161,7 +161,7 @@ export class ImageuploadComponent implements OnInit {
 
   }
 
-  public gotoimageupload() {
+  public gotoimageview() {
     let id = this.eventid;
     this.route.navigate(['pastevent/imageview/' + id]);
    

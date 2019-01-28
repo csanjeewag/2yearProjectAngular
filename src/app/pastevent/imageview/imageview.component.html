@@ -36,40 +36,40 @@
   <div class="card-body">
     <h2 class="card-title">{{eevent.eventTitle}}</h2>
     
-    <button class="btn" (click)=gotoimageupload(eventId)>Image Upload</button>  
+    <a  (click)=gotoimageupload(eventId)><img src="assets/_image/uploadimage.png" width="50" height="50" class="rounded-circle margin-left ml-2"></a>  
    
     <div class="row">
       <div class="col-sm-12 col-md-9">
         <section class="no-touch">
           <div class="wrap">
             <div *ngFor="let i of result">
-              <div class="box">       
-                <div class="boxInner">
+                
+              <div class="box" (click)="open(image)">   
+                    <ng-template #image id="x">
+                      <div class="modal-header"></div>
+                      <div class="modal-body">
+                          <img id="zoom2"  class="card w-200" [src]="ImageUrl+i.imageId"   alt="Cinque Terre">
+                      </div>
+                      <div class="modal-footer"></div>
+                      </ng-template>
+
+                <div class="boxInner" >
                   <img id="zoom2"  class="images card w-100" [src]="ImageUrl+i.imageId"   alt="Cinque Terre">
                    <a id="author"> {{i.author}} </a>
-                 
-                  <div  class="titleBox"> <button *ngIf="i.EmployeeId==author"  (click)=deleteimage(i.imageId) id="btn">delete </button></div>
+                   
+                  <div  class="titleBox"><button (click)=deleteimage(i.imageId)><img src="assets/delete.png" width="25" height="25" class="rounded-circle margin-left ml-2"> </button> </div>
                 </div>
-                 
-
               </div>
-              
             </div>
            </div>
         </section>
-
       </div>
       <div class="col-sm-12 col-md-3">
-        
         <app-comment></app-comment>
       </div>
     </div>
-
-
   </div>
 </div>
-
-
 
 
 
