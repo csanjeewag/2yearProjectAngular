@@ -2,46 +2,55 @@
 <!-- <app-logged-header></app-logged-header> -->
 <div class="card">
     <h5 class="card-header">
-        <h2>Make A Brief Summary of Campaign</h2>
+      
     </h5>
     <div class="card-body">
         <h5 class="card-title">
            
         </h5>
         <form [formGroup]="summaryForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(summaryForm.value)">
-
-            
-
+        
             
             <div class="form-group">
-                <label for="key" class="sr-only">Summary</label>
-                <input type="text" formControlName="summary" id="summary" class="form-control" placeholder=" Summary">
+                <!-- <label for="email" class="sr-only">treasurer</label> -->
+                <input class="form-control" formControlName="summary" id="treasurer" placeholder="summary">
             </div>
+           
+
+
+            <!-- <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Task</th>
+                        <th scope="col">Budgeted cost</th>
+                        <th scope="col">Actual cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     <!-- <div *ngFor="let e of results"> -->
+                     <!-- <tr *ngFor="let i of results">
+                        <th scope="row">1</th>
+                        <td>{{i.taskName}}  </td>
+                        <td>{{i.budgetedCost|currency:'Rs'}}</td>
+                        <td><input class="form-control" formControlName="treasurer" id="treasurer" placeholder="treasurer"  ></td>
+                      </tr>
+                      <!-- </div> -->
+                    
+                    <!-- </tbody>
+                  </table>  -->
 
 
 
-            <div class="form-group">
-                <label for="email" class="sr-only">treasurer</label>
-                <input class="form-control" formControlName="treasurer" id="treasurer" placeholder="treasurer">
-
-            </div>
-
-            <div class="form-group">
-                <label for="email" class="sr-only">Real Budget</label>
-                <input class="form-control" formControlName="Real_Budget" id="Real_Budget" placeholder="Real Budget">
-
-            </div>
-            
 
 
             <div class="btn-group" role="group" aria-label="Basic example">
-
                 <button type="submit" class="btn btn-success" [disabled]="!summaryForm.valid">Make </button>
-
             </div>
-
-
         </form>
-
+       
     </div>
 </div>
+
+<!-- ####################       TABLE         ################################### -->
+
