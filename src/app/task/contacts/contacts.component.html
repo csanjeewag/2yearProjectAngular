@@ -9,13 +9,13 @@
 
 
 <div class="row m-5">
-    <div style="width: 10rem; height :10rem; background-color:#fff;" class="p-2 m-2" *ngFor="let i of result;">
+    <div id="card" class="p-2 m-2 col-lg-2 col-sm-6" *ngFor="let i of result;">
         
-            <h6 class="d-block text-black-dark ">{{i.contactType}}</h6>
-            <button type="button" class="btn-link btn-sm" (click)="viewAll(i.contactId)">view All</button><br>
-            <button type="button" class="btn-link btn-sm" (click)="open2(content2,i.contactId)"><img src="https://img.icons8.com/color/48/000000/add.png"></button>
-            <button type="button" class=" btn-link btn-sm" (click)="open2(content3,i.contactId)">Update</button>
-            <button type="button" class="btn-link btn-sm" (click)="deleteContactType(i.contactId)">Delete</button>
+            <h5 class="d-block text-black-dark ">{{i.contactType}}</h5>
+            <button type="button" (click)="viewAll(i.contactId)"><img src="https://img.icons8.com/ios-glyphs/30/000000/search.png"></button>
+            <button type="button"  (click)="open2(content2,i.contactId)"><img src="https://img.icons8.com/android/30/000000/plus.png"></button>
+            <!-- <button type="button" class=" btn-link btn-sm" (click)="open2(content3,i.contactId)">Update</button> -->
+            <button type="button" (click)="deleteContactType(i.contactId)"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"></button>
 
         </div>
 
@@ -35,13 +35,22 @@
                 <form [formGroup]="AddContactForm" (ngSubmit)="addContacts(AddContactForm.value)">
 
 
-                        <input  class="form-control" type="text"placeholder="Name of Owner" formControlName="oname">
-                        <input class="form-control" type="text" placeholder="Address" formControlName="address">
+                        <input  class="form-control" type="text" formControlName="oname">
+                        <label>Name of Owner</label>
 
-                        <input class="form-control" type="number" placeholder="Contact Number" formControlName="num1">
-                        <input class="form-control"  type="number" placeholder="Contact Number" formControlName="num2">
+                        <input class="form-control" type="text"formControlName="address">
+                        <label>Address</label>
 
-                        <input class="form-control" type="textarea" placeholder="Contact Description" formControlName="cd">
+                        <input class="form-control" type="number" formControlName="num1">
+                        <label>Contact Number</label>
+
+                        <input class="form-control"  type="number" formControlName="num2">
+                        <label>Contact Number</label>
+
+
+                        <input class="form-control" type="textarea" formControlName="cd">
+                        <label>Contact Description</label>
+
 
 
                         <button type="submit" class="btn btn-success">Add Contacts</button>
@@ -58,7 +67,7 @@
 <!-- form to add contact types -->
 
 
-        <div class="p-2 m-2" style="width: 10rem; height :10rem;background-color:rgba(92, 87, 87, 0.548) ">
+        <div id="cardAdd" class="p-2 m-2 col-lg-2 col-sm-6">
             <button type="button"  (click)="open(content)">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png">                    </button>
             <div class="modal fade">

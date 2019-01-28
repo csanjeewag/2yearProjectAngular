@@ -33,9 +33,11 @@ public errorMessage:any;
   
 
   ngOnInit() {
+    this.eventid=this.repository.curentEventId;
+
     this.getAllEmployee();
     this.getToday();
-    this.getallevents();
+    this.geteventbyid(this.eventid);
     this.taskForm = new FormGroup({        
     
       //TaskId: new FormControl('',[Validators.required,Validators.maxLength(5)]),
@@ -144,12 +146,7 @@ this.employeeId=id;
     return false;
   }
 
-  public validateDate(group: FormGroup) {
-    const invalid = group.get('startDate').value > group.get('endDate').value;
-  
-  
-    return invalid ? { 'invalidDate': true } : null;
-  }
+
 
   onChange(id:string,empName:string, isChecked: boolean) {
     if(isChecked) {
@@ -165,12 +162,12 @@ this.employeeId=id;
 }
 
 
-public getallevents(){
-  this.repository.getData('Event/getall/'+this.eventid)
+public geteventbyid(eventid){
+  this.repository.getData('Event/getall/'+eventid)
       .subscribe(res => {
         this.event = res ;
 
-       console.log(this.result);
+       console.log('----------->'+this.event.startDate);
         
       },
       (error) => {
@@ -183,15 +180,16 @@ compareTwoDates(){
     this.error1={
       isError:true,errorMessage:'*End date before strat date'};
   }
-  else{
-    this.error1={isError:true,errorMessage:''};
+  if(new Date(this.taskForm.controls['EndDate'].value)>new Date(this.event.startDate)){
+    this.error1={
+      isError:true,errorMessage:'*End date after event date'};
 
   }
+
+  
 }
 compareTwoDates2(){
-  this.eventdate=this.event.eventDate;
-  //this.eventdate=2019-1-30;
-  if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.eventdate)){
+  if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.event.startDate)){
      this.error2={isError:true,errorMessage:'*Event date before Task strat date'};
   }
   

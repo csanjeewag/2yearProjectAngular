@@ -1,0 +1,14 @@
+<form [formGroup]="updateContactForm" (ngSubmit)="updateContacts(updateContactForm.value)">
+
+
+  <input  class="form-control" type="text"placeholder="Name of Owner" formControlName="oname">
+  <input class="form-control" type="text" placeholder="Address" formControlName="address">
+
+  <input class="form-control" type="number" placeholder="Contact Number" formControlName="num1">
+  <input class="form-control"  type="number" placeholder="Contact Number" formControlName="num2">
+
+  <input class="form-control" type="textarea" placeholder="Contact Description" formControlName="cd">
+
+
+  <button type="submit" class="btn btn-success">Add Contacts</button>
+</form>
