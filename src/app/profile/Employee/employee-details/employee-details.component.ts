@@ -22,7 +22,7 @@ export class EmployeeDetailsComponent implements OnInit {
    // this.empId = id;
    this.ImageUrl = this.repo.ImageUrl;
    this.route.paramMap.subscribe((params:ParamMap)=>{
-    let id = parseInt(params.get('id'));
+    let id = params.get('id');
     this.empId=id;
     
     this.repo.getData('employee/getall/'+id)

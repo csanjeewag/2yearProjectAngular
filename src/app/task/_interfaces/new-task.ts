@@ -1,14 +1,13 @@
 export interface NewTask {
-    //taskId:number;
+    taskId:number;
     taskName:string;
     eventId:string;
     startDate:Date;
     endDate:Date;
     budgetedCost:number;
     description:string;
-    employeeEmpId:string;
+    //employeeId:number;
     employees:Array<any>;
-    admin:string;
     status:boolean;
     addDate:Date;
 }

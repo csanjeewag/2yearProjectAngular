@@ -3,15 +3,15 @@
 
       <div >
         
-        <div  class="wrapper fadeInDown col-md-12 container">
-          <div id="formContent">
+        <div  class="wrapper col-md-5 container">
+          <div id="formContent" >
             <!-- Tabs Titles -->
         
             <!-- Icon -->
-            <div class="fadeIn first">
+            <div >
               <h1>Create Event Type</h1>
             </div>
-            <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
+           
             <!-- Event Type Form -->
             <form [formGroup]="EventType" autocomplete="off" novalidate (ngSubmit)="createrole(EventType.value)">
                 
@@ -39,10 +39,7 @@
                 <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
                 
             <!-- Remind Passowrd -->
-            <div id="formFooter">
-              <a  id="crateAccountlink"  class="underlineHover" ></a>
-             
-            </div>
+           
         
           </div>
         </div>

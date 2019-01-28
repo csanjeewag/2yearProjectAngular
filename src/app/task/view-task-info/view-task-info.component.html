@@ -1,0 +1,55 @@
+
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+
+
+    <div class="card-body">
+      <h5 class="card-title">Entered Information </h5>
+      <h6 class="card-subtitle mb-2 text-muted">Details you added for assigned task</h6>
+<table  class="table table-borderless">
+  <tr >
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let i of result">
+    <td>{{i.infoDescription}}</td>
+    <button type="button" class="btn btn-link" (click)="deleteInfoDetails(i.infoID)">Delete</button>
+
+  </tr>
+</table>
+
+</div>
+</div>
+    </div>
+
+    <div class="col-sm-8">
+        <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Entered Contact Details</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Contact details you added for assigned task</h6>
+  <table  class="table table-borderless">
+    <tr >
+      <th>ContactPerson</th>
+      <th>Description</th>
+      <th>Number</th>
+      <th>Number</th>
+      <th>Address</th>
+
+    </tr>
+    <tr *ngFor="let j of contactresult">
+      <td>{{j.name}}</td>
+      <td>{{j.contactDescription}}</td>
+      <td>{{j.number1}}</td>
+      <td>{{j.number1}}</td>
+      <td>{{j.address}}</td>
+
+      <button type="button" class="btn btn-link" (click)="deleteContactDetail(j.contactDetailId)">Delete</button>
+  
+    </tr>
+  </table>
+  
+  
+  </div>
+    </div>
+    </div>
+  </div>

@@ -19,6 +19,7 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
 @NgModule({
   declarations: [
     AppComponent,
+  
    
   
     

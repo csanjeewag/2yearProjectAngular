@@ -1,0 +1,60 @@
+<div class="card">
+    <table class="table table-borderless">
+        <tr>
+            <td>Employee Id</td>
+            <td>{{employee.employeeId}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{employee.name}}</td>
+          </tr>
+          <tr  *ngIf="nic">
+            <td>Nic</td>
+            <td>{{employee.nic}}</td>
+            </tr>
+          <tr *ngIf="dob">
+            <td>Date of Birth</td>
+            <td>{{employee.dob}}</td>
+          </tr>
+          <tr *ngIf="gender">
+            <td>Gender</td>
+            <td>{{employee.gender}}</td>
+          </tr>
+          <tr *ngIf="mealType">
+            <td>Prefered Meal Type</td>
+            <td>{{employee.mealType}}</td>
+            </tr>
+            <tr *ngIf="accomadation">
+            <td>Accomadation</td> 
+            <td>{{employee.accomadation}}</td>
+            </tr>
+            <tr *ngIf="transportationMode">
+            <td>Transportation Type</td>
+            <td>{{employee.transportationMode}}</td>
+
+            </tr>
+            <tr *ngIf="spouseName">
+            <td>Spouse Name</td>
+            <td>{{employee.spouseName}}</td>
+           </tr>
+           <tr *ngIf="spouseNic">
+            <td>Spouse Nic</td>
+            <td>{{employee.spouseNic}}</td>
+           </tr>
+           <tr *ngIf="spouseDob">
+            <td>Spouse Date of Birth</td>
+            <td>{{employee.spouseDob}}</td>
+
+            </tr>
+           
+               
+    </table> 
+    
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-md-6"></div>
+    <div class="col-md-2">
+    <button type="button" class="btn btn-primary" (click)="deleteEmployee()">Delete Employee</button>
+    </div>
+    </div>

@@ -9,9 +9,9 @@ import { OneDayTripComponent } from './one-day-trip/one-day-trip.component';
 import { TwoDayTripComponent } from './two-day-trip/two-day-trip.component';
 import { EventHomePageComponent } from './event-home-page/event-home-page.component';
 import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
-import { Header2Component } from "./../SharePart/header2/header2.component";
 
 import { SharedModuleModule } from "./../shared-module/shared-module.module";
+import { TaskModule } from "./../task/task.module";
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { SelectAttributeComponent } from './select-attribute/select-attribute.component';
@@ -20,10 +20,14 @@ import { AddRegistrationFormComponent } from './add-registration-form/add-regist
 import { SelectAttributeRegistrationComponent } from './select-attribute-registration/select-attribute-registration.component';
 import { EmployeeRegistrationComponent } from './employee-registration/employee-registration.component';
 import { SelectAttributeForUpdateComponent } from './select-attribute-for-update/select-attribute-for-update.component';
-
+import { ViewEmployeeComponent } from './view-employee/view-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { AddPollComponent } from './add-poll/add-poll.component';
+import { ViewPollComponent } from './view-poll/view-poll.component';
 @NgModule({
   imports: [
     SharedModuleModule,
+    TaskModule,
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([
@@ -36,6 +40,11 @@ import { SelectAttributeForUpdateComponent } from './select-attribute-for-update
       {path:'addevent', component:AddEventComponent},
       {path:'addevent/:id', component:AddEventComponent},
       {path:'updateevent/:id', component:UpdateEventComponent},
+      {path:'viewEmployee/:id', component:ViewEmployeeComponent},
+      {path:'addPoll', component:AddPollComponent},
+      {path:'viewPoll/:id', component:ViewPollComponent},
+
+
       {path:'selectattributes/:id', component:SelectAttributeComponent},
       {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
       {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent},
@@ -47,6 +56,6 @@ import { SelectAttributeForUpdateComponent } from './select-attribute-for-update
       { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        
     ]),
   ],
-  declarations: [Header2Component,CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent]
+  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent, AddPollComponent, ViewPollComponent]
 })
 export class EventsModule { }

@@ -5,6 +5,7 @@ import{ContactType} from './../_interfaces/ContactType';
 import { FormControl, FormGroup, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { AuthServiceService} from "./../../AuthGards/auth-service.service";
 
 
 @Component({
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ContactsComponent implements OnInit {
 
+  public Loading:any;
   public result:any;
   public show:boolean = false;
   public buttonName:any = '+';
@@ -22,10 +24,14 @@ export class ContactsComponent implements OnInit {
 public ContactForm:FormGroup;
 public contactid:any;
 public ContactFormUpdate:FormGroup;
+public empid:any;
 
-  constructor( private repository : RepositoryService,private router:Router,config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private auth:AuthServiceService, private repository : RepositoryService,private router:Router,config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit() {
+        
+    this.empid=this.auth.tokencheckId();
+
     this.getAllContactTypes();
 
     this.AddContactForm = new FormGroup({  
@@ -60,7 +66,6 @@ public ContactFormUpdate:FormGroup;
     
     this.modalService.open(content);
     this.contactid=ctypeid;
-  
   }
  
   open(content){
@@ -77,7 +82,9 @@ public ContactFormUpdate:FormGroup;
     this.repository.postData(apiUrl,ctype)
     
         .subscribe(res => {
+          this.getAllContactTypes();
             
+
           })
 
 }
@@ -99,7 +106,7 @@ public addContacts(value){
   formData.append('Number1',value.num1);
   formData.append('Number2',value.num2);
   formData.append('ContactDescription',value.cd);
-
+  formData.append('EmployeeId',this.empid);
   let apiUrl = 'contact/addcontactdetailnormally';
     
   this.repository.postFile(apiUrl, formData)
@@ -115,7 +122,24 @@ public addContacts(value){
 public updateContactType(value){
 
 }
+public x(){
+  this.getAllContactTypes();
 
+}
+
+public deleteContactType(id){
+  this.Loading = id;
+  this.repository.getData('contact/deactive/'+id)
+  .subscribe(res => {
+  this.getAllContactTypes()
+  this.Loading = false;
+console.log('deleted');
+  this.getAllContactTypes();
+},
+ (error) => {
+ this.Loading =false;
+ })
+}
 
 
 
