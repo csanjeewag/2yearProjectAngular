@@ -31,30 +31,30 @@
           
 
               <div class="form-group col-md-12" *ngIf="transportationMode">
-                 
-                  <select class="form-control" formControlName="transportationMode" id="transportationMode" required>
+                    <label >Prefered Transport Type</label><br/>
+                  <select class="form-control" formControlName="transportationMode" id="transportationMode">
                           <option value="" selected disabled hidden></option>
                           <option [value]="e.id" *ngFor="let e of regForms">{{e.name}}</option>
                       </select>
-                      <label >Prefered Transport Type</label>
+                      
                 </div>
                 
               
                 <div class="form-group col-md-12" *ngIf="accomadation">
-                 
+                        <label >Prefered Accomadation Type</label><br/>
                   <select class="form-control" formControlName="accomadation" id="accomadation" required>
                           <option value="" selected disabled hidden></option>
                           <option [value]="e.id" *ngFor="let e of accom">{{e.name}}</option>
                       </select>
-                      <label >Prefered Accomadation Type</label>
+                      
                 </div>
                 <div class="form-group col-md-12" *ngIf="mealType">
-                 
+                        <label >Prefered Meal Type</label><br/>
                   <select class="form-control" formControlName="mealType" id="mealType" required>
                           <option value="" selected disabled hidden></option>
                           <option [value]="e.id" *ngFor="let e of meal">{{e.name}}</option>
                       </select>
-                      <label >Prefered Meal Type</label>
+                      
                 </div>
               
                 <div class="form-group col-md-12" *ngIf="dob">
@@ -108,7 +108,7 @@
              
               <div class="btn-group" role="group" aria-label="Basic example">
               <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-              <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Create event</button>
+              <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Register</button>
               <div class="col-sm-1"></div>
                
           </div> 

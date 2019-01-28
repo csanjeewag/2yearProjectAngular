@@ -17,7 +17,7 @@
               <p class="card-text">{{event.eventDescription}}</p>
               <p *ngIf="destination"class="card-text">Destination: {{event.destination}}</p>
               <p *ngIf="venue" class="card-text">Venue: {{event.venue}}</p>
-              <p class="card-text">{{event.startDate | date: 'dd/MM/yyyy'}}</p>
+              <p class="card-text">Date: {{event.startDate | date: 'dd/MM/yyyy'}}</p>
 
               <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{event.closingDate | date: 'dd/MM/yyyy'}}</p>
               <p class="card-text" *ngIf="endDate">EndDate of Event: {{event.endDate | date: 'dd/MM/yyyy'}}</p>
@@ -30,7 +30,7 @@
           </div>
           <div class="col-md-6">
             <div class="card-img-bottom" id="division">
-                <img class="card-img " id="image" style="width: 100%; height: 400px;"src="assets/_image/trip.jpg">
+                <img class="card-img " id="image" style="width: 100%; height: 450px;"src="assets/_image/trip.jpg">
 
             </div>
           </div>
@@ -43,13 +43,15 @@
 
 
 
-<div class="row">
-    <div id="form" class="col-sm-9">
+<div class="row" >
+    <div id="form" class="col-sm-9" *ngIf="this.form!=null&&this.register">
         <app-employee-registration></app-employee-registration>
+      </div>
+      <div id="form" class="col-sm-9" *ngIf="this.form===null||!this.register">
       </div>
       <div class="col-sm-1">
           <button type="button" class="btn btn-link"(click)="updateEvent()">Update Event</button>
-          <button type="button" class="btn btn-link" (click)="deleteEmployee(content)">Delete Registered Employee</button>
+          <button type="button" class="btn btn-link" (click)="deleteEmployee(content)" *ngIf="this.form!=null">Delete Registered Employee</button>
           <button type="button" class="btn btn-link" (click)="viewEmployee()">View Registered Employees</button>
         </div>
 </div>

@@ -79,4 +79,38 @@ public attribute:any;
       )
   }
 
+  public deleteEmployee(){
+    console.log("inside delete")
+    let formdata = new FormData;
+    formdata.append('IsActive','false'); 
+    formdata.append('Id',this.employee.id); 
+    
+        formdata.append('Name',this.employee.name);
+        
+        formdata.append('EventId',this.employee.eventId);
+
+        formdata.append('EmployeeId',this.employee.employeeId); 
+        formdata.append('MealType',this.employee.mealType); 
+        formdata.append('Nic',this.employee.nic);
+        formdata.append('Accomadation',this.employee.accomadation);
+        formdata.append('Dob',this.employee.dob); 
+        formdata.append('TransportationMode',this.employee.transportationMode); 
+        formdata.append('Gender',this.employee.gender);
+        formdata.append('SpouseName',this.employee.spouseName);
+        formdata.append('SpouseDob',this.employee.spouseDob); 
+        formdata.append('SpouseNic',this.employee.spouseNic); 
+
+    let apiUrl = 'Registration/deleteEmployee';
+        
+    this.repository.postFile(apiUrl, formdata)
+       .subscribe(res =>  {
+           window.alert("Employee has deleted succesfully")
+        },
+         (error => {
+          
+        
+         })
+       )
+  }
+
 }

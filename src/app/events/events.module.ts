@@ -22,6 +22,8 @@ import { EmployeeRegistrationComponent } from './employee-registration/employee-
 import { SelectAttributeForUpdateComponent } from './select-attribute-for-update/select-attribute-for-update.component';
 import { ViewEmployeeComponent } from './view-employee/view-employee.component';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { AddPollComponent } from './add-poll/add-poll.component';
+import { ViewPollComponent } from './view-poll/view-poll.component';
 @NgModule({
   imports: [
     SharedModuleModule,
@@ -39,8 +41,9 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
       {path:'addevent/:id', component:AddEventComponent},
       {path:'updateevent/:id', component:UpdateEventComponent},
       {path:'viewEmployee/:id', component:ViewEmployeeComponent},
+      {path:'addPoll', component:AddPollComponent},
+      {path:'viewPoll/:id', component:ViewPollComponent},
 
-      {path:'deleteEmployee/:id', component:DeleteEmployeeComponent},
 
       {path:'selectattributes/:id', component:SelectAttributeComponent},
       {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
@@ -53,6 +56,6 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
       { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        
     ]),
   ],
-  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent]
+  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent, AddPollComponent, ViewPollComponent]
 })
 export class EventsModule { }

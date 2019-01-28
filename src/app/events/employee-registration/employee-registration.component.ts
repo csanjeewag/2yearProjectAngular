@@ -35,12 +35,12 @@ export class EmployeeRegistrationComponent implements OnInit {
   public accomadation:any;
   public mealType: any;
   public gender: any;
- public spouseName: any;
- public spouseNic: any;
- public spouseDob: any;
- public modalRef: any;
- public empId:any;
- regForms = [{'id':'Private', 'name':'Use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
+  public spouseName: any;
+  public spouseNic: any;
+  public spouseDob: any;
+  public modalRef: any;
+  public empId:any;
+  regForms = [{'id':'Private', 'name':'Use my vehicle'}, {'id':'Company', 'name': 'Company Transportation'}];
   accom = [{'id':'SingleRoom', 'name':'Single room'}, {'id':'DoubleRsoom', 'name': 'Double Room'},{'id':'FamilyRoom', 'name': 'Family Room'}];
   meal = [{'id':'vegi', 'name':'Vegi'}, {'id':'non vegi', 'name': 'Non vegi'}];
   
@@ -55,26 +55,22 @@ export class EmployeeRegistrationComponent implements OnInit {
     this.spouseName=false;
     this.spouseNic=false;
     this.spouseDob=false;
-this.empId=7;
+    this.empId=7;
+
     this.getparamId();
     
     this.EventForm = new FormGroup({
-     // EventId: new FormControl('',[Validators.required]),
-     name: new FormControl('',[Validators.required]),
-     
-     nic: new FormControl(''),
-     dob: new FormControl(''),
-     
-     transportationMode: new FormControl(''),
-     accomadation: new FormControl(''),
-     mealType: new FormControl(''),
-     gender: new FormControl(''),
-     spouseName: new FormControl(''),
-     spouseDob: new FormControl(''),
-     spouseNic: new FormControl(''),
-     
-     
-     })
+       name: new FormControl('',[Validators.required]),
+       nic: new FormControl(''),
+       dob: new FormControl(''),
+       transportationMode: new FormControl(''),
+       accomadation: new FormControl(''),
+       mealType: new FormControl(''),
+       gender: new FormControl(''),
+       spouseName: new FormControl(''),
+       spouseDob: new FormControl(''),
+       spouseNic: new FormControl(''),   
+       })
      
   }
   
@@ -117,17 +113,12 @@ this.empId=7;
        
         
         
-             let apiUrl = 'Registration/addEmployee';
-         console.log("formdata"+formdata)
-         console.log("description = "+value.EventDescription)
-         
-         this.repository.postFile(apiUrl, formdata)
+        let apiUrl = 'Registration/addEmployee';
+        
+        this.repository.postFile(apiUrl, formdata)
            .subscribe(res =>  {
-             //this.Message="Project updated!";
-             console.log("response = "+res)
-             window.alert("You have registered succesfully")
-            
-             },
+               window.alert("You have registered succesfully")
+            },
              (error => {
               window.alert("You have already registered")
             
