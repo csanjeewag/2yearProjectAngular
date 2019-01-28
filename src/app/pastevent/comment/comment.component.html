@@ -26,16 +26,29 @@
 					</header>
 					<div *ngFor="let e of comment">
 						<div class="comment">
-							<div class="username">{{e.empName}} {{e.commentTime|date:'medium'}}</div>
-
-							<img [src]="ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
-
+							<div class="username">{{e.empName}}</div>
+				<div *ngIf="e.empProfilePicture; else notdp">
+							<img   [src]="ImageUrl+e.empProfilePicture" class="avatar" alt="user image" />
+				</div>
+				<ng-template #notdp>
+						<img src="assets/_image/nodp.jpg" class="avatar" alt="user image">
+				</ng-template>
 							<!-- <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" > -->
-
+				
 							<p>{{e.commentIn}}</p>
-
 						</div>
-						<button *ngIf="e.empId==author" id="btn" (click)=deletecomment(e.commentId)>delete </button>
+				
+						<div class="row">
+							<div class="col-xs-2 col-sm-2 col-md-2 "><a *ngIf="e.empId==author"  (click)=deletecomment(e.commentId)><img src="assets/delete.png" width="25" height="25" class="rounded-circle margin-left ml-2">
+							</a>
+							</div>
+							<div  id="timefont" class="col-xs-10 col-sm-10 col-md-10">
+								{{e.commentTime|date:'medium'}}
+				
+							</div>
+						</div>
+				
+				
 					</div>
 				</section>
 
@@ -43,24 +56,25 @@
 
 
 
-				<form [formGroup]="commentForm" autocomplete="off" (ngSubmit)="OnSubmit(commentForm.value)">
+				<form [formGroup]="commentForm" autocomplete="off"  (ngSubmit)="OnSubmit(commentForm.value)">
 
 
 					<!-- <textarea></textarea> -->
 					<div class="form-group">
-						<label for="key" class="sr-only">Description</label>
-						<input type="text" formControlName="CommentIn" class="form-control" placeholder=" Comment">
+						<label for="key" class="sr-only">Comment</label>
+						<input  type="text" formControlName="CommentIn" class="form-control"  placeholder=" Comment">
 					</div>
 
 
 
 					<div class=" form-group">
-						<button type="submit" class="btn" class="btn btn-outline-dark">submit</button>
-
+						<button  type="submit"  class="btn btn-outline-dark" >Comment</button>
+						<!-- <input type="reset" value="Comment"> -->
+                        
 					</div>
 				</form>
 			</div>
-			<div class="col=8"></div>
+			
 
 
 		</div>
@@ -68,3 +82,5 @@
 	</div>
 
 </div>
+
+

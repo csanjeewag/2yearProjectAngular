@@ -34,38 +34,46 @@
 
 <div class="card w-90">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <button class="btn" (click)=gotoimageupload(eventId)>Image Upload</button>  
+    <h2 class="card-title">{{eevent.eventTitle}}</h2>
+    
+    <a  (click)=gotoimageupload(eventId)><img src="assets/_image/uploadimage.png" width="70" height="70" class="rounded-circle margin-left ml-2"></a>  
+   
     <div class="row">
       <div class="col-sm-12 col-md-9">
         <section class="no-touch">
           <div class="wrap">
             <div *ngFor="let i of result">
-              <div class="box">       
-                <div class="boxInner">
-                  <img id="zoom2"  class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
-                    {{i.author}}
-                 
-                  <div  class="titleBox"> <button  (click)=deleteimage(i.imageId) id="btn">delete </button></div>
+        
+              <div class="box">
+        
+        
+                <div class="boxInner" (click)="open(image)">
+                  <ng-template #image id="x">
+                    <div class="modal-header"></div>
+                    <div class="modal-body">
+                      <!-- modal viewing -->
+                      <img class="card w-200" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                    </div>
+                    <div class="modal-footer"></div>
+                  </ng-template>
+                  <!-- gallery viewing  -->
+                  <img id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                  <a id="author"> {{i.author}} </a>
+        
+                  <div class="titleBox"><button (click)=deleteimage(i.imageId)>Delete</button> </div>
                 </div>
-                
               </div>
-              
             </div>
-           </div>
+          </div>
         </section>
-
       </div>
       <div class="col-sm-12 col-md-3">
-        
         <app-comment></app-comment>
       </div>
     </div>
-
-
   </div>
 </div>
+
 
 
 
