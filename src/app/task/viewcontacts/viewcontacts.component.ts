@@ -58,4 +58,9 @@ console.log('deleted');
  })
 
 }
+
+public updateDetail(id){
+  this.router.navigate(['/task/updatecontactdetail/'+id]);
+
+}
 }

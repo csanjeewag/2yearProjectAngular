@@ -18,7 +18,7 @@ import { Event} from './../_interfaces/event';
 export class ViewEventPageComponent implements OnInit {
    
   constructor(private repository :RepositoryService,private route:Router,private rou:ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { }
-
+  public ImageUrl:any;
   public PrId:any;
   public event:any;
   public eventId:any;
@@ -40,6 +40,9 @@ export class ViewEventPageComponent implements OnInit {
   
   
   ngOnInit() {
+
+    this.ImageUrl = this.repository.ImageUrl;
+
     this.endDate =false;
     this.closingDate=false;
     this.destination=false;

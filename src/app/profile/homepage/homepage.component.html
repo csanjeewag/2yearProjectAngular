@@ -2,7 +2,7 @@
     
   <app-nav-bar></app-nav-bar>
 
-<div id="homeback" >
+<div id="homeback"  >
 
 
 
@@ -11,18 +11,16 @@
 
 </div>
 
-<div id="part1">
-  <div class = "row">
-    <div class = "col-sm-2"></div>
-  <div col-sm-4>
-  <h1 id="head">UPCOMMING EVENTS</h1>
-  </div>
-  <div class = "col-sm-2"></div><div class = "col-sm-2"></div>
-  <div col-sm-2>
-    <button type="button"  class="btn link" (click)="onClick()">Add New Event </button>
+<div id="part1" >
+  
+  <h1 id="head" class=" container" >UPCOMMING EVENTS</h1> <button type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
+  <div class = "row"> 
+
+  <div>
+   
   </div>
   </div>
-    <div id="cardDesk" class="card-deck" >
+    <div id="cardDesk" class="card-deck"class="col-lg-11 col-sm-12 container" >
        
         <div class="row">
             <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">
@@ -68,8 +66,8 @@
 <!-- part 2 -->
 
 <div id="part2">
-    <h1 id="head">PAST EVENTS</h1>
-      <div id="cardDesk" class="card-deck" >
+    <h1 id="head" class=" container" >PREVIOUS EVENTS</h1>
+      <div id="cardDesk" class="card-deck" class="col-lg-11 col-sm-12 container"  >
           
           <div class="row">
               <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[0].id)">
