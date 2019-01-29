@@ -13,7 +13,7 @@
 
 <div id="part1" >
   
-  <h1 id="head" class=" container" >UPCOMMING EVENTS</h1> <button type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
+  <h1 id="head" class=" container" >UPCOMMING EVENTS</h1> <button *ngIf="IsAdmin||IsRC" type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
   <div class = "row"> 
 
   <div>

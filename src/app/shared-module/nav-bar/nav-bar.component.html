@@ -11,44 +11,31 @@
 <div class="collapse navbar-collapse" id="navbarText">
   <ul class="navbar-nav mr-auto">
 
-    <li class="nav-item active">
+    <li class="nav-item active" *ngIf="islogged" >
       <a class="nav-link" routerLink="/profile/home" routerLinkActive="active">Home </a>
     </li>
-    <li class="nav-item">
-      <a *ngIf="islogged" class="nav-link" routerLink="/pastevent/eventcard" routerLinkActive="active">Previous Events</a>
+    <li class="nav-item" *ngIf="islogged" >
+      <a class="nav-link" routerLink="/pastevent/eventcard" routerLinkActive="active">Previous Events</a>
     </li>
     
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="islogged" >
       <a class="nav-link" routerLink="/profile/lists" routerLinkActive="active ">Members</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="isAdmin" >
       <a class="nav-link" routerLink="/profile/update" routerLinkActive="active ">Update Members</a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="islogged" >
       <a class="nav-link" routerLink="/task/contact" routerLinkActive="active ">Contact</a>
     </li>
-    <li>
+    <li *ngIf="isAdmin">
         <a class="nav-link" routerLink="/profile/admin/departments" routerLinkActive="active ">Admin page</a>
    
     </li>
-    <li class="nav-item dropdown" >
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Events        </a>
-        <div id="drop" class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-          <a  class="nav-link" routerLink="/events/vieweventpage" routerLinkActive="active ">Annual Trip</a>
-          <a class="nav-link" routerLink="/events/CricketMatch/frontpage/2" routerLinkActive="active ">Cricket Tournement</a>
-          <a class="nav-link" routerLink="/events/CricketMatch/frontpage/2" routerLinkActive="active ">Blood Donation</a>
-          <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Beach Party</a>
-          
-        </div>
-      </li>
-    <li>
-        <a class="nav-link" routerLink="/profile/admin" routerLinkActive="active ">Admin</a>
-   
-    </li>
+
+    
   </ul>
-   <li class="nav-item dropdown" >
+   <li class="nav-item dropdown"  >
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      {{EmployeeName}}
     </a>

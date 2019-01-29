@@ -35,21 +35,21 @@
                 <form [formGroup]="AddContactForm" (ngSubmit)="addContacts(AddContactForm.value)">
 
 
-                        <input  class="form-control" type="text" formControlName="oname">
-                        <label>Name of Owner</label>
+                        <input placeholder="Name of Owner"  class="form-control" type="text" formControlName="oname">
+                        <!-- <label>Name of Owner</label> -->
 
-                        <input class="form-control" type="text"formControlName="address">
-                        <label>Address</label>
+                        <input class="form-control" type="text" formControlName="address" placeholder="Address">
+                        <!-- <label>Address</label> -->
 
-                        <input class="form-control" type="number" formControlName="num1">
-                        <label>Contact Number</label>
+                        <input class="form-control" type="number" formControlName="num1" placeholder="Contact Number">
+                        <!-- <label>Contact Number</label> -->
 
-                        <input class="form-control"  type="number" formControlName="num2">
-                        <label>Contact Number</label>
+                        <input class="form-control"  type="number" formControlName="num2" placeholder="Contact Number">
+                        <!-- <label>Contact Number</label> -->
 
 
-                        <input class="form-control" type="textarea" formControlName="cd">
-                        <label>Contact Description</label>
+                        <input class="form-control" type="textarea" placeholder="Contact Description" formControlName="cd">
+                        <!-- <label>Contact Description</label> -->
 
 
 
