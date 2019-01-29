@@ -4,6 +4,7 @@ import { RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 import { Event} from './../_interfaces/event';
 
 @Component({
@@ -25,7 +26,6 @@ export class ViewEventPageComponent implements OnInit {
   public date:any;
   public attribute:any;
   public form:any;
-  public today :any;
   public register:any;
   
   public urlAddress:any;
@@ -50,22 +50,40 @@ export class ViewEventPageComponent implements OnInit {
     this.isFamilyMembersAllowed=false;
     this.numberOfTeams=false;
     this.venue=false;
-    this.today = new Date();
     this.register=false;
 
    this.getparamId();
    
   }
  
-  public getproject(){
-    this.repository.curentEventId = this.PrId;
   
-    this.repository.getData('event/getall/'+this.PrId)
+  
+   public getparamId(){
+    this.rou.paramMap.subscribe((params:ParamMap)=>{
+      let id =params.get('id');
+      this.PrId=id;
+      console.log("id of the evenet = "+id)
+      console.log("pridof the evenet = "+this.PrId)
+
+      this.repository.currentEventId(id);
+    
+      this.getproject();
+     });
+  
+  
+  }
+
+
+  public getproject(){
+    console.log("pridof the evenet = "+this.PrId)
+    let apiUrl = 'event/getall/'+this.PrId
+
+    this.repository.getData(apiUrl)
        .subscribe(res => {
          this.event = res ;
-         if(this.today>this.event.closingDate){
+        let today=new Date();
+         if(new Date(today)<new Date(this.event.closingDate)){
            this.register='true';
-           console.log("register"+this.register)
          }
          this.getAttribute();
        },
@@ -75,23 +93,11 @@ export class ViewEventPageComponent implements OnInit {
       
    
    }
-  
-   public getparamId(){
-    this.rou.paramMap.subscribe((params:ParamMap)=>{
-      let id =params.get('id');
-      this.PrId=id;
-      console.log("id of the evenet = "+id)
-      this.repository.currentEventId(this.PrId);
-    
-      this.getproject();
-     });
-  
-  
-  }
 
  getAttribute(){
   let apiUrl = 'event/getatribute/'+this.PrId;
-  
+  console.log("inside get attribute")
+
   this.repository.getData(apiUrl)
     .subscribe(res => {
      this.attribute = res;
@@ -102,6 +108,7 @@ export class ViewEventPageComponent implements OnInit {
         this.liquor = this.attribute.liquor;
         this.venue = this.attribute.venue;
         this.numberOfTeams = this.attribute.numberOfTeams;
+
         this.getForm();
 
       },
@@ -131,11 +138,13 @@ public viewEmployee(){
 
 public getForm(){
   let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+  console.log("inside get form current event id = "+this.repository.curentEventId)
+
   console.log("inside get form")
   this.repository.getData(apiUrl)
     .subscribe(res => {
      this.form = res;
-    console.log(res)
+    console.log("form = "+res)
        
       },
       (error => {

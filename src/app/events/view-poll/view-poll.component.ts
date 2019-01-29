@@ -23,7 +23,7 @@ export class ViewPollComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,  private repository : RepositoryService) { }
 
   ngOnInit() {
-    this.empId=6;
+    this.empId=7;
     this.destId=22;
     this.num=1;
     this.dest='s';
@@ -47,14 +47,7 @@ export class ViewPollComponent implements OnInit {
     .subscribe(res => {
       this.poll = res ;
       console.log("event = "+this.poll);
-      
-    },
-    (error) => {
-    
-    })
-   
-
-    this.repository.getData('Poll/getDestination/'+this.pollId)
+      this.repository.getData('Poll/getDestination/'+this.pollId)
     .subscribe(res => {
       this.destinations = res ;
       console.log("event = "+this.destinations);
@@ -63,28 +56,38 @@ export class ViewPollComponent implements OnInit {
     (error) => {
     
     })
- 
-  }
-  public vote(){
-    this.repository.getData('Poll/getEmp/'+this.pollId+'/'+this.empId)
-    .subscribe(res => {
-      this.voted = res ; 
-      console.log("voted = "+this.voted);     
+      
     },
     (error) => {
     
     })
-    this.addVote();
+   
+
+    
+ 
+  }
+  public vote(id,destVote,dest){
+    this.repository.getData('Poll/getEmp/'+this.pollId+'/'+this.empId)
+    .subscribe(res => {
+      this.voted = res ; 
+      console.log("voted = "+this.voted); 
+      this.addVote(id,destVote,dest);
+    
+    },
+    (error) => {
+    
+    })
   }
 
-  public addVote(){
+  public addVote(id,destVote,dest){
     if(this.voted!=null){
       window.alert("You have already voted");
     }else{
+      this.num=destVote+1;
       let formdata = new FormData;
-      formdata.append('Id',this.destId);
+      formdata.append('Id',id);
       formdata.append('DestVote',this.num);
-      formdata.append('Dest',this.dest);
+      formdata.append('Dest',dest);
       formdata.append('PollId',this.pollId);
 
 
@@ -93,14 +96,41 @@ export class ViewPollComponent implements OnInit {
           
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {         
-       
+          this.addEmployee();
+
           },
           (error => {
            
           })
         )
+
     }
   }
+
+public addEmployee(){
+  let formdata1 = new FormData;
+  formdata1.append('PollId',this.pollId);
+  console.log("poll id = "+this.pollId);
+
+  formdata1.append('EmployeeId',this.empId);
+  console.log("emp id"+this.empId);
+
+
+  let apiUrl = 'Poll/addEmployee';
+          
+      this.repository.postFile(apiUrl, formdata1)
+        .subscribe(res =>  {  
+          window.alert("Your vote has succesfully recorded");
+       
+       console.log("succes");
+          },
+          (error => {
+           
+          })
+        )
+
+}
+
 
   public removePoll(){
     let formdata = new FormData;

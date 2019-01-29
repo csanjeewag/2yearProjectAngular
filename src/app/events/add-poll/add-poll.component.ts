@@ -58,6 +58,8 @@ export class AddPollComponent implements OnInit {
       console.log("description = "+pollFormvalue.description);
 
       formdata.append('ClosingDate',pollFormvalue.closingDate);
+      formdata.append('IsActive','true');
+
       console.log("closingDate = "+pollFormvalue.closingDate);
 
       
