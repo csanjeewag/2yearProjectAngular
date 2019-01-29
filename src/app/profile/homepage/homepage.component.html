@@ -39,16 +39,16 @@
             <h2>{{Upcommming3Event[1].eventTitle}}</h2>
             <h5>{{Upcommming3Event[1].startDate|date}}</h5>
               <p>{{Upcommming3Event[1].eventDescription}}</p>
-               <p><a id="viewmore" class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">View details &raquo;</a>
+               <p><a id="viewmore" class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">View details &raquo;</a>
                
               </p>
             </div><!-- /.col-lg-4 -->
-            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
+            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">
               <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[2].eventImageUrl" alt="Generic placeholder image">
               <h2>{{Upcommming3Event[2].eventTitle}}</h2>
               <h5>{{Upcommming3Event[2].startDate|date}}</h5>
               <p>{{Upcommming3Event[2].eventDescription}}</p>
-                <p><a class="btn btn-secondary" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">View details &raquo;</a>
+                <p><a class="btn btn-secondary" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">View details &raquo;</a>
                
               </p>
             </div><!-- /.col-lg-4 -->
