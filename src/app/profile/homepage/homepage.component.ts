@@ -13,11 +13,12 @@ export class HomepageComponent implements OnInit {
 public Last3Event:any;
 public Upcommming3Event:any;
 public ImageUrl:any;
-
-
+public IsAdmin:any;
+public IsRC:any;
 
   ngOnInit() {
-    
+  this.IsAdmin = this.auth.isAdmin();
+  this.IsRC = this.auth.isRC();  
 this.ImageUrl = this.repository.ImageUrl;
     this.getUpComingEvents();
     this.getpastEvents();

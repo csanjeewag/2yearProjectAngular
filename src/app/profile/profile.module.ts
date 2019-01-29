@@ -65,6 +65,7 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
 
 @NgModule({
   imports: [
+  
 
     MatCheckboxModule,
     MatInputModule,
@@ -82,18 +83,18 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: 'home', component: HomepageComponent},
+      { path: 'home', component: HomepageComponent,canActivate:[AuthLoginGuard]},
       { path: 'lists', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
       
       { path: 'login', component: LoginUserInterfaceComponent },
       { path: 'lists/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
       { path: 'delete/:id', component: DeleteEmployeeComponent },
-      { path: 'update/:id', component: UpdateEmployeeComponent },      
-      { path: 'profile', component: EmployeeProfileComponent  },
+      { path: 'update/:id', component: UpdateEmployeeComponent ,canActivate:[AuthLoginGuard]},      
+      { path: 'profile', component: EmployeeProfileComponent  ,canActivate:[AuthLoginGuard]},
       { path: 'register', component: EmployeeRegisterByLinkComponent  },
       { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
-      { path: 'changepassword', component: EmployeePasswordChangeComponent  },
-      { path: 'update', component: ChangePositionComponent },
+      { path: 'changepassword', component: EmployeePasswordChangeComponent ,canActivate:[AuthLoginGuard] },
+      { path: 'update', component: ChangePositionComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'} },
       { path: 'admin', component: AdminPageComponent, canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'},children:[
        
         { path: 'roles', component: ShowRolesDetailsComponent },
