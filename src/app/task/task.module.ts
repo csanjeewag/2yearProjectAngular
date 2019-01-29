@@ -33,6 +33,8 @@ import { ContactsComponent } from './contacts/contacts.component';
 
 import { SharedModuleModule} from "./../shared-module/shared-module.module";
 import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
+import { ViewTaskInfoComponent } from './view-task-info/view-task-info.component';
+import { UpdateContactDetailComponent } from './update-contact-detail/update-contact-detail.component';
 
 
 @NgModule({
@@ -60,12 +62,12 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
        {path:'mytask',component:MyTaskComponent},
        {path:'addinfo',component:AddInfoComponent},
        //{path:'details/:id', component: ShowTaskDetailsComponent},
-       { path: 'update/:id', component: UpdateTaskComponent },
+       { path: 'updatetask/:id', component: UpdateTaskComponent },
        {path:'newtask',component:MainTaskComponent},
        {path:'contact',component:ContactsComponent},
        {path:'viewcontact/:id',component:ViewcontactsComponent},
-
-
+        {path:'viewtaskinfo/:id',component:ViewTaskInfoComponent},
+{path:'updatecontactdetail/:id',component:UpdateContactDetailComponent}
 
        //{ path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'} },
 
@@ -75,7 +77,7 @@ import { ViewcontactsComponent } from './viewcontacts/viewcontacts.component';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
 ],
-  declarations: [MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent, ViewcontactsComponent],
-  exports:[AddInfoComponent],
+  declarations: [ViewTaskInfoComponent,ViewcontactsComponent,MainTaskComponent,ContactsComponent,LogingHeaderComponent,AddtaskComponent, ViewTaskComponent, LandingPageComponent, MyTaskComponent, AddInfoComponent, UpdateTaskComponent, UpdateContactDetailComponent],
+  exports:[AddtaskComponent, ViewTaskComponent,AddInfoComponent,ViewTaskInfoComponent]
 })
 export class TaskModule { }

@@ -94,7 +94,7 @@ public next:any;
       
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
-          this.router.navigate(['/profile/list']);
+          this.router.navigate(['/profile/profile']);
          alert(res);
             
           },
@@ -152,12 +152,12 @@ public next:any;
 public getEmployee(){
 
   this.route.paramMap.subscribe((params:ParamMap)=>{
-    let id = parseInt(params.get('id'));
+    let id = (params.get('id'));
      this.employeeId=id;
     
     this.repository.getData('employee/'+id)
     .subscribe(res => {
-      
+     
       this.employee = res ;
       if(this.employee.empProfilePicture)
     { this.profileImage =this.ImageUrl+ this.employee.empProfilePicture;}

@@ -17,6 +17,7 @@
     
     public EventType: FormGroup;
     public Message:any;
+   
     
     ngOnInit() {
       this.Message="Add Event Type";
@@ -25,6 +26,7 @@
         EventTypeDescription: new FormControl('',[Validators.required]),
        
        })
+       
     }
   
     public validateControl(controlName: string) {
@@ -48,9 +50,12 @@
       let formdata = new FormData;
      formdata.append('EventTypeName',value.EventTypeName);
       formdata.append('EventTypeDescription',value.EventTypeDescription);   
+    
+     
         
        
-        let apiUrl = 'EventType/createEventType';
+       let apiUrl = 'EventType/createEventType';
+       
         console.log(formdata)
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {

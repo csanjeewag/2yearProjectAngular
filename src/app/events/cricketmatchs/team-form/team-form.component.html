@@ -1,11 +1,9 @@
 <app-nav-bar></app-nav-bar>
-
 <div id="back">
 
     <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-12 container">
         <div class="col-lg-10 col-md-6 col-sm-12">
             <div id="formContent">
-
                 <br>
                 <div class="fadeIn first">
                     <h1>Cricket Team Form</h1>
@@ -14,7 +12,7 @@
                     <h3 id="msg">{{Message}}</h3>
                 </h5>
 
-                <!-- Start Form -->
+                <!-- Start form  -->
                 <form [formGroup]="teamForm" autocomplete="off" novalidate (ngSubmit)="teamData(teamForm.value)">
 
                     <div class="form-group row">
@@ -33,11 +31,10 @@
                                 <div class="col-9 col-sm-9">
                                     <span class="sp1">
                                         <div>{{name}}</div>
-                                        <!-- <em *ngIf="validateControl('teamMember') && hasError('teamMember', 'required')">*Team Member Name is required</em> -->
                                     </span>
                                 </div>
                                 <div class="col-3 col-sm-3">
-                                    <button type="button" class="btn btn-link" id="btn" (click)="open(content2)">Select
+                                    <button type="button" class="btn btn-link btn-sm" id="btn" (click)="open(content2)">Select
                                         Captain</button>
                                 </div>
                             </div>
@@ -53,11 +50,10 @@
                                     <span class="sp1">
                                         <div *ngFor="let j of emailFormArray;">{{j}}</div>
                                     </span>
-                                    <!-- <em *ngIf="validateControl('teamMember') && hasError('teamMember', 'required')">*Team Member Name is required</em> -->
+                                    <!-- <em *ngIf="validateControl('teamMember') && hasError('teamMember', 'required')">*Name is required</em> -->
                                 </div>
                                 <div class="col-3 col-sm-3">
-                                    <button type="button" class="btn btn-link btn-sm" id="btn" (click)="open(content)">Select
-                                        Team Member</button>
+                                    <button type="button" class="btn btn-link btn-sm" id="btn" (click)="open(content)">Select Team Member</button>
                                 </div>
                             </div>
                         </div>
@@ -67,20 +63,18 @@
                     <div class="form-group row">
                         <div class="col-10">
                             <input formControlName="teamVegeCount" class="form-control" type="number" id="inputVegeCount"
-                                min="0" max="16" required>
+                                min="0" required>
                             <label for="inputVegeCount">Vegetarion Member :</label>
-                            <em *ngIf="validateControl('teamVegeCount') && hasError('teamVegeCount', 'required')">*Vegetarion
-                                Member is required</em>
+                            <!-- <em *ngIf="validateControl('teamVegeCount') && hasError('teamVegeCount', 'required')">*Team Id is required</em> -->
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-10">
                             <input formControlName="teamLiquor" class="form-control" type="number" id="inputLiquor" min="0"
-                                max="16" required>
+                                required>
                             <label for="inputLiquor">Liquor :</label>
-                            <em *ngIf="validateControl('teamLiquor') && hasError('teamLiquor', 'required')">*Liquor is
-                                required</em>
+                            <!-- <em *ngIf="validateControl('teamLiquor') && hasError('teamLiquor', 'required')">*Team Id is required</em> -->
                         </div>
                     </div>
 
@@ -88,6 +82,7 @@
                         <div class="col-10">
                             <textarea formControlName="discription" class="form-control rounded-0" id="FormTextarea"
                                 placeholder="Enter Something....." rows="3" required></textarea>
+                            <!-- <label for="FormTextarea">Enter Something.....</label> -->
                         </div>
                     </div>
 
@@ -95,14 +90,13 @@
                     <div class="row">
                         <div class="col-5"></div>
                         <div class="col-2">
-                            <button type="submit" id="btn-sub" (click)="myFunc()" class="btn btn-outline-danger"
-                                [disabled]="!teamForm.valid">Submit</button>
+                            <button type="submit" id="btn-sub" class="btn btn-outline-danger" [disabled]="!teamForm.valid">Submit</button>
                         </div>
                         <div class="col-5"></div>
                     </div>
 
                 </form>
-                <!-- End Form -->
+                <!-- End form -->
 
                 <div id="formFooter">
                     <a id="crateAccountlink" class="underlineHover"></a>
@@ -114,21 +108,21 @@
 
 </div>
 
-<!-- Get Employee -->
+<!-- Start captain list -->
 <ng-template #content let-c="close" let-d="dismiss">
-
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-
+    <h3 id="msg">{{Message}}</h3>
     <!-- employee list -->
     <div class="modal-body">
         <table class="table table-borderless">
             <tr *ngFor="let i of result;" class="form-check">
-                <td><input type="checkbox" class="radio" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"
+
+                <td *ngIf="i.id!=captainId"><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"
                         name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
             </tr>
         </table>
@@ -139,13 +133,12 @@
         <small class="text-muted"></small>
         <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
     </div>
-
 </ng-template>
-<!-- End Emploee  -->
+<!-- End captain list -->
 
-<!-- Get Captain  -->
+
+<!-- Start team member list-->
 <ng-template #content2 let-c="close" let-d="dismiss">
-
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -157,7 +150,7 @@
     <div class="modal-body">
         <table class="table table-borderless">
             <tr *ngFor="let i of result;" class="form-check">
-                <td><input type="radio" class="form-check-input" (change)="onChange2(i.id,i.empName, $event.target.checked)"
+                <td><input type="checkbox" class="form-check-input" (change)="onChange2(i.id,i.empName, $event.target.checked)"
                         name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
             </tr>
         </table>
@@ -168,6 +161,8 @@
         <small class="text-muted"></small>
         <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
     </div>
-
 </ng-template>
-<!-- End Captain  -->
+<!-- End team member list -->
+
+
+

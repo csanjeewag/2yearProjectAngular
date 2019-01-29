@@ -22,14 +22,22 @@ public employeeId:any;
 public employees:Array<string> = [];
 public todaydate:Date;
 emailFormArray: Array<any> = [];
-
+public eventid:any;
+public event:any;
+public eventdate:any;
+error1:any={isError:false,errorMessage:''};
+error2:any={isError:false,errorMessage:''};
+public errorMessage:any;
 
   constructor(private router: Router,  private repository : RepositoryService,config: NgbModalConfig, private modalService: NgbModal) { }
   
 
   ngOnInit() {
+    this.eventid=this.repository.curentEventId;
+
     this.getAllEmployee();
     this.getToday();
+    this.geteventbyid(this.eventid);
     this.taskForm = new FormGroup({        
     
       //TaskId: new FormControl('',[Validators.required,Validators.maxLength(5)]),
@@ -39,15 +47,17 @@ emailFormArray: Array<any> = [];
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      EmployeeEmpId: new FormControl(''),
+      //EmployeeEmpId: new FormControl(''),
       //Admin: new FormControl('',[Validators.required]),
       },
       //{ validators: isvalidconfirmpassword }
       );
     }
+
+   
     
-    public redirectToTaskList(){
-      this.router.navigate(['task']);
+    public redirect(){
+      this.router.navigate(['task/addtask']);
     }
 
 
@@ -62,17 +72,15 @@ emailFormArray: Array<any> = [];
 
   private executeTaskCreation(profileFormValue) {
     let t: NewTask = {
-      
-    //taskId:profileFormValue.TaskId,
+      taskId:0,
     taskName:profileFormValue.TaskName,
-    eventId:'7',
+    eventId:this.repository.curentEventId,
     startDate:profileFormValue.StartDate,
     endDate:profileFormValue.EndDate,
     budgetedCost:profileFormValue.BudgetedCost,
     description:profileFormValue.Description,
-    employeeEmpId:this.employeeId,
+    //employeeId:this.employeeId,
     employees:this.employees,
-    admin:profileFormValue.Admin,
     status:false,
     addDate:profileFormValue.addDate,
 
@@ -138,12 +146,7 @@ this.employeeId=id;
     return false;
   }
 
-  public validateDate(group: FormGroup) {
-    const invalid = group.get('startDate').value > group.get('endDate').value;
-  
-  
-    return invalid ? { 'invalidDate': true } : null;
-  }
+
 
   onChange(id:string,empName:string, isChecked: boolean) {
     if(isChecked) {
@@ -159,7 +162,47 @@ this.employeeId=id;
 }
 
 
+public geteventbyid(eventid){
+  this.repository.getData('Event/getall/'+eventid)
+      .subscribe(res => {
+        this.event = res ;
+
+       console.log('----------->'+this.event.startDate);
+        
+      },
+      (error) => {
+      //  this.handleErrors(error);n
+      })
 }
+
+compareTwoDates(){
+  if(new Date(this.taskForm.controls['EndDate'].value)<new Date(this.taskForm.controls['StartDate'].value)){
+    this.error1={
+      isError:true,errorMessage:'*End date before strat date'};
+  }
+  if(new Date(this.taskForm.controls['EndDate'].value)>new Date(this.event.startDate)){
+    this.error1={
+      isError:true,errorMessage:'*End date after event date'};
+
+  }
+
+  
+}
+compareTwoDates2(){
+  if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.event.startDate)){
+     this.error2={isError:true,errorMessage:'*Event date before Task strat date'};
+  }
+  
+else{
+  this.error2={isError:false,errorMessage:''};
+}
+    
+
+  }
+ 
+}
+
+
 
 
 

@@ -9,7 +9,8 @@ import { RepositoryService } from 'src/app/ShareData/repository.service';
 })
 export class ScheduleViewComponent implements OnInit {
 
-  constructor(private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
+  constructor( private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
+
   public eventId:any;
   public teams:any;
   public captains:any;
@@ -28,10 +29,10 @@ export class ScheduleViewComponent implements OnInit {
       this.teams = res;
      console.log(this.teams);
     },(error =>{
-
     })
     )
   }
+  
   public getCaptainSchedule(){
     let apiAddress: string = "Cricketmatch/getcaptainsheduler/"+this.eventId;
 
@@ -40,7 +41,6 @@ export class ScheduleViewComponent implements OnInit {
       this.captains = res;
      console.log(this.captains);
     },(error =>{
-
     })
     )
   }

@@ -20,10 +20,11 @@ public empid:any;
 public result2:any;
 public contactForm:FormGroup;
 public ctypeid:any;
-
+public ctypename:any;
   ngOnInit() {
-    this.empid=this.auth.tokencheckId();
-    console.log(this.empid);
+    //this.empid=this.auth.tokencheckId();
+    this.empid=1;
+    console.log('----------->'+this.empid);
     this.getAllContactTypes();
     this. getTaskForEmployee(this.empid);
     
@@ -49,9 +50,13 @@ public getAllContactTypes(){
   
 }
 
-public contactType(typeid){
-  this.ctypeid=typeid;
+public closemodel(x){
 
+}
+
+public contactType(typeid,name){
+  this.ctypeid=typeid;
+  this.ctypename=name;
 }
 
 public addContacts(value){
@@ -73,7 +78,8 @@ public addContacts(value){
     
   this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
-      
+      this.route.navigate(['task/viewtaskinfo/'+this.taskId]);
+
       },
       (error => {
         
@@ -97,7 +103,7 @@ public  getTaskForEmployee(id){
   this.repository.getData('task/gettaskforemp/'+id)
   .subscribe(res => {
     this.result2 = res ;
-    
+    console.log('--------->'+res);
    
     
   },
@@ -105,6 +111,16 @@ public  getTaskForEmployee(id){
   //  this.handleErrors(error);n
   })
 }
+
+
+public viewInfoDetails(id){
+  this.route.navigate(['task/viewtaskinfo/'+id]);
+  console.log(id);
+
+}
+
+
+
 
  /* public addTaskInfo(InfoFormValue) {
     console.log(InfoFormValue)

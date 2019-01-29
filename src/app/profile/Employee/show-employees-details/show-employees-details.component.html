@@ -81,13 +81,13 @@
 
     <div *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject" role="tabpanel" class="col-lg-12 tab-pane fade active show" id="day-1">
 
-      <div id="zoom1"  class="row schedule-item">
+      <div id="zoom1"  class="row schedule-item" >
         <div  id="Position" class="col-md-2"> <p>{{i.empPosition}}</p> </div>
         <div class="col-md-10">
           <div class="speaker">
               <div class="row">
                   <div class="col-md-2">
-                     <div id="zoom3"> <img   [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" ></div> 
+                     <div id="zoom3" (click)="getdetails(i.id)"> <img   [src]= "ImageUrl+i.empProfilePicture"id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2"></div> 
                   </div>
                   <div class="col-md-8">
                       <h4> <h2 id="Name"> {{i.empName}}</h2><span>  </span></h4>

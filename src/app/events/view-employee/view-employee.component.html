@@ -1,0 +1,36 @@
+<div class="card">
+  <table class="table table-borderless">
+      <tr>
+          <td>Employee Id</td>
+          <td>Name</td>
+          <td *ngIf="nic">Nic</td>
+          <td *ngIf="dob">Date of Birth</td>
+          <td *ngIf="gender">Gender</td>
+          <td *ngIf="mealType">Prefered Meal Type</td>
+          <td *ngIf="accomadation">Accomadation</td> 
+          <td *ngIf="transportationMode">Transportation Type</td>
+          <td *ngIf="spouseName">Spouse Name</td>
+          <td *ngIf="spouseNic">Spouse Nic</td>
+          <td *ngIf="spouseDob">Spouse Date of Birth</td>
+          
+         
+        </tr>
+       
+    <tr *ngFor="let i of employee;">
+  
+<td>{{i.employeeId}}</td>
+<td>{{i.name}}</td>
+<td *ngIf="nic">{{i.nic}}</td>
+<td *ngIf="dob">{{i.dob}}</td>
+<td *ngIf="gender">{{i.gender}}</td>
+<td *ngIf="mealType">{{i.mealType}}</td>
+<td *ngIf="accomadation">{{i.accomadation}}</td>
+<td *ngIf="transportationMode">{{i.transportationMode}}</td>
+<td *ngIf="spouseName">{{i.spouseName}}</td>
+<td *ngIf="spouseNic">{{i.spouseNic}}</td>
+<td *ngIf="spouseDob">{{i.spouseDob}}</td>
+<!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
+ 
+</tr>
+</table> 
+  </div>

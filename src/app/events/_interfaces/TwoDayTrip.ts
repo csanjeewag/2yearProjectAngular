@@ -1,7 +1,7 @@
 export class TwoDayTrip {
     eventId:string;
       name:string;
-      email:string;
+      empId:string;
       nic:string;
       dob:Date;
       transportationMode:string;

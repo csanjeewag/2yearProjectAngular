@@ -1,3 +1,145 @@
-<p>
-  employee-registration works!
-</p>
+
+     <div >
+        
+      <div  class="wrapper col-sm-8 container">
+        <div id="formContent" >
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <div id="title" style="color: rgb(70, 65, 65)">
+            <h1>Register</h1>
+          </div>
+
+         
+          <!-- Sign up Form -->
+          <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
+              
+                  <div class="form-group col-md-12">
+                            <input class="form-control" formControlName="name" id="name" required>
+                          <label >Name</label>
+                          <em *ngIf="validateControl('name') && hasError('name', 'required')">Name is required</em>
+                          
+                      </div> 
+
+                      <div class="form-group col-md-12" *ngIf="nic">
+                               <input class="form-control" formControlName="nic" id="nic" required>
+                              <label >NIC</label>
+                              
+                          </div> 
+                          
+                      
+          
+
+              <div class="form-group col-md-12" *ngIf="transportationMode">
+                    <label >Prefered Transport Type</label><br/>
+                  <select class="form-control" formControlName="transportationMode" id="transportationMode">
+                          <option value="" selected disabled hidden></option>
+                          <option [value]="e.id" *ngFor="let e of regForms">{{e.name}}</option>
+                      </select>
+                      
+                </div>
+                
+              
+                <div class="form-group col-md-12" *ngIf="accomadation">
+                        <label >Prefered Accomadation Type</label><br/>
+                  <select class="form-control" formControlName="accomadation" id="accomadation" required>
+                          <option value="" selected disabled hidden></option>
+                          <option [value]="e.id" *ngFor="let e of accom">{{e.name}}</option>
+                      </select>
+                      
+                </div>
+                <div class="form-group col-md-12" *ngIf="mealType">
+                        <label >Prefered Meal Type</label><br/>
+                  <select class="form-control" formControlName="mealType" id="mealType" required>
+                          <option value="" selected disabled hidden></option>
+                          <option [value]="e.id" *ngFor="let e of meal">{{e.name}}</option>
+                      </select>
+                      
+                </div>
+              
+                <div class="form-group col-md-12" *ngIf="dob">
+                  <input type="date" class="form-control" formControlName="dob" id="dob" required>
+                  <label >Date of Birth</label>
+                  
+              </div>
+             
+              <div class="form-group col-md-12" *ngIf="spouseDob" >
+                  <input type="date" class="form-control" formControlName="spouseDob" id="spouseDob" required>
+                  <label >Spouce Date of Birth</label>
+              </div>
+             
+              
+              <!--dont use closing date as ClosingDate-->
+          
+              <div class="form-group col-md-12" *ngIf="gender">
+                <div class ="row">
+                    <div class="form-group col-md-4 " >
+                      <label class="gender">Gender</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                            <label class="gender">Male:</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                               
+                        <input type="radio" name="gender"   value="male" formControlName="gender" >
+                    </div>
+                    <div class="form-group col-md-1">
+                            <label class="gender">Female:</label>
+                    </div>
+                    <div class="form-group col-md-1">
+                    
+                        <input type="radio"  name="gender"  value="female"formControlName="gender"  >
+                    </div></div>
+                    
+                  </div>
+             
+
+              <div class="form-group col-md-12" *ngIf="spouseName">
+                  <label for="email" class="sr-only">DepartmentId</label>
+                  <input class="form-control" formControlName="spouseName" id="spouseName" required>
+                  <label >Spouse Name</label>
+              </div> 
+              <div class="form-group col-md-12" *ngIf="spouseNic">
+                   <input class="form-control" formControlName="spouseNic" id="spouseNic" required>
+                   <label >Spouse NIC</label>
+
+              </div> 
+              
+             
+              <div class="btn-group" role="group" aria-label="Basic example">
+              <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+              <button type="submit" class="btn btn-success" [disabled]="!EventForm.valid">Register</button>
+              <div class="col-sm-1"></div>
+               
+          </div> 
+
+          
+          </form>
+              <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
+              
+          <!-- Remind Passowrd -->
+          
+      
+        </div>
+      </div>
+  
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+      </div>
+  
+  

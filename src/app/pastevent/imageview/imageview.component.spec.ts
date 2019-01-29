@@ -24,7 +24,46 @@ describe('ImageviewComponent', () => {
   });
 });
 
+/* <!-- test area -->
+<div class="form-group col-md-6">
+    <b> Responsible Member</b>
+    <button type="button"  class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
 
+     
+         <!-- <div *ngFor="let j of emailFormArray;">
+             - {{j}}<br>
+         </div> -->
+     
+   
+
+    
+         <ng-template #content let-c="close" let-d="dismiss">
+             <div class="modal-header">
+               <!-- <h4 class="modal-title" id="modal-basic-title">Employee list</h4> -->
+              
+           </div>
+           <!-- employee list -->
+           <div class="modal-body">
+               <table class="table table-borderless">
+                   <tr *ngFor="let i of result;" class="form-check">
+
+                       <td><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"
+                               name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
+                       <!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
+                   </tr>
+               </table>
+           </div>
+
+           <!-- end -->
+           <!-- <div class="modal-footer">
+               <small class="text-muted">
+
+               </small>
+               <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+           </div> -->
+       </ng-template>
+   </div>
+ */
 // // ############################################# 
 // .card{
 // 	height: 400px;

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainPageComponent } from './main-page.component';
+import { ViewEmployeeComponent } from './view-employee.component';
 
-describe('MainPageComponent', () => {
-  let component: MainPageComponent;
-  let fixture: ComponentFixture<MainPageComponent>;
+describe('ViewEmployeeComponent', () => {
+  let component: ViewEmployeeComponent;
+  let fixture: ComponentFixture<ViewEmployeeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainPageComponent ]
+      declarations: [ ViewEmployeeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainPageComponent);
+    fixture = TestBed.createComponent(ViewEmployeeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
