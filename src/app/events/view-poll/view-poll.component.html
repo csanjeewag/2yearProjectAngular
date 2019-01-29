@@ -1,5 +1,22 @@
-<p>
-    <button type="button" class="btn btn-success" (click)="vote()">Vote</button> 
-    <button type="button" class="btn btn-success" (click)="removePoll()">Remove poll</button> 
 
-</p>
+<div  class="wrapper col-md-2 container">
+<div class="card" style="width: 50rem;">
+    <img class="card-img-top" src="assets/_image/vote 1.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{poll.title}}</h5>
+      <h5 class="card-title">{{poll.description}}</h5>
+
+      <h5 class="card-title">Closing Date for vote: {{poll.closingDate}}</h5>
+      <table class="table table-borderless">
+       
+         
+          <tr *ngFor="let i of destinations;">
+            
+          <td class="col-sm-1">{{i.dest}}</td>
+          <td><button type="button" class="btn btn-success" (click)="vote(i.id,i.destVote,i.dest)">Vote</button></td>
+          
+          </tr>
+          </table> 
+    </div>
+  </div>
+</div>

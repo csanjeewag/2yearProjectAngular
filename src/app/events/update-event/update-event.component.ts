@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute } from '@angular/router';
   import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { isNullOrUndefined } from 'util';
+
 
   
 
@@ -156,41 +156,28 @@ export class UpdateEventComponent implements OnInit {
     this.projectForm.controls['EventType'].setValue(this.event.eventTypeId);
     this.projectForm.controls['StartDate'].setValue(this.event.StartDate);
 
-    if(this.event.destination!=null)
     this.projectForm.controls['Destination'].setValue(this.event.destination);
 
-    if(this.event.endDate!=null)
     this.projectForm.controls['EndDate'].setValue(this.event.endDate);
 
-    if(this.event.closingDate!=null)
     this.projectForm.controls['ClosingDate'].setValue(this.event.closingDate);
 
-    if(this.event.isFamilyMembersAllowed!=null)
     this.projectForm.controls['IsFamilyMembersAllowed'].setValue(this.event.isFamilyMembersAllowed);
 
-    if(this.event.numberOfTeams!=null)
     this.projectForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
 
-    if(this.event.venue===null ){
-     
-    }else{
-      console.log("venue value = "+this.event.venue)
+    
       this.projectForm.controls['Venue'].setValue(this.event.venue);
-    }
-    if(this.event.liquor!=null)
+    
     this.projectForm.controls['Liquor'].setValue(this.event.liquor);
 
-    if(this.event.budgetedCost!=null)
-    this.projectForm.controls['budgetedCost'].setValue(this.event.budgetedCost);
+     this.projectForm.controls['budgetedCost'].setValue(this.event.budgetedCost);
 
-    if(this.event.actualCost!=null)
-    this.projectForm.controls['actualCost'].setValue(this.event.actualCost);
+     this.projectForm.controls['actualCost'].setValue(this.event.actualCost);
 
-    if(this.event.mainOrganiZer!=null)
-    this.projectForm.controls['mainOrganiZer'].setValue(this.event.mainOrganiZer);
+     this.projectForm.controls['mainOrganiZer'].setValue(this.event.mainOrganiZer);
 
-    if(this.event.summary!=null)
-    this.projectForm.controls['summary'].setValue(this.event.summary);
+     this.projectForm.controls['summary'].setValue(this.event.summary);
 
     this.getAttribute();
 
