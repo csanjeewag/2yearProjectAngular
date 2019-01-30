@@ -72,7 +72,7 @@ export class AddPollComponent implements OnInit {
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
           this.poll=res;
-
+          window.alert("Poll is created succesfully");
 
 
    let formdata1=new FormData;
