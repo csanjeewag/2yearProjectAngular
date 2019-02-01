@@ -15,11 +15,15 @@ export class ImageviewComponent implements OnInit {
   result: any;
   eevent: any;
   ImageUrl: any;
-  greeting: any;
+  RC: any;
+  ADMIN : any;
+
   public author: any;
   constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
   public eventId: any;
   ngOnInit() {
+    this.RC = this.auth.isRC();
+    this.ADMIN= this.auth.isAdmin();
     this.ImageUrl = this.repo.ImageUrl;
    
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -38,7 +42,7 @@ export class ImageviewComponent implements OnInit {
     this.repo.getData('PastEvent/getimages/' + id)
       .subscribe(res => {
         this.result = res;
-        console.log(this.result);
+        
 
       },
         (error) => {

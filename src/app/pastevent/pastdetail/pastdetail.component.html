@@ -29,6 +29,8 @@
 
         </div>
         <div class="col-sm-12 col-md-6">
+            <a (click)=gotoEventImages(event.id)><img src="assets/_image/cameralogo.jpg" width="85" height="70" class="rounded-circle margin-left ml-2"></a>
+           
           <p class="card-text">{{event.venue}}</p>
           <h3>{{event.endDate|date}}</h3>
           <p class="card-text"> {{event.eventDescription}} </p>
@@ -54,6 +56,6 @@
   
       
      
-      <a (click)=gotoEventImages(event.id) class="btn" id="btn">Gallery</a>
+     
     </div>
   </div>

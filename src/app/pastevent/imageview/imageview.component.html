@@ -1,34 +1,6 @@
 
 <app-nav-bar></app-nav-bar>
 
-<!-- 
-<li class="nav-item">
-  <div class="row">
-    <div class="col-1">
- 
-    </div>
-   
-    <div class="col-10"></div>
-    <div class="col-1">
-      <div  class="btn-group" role="group" aria-label="Button group with nested dropdown">
-        <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu
-          </button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a class="dropdown-item" href="pastevent/imageview/3"> Blood Donation</a>
-
-            
-
-            <a class="dropdown-item" href="pastevent/imageview/2"> Cricket Match</a>
-            <a class="dropdown-item" href="pastevent/imageview/3"> Annual trip</a>
-            <a class="dropdown-item" href="pastevent/budget">Budget</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</li> -->
 
 
 
@@ -47,7 +19,7 @@
               <div class="box">
         
         
-                <div class="boxInner" (click)="open(image)">
+                <div class="boxInner" >
                   <ng-template #image id="x">
                     <div class="modal-header"></div>
                     <div class="modal-body">
@@ -57,10 +29,12 @@
                     <div class="modal-footer"></div>
                   </ng-template>
                   <!-- gallery viewing  -->
+                  <div (click)="open(image)">
                   <img id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                  </div>
                   <a id="author"> {{i.author}} </a>
         
-                  <div class="titleBox"><button (click)=deleteimage(i.imageId)>Delete</button> </div>
+                  <div class="titleBox"><button  *ngIf="i.author==RC||ADMIN" (click)=deleteimage(i.imageId) >Delete</button> </div>
                 </div>
               </div>
             </div>

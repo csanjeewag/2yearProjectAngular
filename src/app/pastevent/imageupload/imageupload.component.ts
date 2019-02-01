@@ -28,6 +28,7 @@ export class ImageuploadComponent implements OnInit {
   ngOnInit() {
     this.eventid = this.rout.snapshot.paramMap.get('id')
     this.author = this.auth.tokencheckId();
+    
     console.log(this.author)
     this.imageuploadForm = new FormGroup({
       // EventId: new FormControl('', [Validators.required]),
