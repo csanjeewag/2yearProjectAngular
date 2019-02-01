@@ -1,0 +1,206 @@
+#event{
+    text-align: left;
+}
+#event:hover{
+    background-color: rgba(0, 0, 0, 0.281);
+    transition: 2s;
+}
+#head{
+    text-align: center;
+}
+#addbutton{
+    position: absolute;
+    right: 5%;
+   
+}
+#addbutton:hover{
+    background-color: aliceblue;
+}
+
+
+#event h2{
+    text-align: center;
+}
+#event h5{
+    text-align: right;
+}
+#event img{
+ 
+    width: 200px;
+    height: 200px;
+}
+#viewmore{
+    align-items: center
+
+}
+#homeback{
+    background-image: url("http://www.pezproductions.ca/blog/wp-content/uploads/2015/07/corp-event.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    
+}
+#part0{
+   background-color: rgba(0, 0, 0, 0.5);
+   height: 750px;
+}
+#mainH{
+    width: 40%;
+    margin-left: 10%;
+    border:solid 8px
+    
+}
+#part1{
+    background-color: rgba(196, 199, 199, 0.671);
+    min-height: 750px;
+    padding: 20px;
+    
+ }
+ #part2{
+    background-color: rgb(187, 187, 187);
+    min-height: 750px;  padding: 20px;
+ }
+ #part3{
+    background-color: rgba(247, 247, 247, 0.877);
+    min-height: 250px;  padding: 20px;
+ }
+ #part0 h1{
+     color: rgb(196,199,199);
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     text-align: center;
+     font-size: 100px;
+     font-weight: bold;
+     position: relative;
+     -webkit-animation: mymove 10s 1; /* Safari 4.0 - 8.0 */
+        animation: mymove 10s 10;
+        animation-direction: alternate;
+ }
+ @-webkit-keyframes mymove {
+    from {top: 100px; color: rgb(196,199,199);}
+    to {top: 300px; color:rgb(165, 165, 165);}
+}
+
+@keyframes mymove {
+    from {top: 100px;color: rgb(196,199,199); }
+    to {top: 300px; color: rgb(165,165,165);}
+}
+#backCard{
+    width: 100%; height: 100%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#backCard h1{
+    text-align: center;
+    transition: 0.5s all ease-in-out;
+    
+}
+#backCard h1:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+#center{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
+#body .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#cardDesk img{
+    
+    margin-left: 10%    
+ }
+  #cardDesk{
+     
+     margin-top: 0;
+
+ 
+ } 
+ .row{
+     padding-top: 5%
+      }
+ 
+ #cardDesk .card {
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.5s all ease-in-out;
+     width: 20%;
+     height: 20%;
+
+     /* border-bottom-left-radius: 30%; */
+     /* border-top-right-radius: 30%; */
+ }
+/* #card1{
+    top: 0em;
+}
+#card2{
+    top: 5em;
+}
+#card3{
+    top: 10em;
+} */
+
+/*card deck css*/
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: 400;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  
+
+#cardDesk .card:hover {
+     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+     width: 42%;
+     transform: scale(1.05);
+ }
+ 
+  #cardDesk .container {
+     padding: 2px 16px;
+ } 
+
+ #bottomright{
+    color: aliceblue;
+    position: absolute;
+    right: 10%;
+    top: 20%;
+ }
+#cardtopic1{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 5em;
+    color: aliceblue;
+    -webkit-animation: mycard 10s 1; /* Safari 4.0 - 8.0 */
+    animation: mycard 10s 10;
+    animation-direction: alternate;
+   
+}
+#cardtopic2{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 5em;
+    color: aliceblue;
+   
+   
+}
+#txt{
+margin-left: 90%}
+@-webkit-keyframes mycard {
+    from {left: 100px; color: rgb(196,199,199);}
+    to {right: 300px; color:rgb(165, 165, 165);}
+}
+
+@keyframes mycard {
+    from {color: rgb(224, 17, 45); }
+    to {color: rgb(140, 10, 10);}
+}

@@ -18,6 +18,10 @@ export class ShowEmployeesDetailsComponent implements OnInit {
   public toggle:any;
   public ImageUrl:any;
   public ProfileImage:any= "assets/_image/cslogo.png";
+  public clickId:any;
+  public Message:any;
+  public Notification:any;
+
   constructor(private repo :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   ngOnInit() {
@@ -83,5 +87,33 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     console.log(id)
     this.router.navigate(['/profile/lists/',id]);
   }
+  public onKey(msg){
+    
+   this.Notification = msg;
+  }
+  public getId(id){
+   this.clickId = id;
+  }
 
+
+  public send(){
+    let formData = new FormData();
+    formData.append('Data', this.Notification);
+    formData.append('DataType','Special Message');
+    formData.append('EmployeeId', this.clickId);
+    formData.append('senderId', this.auth.tokencheckId());
+
+    let apiUrl = 'Notification/addspcialnotification';
+    
+    this.repo.postFile(apiUrl, formData)
+      .subscribe(res => {
+        alert('success!')
+        this.clickId = 0;
+        
+        },
+        (error => {
+       alert('something wrongs')
+        })
+      )
+  }
 }

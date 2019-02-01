@@ -23,7 +23,7 @@ this.ImageUrl = this.repository.ImageUrl;
     this.getUpComingEvents();
     this.getpastEvents();
   }
-  public urlAddress;
+
   public events:any;
  
   public detailsemployee( id) {
@@ -37,6 +37,7 @@ public  getUpComingEvents(){
   this.repository.getData('pastevent/getupcomingeventlast3')
   .subscribe(res => {
     this.Upcommming3Event = res ;
+    console.log(res)
  
 },
   (error) => {
@@ -66,29 +67,17 @@ public  getpastEvents(){
   })
  
 }
-register(pKeys){
 
-  ///this.router.navigate(['/profile/list',gonextId])
-  console.log(pKeys);
-  this.urlAddress = "events/viewEventPage/"+pKeys;
-  this.router.navigate([this.urlAddress]);
-  console.log(this.urlAddress);
-}
 public Task(){
   this.router.navigate(['/task/']);
 
 }
 
 public onClick(){
-  this.urlAddress = "events/addevent";
-  this.router.navigate([this.urlAddress]);
+  
+  this.router.navigate(['events/addevent']);
 }
 
-public UpdateEvents(){
-  this.urlAddress="events/updateevent/2";
-  this.router.navigate([this.urlAddress]);
-
-}
 
 
 }

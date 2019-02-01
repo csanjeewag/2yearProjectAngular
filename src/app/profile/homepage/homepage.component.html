@@ -2,6 +2,7 @@
     
   <app-nav-bar></app-nav-bar>
 
+
 <div id="homeback"  >
 
 
@@ -23,7 +24,7 @@
     <div id="cardDesk" class="card-deck"class="col-lg-11 col-sm-12 container" >
        
         <div class="row">
-            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">
+            <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">
               <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[0].eventImageUrl" alt="Generic placeholder image">
               <h2>{{Upcommming3Event[0].eventTitle}}</h2>
               <h5>{{Upcommming3Event[0].startDate |date}}</h5>
@@ -34,7 +35,7 @@
               </p>
             </div><!-- /.col-lg-4 -->
 
-            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
+            <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
               <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[1].eventImageUrl"alt="Generic placeholder image" >
             <h2>{{Upcommming3Event[1].eventTitle}}</h2>
             <h5>{{Upcommming3Event[1].startDate|date}}</h5>
@@ -43,7 +44,7 @@
                
               </p>
             </div><!-- /.col-lg-4 -->
-            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">
+            <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">
               <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[2].eventImageUrl" alt="Generic placeholder image">
               <h2>{{Upcommming3Event[2].eventTitle}}</h2>
               <h5>{{Upcommming3Event[2].startDate|date}}</h5>
@@ -70,7 +71,7 @@
       <div id="cardDesk" class="card-deck" class="col-lg-11 col-sm-12 container"  >
           
           <div class="row">
-              <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[0].id)">
+              <div *ngIf="Last3Event[0].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[0].id)">
                 <img class="rounded-circle" [src]="ImageUrl+Last3Event[0].eventImageUrl" alt="Generic placeholder image" >
                 <h2>{{Last3Event[0].eventTitle}}</h2>
                 <h5>{{Last3Event[0].startDate |date}}</h5>
@@ -78,14 +79,14 @@
                  <p><a class="btn btn-secondary"  role="button" (click)="ViewPastEvent(Last3Event[0].id)">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
            
-              <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[1].id)">
+              <div *ngIf="Last3Event[1].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[1].id)">
                 <img class="rounded-circle" [src]="ImageUrl+Last3Event[1].eventImageUrl" alt="Generic placeholder image" >
               <h2>{{Last3Event[1].eventTitle}}</h2>
               <h5>{{Last3Event[1].startDate |date}}</h5>
               <p>{{Last3Event[1].eventDescription}}</p>   
               <p><a class="btn btn-secondary" (click)="ViewPastEvent(Last3Event[1].id)">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
-              <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[2].id)">
+              <div *ngIf="Last3Event[2].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[2].id)">
                 <img class="rounded-circle" [src]="ImageUrl+Last3Event[2].eventImageUrl" alt="Generic placeholder image" >
                 <h2>{{Last3Event[2].eventTitle}}</h2>
                 <h5>{{Last3Event[2].startDate |date}}</h5>
