@@ -43,8 +43,8 @@ import { UpdateRolesComponent } from './position/update-roles/update-roles.compo
 import { ShowRolesDetailsComponent } from './position/show-roles-details/show-roles-details.component';
 
 //Auth
-import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
-import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
+ import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
+ import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
 
 //login
 import { LoginEmployeeComponent } from './login-employee/login-employee.component';
@@ -104,6 +104,26 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
         { path: 'updateproject/:id', component: ProjectUpdateComponent },
         { path: 'updatedepartment/:id', component: UpdateDepartmentComponent },
         { path: 'updaterole/:id', component: UpdateRolesComponent },
+      // { path: 'home', component: HomepageComponent,},
+      // { path: 'lists', component: ShowEmployeesDetailsComponent},
+      
+      // { path: 'login', component: LoginUserInterfaceComponent },
+      // { path: 'lists/:id', component: EmployeeDetailsComponent },
+      // { path: 'delete/:id', component: DeleteEmployeeComponent },
+      // { path: 'update/:id', component: UpdateEmployeeComponent},      
+      // { path: 'profile', component: EmployeeProfileComponent },
+      // { path: 'register', component: EmployeeRegisterByLinkComponent  },
+      // { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
+      // { path: 'changepassword', component: EmployeePasswordChangeComponent  },
+      // { path: 'update', component: ChangePositionComponent },
+      // { path: 'admin', component: AdminPageComponent,children:[
+       
+      //   { path: 'roles', component: ShowRolesDetailsComponent },
+      //   { path: 'project', component: ProjectViewComponent },
+      //   { path: 'departments', component: ShowDepartmentsDetailsComponent},
+      //   { path: 'updateproject/:id', component: ProjectUpdateComponent },
+      //   { path: 'updatedepartment/:id', component: UpdateDepartmentComponent },
+      //   { path: 'updaterole/:id', component: UpdateRolesComponent },
         
       ]},
       

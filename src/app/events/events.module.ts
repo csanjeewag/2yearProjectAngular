@@ -27,6 +27,7 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
 @NgModule({
   imports: [
     SharedModuleModule,
+
     TaskModule,
     CommonModule,
     ReactiveFormsModule,

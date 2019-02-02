@@ -15,12 +15,14 @@ export class ShowEmployeesDetailsComponent implements OnInit {
 
   public result : any;
   public isAdmin:any;
+  public isRC:any;
   public toggle:any;
   public ImageUrl:any;
   public ProfileImage:any= "assets/_image/cslogo.png";
   public clickId:any;
   public Message:any;
   public Notification:any;
+  
 
   constructor(private repo :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
@@ -28,6 +30,7 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     this.ImageUrl = this.repo.ImageUrl;
     this.getAllEmployee()
     this.isAdmin = this.auth.isAdmin();
+    this.isRC = this.auth.isRC();
    }
 
   public detailsemployee( id) {

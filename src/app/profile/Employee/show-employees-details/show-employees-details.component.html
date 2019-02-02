@@ -1,81 +1,36 @@
 <app-nav-bar></app-nav-bar>
-<br>
+<div id="background">
+<div id="backgroundIN">
 
-        <br>
+    <div *ngIf="result">
+            <br>
+
+            <br>
 <div class="col-md-10 col-lg-8 col-sm-12 container">
     <div class="row">
 
-        <div class="col-md-4">       
-            <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" />
-        
+        <div class="col-md-4">
+             
+            <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" required/>
+            <label>Search by Name:</label>
          </div>
          <div class="col-md-4">       
-             <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" />
+             <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" required/>
+             <label>Search by Position:</label>
           </div>
           <div class="col-md-4">       
-             <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" />
+             <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" required/>
+             <label>Search by Project:</label>
            </div>
           </div>
 </div>
+<br>
 
+<br>
 
     <div class="col-md-8 container">
     	<div class="row">
-			<!-- <div class="col-md-12">
-				<div class="tableWithHeader ">
-					<div class="Header">
-						<h3 class="panel-title">..All Employee Details..</h3>
-						
-					</div>
-					<div class="panel-body">
-              <div class=" input-group mb-3" [class.error]="isNotEmail">
-                  <div class="input-group-prepend">
-                  <label (click)=filterInput() class="input-group-text" for="filter">Search.. </label>
-                  </div>
-						<input *ngIf="toggle" [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
-             
-          
-          <div class="table-responsive" id="table">
-					<table class="table">
-            <thead>
-            <tr >
-                <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Project</th>
-              <th>Address</th>
-              <th>Position</th>
-              <th></th>
-              <th></th>
-            
-              <th *ngIf="isAdmin"></th>
-             
-            </tr></thead>
-            <tbody>
-            <tr id="zoom1" *ngFor="let i of result | filterPipe: filtertext" >
-              <td id="zoom3" > <img [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" ></td>
-              <td>{{i.empName}}</td>
-              <td>{{i.empEmail}}</td>
-              <td>{{i.projectName}}</td>
-              <td>{{i.empAddress1}} {{i.empAddress2}}</td>
-              <td>{{i.empPosition}}</td>
-              
-              <td id="zoom3" ><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
-                    <td id="zoom3" ><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
-                    <td id="zoom3" *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/delete.png" alt="Cinque Terre" ></button></td>
-                 
-             
-            </tr>
-            </tbody>
-          </table></div>
-					
-				</div>
-			</div>
-			
-    </div>
-    
-   <div>-->
-    	
+		
         <br>
         <br>
 
@@ -109,9 +64,11 @@
            
             <div class="row">
                 <div class="col-md-6">  <h6 id="Email"> {{i.empEmail}}</h6>  <p id="Address">{{i.empAddress1}} {{i.empAddress2}}</p> 
-                    <a *ngIf="!(clickId==i.id)"  (click)="getId(i.id)"  href="void:;">take special notification</a>
-                    <a *ngIf="(clickId==i.id)"  (click)="send()"  href="void:;">Send</a>
-                    <input *ngIf="clickId==i.id" (keyup)="onKey($event.target.value)">
+                   <div *ngIf="isAdmin||isRC">
+                        <a *ngIf="!(clickId==i.id)"  (click)="getId(i.id)"  href="void:;">take special notification</a>
+                        <a *ngIf="(clickId==i.id)"  (click)="send()"  href="void:;">Send</a>
+                        <input *ngIf="clickId==i.id" (keyup)="onKey($event.target.value)">
+                    </div>
                  </div>
                
             </div>
@@ -132,4 +89,9 @@
     
     </div>
     
-        
+</div>     
+</div>
+</div>
+    <div id="load" class="row " *ngIf="!result">
+        <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
+      </div>
