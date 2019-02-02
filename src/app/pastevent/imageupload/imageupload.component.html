@@ -1,64 +1,66 @@
 
-
+<app-nav-bar></app-nav-bar>
 <div class="fff">
   <li class="nav-item">
 
-    <a class="nav-link" href="pastevent/imageview/9"> <button class="btn" class="btn btn-outline-dark">Image Gallery</button></a>
-
+   
+    <a class="btn" (click)=gotoimageview()><img src="assets/_image/cameralogo.jpg" width="130" height="100" class="rounded-circle margin-left ml-2"></a> 
   </li>
   <div class="container">
+    
+      <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-8 container">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
-          
 
-            <div class="card" style="width: 25rem;">
-              
-              <div class="card-body">
 
-                  <form [formGroup]="imageuploadForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(imageuploadForm.value)">
-                      <img *ngIf="ImageUrl[0]" [src]="ImageUrl[0]" style="width:250px;height:200px">
-                   
-                      <div class="input-field col s12">
-            
-                        <!-- <div class="form-group">
+        <div class="card" style="width: 25rem;">
+
+          <div class="card-body" >
+              <div class="modal-body">
+
+            <form [formGroup]="imageuploadForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(imageuploadForm.value)">
+              <img *ngIf="ImageUrl[0]" [src]="ImageUrl[0]" style="width:250px;height:200px">
+                
+              <div class="input-field col s12">
+
+                <!-- <div class="form-group">
                           <label for="text" class="sr-only">EventId</label>
                           <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
                         </div>
                         -->
-                        <div class="form-group">
-                          <label for="key" class="sr-only">Caption</label>
-                          <input type="text" formControlName="Caption" id="Caption" class="form-control" placeholder=" Caption">
-                        </div>
-                        <div class="form-group">
-                          <label for="key" class="sr-only">Description</label>
-                          <input type="text" formControlName="Description" id="Description" class="form-control" placeholder=" Description">
-                        </div>
-                      </div>
+                <div class="form-group">
+                  <label for="key" class="sr-only">Caption</label>
+                  <input type="text" formControlName="Caption" id="Caption" class="form-control" placeholder=" Caption">
+                </div>
 
-                      <div class="form-group">
+              </div>
 
-                        <!-- <input class="inputfile" type="file" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)"> -->
-                        <div class="image-upload-wrap">
-                            <input class="file-upload-input" type='file' onchange="readURL(this);" formControlName="Image" multiple accept="image/*" (change)="onFileChange($event.target.files)" />
-                            <div class="drag-text">
-                              <h3>Drag and drop Image</h3>
-                            </div>
-                          </div>
-                     </div>
+              <div class="form-group">
+
+                <!-- <input class="inputfile" type="file" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)"> -->
+                <div class="image-upload-wrap">
+                  <input class="file-upload-input" type='file' onchange="readURL(this);" formControlName="Image"
+                    multiple accept="image/*" (change)="onFileChange($event.target.files)" />
+                  <div class="drag-text">
+                    <h3>Drag and drop Image</h3>
+                  </div>
+                </div>
+              </div>
 
 
-                      <div class=" form-group">
-                        <button type="submit" class="btn" class="btn btn-outline-dark"  [disabled]="!imageuploadForm.valid">submit</button>
-            
-                      </div>
-                    </form>
+              <div class=" form-group">
+                <button type="submit" class="btn" class="btn btn-outline-dark" [disabled]="!imageuploadForm.valid">submit</button>
 
-                 </div>
+              </div>
+            </form>
             </div>
+          </div>
+        </div>
       </div>
       <div class="col-4"></div>
 
+    </div>
     </div>
   </div>
 
@@ -105,39 +107,40 @@
   <div class=".col-sm-5">
   </div>
 </div>> -->
-<!-- JAVA SCRIPT CODE start  -->
-<script>
+  <!-- JAVA SCRIPT CODE start  -->
+  <!-- DON NOT DELETE -->
+  <script>
 
-  function readURL(input) {
-  if (input.files && input.files[0]) {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
 
-    var reader = new FileReader();
+        var reader = new FileReader();
 
-    reader.onload = function(e) {
-      $('.image-upload-wrap').hide();
+        reader.onload = function (e) {
+          $('.image-upload-wrap').hide();
 
-      $('.file-upload-image').attr('src', e.target.result);
-      $('.file-upload-content').show();
+          $('.file-upload-image').attr('src', e.target.result);
+          $('.file-upload-content').show();
 
-      $('.image-title').html(input.files[0].name);
-    };
+          $('.image-title').html(input.files[0].name);
+        };
 
-    reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(input.files[0]);
 
-  } 
-  
-}
+      }
 
-
-
-</script>
-<!-- ##### JAVA SCRIPT (drag and drop)  end  -->
+    }
 
 
 
-<!-- ############## Drag and drop -->
+  </script>
+  <!-- ##### JAVA SCRIPT (drag and drop)  end  -->
 
-<!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
+  <!-- ############## Drag and drop -->
+
+  <!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
 <div class="file-upload">
   <!--   <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button> -->
@@ -155,5 +158,5 @@
           Image</span></button>
     </div>
   </div>
-</div> --> 
-<!-- ####### COMMENT FOR TESTING. aulak nettan ain krnda balala -->
+</div> -->
+  <!-- ####### COMMENT FOR TESTING. aulak nettan ain krnda balala -->

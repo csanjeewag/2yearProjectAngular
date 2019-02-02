@@ -44,7 +44,8 @@ public empid:any;
 
       }),
       this.ContactForm=new FormGroup({
-        type:new FormControl('')
+        type:new FormControl(''),
+        ctypedes:new FormControl('')
       }),
       this.ContactFormUpdate=new FormGroup({
         type:new FormControl('')
@@ -77,6 +78,8 @@ public empid:any;
     let ctype: ContactType = {
       
       contactType:ContactForm.type,
+      contactTypeDescription:ContactForm.ctypedes,
+
   };
   let apiUrl = 'contact/addcontacttype';
     this.repository.postData(apiUrl,ctype)

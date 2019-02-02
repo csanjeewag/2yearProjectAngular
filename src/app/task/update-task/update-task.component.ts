@@ -28,6 +28,14 @@ public employees:Array<any> = [];
 public emailFormArray:any;
 public employee:any;
 public taskstatus:any;
+
+public event:any;
+error1:any={isError:false,errorMessage:''};
+error2:any={isError:false,errorMessage:''};
+public errorMessage:any;
+
+
+
   ngOnInit() {
     this.gettask();
     this.getAllEmployee();
@@ -43,10 +51,8 @@ public taskstatus:any;
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      //EmployeeEmpId: new FormControl('',[Validators.required]),
-      //Admin: new FormControl('',[Validators.required]),
+     
       },
-      //{ validators: isvalidconfirmpassword }
       );
   }
 
@@ -56,29 +62,22 @@ public taskstatus:any;
 
     
     let t:NewTask={
-        // formdata.append('TaskName',value.TaskName),
-        // formdata.append('StartDate',value.StartDate),
-        // formdata.append('EndDate',value.EndDate),
-        // formdata.append('BudgetedCost',value.BudgetedCost),
-        // formdata.append('Description',value.Description),
-        // formdata.append('Status',value.Status)
-
+        
+        taskId:this.taskId,
         taskName:value.TaskName,
-        eventId:'2',
+        eventId:this.repository.curentEventId,
         startDate:value.StartDate,
         endDate:value.EndDate,
         budgetedCost:value.BudgetedCost,
         description:value.Description,
-        //employeeId:this.employeeId,
         employees:this.employees,
         status:this.taskstatus,
         addDate:value.addDate,
     };
 let apiUrl = 'task/create';
-        
+
         this.repository.postData(apiUrl, t)
           .subscribe(res =>  {
-            //this.Message="Project updated!";
               this.router.navigate(['task/list']);
          
             },
@@ -111,6 +110,7 @@ let apiUrl = 'task/create';
 
         
     public fillTask(){
+      
       this.taskForm.controls['TaskName'].setValue(this.task.taskName);
       this.taskForm.controls['StartDate'].setValue(this.task.startDate);
       this.taskForm.controls['EndDate'].setValue(this.task.endDate);
@@ -153,6 +153,7 @@ public  getAllEmployee(){
 
 onChange(id:string,empName:string, isChecked: boolean) {
   if(isChecked) {
+    console.log(empName)
     this.employeeId=id;
     this.employees.push(id);
     this.emailFormArray.push(empName);
@@ -202,6 +203,42 @@ onChangeStatus(isChecked: boolean){
    
 
   }
+
+  public geteventbyid(eventid){
+    this.repository.getData('Event/getall/'+eventid)
+        .subscribe(res => {
+          this.event = res ;
+  
+         console.log('----------->'+this.event.startDate);
+          
+        },
+        (error) => {
+        //  this.handleErrors(error);n
+        })
+  }
+  compareTwoDates(){
+    if(new Date(this.taskForm.controls['EndDate'].value)<new Date(this.taskForm.controls['StartDate'].value)){
+      this.error1={
+        isError:true,errorMessage:'*End date before strat date'};
+    }
+    if(new Date(this.taskForm.controls['EndDate'].value)>new Date(this.event.startDate)){
+      this.error1={
+        isError:true,errorMessage:'*End date after event date'};
+  
+    }
+  
+    
+  }
+  compareTwoDates2(){
+    if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.event.startDate)){
+       this.error2={isError:true,errorMessage:'*Event date before Task strat date'};
+    }
+    
+  else{
+    this.error2={isError:false,errorMessage:''};
+  }
+  }
+  
 
 
 }

@@ -18,12 +18,15 @@ import { Event} from './../_interfaces/event';
 export class ViewEventPageComponent implements OnInit {
    
   constructor(private repository :RepositoryService,private route:Router,private rou:ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { }
-
+  public ImageUrl:any;
   public PrId:any;
   public event:any;
   public eventId:any;
   public date:any;
   public attribute:any;
+  public form:any;
+  public today :any;
+  public register:any;
   
   public urlAddress:any;
 
@@ -37,6 +40,9 @@ export class ViewEventPageComponent implements OnInit {
   
   
   ngOnInit() {
+
+    this.ImageUrl = this.repository.ImageUrl;
+
     this.endDate =false;
     this.closingDate=false;
     this.destination=false;
@@ -44,21 +50,27 @@ export class ViewEventPageComponent implements OnInit {
     this.isFamilyMembersAllowed=false;
     this.numberOfTeams=false;
     this.venue=false;
+    this.today = new Date();
+    this.register=false;
+
    this.getparamId();
    
   }
  
   public getproject(){
-   
-
+    this.repository.curentEventId = this.PrId;
+  
     this.repository.getData('event/getall/'+this.PrId)
        .subscribe(res => {
          this.event = res ;
-         
+         if(this.today>this.event.closingDate){
+           this.register='true';
+           console.log("register"+this.register)
+         }
          this.getAttribute();
        },
        (error) => {
-       //  this.handleErrors(error);n
+       
        })
       
    
@@ -70,6 +82,7 @@ export class ViewEventPageComponent implements OnInit {
       this.PrId=id;
       console.log("id of the evenet = "+id)
       this.repository.currentEventId(this.PrId);
+    
       this.getproject();
      });
   
@@ -89,7 +102,7 @@ export class ViewEventPageComponent implements OnInit {
         this.liquor = this.attribute.liquor;
         this.venue = this.attribute.venue;
         this.numberOfTeams = this.attribute.numberOfTeams;
-
+        this.getForm();
 
       },
       (error => {
@@ -115,5 +128,22 @@ public viewEmployee(){
   this.route.navigate([this.urlAddress]);
   
 }
+
+public getForm(){
+  let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+  console.log("inside get form")
+  this.repository.getData(apiUrl)
+    .subscribe(res => {
+     this.form = res;
+    console.log(res)
+       
+      },
+      (error => {
+    
+      })
+    )
+}
+
+
  
 }

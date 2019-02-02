@@ -3,7 +3,7 @@ import { RepositoryService } from 'src/app/ShareData/repository.service';
 import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
 import { ActivatedRoute } from '@angular/router';
-import { Router,ParamMap } from '@angular/router';
+import { Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-imageupload',
@@ -18,22 +18,21 @@ export class ImageuploadComponent implements OnInit {
   // FileImage: File = null;
 
   // ImageUrl: any ="../assets/_image/cameralogo.jpg";
-  public eventid:any;
-  public author:any;
+  public eventid: any;
+  public author: any;
   public ImageUrl: Array<string> = [];
   public FileImage: Array<File> = [];
-  constructor(private repo: RepositoryService, private repository: RepositoryService, private route: Router,private auth:AuthServiceService, private rout:ActivatedRoute) { }
+  constructor(private repo: RepositoryService, private repository: RepositoryService, private route: Router, private auth: AuthServiceService, private rout: ActivatedRoute) { }
   public imageuploadForm: FormGroup;
-  
+
   ngOnInit() {
     this.eventid = this.rout.snapshot.paramMap.get('id')
-
-  this.author=this.auth.tokencheckId();
-  console.log(this.author)
+    this.author = this.auth.tokencheckId();
+    console.log(this.author)
     this.imageuploadForm = new FormGroup({
       // EventId: new FormControl('', [Validators.required]),
       Caption: new FormControl('', [Validators.required]),
-      Description: new FormControl('', [Validators.required]),
+      // Description: new FormControl('', [Validators.required]),
       Image: new FormControl('', [Validators.required])
 
     })
@@ -81,7 +80,11 @@ export class ImageuploadComponent implements OnInit {
     var reader = new FileReader();
     reader.onload = (event: any) => {
       this.ImageUrl[0] = event.target.result;
-    
+      
+      console.log("hiiiiiiiiiiiii")
+      console.log(event.target)
+      console.log("hiiiiiiiiiiiii")
+
 
       console.log(event.target.result)
     }
@@ -111,7 +114,7 @@ export class ImageuploadComponent implements OnInit {
 
   OnSubmit(value) {
     console.log(value)
-    let url = "pastevent/addimage";        
+    let url = "pastevent/addimage";
     let formData = new FormData();
     formData.append('EventId', this.eventid);
     formData.append('Caption', value.Caption);
@@ -138,7 +141,7 @@ export class ImageuploadComponent implements OnInit {
     if (this.FileImage[18] != null) { formData.append('Image', this.FileImage[18]); }
     if (this.FileImage[19] != null) { formData.append('Image', this.FileImage[19]); }
 
-   
+
 
 
     // formData.append('Image', this.FileImage[2]);
@@ -158,6 +161,10 @@ export class ImageuploadComponent implements OnInit {
 
   }
 
-
+  public gotoimageview() {
+    let id = this.eventid;
+    this.route.navigate(['pastevent/imageview/' + id]);
+   
+  }
 
 }
