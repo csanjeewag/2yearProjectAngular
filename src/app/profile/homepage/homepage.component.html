@@ -2,7 +2,7 @@
     
   <app-nav-bar></app-nav-bar>
 
-<div id="homeback" >
+<div id="homeback"  >
 
 
 
@@ -11,42 +11,45 @@
 
 </div>
 
-<div id="part1">
-  <div class = "row">
-    <div class = "col-sm-2"></div>
-  <div col-sm-4>
-  <h1 id="head">UPCOMMING EVENTS</h1>
-  </div>
-  <div class = "col-sm-2"></div><div class = "col-sm-2"></div>
-  <div col-sm-2>
-    <button type="button" class="btn btn-info" (click)="onClick()">Add New Event </button>
+<div id="part1" >
+  
+  <h1 id="head" class=" container" >UPCOMMING EVENTS</h1> <button *ngIf="IsAdmin||IsRC" type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
+  <div class = "row"> 
+
+  <div>
+   
   </div>
   </div>
-    <div id="cardDesk" class="card-deck" >
+    <div id="cardDesk" class="card-deck"class="col-lg-11 col-sm-12 container" >
        
         <div class="row">
-            <div class="col-lg-4">
-              <img class="rounded-circle" src="assets\_image\past.jpg" alt="Generic placeholder image" width="140" height="140">
-              <h2>Beach Party</h2>
-              <p>Visit here to see all upcomming events of the company.You can grab your chance to participate to the event by submiting the forum.You can enjoy your day with family members</p>
-              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="Events()">View details &raquo;</a>
-                <a class="btn btn-secondary"  role="button" (click)="UpdateEvents()">Update Event &raquo;</a>
+            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">
+              <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[0].eventImageUrl" alt="Generic placeholder image">
+              <h2>{{Upcommming3Event[0].eventTitle}}</h2>
+              <h5>{{Upcommming3Event[0].startDate |date}}</h5>
+              <p>{{Upcommming3Event[0].eventDescription}}</p>
+              
+              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">View details &raquo;</a>
+              
               </p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <img class="rounded-circle" src="assets\_image\event.png" alt="Generic placeholder image" width="140" height="140">
-              <h2>Annual trip</h2>
-              <p>Visit here to see recently closed events and their details.You can get more details from here.Can generate reports easily.You can visit here to get Contact details of previous event also includes here</p>
-              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="pastEvent()">View details &raquo;</a>
-                <a class="btn btn-secondary"  role="button" (click)="UpdateEvents()">Update Event &raquo;</a>
+
+            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
+              <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[1].eventImageUrl"alt="Generic placeholder image" >
+            <h2>{{Upcommming3Event[1].eventTitle}}</h2>
+            <h5>{{Upcommming3Event[1].startDate|date}}</h5>
+              <p>{{Upcommming3Event[1].eventDescription}}</p>
+               <p><a id="viewmore" class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">View details &raquo;</a>
+               
               </p>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-              <img class="rounded-circle" src="assets\_image\yearend.jpg" alt="Generic placeholder image" width="140" height="140">
-              <h2>Year End Part</h2>
-              <p>Visit here to see your task and all assign tasks categorized by evets.Also an overview of tasks.Assigned tasks for employees can do here.And also can manage them.RC can upload their details see all</p>
-              <p><a class="btn btn-secondary" role="button" routerLink="/events/vieweventpage">View details &raquo;</a>
-                <a class="btn btn-secondary"  role="button" (click)="UpdateEvents()">Update Event &raquo;</a>
+            <div id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
+              <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[2].eventImageUrl" alt="Generic placeholder image">
+              <h2>{{Upcommming3Event[2].eventTitle}}</h2>
+              <h5>{{Upcommming3Event[2].startDate|date}}</h5>
+              <p>{{Upcommming3Event[2].eventDescription}}</p>
+                <p><a class="btn btn-secondary" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">View details &raquo;</a>
+               
               </p>
             </div><!-- /.col-lg-4 -->
             <a  id="txt">More..</a>
@@ -63,27 +66,31 @@
 <!-- part 2 -->
 
 <div id="part2">
-    <h1 id="head">PAST EVENTS</h1>
-      <div id="cardDesk" class="card-deck" >
+    <h1 id="head" class=" container" >PREVIOUS EVENTS</h1>
+      <div id="cardDesk" class="card-deck" class="col-lg-11 col-sm-12 container"  >
           
           <div class="row">
-              <div class="col-lg-4">
-                <img class="rounded-circle" src="assets\_image\c.jpg" alt="Generic placeholder image" width="140" height="140">
-                <h2>Creative Sixes</h2>
-                <p>Visit here to see all upcomming events of the company.You can grab your chance to participate to the event by submiting the forum.You can enjoy your day with family members</p>
-                <p><a class="btn btn-secondary" routerLink="/pastevent/eventcard" role="button" (click)="Events()">View details &raquo;</a></p>
+              <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[0].id)">
+                <img class="rounded-circle" [src]="ImageUrl+Last3Event[0].eventImageUrl" alt="Generic placeholder image" >
+                <h2>{{Last3Event[0].eventTitle}}</h2>
+                <h5>{{Last3Event[0].startDate |date}}</h5>
+                <p>{{Last3Event[0].eventDescription}}</p> 
+                 <p><a class="btn btn-secondary"  role="button" (click)="ViewPastEvent(Last3Event[0].id)">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
-              <div class="col-lg-4">
-                <img class="rounded-circle" src="assets\_image\b.jpg" alt="Generic placeholder image" width="140" height="140">
-                <h2>Blood Donation</h2>
-                <p>Visit here to see recently closed events and their details.You can get more details from here.Can generate reports easily.You can visit here to get Contact details of previous event also includes here</p>
-                <p><a class="btn btn-secondary" routerLink="/pastevent/eventcard" role="button" (click)="pastEvent()">View details &raquo;</a></p>
+           
+              <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[1].id)">
+                <img class="rounded-circle" [src]="ImageUrl+Last3Event[1].eventImageUrl" alt="Generic placeholder image" >
+              <h2>{{Last3Event[1].eventTitle}}</h2>
+              <h5>{{Last3Event[1].startDate |date}}</h5>
+              <p>{{Last3Event[1].eventDescription}}</p>   
+              <p><a class="btn btn-secondary" (click)="ViewPastEvent(Last3Event[1].id)">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
-              <div class="col-lg-4">
-                <img class="rounded-circle" src="assets\_image\p.jpg" alt="Generic placeholder image" width="140" height="140">
-                <h2>Creative Anniversary</h2>
-                <p>Visit here to see your task and all assign tasks categorized by evets.Also an overview of tasks.Assigned tasks for employees can do here.And also can manage them.RC can upload their details see all</p>
-                <p><a class="btn btn-secondary" role="button" routerLink="/pastevent/eventcard">View details &raquo;</a></p>
+              <div id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[2].id)">
+                <img class="rounded-circle" [src]="ImageUrl+Last3Event[2].eventImageUrl" alt="Generic placeholder image" >
+                <h2>{{Last3Event[2].eventTitle}}</h2>
+                <h5>{{Last3Event[2].startDate |date}}</h5>
+                <p>{{Last3Event[2].eventDescription}}</p>
+                   <p><a class="btn btn-secondary" role="button" (click)="ViewPastEvent(Last3Event[2].id)">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
               <a id="txt">More..</a>
             </div>

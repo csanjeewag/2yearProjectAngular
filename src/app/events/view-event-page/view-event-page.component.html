@@ -8,16 +8,27 @@
     <div class="container">
       <div class="card">
         <div class="row">
-            
+          <div class="col-md-6 col-sm-10">
+            <br>
+              <h1 id="h1" class="card-title">{{event.eventTitle}}</h1>
+          </div>
+          <div class="col-md-6 col-sm-10" >
+            <br>
+              <h4 id="h2" class="card-text">Date: {{event.startDate | date: 'dd/MM/yyyy'}}</h4>
+              <h3 id="h2" *ngIf="destination"class="card-text">Destination: {{event.destination}}</h3>
+              <h3 id="h2" *ngIf="venue" class="card-text">Venue: {{event.venue}}</h3>
+          </div>
+        </div>
+  
+        <div class="row">           
           <div class="col-md-6">
            
             <div class="card-block" id="dis">
               <br/>
-              <h4 class="card-title">{{event.eventTitle}}</h4>
+             
               <p class="card-text">{{event.eventDescription}}</p>
-              <p *ngIf="destination"class="card-text">Destination: {{event.destination}}</p>
-              <p *ngIf="venue" class="card-text">Venue: {{event.venue}}</p>
-              <p class="card-text">Date: {{event.startDate | date: 'dd/MM/yyyy'}}</p>
+              
+            
 
               <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{event.closingDate | date: 'dd/MM/yyyy'}}</p>
               <p class="card-text" *ngIf="endDate">EndDate of Event: {{event.endDate | date: 'dd/MM/yyyy'}}</p>

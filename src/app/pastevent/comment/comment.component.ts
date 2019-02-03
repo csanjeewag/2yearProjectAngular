@@ -26,14 +26,17 @@ export class CommentComponent implements OnInit {
     this.eventid = this.repository.commenteventId;
     this.author = this.auth.tokencheckId();
     this.getcomment();
+   this.commenttform();
+    
 
+  }
+  public commenttform(){
     this.commentForm = new FormGroup({
       // EventId: new FormControl('', [Validators.required]),
-      CommentIn: new FormControl(''),
+      CommentIn: new FormControl('',[Validators.required]),
 
 
     })
-
   }
 
 
@@ -74,6 +77,7 @@ export class CommentComponent implements OnInit {
     this.repository.postFile(url,formData)
       .subscribe(res => {
         this.getcomment();
+        this.commenttform();
         console.log(res);
       }, (error => {
         console.log("error");

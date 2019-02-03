@@ -6,6 +6,11 @@ import { SharedModuleModule } from './../../shared-module/shared-module.module';
 
 import { TeamFormComponent } from './team-form/team-form.component';
 import { TeamViewComponent } from "./team-view/team-view.component";
+import { CaptainEmailComponent } from './captain-email/captain-email.component';
+import { EmailAlertComponent } from './email-alert/email-alert.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
+import { ScheduleViewsComponent } from './schedule-views/schedule-views.component';
 
 
 @NgModule({
@@ -17,9 +22,13 @@ import { TeamViewComponent } from "./team-view/team-view.component";
     RouterModule.forChild([
       { path: 'teamform/:id', component: TeamFormComponent },
       { path: 'teamview/:id', component: TeamViewComponent },
-      
+      { path: 'emailform/:id', component: CaptainEmailComponent },
+      { path: 'emailview/:id', component: EmailAlertComponent },
+      { path: 'scheduleform/:id', component: ScheduleComponent },
+      { path: 'scheduleview/:id', component: ScheduleViewComponent },
+      { path: 'scheduleviews/:id', component: ScheduleViewsComponent },
     ])
   ],
-  declarations: [TeamFormComponent,TeamViewComponent]
+  declarations: [TeamFormComponent,TeamViewComponent, CaptainEmailComponent, EmailAlertComponent, ScheduleComponent, ScheduleViewComponent, ScheduleViewsComponent]
 })
 export class CricketmatchsModule { }

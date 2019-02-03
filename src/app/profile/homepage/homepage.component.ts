@@ -10,9 +10,18 @@ import { Router } from '@angular/router';
 export class HomepageComponent implements OnInit {
 
   constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
+public Last3Event:any;
+public Upcommming3Event:any;
+public ImageUrl:any;
+public IsAdmin:any;
+public IsRC:any;
 
   ngOnInit() {
-    console.log("reading id from auth service inside home page"+this.repository.eventId);
+  this.IsAdmin = this.auth.isAdmin();
+  this.IsRC = this.auth.isRC();  
+this.ImageUrl = this.repository.ImageUrl;
+    this.getUpComingEvents();
+    this.getpastEvents();
   }
   public urlAddress;
   public events:any;
@@ -25,9 +34,30 @@ export class HomepageComponent implements OnInit {
 
 
 public  getUpComingEvents(){
-  this.repository.getData('v')
+  this.repository.getData('pastevent/getupcomingeventlast3')
   .subscribe(res => {
-    this.events = res ;
+    this.Upcommming3Event = res ;
+ 
+},
+  (error) => {
+  
+  })
+ 
+}
+
+public ViewUpcommingEvent(id){
+  this.router.navigate(['events/vieweventpage/'+id]);
+}
+
+public ViewPastEvent(id){
+  this.router.navigate(['pastevent/event/s/'+id]);
+}
+
+
+public  getpastEvents(){
+  this.repository.getData('pastevent/getpasteventlast3')
+  .subscribe(res => {
+    this.Last3Event = res ;
     console.log(res);
 
 },
@@ -36,7 +66,6 @@ public  getUpComingEvents(){
   })
  
 }
-
 register(pKeys){
 
   ///this.router.navigate(['/profile/list',gonextId])
@@ -60,6 +89,7 @@ public UpdateEvents(){
   this.router.navigate([this.urlAddress]);
 
 }
+
 
 }
 

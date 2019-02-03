@@ -1,9 +1,8 @@
-table tr th {
-    text-align: left;
-}
+
 .card-body{
-    margin: 1em;
+    margin: 1em auto;
 }
 #card{
    margin-bottom: 1em;
 }
+
