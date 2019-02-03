@@ -178,7 +178,7 @@ public geteventbyid(eventid){
 compareTwoDates(){
   if(new Date(this.taskForm.controls['EndDate'].value)<new Date(this.taskForm.controls['StartDate'].value)){
     this.error1={
-      isError:true,errorMessage:'*End date before strat date'};
+      isError:true,errorMessage:'*End date before start date'};
   }
   if(new Date(this.taskForm.controls['EndDate'].value)>new Date(this.event.startDate)){
     this.error1={
@@ -190,7 +190,7 @@ compareTwoDates(){
 }
 compareTwoDates2(){
   if(new Date(this.taskForm.controls['StartDate'].value)>new Date(this.event.startDate)){
-     this.error2={isError:true,errorMessage:'*Event date before Task strat date'};
+     this.error2={isError:true,errorMessage:'*Event date before Task start date'};
   }
   
 else{

@@ -42,6 +42,7 @@ export class ImageviewComponent implements OnInit {
     this.repo.getData('PastEvent/getimages/' + id)
       .subscribe(res => {
         this.result = res;
+        console.log(this.result);
         
 
       },

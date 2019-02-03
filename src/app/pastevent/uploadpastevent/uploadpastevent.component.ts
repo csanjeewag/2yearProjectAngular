@@ -9,60 +9,31 @@ import { url } from 'inspector';
 @Component({
   selector: 'app-uploadpastevent',
   templateUrl: './uploadpastevent.component.html',
-  styleUrls: ['./uploadpastevent.component.css']
+  styleUrls: ['./uploadpastevent.component.css'],
+  providers: [RepositoryService]
 })
 export class UploadpasteventComponent implements OnInit {
-  public eventid: any;
-  public results: any;
+  public eventid:any;
+  public result: any;
 
-  constructor(private repo: RepositoryService, private repository: RepositoryService, private route: Router, private auth: AuthServiceService, private rout: ActivatedRoute) { }
-  public summaryForm: FormGroup
+  constructor(private rout: ActivatedRoute, private repo: RepositoryService) { }
+
   ngOnInit() {
-    this.eventid = this.rout.snapshot.paramMap.get('id')
-    // this.getTasks();
-    this.summaryForm = new FormGroup({
-
-      summary: new FormControl('', [Validators.required]),
-    })
+    this.gettaskbyid();
+  this.eventid=this.rout.snapshot.paramMap.get('id')
   }
 
-  OnSubmit(value) {
-    console.log(value)
-    let url = " pastevent/upgradeevent";
-    let formData = new FormData();
-    formData.append('EventId', this.eventid);
-    formData.append('EventDescription', value.summary);
-
-    console.log(this.eventid);
-    this.repository.postData(url, formData)
+  public gettaskbyid() {
+    let id = this.eventid;
+    this.repo.getData('PastEvent/getimages/' + id)
       .subscribe(res => {
-
-      }, (error => {
-
-      })
-      )
+        this.result = res;
+        console.log(this.result);
+      },
+        (error) => {
+        
+        })
   }
-
-
-
-  // public getTasks() {
-  //   let url = "task/getall";
-  //   this.repository.getData(url)
-
-  //     .subscribe(res => {
-
-  //       this.results = res;
-  //       console.log(this.results);
-  //     }, (error) => {
-
-  //     })
-
-  // }
-
-
-
-
-
 
 
 }

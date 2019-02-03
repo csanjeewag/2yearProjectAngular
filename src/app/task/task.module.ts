@@ -67,7 +67,7 @@ import { UpdateContactDetailComponent } from './update-contact-detail/update-con
        {path:'contact',component:ContactsComponent},
        {path:'viewcontact/:id',component:ViewcontactsComponent},
         {path:'viewtaskinfo/:id',component:ViewTaskInfoComponent},
-{path:'updatecontactdetail/:id',component:UpdateContactDetailComponent}
+       {path:'updatecontactdetail/:id',component:UpdateContactDetailComponent}
 
        //{ path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'} },
 

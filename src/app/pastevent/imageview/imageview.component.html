@@ -22,10 +22,17 @@
                 <div class="boxInner" >
                   <ng-template #image id="x">
                     <div class="modal-header"></div>
-                    <div class="modal-body">
+                    <!-- <div class="modal-body">
                       <!-- modal viewing -->
-                      <img class="card w-200" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
-                    </div>
+                      <!-- <img class="card w-150" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                    </div> -->
+
+                    <div  id="x" class="modal-body" >
+                        <!-- modal viewing -->
+                        <img width="475px"  [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                      </div>
+
+
                     <div class="modal-footer"></div>
                   </ng-template>
                   <!-- gallery viewing  -->
