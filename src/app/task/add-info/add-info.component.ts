@@ -22,8 +22,8 @@ public contactForm:FormGroup;
 public ctypeid:any;
 public ctypename:any;
   ngOnInit() {
-    //this.empid=this.auth.tokencheckId();
-    this.empid=1;
+  this.empid=this.auth.tokencheckId();
+   // this.empid=1;
     console.log('----------->'+this.empid);
     this.getAllContactTypes();
     this. getTaskForEmployee(this.empid);

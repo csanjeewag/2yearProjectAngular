@@ -1,0 +1,33 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class=" col-md-10 container">
+
+    <div>
+        <br>
+        <h3>Email of Captain Email...</h3>
+    </div>
+    <button type="button" class="btn btn-success" (click)="composeMail()">Compose Mail</button>
+<br>
+    <!-- Start send email -->
+    <div class="row">
+
+        <div class="card col-12">
+            <div class="card-body">
+                <h5 class="card-title"><u>{{details.topic}}.</u></h5>
+                <hr>
+                <p class="card-text" class="date">{{details.senderdate | date }}</p>
+                <p>Dear Captain, </p>
+                <p class="card-text">{{details.description1}}</p>
+                <p class="card-text">{{details.description2}}</p>
+                <p class="card-text">{{details.description3}}</p>
+                <p>Thank You.</p>
+                <br>
+                <p>{{details.sendername}},</p>
+                <p>Rc committee Member.</p>
+            </div>
+        </div>
+    </div>
+    <!-- End send email -->
+
+</div>

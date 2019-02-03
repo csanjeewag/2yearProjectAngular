@@ -1,0 +1,233 @@
+<app-nav-bar></app-nav-bar>
+
+<br>
+<div>
+  <div class="row">
+    
+    <div class="col-lg-10 container">
+
+      <div class=" col-md-8 container">
+        <div>
+          <h2>Team Schedules...</h2>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-success" (click)="redirectToAddSchedule()">Add Schedule</button>
+
+      <!--start card part 1 -->
+      <div>
+        <hr style="border-top: 1px dotted rgb(197, 175, 175);">
+        <div class="container">
+          <div>
+            <h4>First Round Match</h4>
+          </div>
+        </div>
+        <div id="card">
+          <div class="row">
+      
+            <!-- start card 1 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card " *ngIf="teams[0]||teams[1]">
+                <div class="card-body">
+                  <h5 class="card-title">Group A</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[0]&&teams[1])||(!teams[1]&&teams[0]))"><i>By</i></h6>
+                  <p *ngIf="teams[0]" class="card-text"><b>Team</b> : {{teams[0]}}</p>
+                  <p *ngIf="teams[0]" class="card-text"><b>Captain</b> : {{captains[0]}}</p>
+                  <h6 *ngIf="teams[0]&&teams[1]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[1]" class="card-text"><b>Team</b> : {{teams[1]}}</p>
+                  <p *ngIf="teams[1]" class="card-text"><b>Captain</b> : {{captains[1]}}</p>
+      
+                </div>
+              </div>
+            </div>
+            <!-- end card 1 -->
+      
+            <!-- start card 2 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[2]||teams[3]">
+                <div class="card-body">
+                  <h5 class="card-title">Group B</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[2]&&teams[3])||(!teams[3]&&teams[2]))"><i>By</i></h6>
+                  <p *ngIf="teams[2]" class="card-text"><b>Team</b> : {{teams[2]}}</p>
+                  <p *ngIf="teams[2]" class="card-text"><b>Captain</b> : {{captains[2]}}</p>
+                  <h6 *ngIf="teams[2]&&teams[3]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[3]" class="card-text"><b>Team</b> : {{teams[3]}}</p>
+                  <p *ngIf="teams[3]" class="card-text"><b>Captain</b> : {{captains[3]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 2 -->
+      
+            <!-- start card 3 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[4]||teams[5]">
+                <div class="card-body">
+                  <h5 class="card-title">Group C</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[4]&&teams[5])||(!teams[5]&&teams[4]))"><i>By</i></h6>
+                  <p *ngIf="teams[4]" class="card-text"><b>Team</b> : {{teams[4]}}</p>
+                  <p *ngIf="teams[4]" class="card-text"><b>Captain</b> : {{captains[4]}}</p>
+                  <h6 *ngIf="teams[4]&&teams[5]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[5]" class="card-text"><b>Team</b> : {{teams[5]}}</p>
+                  <p *ngIf="teams[5]" class="card-text"><b>Captain</b> : {{captains[5]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 3 -->
+      
+            <!-- start card 4 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[6]||teams[7]">
+                <div class="card-body">
+                  <h5 class="card-title">Group D</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[6]&&teams[7])||(!teams[7]&&teams[6]))"><i>By</i></h6>
+                  <p *ngIf="teams[6]" class="card-text"><b>Team</b> : {{teams[6]}}</p>
+                  <p *ngIf="teams[6]" class="card-text"><b>Captain</b> : {{captains[6]}}</p>
+                  <h6 *ngIf="teams[6]&&teams[7]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[7]" class="card-text"><b>Team</b> : {{teams[7]}}</p>
+                  <p *ngIf="teams[7]" class="card-text"><b>Captain</b> : {{captains[7]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 4 -->
+      
+            <!-- start card 5 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[8]||teams[9]">
+                <div class="card-body">
+                  <h5 class="card-title">Group E</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[8]&&teams[9])||(!teams[9]&&teams[8]))"><i>By</i></h6>
+                  <p *ngIf="teams[8]" class="card-text"><b>Team</b> : {{teams[8]}}</p>
+                  <p *ngIf="teams[8]" class="card-text"><b>Captain</b> : {{captains[8]}}</p>
+                  <h6 *ngIf="teams[8]&&teams[9]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[9]" class="card-text"><b>Team</b> : {{teams[9]}}</p>
+                  <p *ngIf="teams[9]" class="card-text"><b>Captain</b> : {{captains[9]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 5 -->
+      
+            <!-- start card 6 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[10]||teams[11]">
+                <div class="card-body">
+                  <h5 class="card-title">Group F</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[10]&&teams[11])||(!teams[11]&&teams[10]))"><i>By</i></h6>
+                  <p *ngIf="teams[10]" class="card-text"><b>Team</b> : {{teams[10]}}</p>
+                  <p *ngIf="teams[10]" class="card-text"><b>Captain</b> : {{captains[10]}}</p>
+                  <h6 *ngIf="teams[10]&&teams[11]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[11]" class="card-text"><b>Team</b> : {{teams[11]}}</p>
+                  <p *ngIf="teams[11]" class="card-text"><b>Captain</b> : {{captains[11]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 6 -->
+      
+            <!-- start card 7 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[12]||teams[13]">
+                <div class="card-body">
+                  <h5 class="card-title">Group G</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[12]&&teams[13])||(!teams[13]&&teams[12]))"><i>By</i></h6>
+                  <p *ngIf="teams[12]" class="card-text"><b>Team</b> : {{teams[12]}}</p>
+                  <p *ngIf="teams[12]" class="card-text"><b>Captain</b> : {{captains[12]}}</p>
+                  <h6 *ngIf="teams[12]&&teams[13]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[13]" class="card-text"><b>Team</b> : {{teams[13]}}</p>
+                  <p *ngIf="teams[13]" class="card-text"><b>Captain</b> : {{captains[13]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 7 -->
+      
+            <!-- start card 8 -->
+            <div class="col-lg-4 col-sm-12 container">
+              <div class="card" *ngIf="teams[14]||teams[15]">
+                <div class="card-body">
+                  <h5 class="card-title">Group H</h5>
+                  <hr>
+                  <h6 *ngIf="((!teams[14]&&teams[15])||(!teams[15]&&teams[14]))"><i>By</i></h6>
+                  <p *ngIf="teams[14]" class="card-text"><b>Team</b> : {{teams[14]}}</p>
+                  <p *ngIf="teams[14]" class="card-text"><b>Captain</b> : {{captains[14]}}</p>
+                  <h6 *ngIf="teams[14]&&teams[15]" id="vs"><i>vs</i></h6>
+                  <p *ngIf="teams[15]" class="card-text"><b>Team</b> : {{teams[15]}}</p>
+                  <p *ngIf="teams[15]" class="card-text"><b>Captain</b> : {{captains[15]}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- end card 8 -->
+      
+          </div>
+        </div>
+      </div>
+      <!-- end card part 1-->
+
+      <!--start card part 2 -->
+      <div>
+        <hr style="border-top: 1px dotted rgb(197, 175, 175);">
+        <div class="container">
+          <div>
+            <h4>Second Round Match</h4>
+          </div>
+        </div>
+        <div id="card">
+          <div class="row">
+      
+            <div class="col-lg-3 col-sm-12 container">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">First Match</h5>
+                  <hr>
+                  <p class="card-text">Group A Winner</p>
+                  <p class="card-text">Group B Winner</p>
+                </div>
+              </div>
+            </div>
+
+             <div class="col-lg-3 col-sm-12 container">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Second Match</h5>
+                  <hr>
+                  <p class="card-text">Group C Winner</p>
+                  <p class="card-text">Group D Winner</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-12 container">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Third Match</h5>
+                  <hr>
+                  <p class="card-text">Group E Winner</p>
+                  <p class="card-text">Group F Winner</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-12 container">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Fourth Match</h5>
+                  <hr>
+                  <p class="card-text">Group G Winner</p>
+                  <p class="card-text">Group H Winner</p>
+                </div>
+              </div>
+            </div> 
+      
+          </div>
+        </div>
+      </div>
+      <!-- end card part -->
+
+    </div>
+   
+  </div>
+</div>
