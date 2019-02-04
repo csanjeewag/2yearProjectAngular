@@ -91,9 +91,7 @@ export class EmployeeRegistrationComponent implements OnInit {
   
 
   public createrole(value) {
-  
-  console.log(value) 
-    if (this.EventForm.valid) {
+  if (this.EventForm.valid) {
       if(this.eventId!=null){
         let formdata = new FormData;
         formdata.append('EventId',this.eventId);
@@ -150,12 +148,9 @@ export class EmployeeRegistrationComponent implements OnInit {
 
   public getAttribute(){
     let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
-    console.log("inside get attribute")
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
-      console.log(res)
-          
           this.dob = this.attribute.dob;
           this.transportationMode = this.attribute.transportationMode;
           this.accomadation = this.attribute.accomadation;
@@ -178,11 +173,7 @@ export class EmployeeRegistrationComponent implements OnInit {
     this.route.paramMap.subscribe((params:ParamMap)=>{
       let id =params.get('id');
       this.eventId=id;
-      console.log("id of the evenet = "+id)
-      console.log("get the  param id"+id)
-     
-         this.eventId=this.repository.curentEventId;
-         console.log("event id = "+this.repository.curentEventId)
+      this.eventId=this.repository.curentEventId;
          this.getAttribute();
     
 

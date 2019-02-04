@@ -52,20 +52,9 @@ export class AddPollComponent implements OnInit {
       let formdata = new FormData;
        
       formdata.append('Title',pollFormvalue.title);
-      console.log("title = "+pollFormvalue.title);
-
       formdata.append('Description',pollFormvalue.description);
-      console.log("description = "+pollFormvalue.description);
-
-      formdata.append('ClosingDate',pollFormvalue.closingDate);
+       formdata.append('ClosingDate',pollFormvalue.closingDate);
       formdata.append('IsActive','true');
-
-      console.log("closingDate = "+pollFormvalue.closingDate);
-
-      
-       
-      
-      console.log("formdata = "+formdata);
 
       let apiUrl = 'Poll/createPoll';
       

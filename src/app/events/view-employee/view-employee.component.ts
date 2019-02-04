@@ -51,39 +51,22 @@ public getEmployees(){
   .subscribe(res => {
     this.employee = res ;
     this.getAttribute(); 
-    console.log("response = "+this.employee);
+   
   },
   (error) => {
-  //  this.handleErrors(error);n
+  
   })
   
 }
 
-public getdate(){
-  
-  for (var employee of this.employee) {
-    employee.dob=""+employee.dob;
-    let x=employee.dob.split("T");
-    employee.dob=x[0];
-    console.log("bday = "+employee.dob);
-    employee.spouseDob=""+employee.spouseDob;
-    let y = employee.spouseDob.split("T");
-    employee.spouseDob=y[0];
-      
-  }
-      
-         
-}
+
 
 public getAttribute(){
   let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
-  console.log("inside get attribute")
   this.repository.getData(apiUrl)
     .subscribe(res => {
      this.attribute = res;
-    console.log(res)
-        
-        this.dob = this.attribute.dob;
+    this.dob = this.attribute.dob;
        
         this.transportationMode = this.attribute.transportationMode;
         this.accomadation = this.attribute.accomadation;
@@ -103,5 +86,38 @@ public getAttribute(){
     )
 }
 
+
+public deleteEmployee(employee){
+  let formdata = new FormData;
+  formdata.append('IsActive','false'); 
+  formdata.append('Id',employee.id); 
+  
+      formdata.append('Name',employee.name);
+      
+      formdata.append('EventId',employee.eventId);
+
+      formdata.append('EmployeeId',employee.employeeId); 
+      formdata.append('MealType',employee.mealType); 
+      formdata.append('Nic',employee.nic);
+      formdata.append('Accomadation',employee.accomadation);
+      formdata.append('Dob',employee.dob); 
+      formdata.append('TransportationMode',employee.transportationMode); 
+      formdata.append('Gender',employee.gender);
+      formdata.append('SpouseName',employee.spouseName);
+      formdata.append('SpouseDob',employee.spouseDob); 
+      formdata.append('SpouseNic',employee.spouseNic); 
+
+  let apiUrl = 'Registration/deleteEmployee';
+      
+  this.repository.postFile(apiUrl, formdata)
+     .subscribe(res =>  {
+         window.alert("Employee has deleted succesfully")
+      },
+       (error => {
+        
+      
+       })
+     )
+}
 
 }

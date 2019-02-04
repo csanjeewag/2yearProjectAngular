@@ -19,8 +19,6 @@ export class SelectAttributeComponent implements OnInit {
   public urlAddress:any;
   public attribute:any;
   ngOnInit() {
-   // this.getparamId();
-console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository.eventId);
   this.getAttribute();
     this.EventForm = new FormGroup({
     
@@ -64,12 +62,9 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
-          //this.Message="attribute updated!";
           this.urlAddress = "events/addevent/"+this.repository.eventId;
           this.router.navigate([this.urlAddress]);
-           //   this.router.navigate(['/profile/admin/roles']);
-           
-       
+          
           },
           (error => {
             this.Message="Event Created Failed,Try Again!";
@@ -82,7 +77,6 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
   getparamId(){
     this.rou.paramMap.subscribe((params:ParamMap)=>{
       let id =params.get('id');
-      console.log("get the  param id"+id)
       this.EventId=id;
       this.getAttribute();
      });
@@ -94,12 +88,10 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
 
   public getAttribute(){
     let apiUrl = 'event/getatribute/'+this.repository.eventId;
-    console.log("inside get attribute")
-    this.repository.getData(apiUrl)
+     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
-      console.log("this is the attribute returned"+res)
-          this.fiilEvent();
+         this.fiilEvent();
         },
         (error => {
       
@@ -118,7 +110,7 @@ console.log("IN THE SELECT ATTRIBUTE component. reding event id"+this.repository
     this.EventForm.controls['actualCost'].setValue(this.attribute.actualCost);
     this.EventForm.controls['mainOrganiZer'].setValue(this.attribute.mainOrganiZer);
     this.EventForm.controls['summary'].setValue(this.attribute.summary);
-    console.log("liquor = ")
+   
     
 
   }

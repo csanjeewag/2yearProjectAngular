@@ -30,6 +30,11 @@ export class AddEventComponent implements OnInit {
     public event:any;
     public eventId:any;
     public attribute:any;
+    public sdate:any;
+    public edate:any;
+    public cdate:any;
+
+
 
     
 
@@ -129,23 +134,18 @@ export class AddEventComponent implements OnInit {
         formdata.append('MainOrganiZer',value.mainOrganiZer);
         formdata.append('Summary',value.summary);
      
-        
-          
+       
                let apiUrl = 'event/updateevent';
           
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
                this.event=res;
-               console.log("event returned = "+this.event);
-               console.log("updating the event befor go to select attribute");
-              this.repository.addEventId(this.event.id);
-            console.log("reading the event id from auth service  = "+this.repository.eventId)
                this.urlAddress = "events/selectattributes/"+this.repository.eventId;
                this.router.navigate([this.urlAddress]);
             
                },
                (error => {
-                 this.Message="Failed,";
+                 
                })
              )
         
@@ -153,51 +153,31 @@ export class AddEventComponent implements OnInit {
         
         
         let formdata = new FormData;
-        //formdata.append('EventId',value.EventId);
+        
         formdata.append('EventTitle',value.EventTitle);
         formdata.append('EventTypeId',value.EventType);   
         formdata.append('StartDate',value.StartDate);
         formdata.append('EventDescription',value.EventDescription);
         formdata.append('EventImage', this.FileImage);
 
-       //formdata.append('EndDate',value.EndDate);
-      // formdata.append('ClosingDate',value.CDate);   
-      
-       // formdata.append('Destination',value.Destination); 
-        //formdata.append('Venue',value.Venue); 
-       // formdata.append('Liquor',value.Liquor); 
-        //formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed); 
-       // formdata.append('NumberOfTeams',value.IsFamilyMembersAllowed); 
-        
-         
           let apiUrl1 = 'Event/createevent';
           
           this.repository.postFile(apiUrl1, formdata)
             .subscribe(res =>  {
-              this.Message="Event Created!";
-              console.log(res)
-              this.event=res;
-              console.log("id of event = message id"+this.event.id);
-            this.repository.addEventId(this.event.id);
-            console.log("reading the event id from auth service  = "+this.repository.eventId)
-              console.log(this.event.id);
-
+             this.event=res;
+              this.repository.addEventId(this.event.id);
+          
               let atformdata = new FormData;
               atformdata.append('EventId',this.repository.eventId);
               let apiUrl = 'event/selectAttributes';
       
               this.repository.postFile(apiUrl, atformdata)
                 .subscribe(res =>  {
-                  //this.Message="attribute Created!";
-                   //   this.router.navigate(['/profile/admin/roles']);
-                   
-               console.log("inside select attribute cfreation");
-               this.urlAddress = "events/selectattributes/"+this.repository.eventId;
+                  this.urlAddress = "events/selectattributes/"+this.repository.eventId;
               this.router.navigate([this.urlAddress]);
                   },
                   (error => {
-                    this.Message="Event Created Failed,Try Again!";
-                    console.log("inside select attribute cfreation. errorrrrr");
+                   
                   })
                 )
 
@@ -208,7 +188,7 @@ export class AddEventComponent implements OnInit {
            
               },
               (error => {
-                this.Message="Event Created Failed,Try Again!";
+               
               })
             )
   
@@ -249,66 +229,47 @@ export class AddEventComponent implements OnInit {
         
           
                let apiUrl = 'event/updateevent';
-           console.log("formdata"+formdata)
-           console.log("description = "+value.EventDescription)
            
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
-               //this.Message="Project updated!";
-               console.log("response = "+res)
                window.alert("Event has been succesfully Created")
                this.urlAddress = "profile/home";
-  this.router.navigate([this.urlAddress]);
+               this.router.navigate([this.urlAddress]);
             
                },
                (error => {
-                 this.Message="Failed,";
+                 
                })
              )
         }else{
       let formdata = new FormData;
-      //formdata.append('EventId',value.EventId);
+     
       formdata.append('EventTitle',value.EventTitle);
       formdata.append('EventTypeId',value.EventType);   
       formdata.append('StartDate',value.StartDate);
       formdata.append('EventDescription',value.EventDescription);
       formdata.append('EventImage', this.FileImage);
 
-     //formdata.append('EndDate',value.EndDate);
-    // formdata.append('ClosingDate',value.CDate);   
-    
-     // formdata.append('Destination',value.Destination); 
-      //formdata.append('Venue',value.Venue); 
-     // formdata.append('Liquor',value.Liquor); 
-      //formdata.append('IsFamilyMembersAllowed',value.IsFamilyMembersAllowed); 
-     // formdata.append('NumberOfTeams',value.IsFamilyMembersAllowed); 
-      
-       
+   
         let apiUrl1 = 'Event/createevent';
         
         this.repository.postFile(apiUrl1, formdata)
           .subscribe(res =>  {
-            window.alert("Event has been succesfully Created")
-              
-             
-            console.log(res)
-            this.event=res;
-            console.log("id of event = message id"+this.event.id);
+           this.event=res;
             this.repository.addEventId(this.event.id);
-            console.log("reading the event id from auth service  = "+this.repository.eventId)
             let atformdata = new FormData;
             atformdata.append('EventId',this.repository.eventId);
             let apiUrl = 'event/selectAttributes';
     
             this.repository.postFile(apiUrl, atformdata)
               .subscribe(res =>  {
-                //this.Message="attribute Created!";
-                 //   this.router.navigate(['/profile/admin/roles']);
-                 this.urlAddress = "profile/home";
+                window.alert("Event has been succesfully Created")
+
+               this.urlAddress = "profile/home";
                  this.router.navigate([this.urlAddress]);
                 },
                 (error => {
-                  this.Message="Event Created Failed,Try Again!";
+                 
                 })
               )
 
@@ -317,7 +278,7 @@ export class AddEventComponent implements OnInit {
          
             },
             (error => {
-              this.Message="Event Created Failed,Try Again!";
+             
             })
           )
 
@@ -337,7 +298,6 @@ export class AddEventComponent implements OnInit {
         .subscribe(res => {
          this.eventtypes = res;
         
-            console.log(res)
           },
           (error => {
         
@@ -347,12 +307,9 @@ export class AddEventComponent implements OnInit {
 
     public getAttribute(){
       let apiUrl = 'event/getatribute/'+this.eventId;
-      console.log("inside get attribute")
       this.repository.getData(apiUrl)
         .subscribe(res => {
-         this.attribute = res;
-        console.log(res)
-            console.log("this is edn date"+this.attribute.endDate)
+            this.attribute = res;
             this.closingDate = this.attribute.closingDate;
             this.destination = this.attribute.destination;
             this.endDate = this.attribute.endDate;
@@ -378,50 +335,68 @@ export class AddEventComponent implements OnInit {
       this.route.paramMap.subscribe((params:ParamMap)=>{
         let id =params.get('id');
         this.eventId=id;
-        console.log("id of the evenet = "+id)
-        console.log("get the  param id"+id)
         if(this.eventId!=null){
           this.getproject();
           this.fillproject();
-          
-          /*
-          this.repository.getData('event/getatribute/'+this.eventId)
-    .subscribe(res => {
-      this.attribute = res ;
-      
-      
-     
-    },
-    (error) => {
-    //  this.handleErrors(error);n
-    })*/
-
           }
 
        });
   }
 
  public fillproject(){
+
+  this.sdate=""+this.event.startDate;
+  let x=this.sdate.split('T')
+  this.sdate=x[0];
+   
+  this.edate=""+this.event.endDate;
+  let y=this.edate.split('T')
+    this.edate=y[0];
+     
+    this.cdate=""+this.event.closingDate;
+    let z=this.cdate.split('T')
+    this.cdate=z[0];
+     
+
     this.EventForm.controls['EventTitle'].setValue(this.event.eventTitle);
     this.EventForm.controls['EventDescription'].setValue(this.event.eventDescription);
+    if(this.event.destination!='null')
     this.EventForm.controls['Destination'].setValue(this.event.destination);
+
     this.EventForm.controls['EventType'].setValue(this.event.eventTypeId);
-    this.EventForm.controls['StartDate'].setValue(this.event.startDate);
-    this.EventForm.controls['EndDate'].setValue(this.event.endDate);
-    this.EventForm.controls['ClosingDate'].setValue(this.event.closingDate);
+    this.EventForm.controls['StartDate'].setValue(this.sdate);
+
+    if(this.edate!='0001-01-01')
+    this.EventForm.controls['EndDate'].setValue(this.edate);
+
+    if(this.cdate!='0001-01-01')
+    this.EventForm.controls['ClosingDate'].setValue(this.cdate);
+
+    if(this.event.isFamilyMembersAllowed!='null')
     this.EventForm.controls['IsFamilyMembersAllowed'].setValue(this.event.isFamilyMembersAllowed);
+
+    if(this.event.numberOfTeams!='null')
     this.EventForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
+
+    if(this.event.venue!='null')
     this.EventForm.controls['Venue'].setValue(this.event.venue);
+
+    if(this.event.liquor!='null')
     this.EventForm.controls['Liquor'].setValue(this.event.liquor);
+
+    if(this.event.budgetedCost!='0')
     this.EventForm.controls['budgetedCost'].setValue(this.event.budgetedCost);
+
+    if(this.event.actualCost!='0')
     this.EventForm.controls['actualCost'].setValue(this.event.actualCost);
+
+    if(this.event.mainOrganiZer!='0')
     this.EventForm.controls['mainOrganiZer'].setValue(this.event.mainOrganiZer);
+
+    if(this.event.summary!='null')
     this.EventForm.controls['summary'].setValue(this.event.summary);
 
-    
-
-    console.log("before get attribute")
-    this.getAttribute();
+     this.getAttribute();
 
   }
   
@@ -430,12 +405,11 @@ export class AddEventComponent implements OnInit {
     .subscribe(res => {
       this.event = res ;
       
-      console.log("get projrct");
       this.fillproject();
       
     },
     (error) => {
-    //  this.handleErrors(error);n
+    
     })
 }
 
@@ -443,12 +417,12 @@ onFileChange(file : FileList,id:number) {
     
 
   this.FileImage = file.item(0);
- //selected image viewing
+
   var reader = new FileReader();
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
-     console.log(event.target.result)
+   
   }
    reader.readAsDataURL(this.FileImage);
 }

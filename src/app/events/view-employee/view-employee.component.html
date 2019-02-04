@@ -3,7 +3,7 @@
       <tr>
           <td>Employee Id</td>
           <td>Name</td>
-          <td *ngIf="nic">Nic</td>
+          <td *ngIf="nic">NIC</td>
           <td *ngIf="dob">Date of Birth</td>
           <td *ngIf="gender">Gender</td>
           <td *ngIf="mealType">Prefered Meal Type</td>
@@ -21,14 +21,16 @@
 <td>{{i.employeeId}}</td>
 <td>{{i.name}}</td>
 <td *ngIf="nic">{{i.nic}}</td>
-<td *ngIf="dob">{{i.dob}}</td>
+<td *ngIf="dob">{{i.dob | date: 'dd/MM/yyyy'}}</td>
 <td *ngIf="gender">{{i.gender}}</td>
 <td *ngIf="mealType">{{i.mealType}}</td>
 <td *ngIf="accomadation">{{i.accomadation}}</td>
 <td *ngIf="transportationMode">{{i.transportationMode}}</td>
 <td *ngIf="spouseName">{{i.spouseName}}</td>
 <td *ngIf="spouseNic">{{i.spouseNic}}</td>
-<td *ngIf="spouseDob">{{i.spouseDob}}</td>
+<td *ngIf="spouseDob">{{i.spouseDob | date: 'dd/MM/yyyy'}}</td>
+<td>    <button type="button" class="btn btn-primary" (click)="deleteEmployee(i)">Delete Employee</button>
+</td>
 <!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
  
 </tr>

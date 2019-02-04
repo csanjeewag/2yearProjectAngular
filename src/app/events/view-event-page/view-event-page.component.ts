@@ -62,10 +62,7 @@ export class ViewEventPageComponent implements OnInit {
     this.rou.paramMap.subscribe((params:ParamMap)=>{
       let id =params.get('id');
       this.PrId=id;
-      console.log("id of the evenet = "+id)
-      console.log("pridof the evenet = "+this.PrId)
-
-      this.repository.currentEventId(id);
+       this.repository.currentEventId(id);
     
       this.getproject();
      });
@@ -75,7 +72,6 @@ export class ViewEventPageComponent implements OnInit {
 
 
   public getproject(){
-    console.log("pridof the evenet = "+this.PrId)
     let apiUrl = 'event/getall/'+this.PrId
 
     this.repository.getData(apiUrl)
@@ -96,9 +92,7 @@ export class ViewEventPageComponent implements OnInit {
 
  getAttribute(){
   let apiUrl = 'event/getatribute/'+this.PrId;
-  console.log("inside get attribute")
-
-  this.repository.getData(apiUrl)
+ this.repository.getData(apiUrl)
     .subscribe(res => {
      this.attribute = res;
     this.closingDate = this.attribute.closingDate;
@@ -120,13 +114,10 @@ export class ViewEventPageComponent implements OnInit {
  
 
 
-public deleteEmployee(content){
-  this.modalService.open(content);
-}
+
 
 public updateEvent(){
   this.urlAddress = "events/updateevent/"+this.repository.curentEventId;
-  console.log("url = "+this.urlAddress);
   this.route.navigate([this.urlAddress]);
 }
 
@@ -136,17 +127,18 @@ public viewEmployee(){
   
 }
 
+public addRegistrationForm(){
+  this.urlAddress = "events/addregistrationform/"+this.repository.curentEventId;
+  this.route.navigate([this.urlAddress]);
+  
+}
+
 public getForm(){
   let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
-  console.log("inside get form current event id = "+this.repository.curentEventId)
-
-  console.log("inside get form")
-  this.repository.getData(apiUrl)
+ this.repository.getData(apiUrl)
     .subscribe(res => {
      this.form = res;
-    console.log("form = "+res)
-       
-      },
+     },
       (error => {
     
       })

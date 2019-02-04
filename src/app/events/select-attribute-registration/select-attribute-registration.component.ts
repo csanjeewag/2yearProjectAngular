@@ -43,12 +43,10 @@ export class SelectAttributeRegistrationComponent implements OnInit {
     this.rou.paramMap.subscribe((params:ParamMap)=>{
       let id =params.get('id');
       if(id!=null){
-        console.log("event id = "+id)
         this.eventId=id;
       }else{
   this.eventId=this.repository.eventId;
-  console.log("event id = "+this.repository.eventId)
-      }
+   }
   
      });
   }
@@ -56,17 +54,10 @@ export class SelectAttributeRegistrationComponent implements OnInit {
 
   public getAttribute(){
     let apiUrl = 'Registration/getRegistrationAttribute/'+this.eventId;
-    console.log("inside get attribute")
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
-      console.log("this is the attribute returned"+res);
-      console.log("nic"+this.attribute.nic);
-      console.log("dob"+this.attribute.dob);
-      console.log("mealType"+this.attribute.mealType);
-
-
-          this.fiilEvent();
+      this.fiilEvent();
         },
         (error => {
       
@@ -80,16 +71,11 @@ export class SelectAttributeRegistrationComponent implements OnInit {
     this.EventForm.controls['nic'].setValue(this.attribute.nic);
      this.EventForm.controls['dob'].setValue(this.attribute.dob);
     this.EventForm.controls['accomadation'].setValue(this.attribute.accomadation);
-    console.log("mealType inside fill"+this.attribute.mealType);
-
-    this.EventForm.controls['mealType'].setValue(this.attribute.mealType);
+     this.EventForm.controls['mealType'].setValue(this.attribute.mealType);
     this.EventForm.controls['gender'].setValue(this.attribute.gender);
     this.EventForm.controls['spouseName'].setValue(this.attribute.spouseName);
     this.EventForm.controls['spouseNic'].setValue(this.attribute.spouseNic);
     this.EventForm.controls['spouseDob'].setValue(this.attribute.spouseDob);
-
-    console.log("liquor = ")
-    
 
   }
 
@@ -116,15 +102,13 @@ export class SelectAttributeRegistrationComponent implements OnInit {
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
-          //this.Message="attribute updated!";
-          this.urlAddress = "events/addregistrationform/"+this.eventId;
+         this.urlAddress = "events/addregistrationform/"+this.eventId;
           this.router.navigate([this.urlAddress]);
-           //   this.router.navigate(['/profile/admin/roles']);
-           
+          
        
           },
           (error => {
-            this.Message="Event Created Failed,Try Again!";
+           
           })
         )
     

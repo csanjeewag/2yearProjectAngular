@@ -29,7 +29,7 @@ this.EmpId=true;
 this.getparamId();
 
     this.EventForm = new FormGroup({
-      // EventId: new FormControl('',[Validators.required]),
+     
       name: new FormControl(''),
       nic: new FormControl(''),
       dob: new FormControl(''),
@@ -50,9 +50,11 @@ this.getparamId();
 
   public createrole(value){
     let formdata = new FormData;
-    //formdata.append('EventId',value.EventId);
+   
     if(this.attribute!=null){
-    console.log("inside attribute creation");
+    window.alert("Registration form has been added succesfully");
+    this.urlAddress = "events/vieweventpage/"+this.eventId;
+    this.router.navigate([this.urlAddress]);
     }else{
     formdata.append('EventId',this.eventId);   
     
@@ -60,9 +62,10 @@ this.getparamId();
       
       this.repository.postFile(apiUrl1, formdata)
         .subscribe(res =>  {
-          
-          console.log(res)
-        
+           window.alert("Registration form has been added succesfully");
+
+          this.urlAddress = "events/vieweventpage/"+this.eventId;
+          this.router.navigate([this.urlAddress]);
        
           },
           (error => {
@@ -76,7 +79,6 @@ this.getparamId();
 public updateEvent(value){
   let formdata = new FormData;
   if(this.attribute!=null){
-    console.log("inside attribute update");
     this.urlAddress = "events/selectattributesforregistration/"+this.eventId;
     this.router.navigate([this.urlAddress]);
     }else{
@@ -86,8 +88,6 @@ public updateEvent(value){
         
         this.repository.postFile(apiUrl1, formdata)
           .subscribe(res =>  {
-            
-            console.log(res)
             this.urlAddress = "events/selectattributesforregistration/"+this.eventId;
             this.router.navigate([this.urlAddress]);
          
@@ -105,8 +105,7 @@ public getRegistrationAttribute(){
   this.repository.getData(apiUrl)
   .subscribe(res => {
    this.attribute = res;
-  console.log(res)
-    
+ 
     },
     (error => {
   
@@ -118,12 +117,10 @@ getparamId(){
   this.route.paramMap.subscribe((params:ParamMap)=>{
     let id =params.get('id');
     if(id!=null){
-      console.log("event id = "+id)
       this.eventId=id;
     }else{
 this.eventId=this.repository.eventId;
-console.log("event id = "+this.repository.eventId)
-    }
+ }
 
    });
    this.getRegistrationAttribute();

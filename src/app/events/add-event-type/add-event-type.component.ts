@@ -52,20 +52,13 @@
       formdata.append('EventTypeDescription',value.EventTypeDescription);   
     
      
-        
-       
        let apiUrl = 'EventType/createEventType';
-       
-        console.log(formdata)
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
-            this.Message="Event Type Created!";
-             //   this.router.navigate(['/profile/admin/roles']);
-             
-         
+           
             },
             (error => {
-              this.Message="Event Type Created Failed,Try Again!";
+             
             })
           )
       

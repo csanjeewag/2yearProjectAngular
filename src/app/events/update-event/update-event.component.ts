@@ -27,6 +27,10 @@ export class UpdateEventComponent implements OnInit {
     public event:any;
     public attribute:any;
     public urlAddress:any;
+    public sdate:any;
+    public edate:any;
+    public cdate:any;
+
 
     public budgetedCost:any;
     public actualCost:any;
@@ -122,13 +126,12 @@ export class UpdateEventComponent implements OnInit {
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
-          this.Message="Project updated!";
-          console.log("response = "+res)
-            //this.router.navigate(['/profile/admin/project']);
+         window.alert("Event has been succesfully edited");
+          this.router.navigate(['/events/vieweventpage/'+this.PrId]);
        
           },
           (error => {
-            this.Message="Failed,";
+          
           })
         )
     
@@ -140,8 +143,7 @@ export class UpdateEventComponent implements OnInit {
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.eventtypes = res;
-      
-          console.log(res)
+       
         },
         (error => {
       
@@ -150,33 +152,55 @@ export class UpdateEventComponent implements OnInit {
   }
   
   public fillproject(){
+
+    this.sdate=""+this.event.startDate;
+  let x=this.sdate.split('T')
+  this.sdate=x[0];
+   
+  this.edate=""+this.event.endDate;
+    let y=this.edate.split('T')
+    this.edate=y[0];
+     
+    this.cdate=""+this.event.closingDate;
+    let z=this.cdate.split('T')
+    this.cdate=z[0];
     
     this.projectForm.controls['EventTitle'].setValue(this.event.eventTitle);
     this.projectForm.controls['EventDescription'].setValue(this.event.eventDescription);
     this.projectForm.controls['EventType'].setValue(this.event.eventTypeId);
-    this.projectForm.controls['StartDate'].setValue(this.event.StartDate);
+    this.projectForm.controls['StartDate'].setValue(this.sdate);
 
+    if(this.event.destination!='null')
     this.projectForm.controls['Destination'].setValue(this.event.destination);
 
-    this.projectForm.controls['EndDate'].setValue(this.event.endDate);
+    if(this.edate!='0001-01-01')
+    this.projectForm.controls['EndDate'].setValue(this.edate);
 
-    this.projectForm.controls['ClosingDate'].setValue(this.event.closingDate);
+    if(this.cdate!='0001-01-01')
+    this.projectForm.controls['ClosingDate'].setValue(this.cdate);
 
+    if(this.event.isFamilyMembersAllowed!='null')
     this.projectForm.controls['IsFamilyMembersAllowed'].setValue(this.event.isFamilyMembersAllowed);
 
+    if(this.event.numberOfTeams!='null')
     this.projectForm.controls['NumberOfTeams'].setValue(this.event.numberOfTeams);
 
+    if(this.event.venue!='null')
+   this.projectForm.controls['Venue'].setValue(this.event.venue);
     
-      this.projectForm.controls['Venue'].setValue(this.event.venue);
-    
+   if(this.event.liquor!='null')
     this.projectForm.controls['Liquor'].setValue(this.event.liquor);
 
+    if(this.event.budgetedCost!='0')
      this.projectForm.controls['budgetedCost'].setValue(this.event.budgetedCost);
 
+     if(this.event.actualCost!='0')
      this.projectForm.controls['actualCost'].setValue(this.event.actualCost);
 
+     if(this.event.mainOrganiZer!='0')
      this.projectForm.controls['mainOrganiZer'].setValue(this.event.mainOrganiZer);
 
+     if(this.event.summary!='null')
      this.projectForm.controls['summary'].setValue(this.event.summary);
 
     this.getAttribute();
@@ -184,15 +208,13 @@ export class UpdateEventComponent implements OnInit {
   }
   
   public getproject(){
-    console.log("inside get project");
      this.repository.getData('event/getall/'+this.PrId)
     .subscribe(res => {
       this.event = res ;
-      console.log("event = "+this.event);
-      this.fillproject();
+       this.fillproject();
     },
     (error) => {
-    //  this.handleErrors(error);n
+   
     })
    
  
@@ -206,7 +228,7 @@ export class UpdateEventComponent implements OnInit {
     let id =params.get('id');
     this.PrId=id;
     this.getproject();
-    console.log("id of the evenet = "+id)
+   
    });
 
 
@@ -238,21 +260,16 @@ public updateAttribute(value){
  
    
         let apiUrl = 'event/updateevent';
-    console.log("formdata"+formdata)
-    console.log("description = "+value.EventDescription)
-    
-    this.repository.postFile(apiUrl, formdata)
+     this.repository.postFile(apiUrl, formdata)
       .subscribe(res =>  {
-        console.log("response = "+res)
-        
-        this.urlAddress = "events/selectattributesforupdate/"+this.PrId;
+          this.urlAddress = "events/selectattributesforupdate/"+this.PrId;
               this.router.navigate([this.urlAddress]);
             
          
      
         },
         (error => {
-          this.Message="Failed,";
+        
         })
       )
   
@@ -263,13 +280,10 @@ public updateAttribute(value){
 
 public getAttribute(){
   let apiUrl = 'event/getatribute/'+this.PrId;
-  console.log("inside get attribute")
   this.repository.getData(apiUrl)
     .subscribe(res => {
      this.attribute = res;
-    console.log(res)
-        console.log("this is edn date"+this.attribute.endDate)
-        this.closingDate = this.attribute.closingDate;
+      this.closingDate = this.attribute.closingDate;
         this.destination = this.attribute.destination;
         this.endDate = this.attribute.endDate;
         this.isFamilyMembersAllowed = this.attribute.isFamilyMembersAllowed;
@@ -294,7 +308,7 @@ onFileChange(file : FileList,id:number) {
     
 
   this.FileImage = file.item(0);
- //selected image viewing
+ 
   var reader = new FileReader();
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
