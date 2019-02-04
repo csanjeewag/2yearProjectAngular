@@ -14,7 +14,7 @@ export class EmployeeDetailsComponent implements OnInit {
   public empId;
   public result :any;
   public ImageUrl:any;
-  public ProfileImage:any= "assets/_image/cslogo.png";
+  public ProfileImage:any;
   constructor(private route: ActivatedRoute,private repo :RepositoryService,private router: Router ) { }
 
   ngOnInit() {

@@ -15,15 +15,22 @@ export class ShowEmployeesDetailsComponent implements OnInit {
 
   public result : any;
   public isAdmin:any;
+  public isRC:any;
   public toggle:any;
   public ImageUrl:any;
   public ProfileImage:any= "assets/_image/cslogo.png";
+  public clickId:any;
+  public Message:any;
+  public Notification:any;
+  
+
   constructor(private repo :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   ngOnInit() {
     this.ImageUrl = this.repo.ImageUrl;
     this.getAllEmployee()
     this.isAdmin = this.auth.isAdmin();
+    this.isRC = this.auth.isRC();
    }
 
   public detailsemployee( id) {
@@ -40,7 +47,7 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     this.repo.getData('employee/getall')
     .subscribe(res => {
       this.result = res ;
-      console.log(res)
+
      
    
  
@@ -80,8 +87,39 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     this.toggle = !this.toggle;
   }
   public getdetails(id){
-    console.log(id)
+
     this.router.navigate(['/profile/lists/',id]);
   }
+  public onKey(msg){
+    
+   this.Notification = msg;
+  }
+  public getId(id){
+   this.clickId = id;
+  }
 
+
+  public send(){
+    let formData = new FormData();
+    formData.append('Data', this.Notification);
+    formData.append('DataType','Special Message');
+    formData.append('EmployeeId', this.clickId);
+    formData.append('senderId', this.auth.tokencheckId());
+
+    let apiUrl = 'Notification/addspcialnotification';
+    
+    this.repo.postFile(apiUrl, formData)
+      .subscribe(res => {
+        alert('success!')
+        this.clickId = 0;
+        
+        },
+        (error => {
+       alert('something wrongs')
+        })
+      )
+  }
+  public UpdateMembers(){
+    this.router.navigate(['profile/update']);
+  }
 }

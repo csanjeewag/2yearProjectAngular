@@ -67,7 +67,7 @@ export class AddPollComponent implements OnInit {
       
       console.log("formdata = "+formdata);
 
-      let apiUrl = 'Poll/createPoll';
+      let apiUrl = 'PollEvent/createPoll';
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
@@ -78,7 +78,7 @@ export class AddPollComponent implements OnInit {
    let formdata1=new FormData;
    formdata1.append('PollId',this.poll.id);
    formdata1.append('Dest',pollFormvalue.destination1);
-   let apiUrl1 = 'Poll/addDestination';
+   let apiUrl1 = 'PollEvent/addDestination';
 
    this.repository.postFile(apiUrl1, formdata1)
   .subscribe(res =>  {
@@ -90,7 +90,7 @@ export class AddPollComponent implements OnInit {
   let formdata2=new FormData;
   formdata2.append('PollId',this.poll.id);
   formdata2.append('Dest',pollFormvalue.destination2);
-  let apiUrl2 = 'Poll/addDestination';
+  let apiUrl2 = 'PollEvent/addDestination';
 
   this.repository.postFile(apiUrl2, formdata2)
  .subscribe(res =>  {
@@ -102,7 +102,7 @@ export class AddPollComponent implements OnInit {
  let formdata3=new FormData;
  formdata3.append('PollId',this.poll.id);
  formdata3.append('Dest',pollFormvalue.destination3);
- let apiUrl3 = 'Poll/addDestination';
+ let apiUrl3 = 'PollEvent/addDestination';
 
  this.repository.postFile(apiUrl3, formdata3)
 .subscribe(res =>  {
@@ -114,7 +114,7 @@ export class AddPollComponent implements OnInit {
 let formdata4=new FormData;
  formdata4.append('PollId',this.poll.id);
  formdata4.append('Dest',pollFormvalue.destination4);
- let apiUrl4 = 'Poll/addDestination';
+ let apiUrl4 = 'PollEvent/addDestination';
 
  this.repository.postFile(apiUrl4, formdata4)
 .subscribe(res =>  {
@@ -126,7 +126,7 @@ let formdata4=new FormData;
 let formdata5=new FormData;
  formdata5.append('PollId',this.poll.id);
  formdata5.append('Dest',pollFormvalue.destination5);
- let apiUrl5 = 'Poll/addDestination';
+ let apiUrl5 = 'PollEvent/addDestination';
 
  this.repository.postFile(apiUrl5, formdata5)
 .subscribe(res =>  {

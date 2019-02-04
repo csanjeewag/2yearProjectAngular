@@ -16,21 +16,19 @@ export class EmployeeProfileComponent implements OnInit {
   public empId;
   public result : any;
   public ImageUrl:any;
-  public ProfileImage:any= "assets/_image/cslogo.png";
+  public ProfileImage:any;
   constructor(private auth:AuthServiceService,private route: ActivatedRoute,private repository :RepositoryService,private router: Router ) { }
 
   ngOnInit() {
     this.ImageUrl = this.repository.ImageUrl;
-    //console.log(this.auth.tokencheckId)
     this.repository.getData('employee/getall/'+this.auth.tokencheckId())
     .subscribe(res => {
       this.result = res ;
-      console.log(this.result)
+    
       if(this.result.empProfilePicture)
       { this.ProfileImage =this.ImageUrl+ this.result.empProfilePicture;}
     },
     (error) => {
-    //  this.handleErrors(error);n
     
    });
     
