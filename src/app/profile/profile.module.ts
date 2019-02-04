@@ -43,7 +43,7 @@ import { UpdateRolesComponent } from './position/update-roles/update-roles.compo
 import { ShowRolesDetailsComponent } from './position/show-roles-details/show-roles-details.component';
 
 //Auth
- import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
+import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
  import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
 
 //login
@@ -84,7 +84,7 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: 'home', component: HomepageComponent,canActivate:[AuthLoginGuard]},
+       { path: 'home', component: HomepageComponent,canActivate:[AuthLoginGuard]},
       { path: 'lists', component: ShowEmployeesDetailsComponent,canActivate:[AuthLoginGuard]},
       
       { path: 'login', component: LoginUserInterfaceComponent },
@@ -104,8 +104,8 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
         { path: 'updateproject/:id', component: ProjectUpdateComponent },
         { path: 'updatedepartment/:id', component: UpdateDepartmentComponent },
         { path: 'updaterole/:id', component: UpdateRolesComponent },
-      // { path: 'home', component: HomepageComponent,},
-      // { path: 'lists', component: ShowEmployeesDetailsComponent},
+      { path: 'home', component: HomepageComponent,},
+      { path: 'lists', component: ShowEmployeesDetailsComponent},
       
       // { path: 'login', component: LoginUserInterfaceComponent },
       // { path: 'lists/:id', component: EmployeeDetailsComponent },
@@ -129,6 +129,7 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
       
     ])
   ],
+  providers:[AuthRoleGuard,AuthRoleGuard],
   declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe,FilterPipePipe2,FilterPipePipe3, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent, ChangePositionComponent, EmployeePasswordChangeComponent],
   exports: [RouterModule]
 })

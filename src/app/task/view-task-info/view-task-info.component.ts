@@ -17,8 +17,11 @@ export class ViewTaskInfoComponent implements OnInit {
   public Loadinginfo:any;
   public Loadingdetail:any;
   public contactresult:any;
+public taskdetails:any;
+
   ngOnInit() {
     this.getparamId();
+    this.detailsTask(this.taskid);
     this.viewallinformation();
 this.viewallcontacts();
   }
@@ -35,12 +38,11 @@ public viewallinformation(){
 }
 
 public viewallcontacts(){
-  this.repository.getData('contact/'+this.taskid)
+  this.repository.getData('contact/getbytaskid/'+this.taskid)
   .subscribe(res => {
    
     this.contactresult = res as any;
-    console.log(this.contactresult);
- 
+ console.log('result-->'+this.contactresult)
 
   })
 }
@@ -52,7 +54,6 @@ public deleteInfoDetails(id){
    this.viewallinformation();
     alert('detail deleted');
   this.Loadinginfo = false;
-console.log('deleted');
   
 },
  (error) => {
@@ -67,7 +68,6 @@ public deleteContactDetail(id){
   .subscribe(res => {
     this.viewallcontacts();
     this.Loadingdetail = false;
-console.log('deleted');
   
 },
  (error) => {
@@ -79,10 +79,23 @@ console.log('deleted');
     this.rou.paramMap.subscribe((params:ParamMap)=>{
       let id =params.get('id');
       this.taskid=id;
-      console.log("id of the info type = "+id)
       if(this.taskid!=null){
         
       }})
+}
+
+public detailsTask(tid) {
+   
+      
+  this.repository.getData('task/'+tid)
+  .subscribe(res => {
+    this.taskdetails = res as any;
+console.log(this.taskdetails)
+  },
+  (error) => {
+  })
+ 
+
 }
 
 }

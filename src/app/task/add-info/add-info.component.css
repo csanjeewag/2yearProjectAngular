@@ -1,0 +1,15 @@
+#dropdownMenu2{
+    background-color: rgb(228, 228, 228);
+    position: absolute;
+    left: 0%;
+    color: rgb(68, 67, 67);
+}
+#dropdownMenu2:hover{
+    background-color: rgb(177, 177, 177);
+    position: absolute;
+    left: 0%;
+    color: rgb(34, 33, 33);
+}
+#label{
+    text-align: left;
+}

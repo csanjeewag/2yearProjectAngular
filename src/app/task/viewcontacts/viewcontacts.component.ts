@@ -14,6 +14,8 @@ export class ViewcontactsComponent implements OnInit {
 public cid:any;
 public result:any;
 public Loading:any;
+public detailid:any;
+public detail:any;
   ngOnInit() {
     this.getparamId();
     this.viewAll();
@@ -63,4 +65,16 @@ public updateDetail(id){
   this.router.navigate(['/task/updatecontactdetail/'+id]);
 
 }
+
+public GetDetailbyId(id){
+  this.repository.getData('contact/getdetailbyid/'+this.detailid)
+  .subscribe(res => {
+   
+    this.detail = res as any;
+ 
+
+  })
+}
+
+
 }

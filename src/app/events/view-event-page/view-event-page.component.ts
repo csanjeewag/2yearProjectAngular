@@ -134,7 +134,7 @@ public addRegistrationForm(){
 }
 
 public getForm(){
-  let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+  let apiUrl = 'RegistrationEmployee/getRegistrationAttribute/'+this.repository.curentEventId;
  this.repository.getData(apiUrl)
     .subscribe(res => {
      this.form = res;

@@ -44,12 +44,10 @@ public empid:any;
 
       }),
       this.ContactForm=new FormGroup({
-        type:new FormControl('')
-      }),
-      this.ContactFormUpdate=new FormGroup({
-        type:new FormControl('')
-
+        type:new FormControl(''),
+        description:new FormControl('')
       })
+    
   }
 
   public getAllContactTypes(){
@@ -77,6 +75,7 @@ public empid:any;
     let ctype: ContactType = {
       
       contactType:ContactForm.type,
+      description:ContactForm.description,
   };
   let apiUrl = 'contact/addcontacttype';
     this.repository.postData(apiUrl,ctype)

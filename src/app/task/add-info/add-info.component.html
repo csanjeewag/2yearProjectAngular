@@ -20,13 +20,13 @@
        <span aria-hidden="true">&times;</span>
      </button>
    </div>
-   <div class="modal-body">
+   <div class="modal-body"  id="formContent">
 
     <form [formGroup]="contactForm"  autocomplete="off" novalidate (ngSubmit)="addContacts(contactForm.value)">
       
         <div class="dropdown">
-            <button class="btn btn- dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Contact Type
+            <button class="btn btn-dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Contact Type >
             </button>
             {{ctypename}}
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -35,26 +35,34 @@
               
             </div>
           </div>
-        
-      <input type="text" id="name" name="name" class="form-control" placeholder="Name" formControlName="name">
-      <input type="text" id="address" name="address" class="form-control" placeholder="Address" formControlName="add">
-      <input type="number" id="contact1" name="contact1" class="form-control" placeholder="Number 01" formControlName="num1">
-      <input type="number" id="address" name="address" class="form-control" placeholder="Number 02" formControlName="num2">
-      <input type="text" id="address" name="address" class="form-control" placeholder="Description" formControlName="des">
-      <input type="text" id="address" name="address" class="form-control" placeholder="Contact Description" formControlName="cdes">
+        <br><br>
+        <div id="label">Name:</div>
+        <input type="text" id="name" name="name" class="form-control" formControlName="name">
 
-      <button type="submit" class="btn btn-primary">Save</button>
+        <div id="label">Address:</div>
+      <input type="text" id="address" name="address" class="form-control" formControlName="add">
+
+      <div id="label">Number 1:</div>
+      <input type="number" id="contact1" name="contact1" class="form-control" formControlName="num1">
+
+      <div id="label">Number 2:</div>
+      <input type="number" id="address" name="address" class="form-control" formControlName="num2">
+
+      <div id="label">Description:</div>
+      <input type="text" id="address" name="address" class="form-control" formControlName="des">
+
+      <div id="label">Contact Description:</div>
+      <input type="text" id="address" name="address" class="form-control" formControlName="cdes">
+      <br><br>
+
+      <button type="submit" class="btn">Save</button>
 
     </form>   
 
     </div>
 
 
-    <div class="modal-footer">
-        
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-          
-    </div>
+    
     
      
  

@@ -127,7 +127,7 @@ let formdata5=new FormData;
 
 
 
-
+this.router.navigate(['profile/home']);
 
             
          

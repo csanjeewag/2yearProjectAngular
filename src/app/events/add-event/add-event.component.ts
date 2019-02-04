@@ -427,7 +427,12 @@ onFileChange(file : FileList,id:number) {
    reader.readAsDataURL(this.FileImage);
 }
 
+public AddEventType(){
+  this.router.navigate(['events/addeventtype']);
+}
 
-
+public AddPoll(){
+  this.router.navigate(['events/addPoll']);
+}
 
 }

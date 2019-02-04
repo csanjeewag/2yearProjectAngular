@@ -19,6 +19,16 @@ html, body { height: 100%;
   width: 100px;
   
 }
+#addbuttonview{
+  position: absolute;
+  right: 5%;
+ 
+}
+#addbutton:hover{
+  background-color: aliceblue;
+}
+
+
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 #zoom1{
   transition: 0.5s all ease-in-out;

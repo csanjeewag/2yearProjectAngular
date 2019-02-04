@@ -10,6 +10,8 @@ import { TwoDayTripComponent } from './two-day-trip/two-day-trip.component';
 import { EventHomePageComponent } from './event-home-page/event-home-page.component';
 import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
 
+import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
+import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
 import { SharedModuleModule } from "./../shared-module/shared-module.module";
 import { TaskModule } from "./../task/task.module";
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
@@ -31,19 +33,18 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
     TaskModule,
     CommonModule,
     ReactiveFormsModule,
+  
     RouterModule.forChild([
-      // {path:'createEventPageForTrip', component:CreateEventPageForTripComponent},
+     
       {path:'vieweventpage/:id', component:ViewEventPageComponent},
-      // {path:'oneDayTrip/:id', component:OneDayTripComponent},
-      // {path:'twoDayTrip/:id', component:TwoDayTripComponent},
-      // {path:'yearEndParty/:id', component:TwoDayTripComponent},
+    
       {path:'addeventtype', component:AddEventTypeComponent},
       {path:'addevent', component:AddEventComponent},
       {path:'addevent/:id', component:AddEventComponent},
       {path:'updateevent/:id', component:UpdateEventComponent},
       {path:'viewEmployee/:id', component:ViewEmployeeComponent},
       {path:'addPoll', component:AddPollComponent},
-      {path:'viewPoll/:id', component:ViewPollComponent},
+      {path:'viewPoll', component:ViewPollComponent},
 
 
       {path:'selectattributes/:id', component:SelectAttributeComponent},
@@ -57,6 +58,7 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
       { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        
     ]),
   ],
+  providers:[AuthLoginGuard,AuthRoleGuard],
   declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent, AddPollComponent, ViewPollComponent]
 })
 export class EventsModule { }

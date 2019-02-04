@@ -77,7 +77,9 @@ public onClick(){
   
   this.router.navigate(['events/addevent']);
 }
-
+public viewPoll(){
+  this.router.navigate(['events/viewPoll']);
+}
 
 
 }

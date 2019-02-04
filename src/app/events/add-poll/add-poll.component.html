@@ -1,3 +1,6 @@
+<app-nav-bar></app-nav-bar>
+<div id="background"  >
+        <div id="backgroundIN" >
 <div >
         
     <div  class="wrapper col-md-8 container">
@@ -34,31 +37,32 @@
       
   
             <div class="form-group col-md-12">
-                <input type="text" formControlName="destination1" id="destination1" class="form-control" required>
+                    <label >Destinations </label><br><br>
+                <input type="text" formControlName="destination1" id="destination1" class="form-control" placeholder="Destination 1" required>
                 <em *ngIf="validateControl('destination1') && hasError('destination1', 'required')">Destination 1 is required</em>
-                <label >Destination </label>
+                
 
             </div>
             <div class="form-group col-md-12">
-                <input type="text" formControlName="destination2" id="destination2" class="form-control" required>
-                <label >Destination </label>
+                <input type="text" formControlName="destination2" id="destination2" class="form-control" placeholder="Destination 2" required>
+               
                 <em *ngIf="validateControl('destination2') && hasError('destination2', 'required')">Destination 2 is required</em>
                 
             </div>
   
             <div class="form-group col-md-12">
-             <input type="text" formControlName="destination3" id="destination3" class="form-control" required>
-              <label >Destination </label>
+             <input type="text" formControlName="destination3" id="destination3" class="form-control" placeholder="Destination 3" >
+             
           </div>
   
           <div class="form-group col-md-12">
-            <input type="text" formControlName="destination4" id="destination4" class="form-control" required>
-            <label >Destination </label>
+            <input type="text" formControlName="destination4" id="destination4" class="form-control" placeholder="Destination 4">
+          
         </div>
   
         <div class="form-group col-md-12">
-          <input type="text" formControlName="destination5" id="destination5" class="form-control" required>
-          <label >Destination </label>
+          <input type="text" formControlName="destination5" id="destination5" class="form-control" placeholder="Destination 5">
+         
       </div>
   
      
@@ -83,3 +87,5 @@
   
   
     </div>
+</div>
+</div>

@@ -69,14 +69,11 @@ public detailsTask(tid) {
       
       this.repo.getData('task/'+tid)
       .subscribe(res => {
-        //this.result = res as Observable<NewTask>;
         this.taskdetails = res as any;
      this.changeStatus(this.taskdetails.status)
-     console.log(this.taskdetails.status);
 
       },
       (error) => {
-      //  this.handleErrors(error);
       })
      
 
@@ -84,20 +81,6 @@ public detailsTask(tid) {
 
 
 
-  public  getAllTask(){
-    this.repo.getData('task/getall')
-    .subscribe(res => {
-      this.result = res ;
-      //var myObjStr = JSON.stringify(res);
-   
-     //console.log(this.result.taskId);
-     console.log(this.result);
-      
-    },
-    (error) => {
-    //  this.handleErrors(error);n
-    })
-  }
 
 public getempfortask(tid){
   
@@ -118,6 +101,7 @@ public getempfortask(tid){
   public updateTask(id){
     this.router.navigate(['/task/updatetask/'+id]);
   }
+
   open(content,id) {
     this.detailsTask(id);
     this.getempfortask(id);
@@ -128,28 +112,17 @@ public getempfortask(tid){
     this.Loading = id;
     this.repo.getData('task/deletetask/'+id)
     .subscribe(res => {
-    this.getAllTask()
+      this.getEventById(this.eventId);
     this.Loading = false;
-  console.log('deleted');
-    this.getAllTask();
+ 
   },
    (error) => {
    this.Loading =false;
    })
   }
 
-  public getcompletedtasks(){
-    this.repo.getData('task/getcompletedtasks/')
-    .subscribe(res => {
-      //this.result = res as Observable<NewTask>;
-      this.completedtasks = res as any;
-      console.log(this.employee);
-    },
-    (error) => {
-    //  this.handleErrors(error);n
-    })
-   
-  }
+
+ 
   
 
 }

@@ -1,5 +1,9 @@
 <app-nav-bar></app-nav-bar>
 
+
+<div id="background"   >
+        <div id="backgroundIN" >
+
 <div class="card" >
     <div class="card-body">
       <h6 class="card-subtitle mb-2 text-muted"><h6 id="msg">{{Message}}</h6></h6>
@@ -149,138 +153,5 @@
 
 
 
-
-   
-<!-- <div class="card" >
-    <div class="card-body">
-      <h6 class="card-subtitle mb-2 text-muted"><h6 id="msg">{{Message}}</h6></h6>
-      <section class="testimonial py-5" id="testimonial">
-        <div class="container">
-            <div class="row ">
-                
-      
-                <div class="col-md-8  border ml-5" id="formV">
-                    <form [formGroup]="taskForm" autocomplete="off" novalidate (ngSubmit)="updateTask(taskForm.value)">
-    
-                            
-                         <div class="form-row">
-                            <div>
-                                <label><b>Is Complete</b></label>
-                                    <input type="checkbox" id="inlineCheckbox1" class="form-check-input" (change)="onChangeStatus($event.target.checked)">
-                                   
-                            </div>
-                           
-                        
-                        <div class="form-group col-md-12">
-                          <input   class="form-control" type="text" formControlName="TaskName" id="TaskName" required>
-                          <label>Task name</label>
-                          <em *ngIf="validateControl('TaskName') && hasError('TaskName', 'required')">*Task is required</em>
-                 
-                     </div>
-                    </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                             <b> Responsible Member</b>
-                             <button type="button"  class="btn btn-link btn-sm" (click)="open(content)"> Employee List</button>
-       
-                              
-                                  <div *ngFor="let j of emailFormArray;">
-                                      - {{j}}<br>
-                                  </div>
-                                  <div>
-                                    <u>Previous members</u>
-                                    <div *ngFor="let e of employee;">-{{e.empName}} </div>
-    
-    
-    
-                                </div>
-                            
-    
-                             
-                                  <ng-template #content let-c="close" let-d="dismiss">
-                                      <div class="modal-header">
-                                        <h4 class="modal-title" id="modal-basic-title">Employee list</h4>
-                                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                                          <span aria-hidden="true">&times;</span>
-                                        </button>
-                                      </div>
-                                      <div class="modal-body">
-                                        <table class="table table-borderless">
-                                            <tr *ngFor="let i of result;" class="form-check">
-                                          
-                                        <td><input type="checkbox" class="form-check-input" (change)="onChange(i.id,i.empName, $event.target.checked)"name="{{ i.empName }}" id="{{i.empName}}">{{i.empName}}</td>
-                                         
-                                        </tr>
-                                        </table>                              
-                                        </div>
-    
-                                      <div class="modal-footer">
-                                          <small class="text-muted">
-                                             
-                                            </small>
-                                        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-                                      </div>
-                                    </ng-template>                          
-                            </div>
-                           
-                          
-                          </div>
-                          <div class="form-row">
-                                  
-                                  <div class="form-group col-md-6">
-                                          <input   class="form-control" formControlName="BudgetedCost" type="number" id="bcost" required>
-                                          <label>Budgeted Cost</label>
-                                          <em *ngIf="validateControl('BudgetedCost') && hasError('BudgetedCost', 'required')">*Budgeted Cost is required</em>
-                                          
-                                      </div>
-                          </div>
-      
-                          
-      
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <b>Start Date</b>                            
-                            <input  class="form-control" type="date" formControlName="StartDate" id="StartDate" (blur)="compareTwoDates2()">
-                                <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*Start date is required</em>
-                                <div *ngIf="error2.isError" style="font-style: italic" >
-                                    {{ error2.errorMessage }}
-                                    
-                                 </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                    <b>End Date</b>                            
-    
-                                  <input  class="form-control" type="date" formControlName="EndDate" id="edate" (blur)="compareTwoDates()">
-                                  <div *ngIf="error1.isError" style="font-style: italic" >
-                                    {{ error1.errorMessage }}
-                                 </div>                             
-    
-                              </div>
-                             
-                                <div class="form-group col-md-12">
-                                        <input   class="form-control" type="textarea" formControlName="Description" id="description" required>
-                                        <label>Description</label>
-                                    </div>
-                                   
-                        </div>
-                        
-                    
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                      <div class="btn-group" role="group" aria-label="Basic example">
-                                          <button type="reset" class="btn" value="Reset" (click)="redirect()">Reset</button>
-                                          <button type="submit" class="btn"  [disabled]="!taskForm.valid">Add Task</button>
-    
-                                        </div>
-                                  </div>
-                        </div>
-                    </form>
-                </div>  
-                </div>
-                </div>
-                </section>
-    
-    </div>
-  </div> -->
-
+</div>
+</div>

@@ -1,4 +1,9 @@
-<div class="card">
+<app-nav-bar></app-nav-bar>
+<div id="background" *ngIf="event"  >
+        <div id="backgroundIN" >
+
+<br><br>
+<div class="card col-md-11 container" >
   <table class="table table-borderless">
       <tr>
           <td>Employee Id</td>
@@ -29,10 +34,12 @@
 <td *ngIf="spouseName">{{i.spouseName}}</td>
 <td *ngIf="spouseNic">{{i.spouseNic}}</td>
 <td *ngIf="spouseDob">{{i.spouseDob | date: 'dd/MM/yyyy'}}</td>
-<td>    <button type="button" class="btn btn-primary" (click)="deleteEmployee(i)">Delete Employee</button>
+<td>    <button type="button" class="btn" (click)="deleteEmployee(i)">Delete Employee</button>
 </td>
 <!-- <td><button class="btn btn-light" (click)="selectEmp(i.empId,i.empName)">{{i.empName}}</button></td> -->
  
 </tr>
 </table> 
   </div>
+</div>
+</div>

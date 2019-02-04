@@ -70,7 +70,7 @@
     this.repository.getData('Employee/profilepicture/'+this.EmpId)
     .subscribe(res => {
      this.Employee = res;
-     console.log(res);
+    
   },
     (error) => {
     

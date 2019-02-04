@@ -42,7 +42,7 @@ public attribute:any;
     .subscribe(res => {
       this.employee = res ;
       
-      console.log("response = "+this.employee);
+     
     },
     (error) => {
     //  this.handleErrors(error);n
@@ -57,7 +57,7 @@ public attribute:any;
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
-      console.log(res)
+      
           
           this.dob = this.attribute.dob;
          

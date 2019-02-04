@@ -14,7 +14,12 @@
 
 <div id="part1" *ngIf="Upcommming3Event" >
   
-  <h1 id="head" class=" container" >UPCOMMING EVENTS</h1> <button *ngIf="IsAdmin||IsRC" type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
+  <h1 id="head" class=" container" >UPCOMMING EVENTS</h1>
+  <div id="addbuttonview">
+      <button *ngIf="IsAdmin||IsRC" type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
+      <button  type="button" id="addbutton"  class="btn link" (click)="viewPoll()">View Poll </button>
+  </div>
+   
   <div class = "row"> 
 
   <div>

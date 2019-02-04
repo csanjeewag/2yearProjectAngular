@@ -1,5 +1,9 @@
 <app-nav-bar></app-nav-bar>
+<div id="background" >
+    <div id="backgroundIN" >
 
+<br><br>
+<div id="listback" class="col-lg-10 container">
   <table  class="table table-borderless">
     <tr>
       <th>Contact Person</th>
@@ -9,12 +13,15 @@
       
     </tr>
     <tr class="border-bottom border-secondary " *ngFor="let i of result;">
-  <td>{{i.name}} : <strong>{{i.contactDescription}}</strong></td>
+  <td><strong>{{i.name}} : </strong>{{i.contactDescription}}</td>
 
 <td>{{i.address}}</td>
 <td>{{i.number1}}</td>
 <td>{{i.number2}}</td>
-<td> <button type="button" class="btn btn-success" (click)="deleteDetail(i.contactDetailId)"> Delete</button>  </td>
-<!-- <td> <button type="button" class="btn btn-success" (click)="updateDetail(i.contactDetailId)"> Update</button></td> -->
+<td> <button type="button" class="btn" id="btn" (click)="deleteDetail(i.contactDetailId)"> Delete</button>  </td>
+<td> <button type="button" class="btn" (click)="updateDetail(i.contactDetailId)"> Update</button></td>
 </tr>
   </table>
+</div>
+</div>
+</div>
