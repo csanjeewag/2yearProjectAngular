@@ -5,7 +5,8 @@
                 <div class="row " *ngIf="result">
                     <main role="main" class="container">
                         <div class="d-flex align-items-center p-3 my-3 text-white-50 rounded box-shadow" id="part0">
-                          <img [src]="ProfileImage"  id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                          <img *ngIf="ProfileImage" [src]="ProfileImage"  id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                          <img *ngIf="!ProfileImage" src="assets/_image/nodp.jpg"  id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2">
                          
                           <div class="lh-100">
                             <h5 class="mb-0 text-white lh-100" >{{result.empName}} </h5>

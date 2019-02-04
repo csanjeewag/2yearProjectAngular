@@ -1,8 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<div id="background">
-    <div id="backgroundIN">
+<div id="background"   >
+    <div id="backgroundIN" *ngIf="result">
 
-    <div class="col-md-10 container" *ngIf="result" >
+    <div class="col-md-10 container">
     	<div class="row">
 			<div class="col-md-12">
 				<div class="tableWithHeader ">
@@ -46,7 +46,10 @@
             </tr></thead>
             <tbody>
             <tr  *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject  " >
-              <td id="zoom3" > <img [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2"></td>
+              <td id="zoom3" > 
+                <img *ngIf="!i.empProfilePicture" src="assets/_image/nodp.jpg" id="profilePicture" id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                <img *ngIf="i.empProfilePicture" [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
+              </td>
               <td>{{i.empName}}</td>
               <td>{{i.empEmail}}</td>
               <td>
@@ -104,9 +107,15 @@
     
    <div>
  
-    <div id="load" class="row " *ngIf="!result">
-      <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
-    </div>
+   
 
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+<div id="load" class="row " *ngIf="!result">
+    <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
   </div>
 </div>

@@ -12,7 +12,7 @@
 
 </div>
 
-<div id="part1" >
+<div id="part1" *ngIf="Upcommming3Event" >
   
   <h1 id="head" class=" container" >UPCOMMING EVENTS</h1> <button *ngIf="IsAdmin||IsRC" type="button" id="addbutton"  class="btn link" (click)="onClick()">Add New Event </button>
   <div class = "row"> 
@@ -66,7 +66,7 @@
 
 <!-- part 2 -->
 
-<div id="part2">
+<div id="part2" *ngIf="Last3Event">
     <h1 id="head" class=" container" >PREVIOUS EVENTS</h1>
       <div id="cardDesk" class="card-deck" class="col-lg-11 col-sm-12 container"  >
           

@@ -50,7 +50,7 @@ export class ChangePositionComponent implements OnInit {
     this.repository.getData('employee/getallemployees')
     .subscribe(res => {
       this.result = res ;
-      console.log(res)
+      
       
     },
     (error) => {
@@ -83,7 +83,7 @@ export class ChangePositionComponent implements OnInit {
         .subscribe(res => {
           if(id==this.auth.tokencheckId()){
             this.auth.loggout();
-            console.log("loggout")
+        
           }
           this.getAllEmployee();
           alert("Position change sucsses!")

@@ -37,7 +37,7 @@ public  getUpComingEvents(){
   this.repository.getData('pastevent/getupcomingeventlast3')
   .subscribe(res => {
     this.Upcommming3Event = res ;
-    console.log(res)
+   
  
 },
   (error) => {
@@ -59,7 +59,7 @@ public  getpastEvents(){
   this.repository.getData('pastevent/getpasteventlast3')
   .subscribe(res => {
     this.Last3Event = res ;
-    console.log(res);
+   
 
 },
   (error) => {

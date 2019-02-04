@@ -18,12 +18,19 @@
   public EmpId:any;
   public notification:any;
   public notificationcount:any;
+  public Employee:any;
+  public ImageUrl:any;
     ngOnInit() {
+      this.ImageUrl = this.repository.ImageUrl;
+      this.EmpId= this.auth.tokencheckId();
+      this.getprofilepic();
       this.islogged = this.auth.islogged();
       this.isAdmin= this.auth.isAdmin();
       this.EmployeeName = this.auth.tokenGetName();
-     this.EmpId= this.auth.tokencheckId();
+     
      this.getNotification();
+
+   
     
     }
   
@@ -59,7 +66,16 @@
  
     
   }
-
+  public getprofilepic(){
+    this.repository.getData('Employee/profilepicture/'+this.EmpId)
+    .subscribe(res => {
+     this.Employee = res;
+     console.log(res);
+  },
+    (error) => {
+    
+    })
+  }
   
   
   }

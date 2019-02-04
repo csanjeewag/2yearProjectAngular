@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
-<div id="background">
-        <div id="backgroundIN">
+<div id="background" *ngIf="result">
+        <div id="backgroundIN" >
 
 
  <section class="testimonial py-5 container " id="testimonial">
@@ -9,7 +9,8 @@
             <div class="col-md-4 py-5 text-white text-center " id="sideA">
                 <div class="sideA">
                     <div class="card-body">
-                        <img [src]="ProfileImage" style="width:70%">
+                        <img *ngIf="ProfileImage" [src]="ProfileImage" style="width:70%">
+                        <img *ngIf="!ProfileImage" src="assets/_image/nodp.jpg"style="width:70%" >
                         
                         <h2 class="py-3">{{result.empName}}</h2>
                         <p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.
@@ -63,4 +64,8 @@
   </section>
    
 </div>
+
 </div>
+<div id="load" class="row " *ngIf="!result">
+        <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
+      </div>

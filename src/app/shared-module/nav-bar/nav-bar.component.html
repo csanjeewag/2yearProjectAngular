@@ -37,7 +37,7 @@
       <img id="imgnotification" src="assets/noti.png"><span class="badge">{{notificationcount}}</span>
       </a>
       <div id="dropdown"  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <div id="dropdowntab"  class="dropdown-item" *ngFor="let n of notification">
+          <div id="dropdowntab"  class="dropdown-item" *ngFor="let n of notification" (click)=gotoUrl(n.url)>
           
             <div class="toast toast--blue add-margin">
               <div class="toast__icon">
@@ -95,16 +95,24 @@
       </div>
     </a> -->
 
-   <a class="nav-item dropdown"  >
+   <a class="nav-item dropdown" *ngIf="Employee"  >
+
+      
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     {{EmployeeName}}
+     {{Employee.empName}}
     </a>
     <div id="drop" class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
       <a class="dropdown-item"  (click)="gotoUrl('/profile/profile')" >Profile</a>
       <a class="dropdown-item" (click)="logout()" href="#">Log Out</a>
       
     </div>
+   
   </a>
+  <a>
+    <img *ngIf="!Employee.empProfilePicture" src="assets/_image/nodp.jpg" id="profilePicture" id="zoom2" height="50em" width="50em" alt="User Icon" class="rounded-circle margin-left ml-2">
+    <img *ngIf="Employee.empProfilePicture" [src]= "ImageUrl+Employee.empProfilePicture" id="profilePicture" id="zoom2" height="50em" width="50em" alt="User Icon" class="rounded-circle margin-left ml-2">
+
+ </a>
   <span class="navbar-text">
  </span>
 </div>

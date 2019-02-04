@@ -27,6 +27,12 @@
   font-style: italic;
   color: rgb(5, 13, 90);
 }
+
+#addbutton{
+  position: absolute;
+  right: 5%;
+ 
+}
 #Project{
   color: rgb(15, 28, 153);
   font-stretch: expanded;

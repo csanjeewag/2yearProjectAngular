@@ -6,6 +6,7 @@
             <br>
 
             <br>
+            <button *ngIf="isAdmin"  type="button" id="addbutton"  class="btn link" (click)="UpdateMembers()">Update Members </button>
 <div class="col-md-10 col-lg-8 col-sm-12 container">
     <div class="row">
 
@@ -43,7 +44,10 @@
           <div class="speaker">
               <div class="row">
                   <div class="col-md-2">
-                     <div id="zoom3" (click)="getdetails(i.id)"> <img   [src]= "ImageUrl+i.empProfilePicture"id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2"></div> 
+                     <div id="zoom3" (click)="getdetails(i.id)">
+                    <img  *ngIf="i.empProfilePicture" [src]= "ImageUrl+i.empProfilePicture"id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                    <img *ngIf="!i.empProfilePicture"   src= "assets/_image/nodp.jpg"id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2"></div> 
+                        
                   </div>
                   <div class="col-md-8">
                       <h4> <h2 id="Name"> {{i.empName}}</h2><span>  </span></h4>

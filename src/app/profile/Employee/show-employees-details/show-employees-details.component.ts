@@ -47,7 +47,7 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     this.repo.getData('employee/getall')
     .subscribe(res => {
       this.result = res ;
-      console.log(res)
+
      
    
  
@@ -87,7 +87,7 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     this.toggle = !this.toggle;
   }
   public getdetails(id){
-    console.log(id)
+
     this.router.navigate(['/profile/lists/',id]);
   }
   public onKey(msg){
@@ -118,5 +118,8 @@ export class ShowEmployeesDetailsComponent implements OnInit {
        alert('something wrongs')
         })
       )
+  }
+  public UpdateMembers(){
+    this.router.navigate(['profile/update']);
   }
 }

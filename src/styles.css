@@ -5,6 +5,7 @@ html, body { height: 100%;
 }
 *:hover{
   cursor: pointer;
+  /* font-family: monospace; */
 }
 #load{
   background-color: #e2e1e15e;
