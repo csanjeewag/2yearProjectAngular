@@ -53,7 +53,7 @@ export class SelectAttributeRegistrationComponent implements OnInit {
 
 
   public getAttribute(){
-    let apiUrl = 'Registration/getRegistrationAttribute/'+this.eventId;
+    let apiUrl = 'RegistrationEmployee/getRegistrationAttribute/'+this.eventId;
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
@@ -98,7 +98,7 @@ export class SelectAttributeRegistrationComponent implements OnInit {
     
 
    
-      let apiUrl = 'Registration/updateRegistrationAttribute';
+      let apiUrl = 'RegistrationEmployee/updateRegistrationAttribute';
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {

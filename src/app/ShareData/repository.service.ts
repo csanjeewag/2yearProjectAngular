@@ -18,6 +18,7 @@ export class RepositoryService {
  constructor( private http: HttpClient, private envUrl:UserServiceService , private userurl :UserServiceService) { }
  public islogged:any; 
  public ImageUrl = this.envUrl.mainUrl;
+public UserProfileImageUrl:any;
 
  public eventId:any;
  public curentEventId:any;

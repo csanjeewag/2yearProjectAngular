@@ -144,7 +144,12 @@ public getForm(){
       })
     )
 }
+public registerEmployee(){
 
+  this.urlAddress = "events/addregistrationform/"+this.repository.curentEventId;
+  this.route.navigate([this.urlAddress]);
+
+}
 
  
 }

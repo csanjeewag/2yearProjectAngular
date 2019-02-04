@@ -53,7 +53,7 @@
                                     <!-- <em *ngIf="validateControl('teamMember') && hasError('teamMember', 'required')">*Name is required</em> -->
                                 </div>
                                 <div class="col-3 col-sm-3">
-                                    <button type="button" class="btn btn-link btn-sm" id="btn" (click)="open(content)">Select Team Member</button>
+                                    <button type="button" *ngIf="this.captainId" class="btn btn-link btn-sm" id="btn" (click)="open(content)">Select Team Member</button>
                                 </div>
                             </div>
                         </div>

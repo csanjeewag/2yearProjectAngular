@@ -55,7 +55,7 @@ export class EmployeeRegistrationComponent implements OnInit {
     this.spouseName=false;
     this.spouseNic=false;
     this.spouseDob=false;
-    this.empId=7;
+    this.empId= this.auth.tokencheckId();
 
     this.getparamId();
     
@@ -111,7 +111,7 @@ export class EmployeeRegistrationComponent implements OnInit {
        
         
         
-        let apiUrl = 'Registration/addEmployee';
+        let apiUrl = 'RegistrationEmployee/addEmployee';
         
         this.repository.postFile(apiUrl, formdata)
            .subscribe(res =>  {
@@ -147,7 +147,7 @@ export class EmployeeRegistrationComponent implements OnInit {
  
 
   public getAttribute(){
-    let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+    let apiUrl = 'RegistrationEmployee/getRegistrationAttribute/'+this.repository.curentEventId;
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;

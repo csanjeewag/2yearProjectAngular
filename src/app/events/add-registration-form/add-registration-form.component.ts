@@ -58,7 +58,7 @@ this.getparamId();
     }else{
     formdata.append('EventId',this.eventId);   
     
-      let apiUrl1 = 'Registration/addRegistrationAttribute';
+      let apiUrl1 = 'RegistrationEmployee/addRegistrationAttribute';
       
       this.repository.postFile(apiUrl1, formdata)
         .subscribe(res =>  {
@@ -84,7 +84,7 @@ public updateEvent(value){
     }else{
       formdata.append('EventId',this.eventId);   
       
-        let apiUrl1 = 'Registration/addRegistrationAttribute';
+        let apiUrl1 = 'RegistrationEmployee/addRegistrationAttribute';
         
         this.repository.postFile(apiUrl1, formdata)
           .subscribe(res =>  {
@@ -101,7 +101,7 @@ public updateEvent(value){
 }
 
 public getRegistrationAttribute(){
-  let apiUrl = 'Registration/getRegistrationAttribute/'+this.eventId;
+  let apiUrl = 'RegistrationEmployee/getRegistrationAttribute/'+this.eventId;
   this.repository.getData(apiUrl)
   .subscribe(res => {
    this.attribute = res;
