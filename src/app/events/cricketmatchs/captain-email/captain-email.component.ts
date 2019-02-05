@@ -47,7 +47,7 @@ export class CaptainEmailComponent implements OnInit {
   }
   
   public emailData(value){
-    console.log(value);
+
     let formData = new FormData();
     formData.append('eventId',this.eventId);
     formData.append('senderId',this.logId);
@@ -56,10 +56,9 @@ export class CaptainEmailComponent implements OnInit {
     formData.append('description2',value.formDiscription2);
     formData.append('description3',value.formDiscription3);
 
-    console.log(this.eventId);
-    console.log(this.logId);
+   
 
-    let apiUrl = "Cricketmatch/sendemails/"+this.eventId;
+    let apiUrl = "Cricketmatch/sendemails";
     
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {

@@ -20,7 +20,14 @@
           <div class="row">
             <div class="col-md-12">
               <div class="table-responsive">
-
+                  <div class="form-group row">
+                    <br>
+                      <div class="col-md-10 container">
+                          <input #shname type="text"  required (keyup)="setscheduleName(shname.value)">
+                        <label for="inputscheduleName"> Schedule Name :</label>
+                        
+                      </div>
+                    </div>
                 <!-- Start Table -->
                 <table class="table table-striped">
                   <thead>

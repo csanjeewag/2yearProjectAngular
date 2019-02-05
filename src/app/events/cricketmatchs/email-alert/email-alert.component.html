@@ -2,7 +2,7 @@
 <div id="background"  >
     <div id="backgroundIN" >
 
-<div *ngIf="details" class=" col-md-10 container">
+<div  class=" col-md-10 container">
 
     <div>
         <br>
@@ -10,7 +10,7 @@
     </div>
     <br>
 
-    <div class="card text-center" *ngIf="!details.id">
+    <div class="card text-center" *ngIf="!details" >
         <div class="card-header">  
         </div>
         <div class="card-body">
@@ -22,7 +22,10 @@
         </div>
     </div>    
 
-    <div *ngIf="details.id">
+
+
+
+    <div *ngIf="details"  >
             <button type="button" class="btn" id="btn" (click)="composeMail()">Compose Mail</button>      
             <br><br>
     <!-- Start send email -->

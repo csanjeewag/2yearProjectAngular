@@ -1,5 +1,4 @@
 
-
 #notification{
     width: 240px;
     background-color: rgba(245, 69, 63, 0.911)
@@ -84,6 +83,8 @@ height: 45px;
 #dropdown{
     margin: 0px;
     background-color: #0000008e;
+    overflow-y: scroll;
+    max-height: 500px;
 }
 #dropdowntab:hover{
     background-color: #3e3e3e;

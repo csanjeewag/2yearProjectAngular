@@ -13,6 +13,7 @@ export class ScheduleComponent implements OnInit {
   
   public msg="Add Schedule"
   public schedule: any;
+  public scheduleName:any;
   public eventId:any;
   public Message: any;
   public schedulearray= [""];
@@ -56,12 +57,17 @@ export class ScheduleComponent implements OnInit {
   }
 
   addHero(newHero) {
-    if (newHero) {
+    if (newHero<16) {
       if (this.schedulearray.indexOf(newHero) < 0) {
         this.schedulearray.push(newHero);
         this.ClickNum = newHero;
         
+      }else{
+        alert("This is already entered!");
       }
+    }
+    else{
+      alert("This not valid number, try again!");
     }
   }
 
@@ -95,6 +101,7 @@ export class ScheduleComponent implements OnInit {
 
     let formData = new FormData();
     formData.append('EventId', this.eventId)
+    formData.append('SchName', this.scheduleName);
     formData.append('team1', this.team1);
     formData.append('team2', this.team2);
     formData.append('team3', this.team3);
@@ -129,6 +136,10 @@ export class ScheduleComponent implements OnInit {
     alert(this.msg);
   }
 
-
+  public setscheduleName(name){
+    this.scheduleName = name;
+   
+  }
+  
 
 }

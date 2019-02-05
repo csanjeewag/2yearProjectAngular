@@ -45,7 +45,7 @@
               </div>
               <div class="form-group col-md-6">
                       <!-- <input  placeholder="Mobile No." class="form-control" type="text" formControlName="contact" id="contact"> -->
-                      <input formControlName="contact" required >
+                      <input formControlName="contact" type="number" required >
                          <label >Enter Contact </label>
                       <em *ngIf="validateControl('contact') && hasError('contact', 'required')">*Contact is required</em>
                       <em *ngIf="validateControl('contact') && hasError('contact', 'maxlength')">*Maximum allowed length is 6 characters.</em>
