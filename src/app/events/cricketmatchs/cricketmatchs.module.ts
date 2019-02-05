@@ -11,6 +11,7 @@ import { EmailAlertComponent } from './email-alert/email-alert.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ScheduleViewComponent } from './schedule-view/schedule-view.component';
 import { ScheduleViewsComponent } from './schedule-views/schedule-views.component';
+import { ScheduleFormComponent } from './schedule-form/schedule-form.component';
 
 
 @NgModule({
@@ -27,8 +28,9 @@ import { ScheduleViewsComponent } from './schedule-views/schedule-views.componen
       { path: 'scheduleform/:id', component: ScheduleComponent },
       { path: 'scheduleview/:id', component: ScheduleViewComponent },
       { path: 'scheduleviews/:id', component: ScheduleViewsComponent },
+      { path: 'scheduleforms/:id', component: ScheduleFormComponent },      
     ])
   ],
-  declarations: [TeamFormComponent,TeamViewComponent, CaptainEmailComponent, EmailAlertComponent, ScheduleComponent, ScheduleViewComponent, ScheduleViewsComponent]
+  declarations: [TeamFormComponent,TeamViewComponent, CaptainEmailComponent, EmailAlertComponent, ScheduleComponent, ScheduleViewComponent, ScheduleViewsComponent, ScheduleFormComponent]
 })
 export class CricketmatchsModule { }

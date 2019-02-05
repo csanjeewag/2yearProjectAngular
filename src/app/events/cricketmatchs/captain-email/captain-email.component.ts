@@ -59,7 +59,7 @@ export class CaptainEmailComponent implements OnInit {
     console.log(this.eventId);
     console.log(this.logId);
 
-    let apiUrl = "Cricketmatch/sendemails";
+    let apiUrl = "Cricketmatch/sendemails/"+this.eventId;
     
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {

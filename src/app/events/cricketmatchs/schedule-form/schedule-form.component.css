@@ -1,0 +1,15 @@
+#btn{
+    background-color: rgb(180, 176, 176);
+    margin: 0px;
+    padding: 1px 10px;
+    color: white;
+    transition: 0.4s all ease-in-out;  
+} 
+
+#btn:hover{
+    background-color: rgb(119, 115, 115);
+    padding: 1px 12px;
+    color: rgb(228, 227, 227);
+    -webkit-box-shadow: 0 10px 30px 0 rgba(63,63,63, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(63, 63, 63, 0.4);
+}
