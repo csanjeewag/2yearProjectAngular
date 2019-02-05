@@ -133,6 +133,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
           )
           return false;
       }
+      
     public forgetpassword(value){
       this.LoadForget = true;
      this.wait = "please wait for while, check your email.."; 

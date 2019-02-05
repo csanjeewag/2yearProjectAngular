@@ -8,4 +8,48 @@
     padding: 0px;
   }
 
- 
+  #formContent  .btn{
+    background-color: rgb(21, 138, 50);
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    transition: 0.4s all ease-in-out;
+    
+
+} 
+#formContent .btn:hover{
+  background-color: rgb(21, 138, 50);
+    padding-left: 55px;
+    padding-right: 55px;
+    color: rgb(228, 227, 227);
+    -webkit-box-shadow: 0 10px 30px 0 rgba(63,63,63, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(63, 63, 63, 0.4);
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 100%;
+  
+  position: relative;
+  padding: 0px;
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+
+}
+
+#formContent:hover {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 100%;
+  
+  position: relative;
+  padding: 0px;
+  box-shadow: 0 20px 40px 0 rgba(54, 54, 54, 0.3);
+  text-align: center;
+}

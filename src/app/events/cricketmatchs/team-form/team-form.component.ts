@@ -92,7 +92,8 @@ export class TeamFormComponent implements OnInit {
     this.repository.postFile(apiUrl, formData)
       .subscribe(res => {
         this.Message = res;
-          this.router.navigate(['events/cricketmatchs/teamview/'+this.eventId]);
+         
+        this.router.navigate(['events/cricketmatchs/teamview/'+this.eventId]);
       },
         (error => {
 

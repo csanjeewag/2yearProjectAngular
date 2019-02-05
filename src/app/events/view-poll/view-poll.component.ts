@@ -15,6 +15,7 @@ export class ViewPollComponent implements OnInit {
   public poll:any;
   public destinations:any;
   public voted:any;
+  public urlAddress:any;
   
   public empId:any;
   public destId:any;
@@ -23,7 +24,7 @@ export class ViewPollComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,  private repository : RepositoryService) { }
 
   ngOnInit() {
-    this.empId=6;
+    this.empId=7;
     this.destId=22;
     this.num=1;
     this.dest='s';
@@ -35,18 +36,23 @@ export class ViewPollComponent implements OnInit {
       let id =params.get('id');
       this.pollId=id;
       this.getPoll();
-      console.log("id of the evenet = "+id)
-     });
+      });
   
   
   }
 
   public getPoll(){
-    console.log("inside get project");
-     this.repository.getData('Poll/getPoll/'+this.pollId)
+   this.repository.getData('Poll/getPoll/'+this.pollId)
     .subscribe(res => {
       this.poll = res ;
-      console.log("event = "+this.poll);
+      this.repository.getData('Poll/getDestination/'+this.pollId)
+    .subscribe(res => {
+      this.destinations = res ;
+      
+    },
+    (error) => {
+    
+    })
       
     },
     (error) => {
@@ -54,37 +60,32 @@ export class ViewPollComponent implements OnInit {
     })
    
 
-    this.repository.getData('Poll/getDestination/'+this.pollId)
-    .subscribe(res => {
-      this.destinations = res ;
-      console.log("event = "+this.destinations);
-      
-    },
-    (error) => {
     
-    })
  
   }
-  public vote(){
+  public vote(id,destVote,dest){
     this.repository.getData('Poll/getEmp/'+this.pollId+'/'+this.empId)
     .subscribe(res => {
       this.voted = res ; 
-      console.log("voted = "+this.voted);     
+      this.addVote(id,destVote,dest);
+    
     },
     (error) => {
     
     })
-    this.addVote();
   }
 
-  public addVote(){
+  public addVote(id,destVote,dest){
     if(this.voted!=null){
       window.alert("You have already voted");
     }else{
+      let today=new Date();
+      if(new Date(today)<new Date(this.poll.closingDate)){
+      this.num=destVote+1;
       let formdata = new FormData;
-      formdata.append('Id',this.destId);
+      formdata.append('Id',id);
       formdata.append('DestVote',this.num);
-      formdata.append('Dest',this.dest);
+      formdata.append('Dest',dest);
       formdata.append('PollId',this.pollId);
 
 
@@ -93,27 +94,52 @@ export class ViewPollComponent implements OnInit {
           
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {         
-       
+          this.addEmployee();
+
           },
           (error => {
            
           })
         )
+      }else{
+        window.alert("Vote is closed");
+
+      }
     }
   }
+
+public addEmployee(){
+  let formdata1 = new FormData;
+  formdata1.append('PollId',this.pollId);
+  formdata1.append('EmployeeId',this.empId);
+ 
+  let apiUrl = 'Poll/addEmployee';
+          
+      this.repository.postFile(apiUrl, formdata1)
+        .subscribe(res =>  {  
+          window.alert("Your vote has succesfully recorded");
+       
+        },
+          (error => {
+           
+          })
+        )
+
+}
+
 
   public removePoll(){
     let formdata = new FormData;
       formdata.append('Id',this.pollId);
-      formdata.append('IsActive','true');
+      formdata.append('IsActive','false');
 
 
-
-      let apiUrl = 'Poll/removePoll';
+let apiUrl = 'Poll/removePoll';
           
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {         
-       
+          this.urlAddress = "profile/home";
+                 this.router.navigate([this.urlAddress]);
           },
           (error => {
            

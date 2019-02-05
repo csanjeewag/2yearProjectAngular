@@ -72,7 +72,7 @@ public errorMessage:any;
 
   private executeTaskCreation(profileFormValue) {
     let t: NewTask = {
-      taskId:0,
+    taskId:0,
     taskName:profileFormValue.TaskName,
     eventId:this.repository.curentEventId,
     startDate:profileFormValue.StartDate,

@@ -1,7 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; 
- 
+  font-family: Calibri;
+}
+*:hover{
+  cursor: pointer;
+  /* font-family: monospace; */
+}
+#load{
+  background-color: #e2e1e15e;
+  height: 600px;
+  
+}
+#load img{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 100px;
+  
 }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 #zoom1{
@@ -19,6 +35,9 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   
 
 } 
+.btn{
+  transition: 0.4s all ease-in-out;
+}
 #btn:hover{
 background-color: rgb(141, 13, 30);
   padding-left: 55px;

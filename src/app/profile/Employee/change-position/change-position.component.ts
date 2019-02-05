@@ -50,7 +50,7 @@ export class ChangePositionComponent implements OnInit {
     this.repository.getData('employee/getallemployees')
     .subscribe(res => {
       this.result = res ;
-
+      
       
     },
     (error) => {
@@ -64,7 +64,7 @@ export class ChangePositionComponent implements OnInit {
 
   }
 
-  public statechange(email,state){
+  public statechange(email,state,id){
     this.Loading = email;
     var State:any;
     if(state ==1){
@@ -81,6 +81,10 @@ export class ChangePositionComponent implements OnInit {
       
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
+          if(id==this.auth.tokencheckId()){
+            this.auth.loggout();
+        
+          }
           this.getAllEmployee();
           alert("Position change sucsses!")
           this.Loading = null;
@@ -134,13 +138,18 @@ export class ChangePositionComponent implements OnInit {
     })
   }
 
-  public changedetails(email,positionId,departmentId,projectId){
+  public changedetails(id,email,positionId,departmentId,projectId){
   
-   
+  let loggout= false;
+
     let formData = new FormData;
     formData.append('EmpEmail', email);
     if(positionId != ""){
       formData.append('PositionPId',positionId);
+      if(id==this.auth.tokencheckId()){
+        loggout = true;
+      }
+
     }
     if(departmentId != ""){
       formData.append('DepartmentDprtId',departmentId);
@@ -155,10 +164,13 @@ export class ChangePositionComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
           this.getAllEmployee();
-          alert("Position change sucsses!")
+        
+          alert("sucsses!")
+          if(loggout){ this.auth.loggout();}
+
           },
           (error => {
-            alert("Position change failed!")
+            alert("failed!")
           })
         )
     }

@@ -67,12 +67,9 @@ export class SelectAttributeForUpdateComponent implements OnInit {
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
-          //this.Message="attribute updated!";
           this.urlAddress = "events/updateevent/"+this.EventId;
           this.router.navigate([this.urlAddress]);
-           //   this.router.navigate(['/profile/admin/roles']);
-           
-       
+          
           },
           (error => {
             this.Message="Event Created Failed,Try Again!";
@@ -85,7 +82,6 @@ export class SelectAttributeForUpdateComponent implements OnInit {
   getparamId(){
     this.rou.paramMap.subscribe((params:ParamMap)=>{
       let id =params.get('id');
-      console.log("get the  param id"+id)
       this.EventId=id;
       this.getAttribute();
      });
@@ -97,12 +93,10 @@ export class SelectAttributeForUpdateComponent implements OnInit {
 
   public getAttribute(){
     let apiUrl = 'event/getatribute/'+this.EventId;
-    console.log("inside get attribute")
-    this.repository.getData(apiUrl)
+     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
-      console.log(res)
-          this.fiilEvent();
+     this.fiilEvent();
         },
         (error => {
       
@@ -121,9 +115,7 @@ export class SelectAttributeForUpdateComponent implements OnInit {
     this.EventForm.controls['actualCost'].setValue(this.attribute.actualCost);
     this.EventForm.controls['mainOrganiZer'].setValue(this.attribute.mainOrganiZer);
     this.EventForm.controls['summary'].setValue(this.attribute.summary);
-    console.log("liquor = ")
     
-
   }
 
 }

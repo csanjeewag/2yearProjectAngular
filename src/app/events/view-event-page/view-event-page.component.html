@@ -7,20 +7,25 @@
 <section>
     <div class="container">
       <div class="card">
-        <div class="row">
-            
+        
+  
+        <div class="row">           
           <div class="col-md-6">
            
             <div class="card-block" id="dis">
               <br/>
-              <h4 class="card-title">{{event.eventTitle}}</h4>
-              <p class="card-text">{{event.eventDescription}}</p>
-              <p *ngIf="destination"class="card-text">Destination: {{event.destination}}</p>
-              <p *ngIf="venue" class="card-text">Venue: {{event.venue}}</p>
-              <p class="card-text">Date: {{event.startDate | date: 'dd/MM/yyyy'}}</p>
-
-              <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{event.closingDate | date: 'dd/MM/yyyy'}}</p>
-              <p class="card-text" *ngIf="endDate">EndDate of Event: {{event.endDate | date: 'dd/MM/yyyy'}}</p>
+             
+              
+              
+            
+              <h1 class="card-title">{{event.eventTitle}}</h1>
+              <br/>
+              <h5 class="card-text">{{event.eventDescription}}</h5>
+                  <h5 id="h2" class="card-text">Date: {{event.startDate | date}}</h5>
+                  <h5 id="h2" *ngIf="destination"class="card-text">Destination: {{event.destination}}</h5>
+                  <h5 id="h2" *ngIf="venue" class="card-text">Venue: {{event.venue}}</h5>
+              <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{event.closingDate | date}}</p>
+              <p class="card-text" *ngIf="endDate">EndDate of Event: {{event.endDate | date}}</p>
               <p class="card-text" *ngIf="isFamilyMembersAllowed">Whether Family Members Allowed: {{event.isFamilyMembersAllowed}}</p>
               <p class="card-text" *ngIf="liquor">Liquor: {{event.liquor}}</p>
               <p class="card-text" *ngIf="numberOfTeams">Number of Teams: {{event.numberOfTeams}}</p>
@@ -30,7 +35,7 @@
           </div>
           <div class="col-md-6">
             <div class="card-img-bottom" id="division">
-                <img class="card-img " id="image" style="width: 100%; height: 450px;"src="assets/_image/trip.jpg">
+                <img class="card-img " id="image" style="width: 100%; height: 450px;"[src]="ImageUrl+event.eventImageUrl">
 
             </div>
           </div>
@@ -50,9 +55,15 @@
       <div id="form" class="col-sm-9" *ngIf="this.form===null||!this.register">
       </div>
       <div class="col-sm-1">
+          <button type="button" class="btn btn-link"(click)="addRegistrationForm()" *ngIf="this.form===null">Add Registration Form</button>
           <button type="button" class="btn btn-link"(click)="updateEvent()">Update Event</button>
-          <button type="button" class="btn btn-link" (click)="deleteEmployee(content)" *ngIf="this.form!=null">Delete Registered Employee</button>
+<<<<<<< HEAD
+          <button type="button" class="btn btn-link" (click)="viewEmployee()" *ngIf="this.form!=null">View Registered Employees</button>
+=======
+          <!-- <button type="button" class="btn btn-link" (click)="deleteEmployee(content)" *ngIf="this.form!=null">Delete Registered Employee</button> -->
           <button type="button" class="btn btn-link" (click)="viewEmployee()">View Registered Employees</button>
+          <button type="button" class="btn btn-link" (click)="registerEmployee()">Add Registered Employees</button>
+>>>>>>> 806fc800608ba13a3e7e0c76cd7782daea016c98
         </div>
 </div>
 <br/><br/>
@@ -75,25 +86,6 @@
               </div>
               <br/><br/>
 
-              <ng-template #content let-c="close" let-d="dismiss">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Delete Employee</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <!-- employee list -->
-                  <div class="modal-body">
-                     <app-delete-employee></app-delete-employee>                             
-                    </div>
-
-                     <!-- end -->
-                  <div class="modal-footer">
-                      <small class="text-muted">
-                         
-                        </small>
-                    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-                  </div>
-                </ng-template>     
+                
               
   
