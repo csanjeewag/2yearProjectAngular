@@ -19,7 +19,8 @@ export class AddEventComponent implements OnInit {
       config.backdrop = 'static';
       config.keyboard = false;
     }
-   
+   public IsAdmin:any;
+   public IsRC:any;
     public FileImage:File;
     public ImageUrl:any;
     public EventForm: FormGroup;
@@ -54,6 +55,8 @@ export class AddEventComponent implements OnInit {
     
     ngOnInit() {
 
+      this.IsAdmin = this.auth.isAdmin();
+      this.IsRC = this.auth.isRC();
       this.des=true;
       this.endDate =false;
       this.closingDate=false;

@@ -1,16 +1,18 @@
 
 <app-nav-bar></app-nav-bar>
+<div id="background"  >
+    <div id="backgroundIN" >
 <div class="fff">
-  <li class="nav-item">
+  
+  <div class="container">
+  
 
    
-    <a class="btn" (click)=gotoimageview()><img src="assets/_image/cameralogo.jpg" width="130" height="100" class="rounded-circle margin-left ml-2"></a> 
-  </li>
-  <div class="container">
-    
+          <a class="btn" (click)=gotoimageview()><img src="assets/_image/cameralogo.jpg" width="130" height="100" class="rounded-circle margin-left ml-2"></a> 
+        
       <div *ngIf="!IsLogin" class="wrapper fadeInDown col-md-8 container">
     <div class="row">
-      <div class="col-4"></div>
+     
       <div class="col-4">
 
 
@@ -24,11 +26,7 @@
                 
               <div class="input-field col s12">
 
-                <!-- <div class="form-group">
-                          <label for="text" class="sr-only">EventId</label>
-                          <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
-                        </div>
-                        -->
+                
                 <div class="form-group">
                   <label for="key" class="sr-only">Caption</label>
                   <input type="text" formControlName="Caption" id="Caption" class="form-control" placeholder=" Caption">
@@ -58,57 +56,13 @@
           </div>
         </div>
       </div>
-      <div class="col-4"></div>
+     
 
     </div>
     </div>
   </div>
 
-  <!-- <div class="Container" class="bbody" class=".col-md-1">
-    <div class="row">
-      <div class="col s8 offset-2">
-        <div class="card-panel teal lighten-2">
-          <h4 class="centre white-text">Image Upload Portal</h4>
-        </div>
-        <form [formGroup]="imageuploadForm" autocomplete="off" novalidate (ngSubmit)="OnSubmit(imageuploadForm.value)">
-          <img [src]="ImageUrl" style="width:250px;height:200px">
-          <div class="input-field col s12">
-
-            <div class="form-group">
-              <label for="text" class="sr-only">EventId</label>
-              <input class="form-control" formControlName="EventId" id="EventId" placeholder="Event Id">
-            </div>
-
-            <div class="form-group">
-              <label for="key" class="sr-only">Caption</label>
-              <input type="text" formControlName="Caption" id="Caption" class="form-control" placeholder=" Caption">
-            </div>
-
-            <div class="form-group">
-              <label for="key" class="sr-only">Description</label>
-              <input type="text" formControlName="Description" id="Description" class="form-control" placeholder=" Description">
-            </div>
-          </div>
-          <div class="form-group">
-            <input type="file" formControlName="Image" #Image accept="image/*" (change)="onFileChange($event.target.files)">
-
-          </div>
-          <div class=" form-group">
-            <button type="submit" class="btn-large btn-submit" class="btn btn-outline-success" [disabled]="!imageuploadForm.valid">submit</button>
-
-          </div>
-        </form>
-      </div>
-
-    </div>
-
-
-  </div>
-  <div class=".col-sm-5">
-  </div>
-</div>> -->
-  <!-- JAVA SCRIPT CODE start  -->
-  <!-- DON NOT DELETE -->
+ 
   <script>
 
     function readURL(input) {
@@ -134,29 +88,6 @@
 
 
   </script>
-  <!-- ##### JAVA SCRIPT (drag and drop)  end  -->
+ 
 
-
-
-  <!-- ############## Drag and drop -->
-
-  <!-- <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-<div class="file-upload">
-  <!--   <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button> -->
-
-  <!-- <div class="image-upload-wrap">
-    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-    <div class="drag-text">
-      <h3>Drag and drop a file or select add Image</h3>
-    </div>
-  </div>
-  <div class="file-upload-content">
-    <img class="file-upload-image" src="#" alt="your image" />
-    <div class="image-title-wrap">
-      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded
-          Image</span></button>
-    </div>
-  </div>
-</div> -->
-  <!-- ####### COMMENT FOR TESTING. aulak nettan ain krnda balala -->
+  </div></div>

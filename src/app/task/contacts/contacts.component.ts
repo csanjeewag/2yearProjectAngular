@@ -110,7 +110,7 @@ public addContacts(value){
     
   this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
-      
+      alert('Detail Added')
       },
       (error => {
         

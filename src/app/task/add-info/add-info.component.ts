@@ -121,6 +121,11 @@ public viewInfoDetails(id){
 
 }
 
+public AddContactType(){
+  this.route.navigate(['task/contact/']);
+
+}
+
 
 
 

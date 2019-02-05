@@ -14,12 +14,21 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ImageviewComponent implements OnInit {
   result: any;
   eevent: any;
+  Rc:any;
+  Admin:any;
   ImageUrl: any;
   greeting: any;
   public author: any;
+  public IsAdmin:any;
+  public IsRC:any;
+
+  
   constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
   public eventId: any;
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
+    
     this.ImageUrl = this.repo.ImageUrl;
    
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -31,14 +40,16 @@ export class ImageviewComponent implements OnInit {
     this.getimage();
     this.eventname();
     this.author = this.auth.tokencheckId();
-    console.log(this.author);
+    this.Admin = this.auth.isAdmin();
+    this.Rc =this.auth.isRC();
+  
   }
   public getimage() {
     let id = this.eventId;
     this.repo.getData('PastEvent/getimages/' + id)
       .subscribe(res => {
         this.result = res;
-        console.log(this.result);
+       
 
       },
         (error) => {
@@ -81,7 +92,7 @@ export class ImageviewComponent implements OnInit {
     this.repo.getData(url)
       .subscribe(res => {
         this.eevent = res;
-        console.log(this.eevent);
+   
       }, (error) => {
 
       })

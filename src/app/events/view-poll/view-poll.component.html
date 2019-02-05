@@ -14,7 +14,7 @@
 
       <h5 class="card-title">Poll close at: {{poll.closingDate | date}}</h5>
       </div>
-      <div class=col-sm-1>
+      <div class=col-sm-1 *ngIf="this.IsAdmin||this.IsRC"> 
           <button type="button" class="btn" id="btn" (click)="removePoll()" >Remove Poll</button>
       </div>
       </div>
@@ -45,8 +45,8 @@
       <div class="card" style="width: 100%;">
         <img class="card-img-top" src="assets/_image/vote 1.jpg" alt="Card image cap">
         <div class="card-body">
-          <h3>  No poll added yet. Add a new poll</h3>
-          <button class="btn" (click)="addPoll()">Add New Poll</button>
+          <h3>  No poll added yet</h3>
+          <button  *ngIf="this.IsAdmin||this.IsRC" class="btn" (click)="addPoll()">Add New Poll</button>
         </div>
     </div>
     </div>

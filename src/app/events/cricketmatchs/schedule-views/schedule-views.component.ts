@@ -32,7 +32,7 @@ export class ScheduleViewsComponent implements OnInit {
       this.result=res;
       this.teams = this.result.teamnames;
       this.captains = this.result.teamcaptains;
-     console.log(this.result);
+  
     },(error =>{
     })
     )
@@ -44,7 +44,7 @@ export class ScheduleViewsComponent implements OnInit {
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.allSchedule = res;
-     console.log(this.allSchedule);
+  
     },(error =>{
     })
     )

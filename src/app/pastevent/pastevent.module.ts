@@ -20,6 +20,7 @@ import { EventcardComponent } from './eventcard/eventcard.component';
 
 import { Header1Component } from "./../SharePart/header1/header1.component";
 import { CommentComponent } from './comment/comment.component';
+import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
 
 @NgModule({
   imports: [
@@ -29,38 +30,31 @@ import { CommentComponent } from './comment/comment.component';
     ReactiveFormsModule,
     RouterModule.forChild([
 
-      { path: 'imageupload/:id', component: ImageuploadComponent },
-      { path: 'imageview/:id', component: ImageviewComponent },
-      { path: 'comment', component: CommentComponent },
-      { path: 'comment/:id', component: CommentComponent },
-      { path: 'bdonation', component: BdonationComponent  },
-      { path: 'budget', component: BudgetComponent  },
-      { path: 'eventcard', component: EventcardComponent  },
-      { path: 'cricketinfo', component: CricketinfoComponent},
-      { path: 'uploadpastevent/:id', component: UploadpasteventComponent },
-      // { path: 'imageview', component: ImageviewComponent},
-      { path: 'event', component: SidebarComponent,
+      { path: 'imageupload/:id', component: ImageuploadComponent ,canActivate:[AuthLoginGuard]},
+      { path: 'imageview/:id', component: ImageviewComponent,canActivate:[AuthLoginGuard] },
+      { path: 'comment', component: CommentComponent,canActivate:[AuthLoginGuard] },
+      { path: 'comment/:id', component: CommentComponent ,canActivate:[AuthLoginGuard]},
+      { path: 'bdonation', component: BdonationComponent ,canActivate:[AuthLoginGuard] },
+      { path: 'budget', component: BudgetComponent ,canActivate:[AuthLoginGuard] },
+      { path: 'eventcard', component: EventcardComponent ,canActivate:[AuthLoginGuard] },
+      { path: 'cricketinfo', component: CricketinfoComponent,canActivate:[AuthLoginGuard]},
+      { path: 'uploadpastevent/:id', component: UploadpasteventComponent ,canActivate:[AuthLoginGuard]},
+      
+      { path: 'event', component: SidebarComponent,canActivate:[AuthLoginGuard],
       
        children: [
         { path: 's/:id', component: PastdetailComponent },
-        // { path: '/:id', component: ImageviewComponent },
+       
         
       ]
     },
-     
-      // { path: 'Pastdetail', component: PastdetailComponent,
-      //   children: [
-
-      //     { path: 'BloodDonation', component: BloodDonationComponent },
-      //     { path: 'CricketMatch', component: CricketMatchComponent },
-      //     { path: 'AnnualTrip', component: AnnualTripComponent },
-      //   ]
-      // },
+ 
 
     ])
   ],
   declarations: [Header1Component, ImageuploadComponent, ImageviewComponent, PastdetailComponent,
     BloodDonationComponent,CricketMatchComponent,AnnualTripComponent, BdonationComponent, CricketinfoComponent, SidebarComponent, UploadpasteventComponent, BudgetComponent, EventcardComponent, CommentComponent, ],
+    providers:[AuthLoginGuard],
   exports: [RouterModule]
 
 })

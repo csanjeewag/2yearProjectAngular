@@ -1,11 +1,12 @@
 <app-nav-bar></app-nav-bar>
+<div id="background"  >
+    <div id="backgroundIN" >
 
-
-<div class=" col-md-10 container">
+<div *ngIf="details" class=" col-md-10 container">
 
     <div>
         <br>
-        <h3>Email of Captain Email...</h3>
+        <h3 >Email that was sent for captains...</h3>
     </div>
     <br>
 
@@ -15,14 +16,14 @@
         <div class="card-body">
           <h5 class="card-title">Add Email for Captains</h5>
           <p class="card-text">There are no email send to captains...</p>
-          <button type="button" class="btn btn-success" (click)="composeMail()">Compose Mail</button>      
+          <button type="button" class="btn" id="btn" (click)="composeMail()">Compose Mail</button>      
         </div>
         <div class="card-footer text-muted">
         </div>
     </div>    
 
     <div *ngIf="details.id">
-            <button type="button" class="btn btn-success" (click)="composeMail()">Compose Mail</button>      
+            <button type="button" class="btn" id="btn" (click)="composeMail()">Compose Mail</button>      
             <br><br>
     <!-- Start send email -->
     <div class="row">
@@ -48,5 +49,6 @@
 </div>
 
 
-
+</div>
+</div>
 

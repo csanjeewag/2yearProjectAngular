@@ -1,7 +1,12 @@
 <app-nav-bar></app-nav-bar>
+
+<div id="background"  >
+    <div id="backgroundIN" >
+
 <section id="team" class="pb-5">
-    <div class="container">
-       
+    <div class="col-lg-10 col-sm-12 container">
+        <br><br>
+       <h1 id="topic">PREVIOUS EVENTS</h1><br><br>
         <div class="row">
 
 
@@ -11,15 +16,16 @@
                 <div (click)=moredetail(e.id) class="card-deck container">
 
                     <div class="card container" id="zoom2">
-                        <img class="card-img-top" [src]="ImageUrl+e.eventImageUrl"
+                        <img style="width:100%" class="card-img-top" [src]="ImageUrl+e.eventImageUrl"
                             alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{e.eventTitle}}</h5>
                             <p> {{e.startDate|date}}</p>
-                            <p> {{e.destination}}</p>
+                            <p *ngIf="e.destination!='null'"> {{e.destination}}</p>
+                            <p *ngIf="e.venue!='null'"> {{e.venue}}</p>
                             <!-- <button id="btn" class="btn "  (click)=moredetail(e.id)>moredetail</button> -->
                             <br>
-                            <p id="crateAccountlink"  class="underlineHover" (click)=Upgradeevent(e.id)>update</p>
+                            <p id="crateAccountlink"  class="underlineHover" *ngIf="this.IsAdmin || this.IsRC" (click)=Upgradeevent(e.id)>update</p>
                         </div>
                     </div>
                 </div>
@@ -28,3 +34,5 @@
     </div>
 </section>
 
+</div>
+</div>

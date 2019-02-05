@@ -27,7 +27,7 @@ export class SidebarComponent implements OnInit {
    this.repository.getData(url)
     .subscribe(res => {
       this.event =res;
-      console.log(res);
+   
     },(error) =>{
 
     })
@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit {
   
   }
   public  gotoEventImages(id){
-    console.log(id);
+
        this.router.navigate(['pastevent/imageview/'+id]);
        
      }

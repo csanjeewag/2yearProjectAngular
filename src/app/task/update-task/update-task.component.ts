@@ -28,6 +28,10 @@ public employees:Array<any> = [];
 public emailFormArray:any;
 public employee:any;
 public taskstatus:any;
+public sdate:any;
+public edate:any;
+public IsAdmin:any;
+public IsRC:any;
 
 public event:any;
 error1:any={isError:false,errorMessage:''};
@@ -37,6 +41,8 @@ public errorMessage:any;
 
 
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.gettask();
     this.getAllEmployee();
     this.getempfortask(this.taskId);
@@ -110,10 +116,18 @@ let apiUrl = 'task/create';
 
         
     public fillTask(){
+
+      this.sdate=""+this.task.startDate;
+      let x=this.sdate.split('T')
+      this.sdate=x[0];
+
+      this.edate=""+this.task.endDate;
+      let y=this.edate.split('T')
+      this.edate=x[0];
       
       this.taskForm.controls['TaskName'].setValue(this.task.taskName);
-      this.taskForm.controls['StartDate'].setValue(this.task.startDate);
-      this.taskForm.controls['EndDate'].setValue(this.task.endDate);
+      this.taskForm.controls['StartDate'].setValue(this.sdate);
+      this.taskForm.controls['EndDate'].setValue(this.edate);
       this.taskForm.controls['BudgetedCost'].setValue(this.task.budgetedCost);
       this.taskForm.controls['Description'].setValue(this.task.description);
       
@@ -238,7 +252,8 @@ onChangeStatus(isChecked: boolean){
     this.error2={isError:false,errorMessage:''};
   }
   }
-  
+
+
 
 
 }

@@ -185,6 +185,10 @@ compareTwoDates(){
       isError:true,errorMessage:'*End date after event date'};
 
   }
+  else{
+    this.error1={isError:false,errorMessage:''};
+
+  }
 
   
 }

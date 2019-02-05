@@ -12,8 +12,8 @@
 
     </p>
     <button type="button" class="btn btn-link" (click)="open(content,i.taskId,i.status)">More</button>
-    <button type="button" class="btn btn-link" (click)="updateTask(i.taskId)">Update</button>
-    <button type="button" class="btn btn-link" (click)="deleteTask(i.taskId)">Delete</button>
+    <button type="button" class="btn btn-link" (click)="updateTask(i.taskId)" *ngIf="this.IsAdmin || this.IsRC">Update</button>
+    <button type="button" class="btn btn-link" (click)="deleteTask(i.taskId)" *ngIf="this.IsAdmin || this.IsRC">Delete</button>
 
     <div class="modal fade">
       <ng-template #content let-c="close" let-d="dismiss">

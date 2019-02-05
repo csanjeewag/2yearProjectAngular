@@ -111,7 +111,7 @@
   <a>
     <div>
     <img *ngIf="!Employee" src="assets/_image/nodp.jpg" id="profilePicture" id="zoom2" height="50em" width="50em" alt="User Icon" class="rounded-circle margin-left ml-2">
-    <img  *ngIf="Employee" [src]= "ImageUrl+Employee.empProfilePicture" id="profilePicture" id="zoom2" height="50em" width="50em" alt="User Icon" class="rounded-circle margin-left ml-2">
+    <img  *ngIf="Employee && Employee.empProfilePicture" [src]= "ImageUrl+Employee.empProfilePicture" id="profilePicture" id="zoom2" height="50em" width="50em" alt="User Icon" class="rounded-circle margin-left ml-2">
   </div>
  </a>
   <span class="navbar-text">

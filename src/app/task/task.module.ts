@@ -56,20 +56,18 @@ import { UpdateContactDetailComponent } from './update-contact-detail/update-con
     FormsModule,
     ReactiveFormsModule,
      RouterModule.forChild([
-       { path: 'addtask', component: AddtaskComponent },
-       { path: 'list', component: ViewTaskComponent},
+       { path: 'addtask', component: AddtaskComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
+       { path: 'list', component: ViewTaskComponent,canActivate:[AuthLoginGuard]},
        {path:'',component:LandingPageComponent},
        {path:'mytask',component:MyTaskComponent},
-       {path:'addinfo',component:AddInfoComponent},
-       //{path:'details/:id', component: ShowTaskDetailsComponent},
-       { path: 'updatetask/:id', component: UpdateTaskComponent },
+       {path:'addinfo',component:AddInfoComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+       { path: 'updatetask/:id', component: UpdateTaskComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
        {path:'newtask',component:MainTaskComponent},
-       {path:'contact',component:ContactsComponent},
-       {path:'viewcontact/:id',component:ViewcontactsComponent},
-        {path:'viewtaskinfo/:id',component:ViewTaskInfoComponent},
-{path:'updatecontactdetail/:id',component:UpdateContactDetailComponent}
+       {path:'contact',component:ContactsComponent,canActivate:[AuthLoginGuard]},
+       {path:'viewcontact/:id',component:ViewcontactsComponent,canActivate:[AuthLoginGuard]},
+        {path:'viewtaskinfo/:id',component:ViewTaskInfoComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+{path:'updatecontactdetail/:id',component:UpdateContactDetailComponent,canActivate:[AuthLoginGuard]}
 
-       //{ path: 'list/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD'} },
 
   
    ])

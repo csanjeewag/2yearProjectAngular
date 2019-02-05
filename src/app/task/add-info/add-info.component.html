@@ -23,7 +23,9 @@
    <div class="modal-body"  id="formContent">
 
     <form [formGroup]="contactForm"  autocomplete="off" novalidate (ngSubmit)="addContacts(contactForm.value)">
-      
+      <div class="row">
+      <div class="col">
+
         <div class="dropdown">
             <button class="btn btn-dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Contact Type >
@@ -35,6 +37,13 @@
               
             </div>
           </div>
+        </div>
+          <div class="col">
+              <button type="button"  class="btn" id="but" (click)="AddContactType()" >Contact Type</button>
+          </div>
+        </div>
+
+
         <br><br>
         <div id="label">Name:</div>
         <input type="text" id="name" name="name" class="form-control" formControlName="name">

@@ -67,7 +67,7 @@ export class TeamFormComponent implements OnInit {
     let formData = new FormData();
     formData.append('EventId', this.eventId);
     formData.append('TeamName', value.teamName);
-    formData.append('VegeCount', value.teamVegeCount);
+    formData.append('VageCount', value.teamVegeCount);
     formData.append('LiquorCount', value.teamLiquor);
     formData.append('Description', value.discription);
     formData.append('TeamCaptainId', this.captainId);

@@ -11,9 +11,9 @@
 .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 18px;
     text-align: left;
-    color: #000000;
+    color: #2e2d2d;
     display: block;
    
     width: 100%;
@@ -26,7 +26,7 @@
 }
 .click{
     
-    background-color: rgb(126, 123, 123);
+    background-color: rgb(167, 164, 164);
 }
 #topicside{
    font-style: oblique;

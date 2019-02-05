@@ -3,6 +3,7 @@ import { RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthServiceService } from "./../../AuthGards/auth-service.service";
 
 
 @Component({
@@ -20,13 +21,17 @@ export class ViewTaskComponent implements OnInit {
   public eventId:any;
 public Loading:any;
 public completedtasks:any;
+public IsAdmin:any;
+public IsRC:any;
 
-  constructor(private repo :RepositoryService,private router: Router, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
+  constructor(private repo :RepositoryService,private router: Router,public auth:AuthServiceService, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
   config.backdrop = 'static';
   config.keyboard = false;
   }
  
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.eventId=this.repo.curentEventId;
   
   //  this.getAllTask();

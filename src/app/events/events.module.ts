@@ -36,23 +36,23 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
   
     RouterModule.forChild([
      
-      {path:'vieweventpage/:id', component:ViewEventPageComponent},
+      {path:'vieweventpage/:id', component:ViewEventPageComponent,canActivate:[AuthLoginGuard]},
     
-      {path:'addeventtype', component:AddEventTypeComponent},
-      {path:'addevent', component:AddEventComponent},
-      {path:'addevent/:id', component:AddEventComponent},
-      {path:'updateevent/:id', component:UpdateEventComponent},
-      {path:'viewEmployee/:id', component:ViewEmployeeComponent},
-      {path:'addPoll', component:AddPollComponent},
-      {path:'viewPoll', component:ViewPollComponent},
+      {path:'addeventtype', component:AddEventTypeComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
+      {path:'addevent', component:AddEventComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'addevent/:id', component:AddEventComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'updateevent/:id', component:UpdateEventComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'viewEmployee/:id', component:ViewEmployeeComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'addPoll', component:AddPollComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'viewPoll', component:ViewPollComponent,canActivate:[AuthLoginGuard]},
 
 
-      {path:'selectattributes/:id', component:SelectAttributeComponent},
-      {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
-      {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent},
-      {path:'employeeregistration/:id', component:EmployeeRegistrationComponent},
-      {path:'addregistrationform/:id', component:AddRegistrationFormComponent},
-      {path:'addregistrationform', component:AddRegistrationFormComponent},
+      {path:'selectattributes/:id', component:SelectAttributeComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'employeeregistration/:id', component:EmployeeRegistrationComponent,canActivate:[AuthLoginGuard]},
+      {path:'addregistrationform/:id', component:AddRegistrationFormComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'addregistrationform', component:AddRegistrationFormComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
       {path:'eventHomePage', component:EventHomePageComponent},
       //{ path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },  
       { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        

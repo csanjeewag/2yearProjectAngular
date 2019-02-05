@@ -25,7 +25,7 @@ export class EmailAlertComponent implements OnInit {
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.details = res;
-     console.log(this.details);
+   
     },(error =>{
 
     })

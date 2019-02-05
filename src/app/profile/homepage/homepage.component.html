@@ -28,19 +28,19 @@
   </div>
     <div id="cardDesk" class="card-deck"class="col-lg-11 col-sm-12 container" >
        
-        <div class="row">
-            <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">
-              <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[0].eventImageUrl" alt="Generic placeholder image">
-              <h2>{{Upcommming3Event[0].eventTitle}}</h2>
-              <h5>{{Upcommming3Event[0].startDate |date}}</h5>
-              <p>{{Upcommming3Event[0].eventDescription}}</p>
+        <div class="row"  >
+            <div *ngFor="let item of Upcommming3Event"  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(item.id)">
+              <img class="rounded-circle" [src]="ImageUrl+item.eventImageUrl" alt="Generic placeholder image">
+              <h2>{{item.eventTitle}}</h2>
+              <h5>{{item.startDate |date}}</h5>
+              <p>{{item.eventDescription}}</p>
               
-              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[0].id)">View details &raquo;</a>
+              <p><a class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(item.id)">View details &raquo;</a>
               
               </p>
-            </div><!-- /.col-lg-4 -->
+            </div>
 
-            <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
+            <!-- <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">
               <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[1].eventImageUrl"alt="Generic placeholder image" >
             <h2>{{Upcommming3Event[1].eventTitle}}</h2>
             <h5>{{Upcommming3Event[1].startDate|date}}</h5>
@@ -48,8 +48,8 @@
                <p><a id="viewmore" class="btn btn-secondary" routerLink="/events/vieweventpage" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[1].id)">View details &raquo;</a>
                
               </p>
-            </div><!-- /.col-lg-4 -->
-            <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">
+            </div> -->
+            <!-- <div  id="event" class="col-lg-4 col-sm-10" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">
               <img class="rounded-circle" [src]="ImageUrl+Upcommming3Event[2].eventImageUrl" alt="Generic placeholder image">
               <h2>{{Upcommming3Event[2].eventTitle}}</h2>
               <h5>{{Upcommming3Event[2].startDate|date}}</h5>
@@ -57,7 +57,7 @@
                 <p><a class="btn btn-secondary" role="button" (click)="ViewUpcommingEvent(Upcommming3Event[2].id)">View details &raquo;</a>
                
               </p>
-            </div><!-- /.col-lg-4 -->
+            </div> -->
             <a  id="txt">More..</a>
           </div>
         
@@ -76,28 +76,21 @@
       <div id="cardDesk" class="card-deck" class="col-lg-11 col-sm-12 container"  >
           
           <div class="row">
-              <div *ngIf="Last3Event[0].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[0].id)">
-                <img class="rounded-circle" [src]="ImageUrl+Last3Event[0].eventImageUrl" alt="Generic placeholder image" >
-                <h2>{{Last3Event[0].eventTitle}}</h2>
-                <h5>{{Last3Event[0].startDate |date}}</h5>
-                <p>{{Last3Event[0].eventDescription}}</p> 
-                 <p><a class="btn btn-secondary"  role="button" (click)="ViewPastEvent(Last3Event[0].id)">View details &raquo;</a></p>
-              </div><!-- /.col-lg-4 -->
+              <div *ngFor="let item of Last3Event" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(item.id)">
+                <img class="rounded-circle" [src]="ImageUrl+item.eventImageUrl" alt="Generic placeholder image" >
+                <h2>{{item.eventTitle}}</h2>
+                <h5>{{item.startDate |date}}</h5>
+                <p>{{item.eventDescription}}</p> 
+                 <p><a class="btn btn-secondary"  role="button" (click)="ViewPastEvent(item.id)">View details &raquo;</a></p>
+              </div>
            
-              <div *ngIf="Last3Event[1].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[1].id)">
-                <img class="rounded-circle" [src]="ImageUrl+Last3Event[1].eventImageUrl" alt="Generic placeholder image" >
-              <h2>{{Last3Event[1].eventTitle}}</h2>
-              <h5>{{Last3Event[1].startDate |date}}</h5>
-              <p>{{Last3Event[1].eventDescription}}</p>   
-              <p><a class="btn btn-secondary" (click)="ViewPastEvent(Last3Event[1].id)">View details &raquo;</a></p>
-              </div><!-- /.col-lg-4 -->
-              <div *ngIf="Last3Event[2].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[2].id)">
+                <!-- <div *ngIf="Last3Event[2].id" id="event" class="col-lg-4 col-sm-10" (click)="ViewPastEvent(Last3Event[2].id)">
                 <img class="rounded-circle" [src]="ImageUrl+Last3Event[2].eventImageUrl" alt="Generic placeholder image" >
                 <h2>{{Last3Event[2].eventTitle}}</h2>
                 <h5>{{Last3Event[2].startDate |date}}</h5>
                 <p>{{Last3Event[2].eventDescription}}</p>
                    <p><a class="btn btn-secondary" role="button" (click)="ViewPastEvent(Last3Event[2].id)">View details &raquo;</a></p>
-              </div><!-- /.col-lg-4 -->
+              </div> -->
               <a id="txt">More..</a>
             </div>
           

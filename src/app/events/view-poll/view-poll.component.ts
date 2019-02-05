@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/for
   
   import {  RepositoryService} from './../../ShareData/repository.service';
   import { Router,ParamMap, ActivatedRoute } from '@angular/router';
+  
 
 @Component({
   selector: 'app-view-poll',
@@ -17,6 +18,8 @@ export class ViewPollComponent implements OnInit {
   public destinations:any;
   public voted:any;
   public urlAddress:any;
+  public IsAdmin:any;
+  public IsRC:any;
   
   public empId:any;
   public destId:any;
@@ -25,20 +28,13 @@ export class ViewPollComponent implements OnInit {
   constructor( private auth : AuthServiceService ,private route: ActivatedRoute,private router: Router,  private repository : RepositoryService) { }
 
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.empId = this.auth.tokencheckId();
     
     this.getPoll();
   }
 
-  // getparamId(){
-  //   this.route.paramMap.subscribe((params:ParamMap)=>{
-  //     let id =params.get('id');
-  //     this.pollId=id;
-      
-  //     });
-  
-  
-  // }
 
   public getPoll(){
    this.repository.getData('PollEvent/getPoll')

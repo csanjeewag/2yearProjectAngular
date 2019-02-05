@@ -28,7 +28,7 @@ public allSchedule:any;
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.teams = res;
-     console.log(this.teams);
+ 
     },(error =>{
     })
     )
@@ -40,7 +40,7 @@ public allSchedule:any;
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.captains = res;
-     console.log(this.captains);
+
     },(error =>{
     })
     )
@@ -57,7 +57,7 @@ public allSchedule:any;
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.allSchedule = res;
-     console.log(this.allSchedule);
+     
     },(error =>{
     })
     )

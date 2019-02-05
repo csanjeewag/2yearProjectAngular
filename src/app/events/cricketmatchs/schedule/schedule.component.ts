@@ -48,7 +48,7 @@ export class ScheduleComponent implements OnInit {
     this.repository.getData(apiAddress)
       .subscribe(res => {
         this.schedule = res;
-        console.log(this.schedule);
+     
       }, (error => {
 
       })
@@ -60,13 +60,13 @@ export class ScheduleComponent implements OnInit {
       if (this.schedulearray.indexOf(newHero) < 0) {
         this.schedulearray.push(newHero);
         this.ClickNum = newHero;
-        console.log(newHero)
+        
       }
     }
   }
 
   addId(id) {
-    console.log(id)
+ 
 
     this.TeamId = id;
     if (this.ClickNum == 1) { this.team1 = this.TeamId; }
@@ -91,12 +91,7 @@ export class ScheduleComponent implements OnInit {
 
   public submitData() {
 
-    console.log("t1 " + this.team1)
-    console.log("t2 " + this.team2)
-    console.log("t3 " + this.team3)
-    console.log("t4 " + this.team4)
-    console.log("t5 " + this.team5)
-    console.log("t6 " + this.team6)
+  
 
     let formData = new FormData();
     formData.append('EventId', this.eventId)

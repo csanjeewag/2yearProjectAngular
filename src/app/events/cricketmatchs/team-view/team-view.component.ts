@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { RepositoryService } from 'src/app/ShareData/repository.service';
+import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
 
 @Component({
   selector: 'app-team-view',
@@ -9,15 +10,19 @@ import { RepositoryService } from 'src/app/ShareData/repository.service';
 })
 export class TeamViewComponent implements OnInit {
 
-  constructor(private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
+  constructor(private auth:AuthServiceService,private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
   
   public message= "Delete Team";
   public teams:any;
   public eventId:any;
   public event:any;
   public ImageUrl:any;
+  public IsAdmin:any;
+  public IsRC:any;
 
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.ImageUrl = this.repository.ImageUrl;
     this.eventId = this.route.snapshot.paramMap.get('id')
     this.getCricketTeams();
@@ -31,7 +36,7 @@ export class TeamViewComponent implements OnInit {
     .subscribe(res => {
       this.teams = res;
       
-     console.log(this.teams);
+     
     },(error =>{
 
     })
@@ -44,7 +49,7 @@ export class TeamViewComponent implements OnInit {
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.event = res;
-     console.log(this.event);
+   
     },(error =>{
 
     })

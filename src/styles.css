@@ -38,8 +38,8 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 }
 #btn{
   background-color: rgb(176, 14, 35);
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
   color: white;
   transition: 0.4s all ease-in-out;
   
@@ -48,10 +48,12 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .btn{
   transition: 0.4s all ease-in-out;
 }
+.btn:hover{
+background-color: #999898;
+}
 #btn:hover{
 background-color: rgb(141, 13, 30);
-  padding-left: 55px;
-  padding-right: 55px;
+ 
   color: rgb(228, 227, 227);
   -webkit-box-shadow: 0 10px 30px 0 rgba(63,63,63, 0.4);
   box-shadow: 0 10px 30px 0 rgba(63, 63, 63, 0.4);

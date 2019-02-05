@@ -36,7 +36,10 @@
      padding-left: 20px
  }
 
-
+#teamviewbtn{
+    position: relative;
+    left: 30%;
+}
 
 
 

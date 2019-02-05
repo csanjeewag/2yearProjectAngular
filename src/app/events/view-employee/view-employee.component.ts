@@ -111,7 +111,8 @@ public deleteEmployee(employee){
       
   this.repository.postFile(apiUrl, formdata)
      .subscribe(res =>  {
-         window.alert("Employee has deleted succesfully")
+         window.alert("Employee has deleted succesfully");
+         this.ngOnInit();
       },
        (error => {
         
