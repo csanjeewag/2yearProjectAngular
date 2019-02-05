@@ -14,11 +14,12 @@ export class ScheduleViewComponent implements OnInit {
   public eventId:any;
   public teams:any;
   public captains:any;
-
+public allSchedule:any;
   ngOnInit() {
     this.eventId = this.route.snapshot.paramMap.get('id')
     this.getTeamSchedule();
     this.getCaptainSchedule();
+    this.getAllSchedule();
   }
 
   public getTeamSchedule(){
@@ -49,5 +50,21 @@ export class ScheduleViewComponent implements OnInit {
   public redirectToAddSchedule(){
     this.router.navigate(['events/cricketmatchs/scheduleform/'+this.eventId]);
   }
+
+  public getAllSchedule(){
+    let apiAddress: string = "Cricketmatch/getallshedulebyeventid/"+this.eventId;
+
+    this.repository.getData(apiAddress)
+    .subscribe(res => {
+      this.allSchedule = res;
+     console.log(this.allSchedule);
+    },(error =>{
+    })
+    )
+  }
+  public viewshedule(id){
+    this.router.navigate(['events/cricketmatchs/scheduleviews/'+id]);
+  }
+  
 
 }

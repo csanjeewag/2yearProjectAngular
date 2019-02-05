@@ -1,9 +1,9 @@
 <app-nav-bar></app-nav-bar>
-
 <br>
+
 <div>
   <div class="row">
-    
+
     <div class="col-lg-10 container">
 
       <div class=" col-md-8 container">
@@ -12,19 +12,24 @@
         </div>
       </div>
 
+      <div *ngFor="let sh of allSchedule" class=" col-md-8 container">
+        <button type="button" class="btn btn-link" (click)="viewshedule(sh.id)">{{sh.schName}}</button>
+      </div>
+      <div class="col-md-4 container">
       <button type="button" class="btn btn-success" (click)="redirectToAddSchedule()">Add Schedule</button>
-
+    </div>
       <!--start card part 1 -->
       <div>
         <hr style="border-top: 1px dotted rgb(197, 175, 175);">
         <div class="container">
           <div>
-            <h4>First Round Match</h4>
+              <h4><i>{{allSchedule.schName}}</i></h4>
+              <b>{{allSchedule.schDate|date}}</b>
           </div>
         </div>
         <div id="card">
           <div class="row">
-      
+
             <!-- start card 1 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card " *ngIf="teams[0]||teams[1]">
@@ -37,12 +42,12 @@
                   <h6 *ngIf="teams[0]&&teams[1]" id="vs"><i>vs</i></h6>
                   <p *ngIf="teams[1]" class="card-text"><b>Team</b> : {{teams[1]}}</p>
                   <p *ngIf="teams[1]" class="card-text"><b>Captain</b> : {{captains[1]}}</p>
-      
+
                 </div>
               </div>
             </div>
             <!-- end card 1 -->
-      
+
             <!-- start card 2 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[2]||teams[3]">
@@ -59,7 +64,7 @@
               </div>
             </div>
             <!-- end card 2 -->
-      
+
             <!-- start card 3 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[4]||teams[5]">
@@ -76,7 +81,7 @@
               </div>
             </div>
             <!-- end card 3 -->
-      
+
             <!-- start card 4 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[6]||teams[7]">
@@ -93,7 +98,7 @@
               </div>
             </div>
             <!-- end card 4 -->
-      
+
             <!-- start card 5 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[8]||teams[9]">
@@ -110,7 +115,7 @@
               </div>
             </div>
             <!-- end card 5 -->
-      
+
             <!-- start card 6 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[10]||teams[11]">
@@ -127,7 +132,7 @@
               </div>
             </div>
             <!-- end card 6 -->
-      
+
             <!-- start card 7 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[12]||teams[13]">
@@ -144,7 +149,7 @@
               </div>
             </div>
             <!-- end card 7 -->
-      
+
             <!-- start card 8 -->
             <div class="col-lg-4 col-sm-12 container">
               <div class="card" *ngIf="teams[14]||teams[15]">
@@ -161,14 +166,14 @@
               </div>
             </div>
             <!-- end card 8 -->
-      
+
           </div>
         </div>
       </div>
       <!-- end card part 1-->
 
       <!--start card part 2 -->
-      <div>
+      <!-- <div>
         <hr style="border-top: 1px dotted rgb(197, 175, 175);">
         <div class="container">
           <div>
@@ -224,10 +229,10 @@
       
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- end card part -->
 
     </div>
-   
+
   </div>
 </div>

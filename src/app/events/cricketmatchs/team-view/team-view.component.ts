@@ -74,7 +74,6 @@ let url = "Cricketmatch/deleteteam/"+id;
       .subscribe( crd => {
         this.getCricketTeams();
         this.getEventDetails(); 
-        
       }, (error => {
      
       })

@@ -11,26 +11,46 @@ export class ScheduleViewsComponent implements OnInit {
 
   constructor( private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
 
+  public schId:any;
   public eventId: any;
+  public teams:any;
+  public captains:any;
+  public result:any;
+  public allSchedule:any;
 
   ngOnInit() {
-    this.eventId = this.route.snapshot.paramMap.get('id');
+    this.schId = this.route.snapshot.paramMap.get('id')
     this.getTeamSchedule();
+   //  this.getAllSchedule();
   }
 
   public getTeamSchedule(){
-  //   let apiAddress: string = "Cricketmatch/getteamsheduler/"+this.eventId;
+    let apiAddress: string = "Cricketmatch/getshedulebyid/"+this.schId;
 
-  //   this.repository.getData(apiAddress)
-  //   .subscribe(res => {
-  //     this.teams = res;
-  //    console.log(this.teams);
-  //   },(error =>{
-  //   })
-  //   )
+    this.repository.getData(apiAddress)
+    .subscribe(res => {
+      this.result=res;
+      this.teams = this.result.teamnames;
+      this.captains = this.result.teamcaptains;
+     console.log(this.result);
+    },(error =>{
+    })
+    )
   }
+  
+  public getAllSchedule(){
+    let apiAddress: string = "Cricketmatch/getallshedulebyeventid/"+this.eventId;
 
-  public redirectToAddSchedule(){
-    this.router.navigate(['events/cricketmatchs/scheduleform/'+this.eventId]);
+    this.repository.getData(apiAddress)
+    .subscribe(res => {
+      this.allSchedule = res;
+     console.log(this.allSchedule);
+    },(error =>{
+    })
+    )
   }
+  
+
+
+
 }

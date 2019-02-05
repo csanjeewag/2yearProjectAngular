@@ -3,11 +3,11 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { RepositoryService } from 'src/app/ShareData/repository.service';
 
 @Component({
-  selector: 'app-schedule',
-  templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.css']
+  selector: 'app-schedule-form',
+  templateUrl: './schedule-form.component.html',
+  styleUrls: ['./schedule-form.component.css']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleFormComponent implements OnInit {
 
   constructor(private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
   
@@ -56,13 +56,24 @@ export class ScheduleComponent implements OnInit {
   }
 
   addHero(newHero) {
-    if (newHero) {
-      if (this.schedulearray.indexOf(newHero) < 0) {
-        this.schedulearray.push(newHero);
-        this.ClickNum = newHero;
-        console.log(newHero)
+    for (var i=0; i<16; i++) {
+      newHero.push(i);
+      if (newHero) {
+        if (this.schedulearray.indexOf(newHero) < 0) {
+          this.schedulearray.push(newHero);
+          this.ClickNum = newHero;
+          console.log(newHero)
+        }
       }
     }
+
+    // if (newHero) {
+    //   if (this.schedulearray.indexOf(newHero) < 0) {
+    //     this.schedulearray.push(newHero);
+    //     this.ClickNum = newHero;
+    //     console.log(newHero)
+    //   }
+    // }
   }
 
   addId(id) {
@@ -133,7 +144,6 @@ export class ScheduleComponent implements OnInit {
   public alertSub(){
     alert(this.msg);
   }
-
 
 
 }

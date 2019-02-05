@@ -34,7 +34,6 @@ public commenteventId:any;
   }
  
 
-
   public getData(route: string) {
    
     return this.http.get(this.createCompleteRoute(route, this.envUrl.urlAddress),this.generateHeaders());
