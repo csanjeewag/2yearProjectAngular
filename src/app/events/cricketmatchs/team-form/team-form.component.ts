@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from './../../../ShareData/repository.service'
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { max } from 'rxjs/operators';
+import { NumberValidators } from './NumberValidators';
 
 @Component({
   selector: 'app-team-form',
@@ -14,6 +16,8 @@ export class TeamFormComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private repository: RepositoryService, private modalService: NgbModal) { }
 
+  public minvalue=0;
+  public maxvalue=16; 
   public teamForm: FormGroup;
   public result: any;
   public captainId: any;
@@ -23,6 +27,7 @@ export class TeamFormComponent implements OnInit {
   public name: any;
   public Message: any;
   public eventId: any;
+  public hiddens:any;
 
   ngOnInit() {
 
@@ -32,8 +37,8 @@ export class TeamFormComponent implements OnInit {
       teamName: new FormControl('', [Validators.required]),
       teamCaptainName: new FormControl(''),
       teamMember: new FormControl(''),
-      teamVegeCount: new FormControl('', [Validators.required]),
-      teamLiquor: new FormControl('', [Validators.required]),
+      teamVegeCount: new FormControl('',[Validators.required,NumberValidators.range(0,16)]),
+      teamLiquor: new FormControl('', [Validators.required,NumberValidators.range(0,16)]),
       discription: new FormControl(''),
 
     })
@@ -45,12 +50,17 @@ export class TeamFormComponent implements OnInit {
 
     return false;
   }
+
   public hasError(controlName: string, errorName: string) {
     if (this.teamForm.controls[controlName].hasError(errorName))
       return true;
 
     return false;
   }
+
+
+
+  
 
   public teamData(value) {
     console.log(value)
@@ -76,11 +86,13 @@ export class TeamFormComponent implements OnInit {
     formData.append('TeamMembers', this.employees[12]);
     formData.append('TeamMembers', this.employees[13]);
     formData.append('TeamMembers', this.employees[14]);
+
     let apiUrl = 'Cricketmatch/addteam';
 
     this.repository.postFile(apiUrl, formData)
       .subscribe(res => {
         this.Message = res;
+          this.router.navigate(['events/cricketmatchs/teamview/'+this.eventId]);
       },
         (error => {
 
@@ -115,13 +127,12 @@ export class TeamFormComponent implements OnInit {
 
         }
       }
-
-
-    } else {
+  } else {
       let index = this.emailFormArray.indexOf(empName);
       this.emailFormArray.splice(index, 1);
     }
   }
+
   onChange2(id: string, empName: string, isChecked: boolean) {
     if (isChecked) {
       this.captainId = id;
@@ -133,5 +144,6 @@ export class TeamFormComponent implements OnInit {
     }
   }
 
-
 }
+
+
