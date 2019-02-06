@@ -62,7 +62,6 @@ public contactType(typeid,name){
 }
 
 public addContacts(value){
-  console.log(value);
 
   let formData = new FormData();
   formData.append('Name',value.name);
@@ -71,7 +70,6 @@ public addContacts(value){
   formData.append('Contact2',value.num2);
   formData.append('ContactDescription',value.cdes)
   formData.append('InfoDescription',value.des);
-  //formData.append('IsComplete',value.iscomplete);
   formData.append('EmployeeId',this.empid);
   formData.append('TaskTaskId',this.taskId);
   formData.append('ContactContactId',this.ctypeid);
@@ -80,6 +78,7 @@ public addContacts(value){
     
   this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
+      this.ngOnInit();
       this.route.navigate(['task/viewtaskinfo/'+this.taskId]);
 
       },

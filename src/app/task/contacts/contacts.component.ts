@@ -81,6 +81,8 @@ public empid:any;
     this.repository.postData(apiUrl,ctype)
     
         .subscribe(res => {
+          alert('Type added');
+          this.ngOnInit();
           this.getAllContactTypes();
             
 

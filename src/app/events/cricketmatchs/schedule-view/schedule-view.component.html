@@ -18,7 +18,7 @@
       <div *ngFor="let sh of allSchedule" class=" col-md-8 container">
         <button type="button" class="btn btn-link" (click)="viewshedule(sh.id)">{{sh.schName}}</button>
       </div>
-      <div class="col-md-4 container">
+      <div class="col-md-4 container" *ngIf="this.IsRC">
       <button type="button" class="btn" id="btn" (click)="redirectToAddSchedule()">Add Schedule</button>
     </div>
       <!--start card part 1 -->

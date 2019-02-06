@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { RepositoryService } from 'src/app/ShareData/repository.service';
+import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
+
 
 @Component({
   selector: 'app-email-alert',
@@ -9,12 +11,16 @@ import { RepositoryService } from 'src/app/ShareData/repository.service';
 })
 export class EmailAlertComponent implements OnInit {
 
-  constructor(private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
+  constructor(private auth: AuthServiceService,private route :ActivatedRoute ,private router: Router, private repository: RepositoryService ) { }
   
   public details: any;
   public eventId: any;
+  public IsAdmin:any;
+  public IsRC:any;  
 
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.eventId = this.route.snapshot.paramMap.get('id');
     this.getEmailDetails();
   }

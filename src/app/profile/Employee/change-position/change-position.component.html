@@ -2,7 +2,7 @@
 <div id="background"   >
     <div id="backgroundIN" *ngIf="result">
 
-    <div class="col-md-10 container">
+    <div class="col-md-12 container">
     	<div class="row">
 			<div class="col-md-12">
 				<div class="tableWithHeader ">
@@ -29,7 +29,7 @@
             </div>
          
           <div class="table-responsive" id="table">
-					<table class="table">
+					<table class="table col-lg-12" >
             <thead>
             <tr >
                 <th></th>
@@ -40,6 +40,7 @@
               <th>Position</th>
               <th>Department</th>
               <th>Active/Deactive</th>
+              <th></th>
             
               <th *ngIf="isAdmin"></th>
              
