@@ -1,3 +1,22 @@
+
+#background{
+  
+  top: 0;
+  left: 0;
+  background-image: url('/../../../assets/Back/back5.jpg');
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 750px;
+}
+#backgroundIN{
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+}
+
 .text-muted{
     font: 1em ;
     text-align: left;
@@ -55,12 +74,15 @@
   }
   
   
-  /* .border-bottom { border-bottom: 15px solid #0e0d0d; } */
-  
-  /* .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); } */
-  
   .lh-100 { line-height: 1; }
   .lh-125 { line-height: 1.25; }
   .lh-150 { line-height: 1.5; }
   
-  
+ #btn{
+   padding-left: 20px;
+   padding-right: 20px
+ } 
+
+ #listback{
+   background-color: rgba(235, 235, 235, 0.753);
+ }

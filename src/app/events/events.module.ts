@@ -10,6 +10,8 @@ import { TwoDayTripComponent } from './two-day-trip/two-day-trip.component';
 import { EventHomePageComponent } from './event-home-page/event-home-page.component';
 import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
 
+import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
+import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
 import { SharedModuleModule } from "./../shared-module/shared-module.module";
 import { TaskModule } from "./../task/task.module";
 import { AddEventTypeComponent } from './add-event-type/add-event-type.component';
@@ -31,32 +33,32 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
     TaskModule,
     CommonModule,
     ReactiveFormsModule,
+  
     RouterModule.forChild([
-      // {path:'createEventPageForTrip', component:CreateEventPageForTripComponent},
-      {path:'vieweventpage/:id', component:ViewEventPageComponent},
-      // {path:'oneDayTrip/:id', component:OneDayTripComponent},
-      // {path:'twoDayTrip/:id', component:TwoDayTripComponent},
-      // {path:'yearEndParty/:id', component:TwoDayTripComponent},
-      {path:'addeventtype', component:AddEventTypeComponent},
-      {path:'addevent', component:AddEventComponent},
-      {path:'addevent/:id', component:AddEventComponent},
-      {path:'updateevent/:id', component:UpdateEventComponent},
-      {path:'viewEmployee/:id', component:ViewEmployeeComponent},
-      {path:'addPoll', component:AddPollComponent},
-      {path:'viewPoll/:id', component:ViewPollComponent},
+     
+      {path:'vieweventpage/:id', component:ViewEventPageComponent,canActivate:[AuthLoginGuard]},
+    
+      {path:'addeventtype', component:AddEventTypeComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
+      {path:'addevent', component:AddEventComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'addevent/:id', component:AddEventComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'updateevent/:id', component:UpdateEventComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'viewEmployee/:id', component:ViewEmployeeComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'addPoll', component:AddPollComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'viewPoll', component:ViewPollComponent,canActivate:[AuthLoginGuard]},
 
 
-      {path:'selectattributes/:id', component:SelectAttributeComponent},
-      {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent},
-      {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent},
-      {path:'employeeregistration/:id', component:EmployeeRegistrationComponent},
-      {path:'addregistrationform/:id', component:AddRegistrationFormComponent},
-      {path:'addregistrationform', component:AddRegistrationFormComponent},
+      {path:'selectattributes/:id', component:SelectAttributeComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'selectattributesforupdate/:id', component:SelectAttributeForUpdateComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'selectattributesforregistration/:id', component:SelectAttributeRegistrationComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'employeeregistration/:id', component:EmployeeRegistrationComponent,canActivate:[AuthLoginGuard]},
+      {path:'addregistrationform/:id', component:AddRegistrationFormComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
+      {path:'addregistrationform', component:AddRegistrationFormComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
       {path:'eventHomePage', component:EventHomePageComponent},
       //{ path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },  
       { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        
     ]),
   ],
+  providers:[AuthLoginGuard,AuthRoleGuard],
   declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent, AddPollComponent, ViewPollComponent]
 })
 export class EventsModule { }

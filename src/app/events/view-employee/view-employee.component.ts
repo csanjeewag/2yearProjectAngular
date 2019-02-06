@@ -47,7 +47,7 @@ public attribute:any;
   }
 
 public getEmployees(){
-  this.repository.getData('Registration/getEmployee/'+this.eventId)
+  this.repository.getData('RegistrationEmployee/getEmployee/'+this.eventId)
   .subscribe(res => {
     this.employee = res ;
     this.getAttribute(); 
@@ -62,7 +62,7 @@ public getEmployees(){
 
 
 public getAttribute(){
-  let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+  let apiUrl = 'RegistrationEmployee/getRegistrationAttribute/'+this.repository.curentEventId;
   this.repository.getData(apiUrl)
     .subscribe(res => {
      this.attribute = res;
@@ -107,11 +107,12 @@ public deleteEmployee(employee){
       formdata.append('SpouseDob',employee.spouseDob); 
       formdata.append('SpouseNic',employee.spouseNic); 
 
-  let apiUrl = 'Registration/deleteEmployee';
+  let apiUrl = 'RegistrationEmployee/deleteEmployee';
       
   this.repository.postFile(apiUrl, formdata)
      .subscribe(res =>  {
-         window.alert("Employee has deleted succesfully")
+         window.alert("Employee has deleted succesfully");
+         this.ngOnInit();
       },
        (error => {
         

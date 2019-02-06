@@ -8,14 +8,7 @@
 #head{
     text-align: center;
 }
-#addbutton{
-    position: absolute;
-    right: 5%;
-   
-}
-#addbutton:hover{
-    background-color: aliceblue;
-}
+
 
 
 #event h2{

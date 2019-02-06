@@ -1,22 +1,25 @@
 <app-nav-bar></app-nav-bar>
 
 
-
+<div id="background" *ngIf="result"  >
+                <div id="backgroundIN" >
+                                <br><br>           
 
 <!-- view all contact types -->
 <!-- search from contact type -->
+<div class="col-10 container">
 
-
-
-<div class="row m-5">
-    <div id="card" class="p-2 m-2 col-lg-2 col-sm-6" *ngFor="let i of result;">
+<div class="row ">
+    <div id="card" class="p-2 m-2 col-lg-2 col-sm-6 col-md-3" *ngFor="let i of result;">
         
-            <h5 class="d-block text-black-dark ">{{i.contactType}}</h5>
+            <h5 class="d-block text-black-dark " id="topic">{{i.contactType}}</h5>
+            <p>{{i.description}}</p>
+           <div class="container">
             <button type="button" (click)="viewAll(i.contactId)"><img src="https://img.icons8.com/ios-glyphs/30/000000/search.png"></button>
             <button type="button"  (click)="open2(content2,i.contactId)"><img src="https://img.icons8.com/android/30/000000/plus.png"></button>
             <!-- <button type="button" class=" btn-link btn-sm" (click)="open2(content3,i.contactId)">Update</button> -->
             <button type="button" (click)="deleteContactType(i.contactId)"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"></button>
-
+        </div>
         </div>
 
         <!-- add new contacts -->
@@ -29,31 +32,29 @@
                  <span aria-hidden="true">&times;</span>
                </button>
              </div>
-             <div class="modal-body">
+             <div class="modal-body" id="formContent">
 
                 <!-- body -->
                 <form [formGroup]="AddContactForm" (ngSubmit)="addContacts(AddContactForm.value)">
 
+                        <div id="label">Name:</div>
+                        <input class="form-control" type="text" formControlName="oname" required>
 
-                        <input placeholder="Name of Owner"  class="form-control" type="text" formControlName="oname">
-                        <!-- <label>Name of Owner</label> -->
+                        <div id="label">Address:</div>
+                        <input class="form-control" type="text" formControlName="address" required >
 
-                        <input class="form-control" type="text" formControlName="address" placeholder="Address">
-                        <!-- <label>Address</label> -->
+                        <div id="label">Contact Number 1:</div>
+                        <input class="form-control" type="number" formControlName="num1" required >
 
-                        <input class="form-control" type="number" formControlName="num1" placeholder="Contact Number">
-                        <!-- <label>Contact Number</label> -->
+                        <div id="label">Contact Number 2:</div>
+                        <input class="form-control"  type="number" formControlName="num2" >
 
-                        <input class="form-control"  type="number" formControlName="num2" placeholder="Contact Number">
-                        <!-- <label>Contact Number</label> -->
-
-
-                        <input class="form-control" type="textarea" placeholder="Contact Description" formControlName="cd">
-                        <!-- <label>Contact Description</label> -->
+                        <div id="label">Contact Description:</div>
+                        <input class="form-control" type="textarea"  formControlName="cd">
 
 
-
-                        <button type="submit" class="btn btn-success">Add Contacts</button>
+<br>
+                        <button type="submit" class="btn btn-success" [disabled]="!AddContactForm.valid" >Add Contacts</button>
 
                     
                 
@@ -77,13 +78,19 @@
                          <span aria-hidden="true">&times;</span>
                        </button>
                      </div>
-                     <div class="modal-body">
+                     <div class="modal-body" id="formContent">
 
                         <!-- body -->
                         <form [formGroup]="ContactForm" (ngSubmit)="addContactType(ContactForm.value)">
 
 
-                                <input id="tbname" name="yourname" class="form-control" placeholder="Contact Type" formControlName="type">
+                                <div id="label">Contact Type:</div>
+                                <input id="tbname" name="yourname" class="form-control"  formControlName="type">
+                               
+                                <div id="label">Description:</div>
+                                <input id="tbname" name="des" class="form-control" formControlName="description">
+
+                                <br>
                                 <button type="submit" class="btn btn-success" (click)="x()" >Add Contact</button>
 
                             
@@ -97,7 +104,10 @@
 
 
 
+</div>
 
     
-           
+</div>
+</div>
+
       

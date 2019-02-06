@@ -3,6 +3,7 @@ import { RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthServiceService } from "./../../AuthGards/auth-service.service";
 
 
 @Component({
@@ -20,13 +21,17 @@ export class ViewTaskComponent implements OnInit {
   public eventId:any;
 public Loading:any;
 public completedtasks:any;
+public IsAdmin:any;
+public IsRC:any;
 
-  constructor(private repo :RepositoryService,private router: Router, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
+  constructor(private repo :RepositoryService,private router: Router,public auth:AuthServiceService, private route: ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { 
   config.backdrop = 'static';
   config.keyboard = false;
   }
  
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.eventId=this.repo.curentEventId;
   
   //  this.getAllTask();
@@ -69,14 +74,11 @@ public detailsTask(tid) {
       
       this.repo.getData('task/'+tid)
       .subscribe(res => {
-        //this.result = res as Observable<NewTask>;
         this.taskdetails = res as any;
      this.changeStatus(this.taskdetails.status)
-     console.log(this.taskdetails.status);
 
       },
       (error) => {
-      //  this.handleErrors(error);
       })
      
 
@@ -84,20 +86,6 @@ public detailsTask(tid) {
 
 
 
-  public  getAllTask(){
-    this.repo.getData('task/getall')
-    .subscribe(res => {
-      this.result = res ;
-      //var myObjStr = JSON.stringify(res);
-   
-     //console.log(this.result.taskId);
-     console.log(this.result);
-      
-    },
-    (error) => {
-    //  this.handleErrors(error);n
-    })
-  }
 
 public getempfortask(tid){
   
@@ -118,6 +106,7 @@ public getempfortask(tid){
   public updateTask(id){
     this.router.navigate(['/task/updatetask/'+id]);
   }
+
   open(content,id) {
     this.detailsTask(id);
     this.getempfortask(id);
@@ -128,28 +117,17 @@ public getempfortask(tid){
     this.Loading = id;
     this.repo.getData('task/deletetask/'+id)
     .subscribe(res => {
-    this.getAllTask()
+      this.getEventById(this.eventId);
     this.Loading = false;
-  console.log('deleted');
-    this.getAllTask();
+ 
   },
    (error) => {
    this.Loading =false;
    })
   }
 
-  public getcompletedtasks(){
-    this.repo.getData('task/getcompletedtasks/')
-    .subscribe(res => {
-      //this.result = res as Observable<NewTask>;
-      this.completedtasks = res as any;
-      console.log(this.employee);
-    },
-    (error) => {
-    //  this.handleErrors(error);n
-    })
-   
-  }
+
+ 
   
 
 }

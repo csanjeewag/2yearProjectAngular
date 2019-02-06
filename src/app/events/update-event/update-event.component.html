@@ -1,3 +1,6 @@
+<app-nav-bar></app-nav-bar>
+<div id="background" *ngIf="event"  >
+        <div id="backgroundIN" >
 <div >
         
         <div  class="wrapper  col-md-8 container">
@@ -6,7 +9,7 @@
         
             <!-- Icon -->
             <div >
-              <h1>Edit Event</h1>
+              <h1>Update Event</h1>
             </div>
             <h5 class="card-title"></h5>
             <!-- Sign up Form -->
@@ -34,26 +37,34 @@
                            
                         
                     <div class="form-group">
-                            <label>Event Type</label><br/>
-                            <select class="form-control" formControlName="EventType" id="EventType">
+                            <!-- <label>Event Type</label><br>
+                            <select class="form-control" formControlName="EventType" id="EventType" required>
                                 
                                     <option value="" selected disabled hidden>EventTypes</option>
                                     <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
-                                </select>
+                                </select> -->
                           </div>
-                        
+                          <div class="form-group col-md-12">
+                            <label>Event Type</label><br>
+                        <select class="form-control" formControlName="EventType" id="EventType" required>
+                                
+                                <option value="" selected disabled hidden></option>
+                                <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
+                            </select>
+                           
+                      </div>
                           <div class="form-group col-md-12">
                              <input type="date" class="form-control" formControlName="StartDate" id="StartDate" required>
                              <label >Start Date</label>
                             <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*EventStartDate is required!</em>
                             
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-12" *ngIf="closingDate">
                                  <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" required>
                                 <label >Closing Date</label>
 
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-12" *ngIf="endDate">
                                      <input type="date" class="form-control" formControlName="EndDate" id="EndDate" required>
                                      <label >End Date</label>
 
@@ -126,10 +137,7 @@
                 <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
                 
             <!-- Remind Passowrd -->
-            <div id="formFooter">
-              <a  id="crateAccountlink"  class="underlineHover" ></a>
-             
-            </div>
+           
         
           </div>
         </div>
@@ -139,4 +147,5 @@
     
             
             
-  
+  </div>
+  </div>

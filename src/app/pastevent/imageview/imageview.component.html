@@ -1,40 +1,16 @@
 
 <app-nav-bar></app-nav-bar>
-
-<!-- 
-<li class="nav-item">
-  <div class="row">
-    <div class="col-1">
- 
-    </div>
-   
-    <div class="col-10"></div>
-    <div class="col-1">
-      <div  class="btn-group" role="group" aria-label="Button group with nested dropdown">
-        <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu
-          </button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <a class="dropdown-item" href="pastevent/imageview/3"> Blood Donation</a>
-
-            
-
-            <a class="dropdown-item" href="pastevent/imageview/2"> Cricket Match</a>
-            <a class="dropdown-item" href="pastevent/imageview/3"> Annual trip</a>
-            <a class="dropdown-item" href="pastevent/budget">Budget</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</li> -->
+<div >
+    <div>
+<div id="background"  >
+    <div id="backgroundIN" >
 
 
 
-<div class="card w-90">
-  <div class="card-body">
-    <h2 class="card-title">{{eevent.eventTitle}}</h2>
+<div class="col-lg-11 col-sm-12 container">
+
+
+    <h2 *ngIf="eevent" class="card-title">{{eevent.eventTitle}}</h2>
     
     <a  (click)=gotoimageupload(eventId)><img src="assets/_image/uploadimage.png" width="70" height="70" class="rounded-circle margin-left ml-2"></a>  
    
@@ -52,7 +28,7 @@
                     <div class="modal-header"></div>
                     <div class="modal-body">
                       <!-- modal viewing -->
-                      <img class="card w-200" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                      <img width="475px" class="card" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
                     </div>
                     <div class="modal-footer"></div>
                   </ng-template>
@@ -60,7 +36,7 @@
                   <img id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
                   <a id="author"> {{i.author}} </a>
         
-                  <div class="titleBox"><button (click)=deleteimage(i.imageId)>Delete</button> </div>
+                  <div class="titleBox"><a *ngIf="this.IsAdmin || this.IsRC" (click)=deleteimage(i.imageId)>Delete</a> </div>
                 </div>
               </div>
             </div>
@@ -74,8 +50,9 @@
   </div>
 </div>
 
-
-
+</div>
+</div>
+</div>
 
 
 

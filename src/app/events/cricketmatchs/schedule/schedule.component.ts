@@ -13,6 +13,7 @@ export class ScheduleComponent implements OnInit {
   
   public msg="Add Schedule"
   public schedule: any;
+  public scheduleName:any;
   public eventId:any;
   public Message: any;
   public schedulearray= [""];
@@ -48,7 +49,7 @@ export class ScheduleComponent implements OnInit {
     this.repository.getData(apiAddress)
       .subscribe(res => {
         this.schedule = res;
-        console.log(this.schedule);
+     
       }, (error => {
 
       })
@@ -56,17 +57,22 @@ export class ScheduleComponent implements OnInit {
   }
 
   addHero(newHero) {
-    if (newHero) {
+    if (newHero<16) {
       if (this.schedulearray.indexOf(newHero) < 0) {
         this.schedulearray.push(newHero);
         this.ClickNum = newHero;
-        console.log(newHero)
+        
+      }else{
+        alert("This is already entered!");
       }
+    }
+    else{
+      alert("This not valid number, try again!");
     }
   }
 
   addId(id) {
-    console.log(id)
+ 
 
     this.TeamId = id;
     if (this.ClickNum == 1) { this.team1 = this.TeamId; }
@@ -91,15 +97,11 @@ export class ScheduleComponent implements OnInit {
 
   public submitData() {
 
-    console.log("t1 " + this.team1)
-    console.log("t2 " + this.team2)
-    console.log("t3 " + this.team3)
-    console.log("t4 " + this.team4)
-    console.log("t5 " + this.team5)
-    console.log("t6 " + this.team6)
+  
 
     let formData = new FormData();
     formData.append('EventId', this.eventId)
+    formData.append('SchName', this.scheduleName);
     formData.append('team1', this.team1);
     formData.append('team2', this.team2);
     formData.append('team3', this.team3);
@@ -134,6 +136,10 @@ export class ScheduleComponent implements OnInit {
     alert(this.msg);
   }
 
-
+  public setscheduleName(name){
+    this.scheduleName = name;
+   
+  }
+  
 
 }

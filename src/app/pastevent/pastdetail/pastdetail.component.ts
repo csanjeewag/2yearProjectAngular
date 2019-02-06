@@ -39,7 +39,7 @@ export class PastdetailComponent implements OnInit {
   this.repository.getData(url)
   .subscribe(res => {
     this.event =res;
-    console.log(this.event)
+ 
   },(error) =>{
 
   })
@@ -50,30 +50,21 @@ export class PastdetailComponent implements OnInit {
   this.repository.getData(url)
   .subscribe(res => {
     this.task =res;
-    console.log(this.task)
+
   },(error) =>{
 
   })
  }
 
  public  gotoEventImages(id){
-  console.log(id);
+
      this.router.navigate(['pastevent/imageview/'+id]);
      
    }
+   public TeamView(id){
 
+    this.router.navigate(["events/cricketmatchs/teamview/"+id]);
+  }
   }
   
 
-  //////////////
-  // public getEvents(){
-
-  //   let url = "pastevent/getevents";
-  //  this.repository.getData(url)
-  //   .subscribe(res => {
-  //     this.event =res;
-  //     console.log(res);
-  //   },(error) =>{
-
-  //   })
-  // }

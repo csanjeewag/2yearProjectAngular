@@ -13,6 +13,7 @@ export class ScheduleFormComponent implements OnInit {
   
   public msg="Add Schedule"
   public schedule: any;
+  public scheduleName:any;
   public eventId:any;
   public Message: any;
   public schedulearray= [""];
@@ -110,7 +111,10 @@ export class ScheduleFormComponent implements OnInit {
     console.log("t6 " + this.team6)
 
     let formData = new FormData();
-    formData.append('EventId', this.eventId)
+
+
+    formData.append('EventId', this.eventId),
+    formData.append('SchName', this.scheduleName);
     formData.append('team1', this.team1);
     formData.append('team2', this.team2);
     formData.append('team3', this.team3);
@@ -144,6 +148,8 @@ export class ScheduleFormComponent implements OnInit {
   public alertSub(){
     alert(this.msg);
   }
-
+public setscheduleName(name){
+  this.setscheduleName = name;
+}
 
 }

@@ -1,4 +1,7 @@
 <app-nav-bar></app-nav-bar>
+
+<div id="background"  >
+  <div id="backgroundIN" >
 <br>
 
 <div>
@@ -15,19 +18,20 @@
       <div *ngFor="let sh of allSchedule" class=" col-md-8 container">
         <button type="button" class="btn btn-link" (click)="viewshedule(sh.id)">{{sh.schName}}</button>
       </div>
-      <div class="col-md-4 container">
-      <button type="button" class="btn btn-success" (click)="redirectToAddSchedule()">Add Schedule</button>
+      <div class="col-md-4 container" *ngIf="this.IsRC">
+      <button type="button" class="btn" id="btn" (click)="redirectToAddSchedule()">Add Schedule</button>
     </div>
       <!--start card part 1 -->
       <div>
+          <h3>Current Schedule of Cricket Tournament</h3>
         <hr style="border-top: 1px dotted rgb(197, 175, 175);">
         <div class="container">
-          <div>
+          <div *ngIf="allSchedule">
               <h4><i>{{allSchedule.schName}}</i></h4>
               <b>{{allSchedule.schDate|date}}</b>
           </div>
         </div>
-        <div id="card">
+        <div id="card" *ngIf="teams && captains">
           <div class="row">
 
             <!-- start card 1 -->
@@ -172,67 +176,12 @@
       </div>
       <!-- end card part 1-->
 
-      <!--start card part 2 -->
-      <!-- <div>
-        <hr style="border-top: 1px dotted rgb(197, 175, 175);">
-        <div class="container">
-          <div>
-            <h4>Second Round Match</h4>
-          </div>
-        </div>
-        <div id="card">
-          <div class="row">
-      
-            <div class="col-lg-3 col-sm-12 container">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">First Match</h5>
-                  <hr>
-                  <p class="card-text">Group A Winner</p>
-                  <p class="card-text">Group B Winner</p>
-                </div>
-              </div>
-            </div>
-
-             <div class="col-lg-3 col-sm-12 container">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Second Match</h5>
-                  <hr>
-                  <p class="card-text">Group C Winner</p>
-                  <p class="card-text">Group D Winner</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-12 container">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Third Match</h5>
-                  <hr>
-                  <p class="card-text">Group E Winner</p>
-                  <p class="card-text">Group F Winner</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-12 container">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Fourth Match</h5>
-                  <hr>
-                  <p class="card-text">Group G Winner</p>
-                  <p class="card-text">Group H Winner</p>
-                </div>
-              </div>
-            </div> 
-      
-          </div>
-        </div>
-      </div> -->
-      <!-- end card part -->
+     
 
     </div>
 
   </div>
+</div>
+
+</div>
 </div>

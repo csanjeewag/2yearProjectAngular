@@ -1,6 +1,6 @@
 <!-- <app-nav-bar></app-nav-bar> -->
 
-<div class="container">
+<div class=" container">
 
 	<div class="comments-section">
 
@@ -50,29 +50,31 @@
 				
 				
 					</div>
+
+					<form [formGroup]="commentForm" autocomplete="off"  (ngSubmit)="OnSubmit(commentForm.value)">
+
+
+							<!-- <textarea></textarea> -->
+							<div class="form-group">
+								<label for="key" class="sr-only">Comment</label>
+								<input  type="text" formControlName="CommentIn" class="form-control"  placeholder=" Write a comment">
+							</div>
+		
+		
+		
+							<div class=" form-group">
+								<button  type="submit"  class="btn btn-outline-dark" >Comment</button>
+								<!-- <input type="reset" value="Comment"> -->
+								
+							</div>
+						</form>
 				</section>
 
 
 
 
 
-				<form [formGroup]="commentForm" autocomplete="off"  (ngSubmit)="OnSubmit(commentForm.value)">
-
-
-					<!-- <textarea></textarea> -->
-					<div class="form-group">
-						<label for="key" class="sr-only">Comment</label>
-						<input  type="text" formControlName="CommentIn" class="form-control"  placeholder=" Comment">
-					</div>
-
-
-
-					<div class=" form-group">
-						<button  type="submit"  class="btn btn-outline-dark" >Comment</button>
-						<!-- <input type="reset" value="Comment"> -->
-                        
-					</div>
-				</form>
+			
 			</div>
 			
 

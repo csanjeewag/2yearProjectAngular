@@ -1,13 +1,28 @@
 <app-nav-bar></app-nav-bar>
+<div id="background" *ngIf="taskdetails"  >
+    <div id="backgroundIN" >
+
+<br><br>
+<div class="card" id="cardback"  class="col-lg-10 container">
+<div class="container">
+  <h5>{{taskdetails.taskName}}</h5>
+    <p id="des">{{taskdetails.description}}</p>
+ 
+
+
+
+
+<div class="col-lg-12 container">
+
 <div class="row">
     <div class="col-sm-4">
       <div class="card">
 
 
     <div class="card-body">
-      <h5 class="card-title">Entered Information </h5>
+      <h5 class="card-title"> Information </h5>
       <h6 class="card-subtitle mb-2 text-muted">Details you added for assigned task</h6>
-<table  class="table table-borderless">
+    <table  class="table table-borderless">
   <tr >
     <th>Description</th>
   </tr>
@@ -22,10 +37,10 @@
 </div>
     </div>
 
-    <!-- <div class="col-sm-8">
+    <div class="col-sm-8">
         <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Entered Contact Details</h5>
+        <h5 class="card-title">Contact Details</h5>
         <h6 class="card-subtitle mb-2 text-muted">Contact details you added for assigned task</h6>
   <table  class="table table-borderless">
     <tr >
@@ -51,5 +66,11 @@
   
   </div>
     </div>
-    </div> -->
+    </div>
   </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>

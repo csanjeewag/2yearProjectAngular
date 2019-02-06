@@ -1,3 +1,29 @@
 #title{
     color: rgb(48, 47, 47)
 }
+#addbutton1{
+    position: absolute;
+    right: 5%;
+   
+  }
+  #addbuttonbtn:hover{
+    background-color: aliceblue;
+  }
+
+
+  #background{
+  
+    top: 0;
+    left: 0;
+    background-image: url('../../../assets/Back/back2.jpg');
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #backgroundIN{
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 100%;
+  }

@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SharedModuleModule } from "./shared-module/shared-module.module";
-
-
+import { AuthLoginGuard } from "./AuthGards/auth-login.guard";
+import { AuthRoleGuard } from "./AuthGards/auth-role.guard";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -18,11 +18,7 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
                                               
 @NgModule({
   declarations: [
-    AppComponent,
-  
-   
-  
-    
+    AppComponent, 
   ],
   imports: [
     NgbModule,
@@ -30,6 +26,7 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+  
     ReactiveFormsModule,
     SharedModuleModule,
     BrowserAnimationsModule,
@@ -41,8 +38,9 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
   providers: [
     RepositoryService,
     UserServiceService,
-  
-    AuthServiceService
+    AuthLoginGuard,
+    AuthServiceService,
+    AuthRoleGuard
   ],
   
   bootstrap: [AppComponent],

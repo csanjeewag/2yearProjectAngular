@@ -1,14 +1,35 @@
+<app-nav-bar></app-nav-bar>
+
+<div id="background"  >
+    <div id="backgroundIN" >
+<br><br>
+<div class="col-lg-6 col-sm-12 container">
+
+  <div  id="formContent">
+    <br>
+    <h3>Update Contact Detail</h3>
 <form [formGroup]="updateContactForm" (ngSubmit)="updateContacts(updateContactForm.value)">
 
 
-  <input  class="form-control" type="text"placeholder="Name of Owner" formControlName="oname">
-  <input class="form-control" type="text" placeholder="Address" formControlName="address">
+    <div id="label">Name of Owner:</div>
+    <input class="form-control" type="text" formControlName="oname" required>
 
-  <input class="form-control" type="number" placeholder="Contact Number" formControlName="num1">
-  <input class="form-control"  type="number" placeholder="Contact Number" formControlName="num2">
+    <div id="label">Address:</div>
+    <input class="form-control" type="text" formControlName="address" required >
 
-  <input class="form-control" type="textarea" placeholder="Contact Description" formControlName="cd">
+    <div id="label">Contact Number 1:</div>
+    <input class="form-control" type="number" formControlName="num1" required >
 
+    <div id="label">Contact Number 2:</div>
+    <input class="form-control"  type="number" formControlName="num2" >
 
-  <button type="submit" class="btn btn-success">Add Contacts</button>
+    <div id="label">Contact Description:</div>
+    <input class="form-control" type="textarea"  formControlName="cd">
+<br>
+
+  <button type="submit" class="btn">Update </button>
 </form>
+</div>
+</div>
+</div>
+</div>

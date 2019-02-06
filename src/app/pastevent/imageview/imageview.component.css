@@ -26,7 +26,7 @@
     right: 0;
     margin-bottom: -50px;
     background: #fff;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0);
     color: #FFF;
     padding: 10px;
     text-align: center;
@@ -77,4 +77,24 @@
 #x{
 opacity: 100%;
 
+}
+
+
+#background{
+  
+  top: 0;
+  left: 0;
+  background-image: url('../../../assets/Back/back14.jpg');
+  width: 100%;
+  
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 750px;
+}
+#backgroundIN{
+  background-color: rgba(182, 179, 179, 0.699);
+  width: 100%;
+
+  min-height: 750px;
 }

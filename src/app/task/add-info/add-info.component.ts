@@ -21,6 +21,8 @@ public result2:any;
 public contactForm:FormGroup;
 public ctypeid:any;
 public ctypename:any;
+public taskdetails:any;
+
   ngOnInit() {
   this.empid=this.auth.tokencheckId();
    // this.empid=1;
@@ -60,7 +62,6 @@ public contactType(typeid,name){
 }
 
 public addContacts(value){
-  console.log(value);
 
   let formData = new FormData();
   formData.append('Name',value.name);
@@ -69,7 +70,6 @@ public addContacts(value){
   formData.append('Contact2',value.num2);
   formData.append('ContactDescription',value.cdes)
   formData.append('InfoDescription',value.des);
-  //formData.append('IsComplete',value.iscomplete);
   formData.append('EmployeeId',this.empid);
   formData.append('TaskTaskId',this.taskId);
   formData.append('ContactContactId',this.ctypeid);
@@ -78,6 +78,7 @@ public addContacts(value){
     
   this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
+      this.ngOnInit();
       this.route.navigate(['task/viewtaskinfo/'+this.taskId]);
 
       },
@@ -119,56 +120,13 @@ public viewInfoDetails(id){
 
 }
 
+public AddContactType(){
+  this.route.navigate(['task/contact/']);
+
+}
 
 
 
- /* public addTaskInfo(InfoFormValue) {
-    console.log(InfoFormValue)
-    if (this.InfoForm.valid) {
-      this.executeInfoCreation(InfoFormValue);
-
-    }
-  }
-
-  private executeInfoCreation(InfoFormValue) {
-    let t: Info = {
-      type: InfoFormValue.type,
-      name:InfoFormValue.name,
-      address: InfoFormValue.address,
-
-    };
-
-    let apiUrl = '/task/create';
-    this.repository.postData(apiUrl,t)
-        .subscribe(res => {
-          this.router.navigate(['/task/list']);
-            
-          },
-          (error => {
-          //  this.errorHandler.handleError(error);
-          //  this.errorMessage = this.errorHandler.errorMessage;
-          })
-        )
-
-        alert("Successfully recorded");
-    }*/
-   
-   /* public redirectToTaskList(){
-      this.router.navigate(['task']);
-    }*/
-
-   /* public validateControl(controlName: string) {
-      if (this.imageuploadForm.controls[controlName].invalid && this.imageuploadForm.controls[controlName].touched)
-        return true;
-  
-      return false;
-    }
-    public hasError(controlName: string, errorName: string) {
-      if (this.imageuploadForm.controls[controlName].hasError(errorName))
-        return true;
-  
-      return false;
-    }*/
 
   }
 

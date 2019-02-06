@@ -8,23 +8,8 @@
     padding: 0px;
   }
 
-  #formContent  .btn{
-    background-color: rgb(21, 138, 50);
-    padding-left: 50px;
-    padding-right: 50px;
-    color: white;
-    transition: 0.4s all ease-in-out;
-    
+  
 
-} 
-#formContent .btn:hover{
-  background-color: rgb(21, 138, 50);
-    padding-left: 55px;
-    padding-right: 55px;
-    color: rgb(228, 227, 227);
-    -webkit-box-shadow: 0 10px 30px 0 rgba(63,63,63, 0.4);
-    box-shadow: 0 10px 30px 0 rgba(63, 63, 63, 0.4);
-}
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;

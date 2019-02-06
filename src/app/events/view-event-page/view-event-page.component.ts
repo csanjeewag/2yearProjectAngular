@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RepositoryService} from './../../ShareData/repository.service';
 import { Router,ParamMap } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AuthServiceService } from "./../../AuthGards/auth-service.service";
+
 
 
 import { Event} from './../_interfaces/event';
@@ -18,7 +20,7 @@ import { Event} from './../_interfaces/event';
 
 export class ViewEventPageComponent implements OnInit {
    
-  constructor(private repository :RepositoryService,private route:Router,private rou:ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private auth: AuthServiceService,private repository :RepositoryService,private route:Router,private rou:ActivatedRoute,config: NgbModalConfig, private modalService: NgbModal) { }
   public ImageUrl:any;
   public PrId:any;
   public event:any;
@@ -27,6 +29,8 @@ export class ViewEventPageComponent implements OnInit {
   public attribute:any;
   public form:any;
   public register:any;
+  public IsAdmin:any;
+  public IsRC:any;
   
   public urlAddress:any;
 
@@ -40,6 +44,8 @@ export class ViewEventPageComponent implements OnInit {
   
   
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+      this.IsRC = this.auth.isRC();
 
     this.ImageUrl = this.repository.ImageUrl;
 
@@ -77,6 +83,7 @@ export class ViewEventPageComponent implements OnInit {
     this.repository.getData(apiUrl)
        .subscribe(res => {
          this.event = res ;
+        
         let today=new Date();
          if(new Date(today)<new Date(this.event.closingDate)){
            this.register='true';
@@ -134,7 +141,7 @@ public addRegistrationForm(){
 }
 
 public getForm(){
-  let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
+  let apiUrl = 'RegistrationEmployee/getRegistrationAttribute/'+this.repository.curentEventId;
  this.repository.getData(apiUrl)
     .subscribe(res => {
      this.form = res;
@@ -151,5 +158,9 @@ public registerEmployee(){
 
 }
 
+public TeamView(id){
+  this.urlAddress = "events/cricketmatchs/teamview/"+id;
+  this.route.navigate([this.urlAddress]);
+}
  
 }

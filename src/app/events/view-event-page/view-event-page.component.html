@@ -1,29 +1,45 @@
-<!-- <app-logged-header></app-logged-header> -->
 
 <app-nav-bar></app-nav-bar>
 
+<div id="background" *ngIf="event"  >
+    <div id="backgroundIN" >
 <br/><br/>
 
-<section>
+
+
+  <section>
     <div class="container">
       <div class="card">
-        
+        <div class="row">
+          <div class="col-md-6 col-sm-10">
+            <br>
+              <h1 id="h1" class="card-title">{{event.eventTitle}}</h1>
+          </div>
+          <div class="col-md-6 col-sm-10" >
+            <br>
+            
+              <h4 id="h2" class="card-text">Date: {{event.startDate | date}}</h4>
+              <h3 id="h2" *ngIf="destination"class="card-text">Destination: {{event.destination}}</h3>
+              <h3 id="h2" *ngIf="venue" class="card-text">Venue: {{event.venue}}  <button id="teamviewbtn" *ngIf="event.eventTypeId==1" class="btn"  (click)="TeamView(event.id)">Team View</button></h3>
+          </div>
+        </div>
   
-        <div class="row">           
+        <div class="row">  
+            <div class="col-md-6">
+                <div class="card-img-bottom" id="division">
+                    <img class="card-img " id="image" style="width: 100%; height: 450px;"[src]="ImageUrl+event.eventImageUrl">
+    
+                </div>
+              </div>         
           <div class="col-md-6">
            
             <div class="card-block" id="dis">
               <br/>
              
-              
+              <p class="card-text">{{event.eventDescription}}</p>
               
             
-              <h1 class="card-title">{{event.eventTitle}}</h1>
-              <br/>
-              <h5 class="card-text">{{event.eventDescription}}</h5>
-                  <h5 id="h2" class="card-text">Date: {{event.startDate | date}}</h5>
-                  <h5 id="h2" *ngIf="destination"class="card-text">Destination: {{event.destination}}</h5>
-                  <h5 id="h2" *ngIf="venue" class="card-text">Venue: {{event.venue}}</h5>
+
               <p *ngIf="closingDate" class="card-text">Registration Closing Date: {{event.closingDate | date}}</p>
               <p class="card-text" *ngIf="endDate">EndDate of Event: {{event.endDate | date}}</p>
               <p class="card-text" *ngIf="isFamilyMembersAllowed">Whether Family Members Allowed: {{event.isFamilyMembersAllowed}}</p>
@@ -33,17 +49,11 @@
             </div>
            
           </div>
-          <div class="col-md-6">
-            <div class="card-img-bottom" id="division">
-                <img class="card-img " id="image" style="width: 100%; height: 450px;"[src]="ImageUrl+event.eventImageUrl">
-
-            </div>
-          </div>
+         
         </div>
       </div>
     </div>
   </section>
-
 <br/><br/>
 
 
@@ -54,16 +64,12 @@
       </div>
       <div id="form" class="col-sm-9" *ngIf="this.form===null||!this.register">
       </div>
-      <div class="col-sm-1">
+      <div class="col-sm-1" *ngIf="this.IsAdmin||this.IsRC">
           <button type="button" class="btn btn-link"(click)="addRegistrationForm()" *ngIf="this.form===null">Add Registration Form</button>
           <button type="button" class="btn btn-link"(click)="updateEvent()">Update Event</button>
-<<<<<<< HEAD
-          <button type="button" class="btn btn-link" (click)="viewEmployee()" *ngIf="this.form!=null">View Registered Employees</button>
-=======
           <!-- <button type="button" class="btn btn-link" (click)="deleteEmployee(content)" *ngIf="this.form!=null">Delete Registered Employee</button> -->
           <button type="button" class="btn btn-link" (click)="viewEmployee()">View Registered Employees</button>
-          <button type="button" class="btn btn-link" (click)="registerEmployee()">Add Registered Employees</button>
->>>>>>> 806fc800608ba13a3e7e0c76cd7782daea016c98
+          <!-- <button type="button" class="btn btn-link" (click)="registerEmployee()">Add Registered Employees</button> -->
         </div>
 </div>
 <br/><br/>
@@ -71,7 +77,7 @@
           <br/>
   <div class="row mb-1">
   <div class="col-md-1"></div>
-      <div class="col-md-10">
+      <div class="col-md-10" *ngIf="this.IsAdmin||this.IsRC">
           <h4 class="border-bottom border-secondary pb-2 mb-0">Assign Task </h4>  
           <app-addtask></app-addtask>
         </div>
@@ -88,4 +94,5 @@
 
                 
               
-  
+  </div>
+  </div>

@@ -1,12 +1,19 @@
 <app-nav-bar></app-nav-bar>
-
-
-     <div >
+<div id="background"  >
+          <div id="backgroundIN" >
+<br><br>
+<div id="addbutton1" >
+     <button  type="button" id="addbuttonbtn"  class="btn link" (click)="AddEventType()">Add Event Type </button>
+     <br><br>
+     <button  type="button" id="addbuttonbtn"  class="btn link" (click)="AddPoll()">Add Poll For Trip </button>
+       
+</div>
+   <div >
         
         <div  class="wrapper col-md-8 container">
           <div id="formContent" >
             <!-- Tabs Titles -->
-        
+            
             <!-- Icon -->
             <div id="title" style="color: rgb(70, 65, 65)">
               <h1>Create Event</h1>
@@ -37,7 +44,7 @@
             
 
                 <div class="form-group col-md-12">
-                        <label>Event Type</label><br/>
+                        <label>Event Type</label><br>
                     <select class="form-control" formControlName="EventType" id="EventType" required>
                             
                             <option value="" selected disabled hidden></option>
@@ -45,7 +52,14 @@
                         </select>
                        
                   </div>
-
+                  <!-- <div class="form-group col-md-12">
+                    <label >Prefered Meal Type</label><br/>
+              <select class="form-control" formControlName="EventType" id="EventType" required>
+                      <option value="" selected disabled hidden></option>
+                      <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
+                  </select>
+                  
+            </div> -->
                   
                   
                    <div class="form-group col-md-12">
@@ -162,5 +176,6 @@
 
   
         </div>
-    
+    </div>
+    </div>
     

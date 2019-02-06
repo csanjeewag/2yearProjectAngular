@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from "./../../ShareData/repository.service";
 import { ActivatedRoute } from '@angular/router';
 import { Router,ParamMap } from '@angular/router';
+import { AuthServiceService } from "../../AuthGards/auth-service.service";
 
 @Component({
   selector: 'app-eventcard',
@@ -11,11 +12,14 @@ import { Router,ParamMap } from '@angular/router';
 export class EventcardComponent implements OnInit {
 
   
-  constructor(private router: Router ,private repository:RepositoryService) { }
-  
+  constructor(private router: Router ,private repository:RepositoryService, private auth:AuthServiceService) { }
+  public IsAdmin:any;
+  public IsRC:any;
   public event:any;
   public ImageUrl:any;
   ngOnInit() {
+    this.IsAdmin = this.auth.isAdmin();
+    this.IsRC = this.auth.isRC();
     this.ImageUrl = this.repository.ImageUrl;
     this.eventname();
   }
@@ -26,19 +30,20 @@ public eventname(){
    this.repository.getData(url)
     .subscribe(res => {
       this.event =res;
-      console.log(res);
+    
+    
     },(error) =>{
 
     })
 
 }
 public moredetail(id){
-  console.log(id);
+
     this.router.navigate(['pastevent/event/s/'+id]);
 }
 
 public Upgradeevent(id){
-   this.router.navigate(['pastevent/uploadpastevent/'+id]);
+   this.router.navigate(['events/updateevent/'+id]);
 }
 }
 

@@ -16,14 +16,15 @@ export class UpdateContactDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute ,private router: Router,  private repository : RepositoryService,private auth:AuthServiceService,config: NgbModalConfig, private modalService: NgbModal) { }
 public result:any;
-public contactid:any;
+public contactdetailid:any;
 public contactdetail:any;
 public updateContactForm:FormGroup;
 public empid:any;
+public ContactContactId:any;
 
   ngOnInit() {
     this.empid=this.auth.tokencheckId();
-this.getContactDetails();
+    this.getContactDetails();
 
    this. updateContactForm=new FormGroup({
      oname:new FormControl(''),
@@ -42,13 +43,14 @@ this.getContactDetails();
 public getContactDetails() {
   this.route.paramMap.subscribe((params:ParamMap)=>{
     let id = parseInt(params.get('id'));
-     this.contactid=id;
+     this.contactdetailid=id;
     
-    this.repository.getData('contact/'+id)
+    this.repository.getData('contact/getdetailbyid/'+id)
     
     .subscribe(res => {
       this.contactdetail = res as any;
-      console.log( this.contactdetail)
+      this.ContactContactId=this.contactdetail.contactContactId;
+      console.log('detail id'+ this.ContactContactId)
       this.fillContactDetail();
     },
     (error) => {
@@ -72,18 +74,22 @@ public fillContactDetail(){
 public updateContacts(value){
   
   let formData = new FormData();
-  formData.append('ContactContactId',this.contactid);
+  formData.append('ContactDetailId',this.contactdetailid);
   formData.append('Name',value.oname);
   formData.append('Address',value.address);
   formData.append('Number1',value.num1);
   formData.append('Number2',value.num2);
   formData.append('ContactDescription',value.cd);
   formData.append('EmployeeId',this.empid);
+  formData.append('ContactContactId',this.ContactContactId);
+
   let apiUrl = 'contact/updatecontactdetail';
     
   this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
-      
+      this.router.navigate(['/task/viewcontact/'+this.ContactContactId]);
+
+      alert('updated');
       },
       (error => {
         
