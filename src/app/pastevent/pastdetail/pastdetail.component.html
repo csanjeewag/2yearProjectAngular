@@ -18,7 +18,8 @@
       </div>
     </div>
   </div> -->
-  <div class="card w-100"  >
+
+  <div class="card w-100" id="colorr"  >
     <div class="card-body">
       <h1 class="card-title">{{event.eventTitle}}</h1>
       <h3>{{event.startDate|date}}</h3>
@@ -34,9 +35,10 @@
           <p class="card-text">{{event.venue}}</p>
           <h3>{{event.endDate|date}}</h3>
           <p class="card-text"> {{event.eventDescription}} </p>
+          
         </div>
 
-        <h3 class="border-bottom border-gray">Tasks of {{event.eventTitle}}</h3>
+        <h3 class="border-bottom border-gray"></h3>
         <div class="col-sm-12 col-md-10">
           <div class="my-3 p-3 bg-white rounded box-shadow" *ngFor="let res of task">
             

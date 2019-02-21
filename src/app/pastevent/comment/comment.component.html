@@ -1,5 +1,5 @@
 <!-- <app-nav-bar></app-nav-bar> -->
-
+<html><body>
 <div class="container">
 
 	<div class="comments-section">
@@ -22,7 +22,8 @@
 			<div class="col-12">
 				<section id="comments">
 					<header>
-						<h1>Comment section</h1>
+
+							<img id="imagee" src="assets/_image/chat.jpg"  width="100" height="35">
 					</header>
 					<div *ngFor="let e of comment">
 						<div class="comment">
@@ -59,10 +60,11 @@
 				<form [formGroup]="commentForm" autocomplete="off"  (ngSubmit)="OnSubmit(commentForm.value)">
 
 
-					<!-- <textarea></textarea> -->
+					
 					<div class="form-group">
 						<label for="key" class="sr-only">Comment</label>
-						<input  type="text" formControlName="CommentIn" class="form-control"  placeholder=" Comment">
+						
+						<input  type="text" formControlName="CommentIn" class="form-control"  placeholder=" Write a comment">
 					</div>
 
 
@@ -84,3 +86,4 @@
 </div>
 
 
+</body></html>

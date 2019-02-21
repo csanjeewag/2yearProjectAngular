@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router, ParamMap } from '@angular/router';
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Newlike } from '../_interfaces/like';
 
 @Component({
   selector: 'app-imageview',
@@ -12,38 +14,53 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./imageview.component.css']
 })
 export class ImageviewComponent implements OnInit {
+  public likeform: FormGroup;
   result: any;
   eevent: any;
   ImageUrl: any;
   RC: any;
-  ADMIN : any;
+  ADMIN: any;
+  Employee: any;
 
   public author: any;
-  constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth: AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
   public eventId: any;
   ngOnInit() {
     this.RC = this.auth.isRC();
-    this.ADMIN= this.auth.isAdmin();
+    this.ADMIN = this.auth.isAdmin();
+    this.Employee = this.auth.tokencheckId();
+  
     this.ImageUrl = this.repo.ImageUrl;
-   
+
     this.route.paramMap.subscribe((params: ParamMap) => {
       let id = parseInt(params.get('id'));
       this.eventId = id;
       this.repo.commenteventId = this.eventId;
-      
+
     })
     this.getimage();
     this.eventname();
     this.author = this.auth.tokencheckId();
     console.log(this.author);
+
+    this.likeform = new FormGroup({
+      ImageId: new FormControl('', )
+      // ImageId: new FormControl('', [Validators.required])
+    },
+
+    );
+
   }
+
+
+
   public getimage() {
     let id = this.eventId;
     this.repo.getData('PastEvent/getimages/' + id)
       .subscribe(res => {
         this.result = res;
         console.log(this.result);
-        
+
 
       },
         (error) => {
@@ -58,7 +75,7 @@ export class ImageviewComponent implements OnInit {
   }
   public gotoimageupload(id) {
     this.router.navigate(['pastevent/imageupload/' + id]);
-   
+
   }
   public gotocomment(id) {
     this.router.navigate(['pastevent/comment/' + id]);
@@ -79,10 +96,11 @@ export class ImageviewComponent implements OnInit {
       )
   }
 
+
   public eventname() {
-    let id= this.eventId
+    let id = this.eventId
     console.log(id);
-    let url = "pastevent/getevent/"+id;
+    let url = "pastevent/getevent/" + id;
     this.repo.getData(url)
       .subscribe(res => {
         this.eevent = res;

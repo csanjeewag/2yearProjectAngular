@@ -1,47 +1,38 @@
-
 <app-nav-bar></app-nav-bar>
-
-
-
 
 <div class="card w-90">
   <div class="card-body">
     <h2 class="card-title">{{eevent.eventTitle}}</h2>
-    
-    <a  (click)=gotoimageupload(eventId)><img src="assets/_image/uploadimage.png" width="70" height="70" class="rounded-circle margin-left ml-2"></a>  
-   
+
+    <a (click)=gotoimageupload(eventId)><img src="assets/_image/uploadimage.png" width="70" height="70" class="rounded-circle margin-left ml-2"></a>
+
     <div class="row">
       <div class="col-sm-12 col-md-9">
         <section class="no-touch">
           <div class="wrap">
             <div *ngFor="let i of result">
-        
+
               <div class="box">
-        
-        
-                <div class="boxInner" >
+                <div class="boxInner">
+                  <!-- Modal view start -->
                   <ng-template #image id="x">
                     <div class="modal-header"></div>
-                    <!-- <div class="modal-body">
+                    <div id="x" class="modal-body">
                       <!-- modal viewing -->
-                      <!-- <img class="card w-150" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
-                    </div> -->
-
-                    <div  id="x" class="modal-body" >
-                        <!-- modal viewing -->
-                        <img width="475px"  [src]="ImageUrl+i.imageId" alt="Cinque Terre">
-                      </div>
-
+                      <img width="475px" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                    </div>
 
                     <div class="modal-footer"></div>
                   </ng-template>
                   <!-- gallery viewing  -->
                   <div (click)="open(image)">
-                  <img id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                    <img id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
                   </div>
                   <a id="author"> {{i.author}} </a>
-        
-                  <div class="titleBox"><button  *ngIf="i.author==RC||ADMIN" (click)=deleteimage(i.imageId) >Delete</button> </div>
+
+                  <div class="titleBox"><button *ngIf="i.author==RC||ADMIN" (click)=deleteimage(i.imageId)>Delete</button>
+                 
+                  </div>
                 </div>
               </div>
             </div>
@@ -54,10 +45,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
