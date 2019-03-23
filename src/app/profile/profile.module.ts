@@ -62,6 +62,7 @@ import { FilterPipePipe3 } from './filter-pipe.pipe';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ChangePositionComponent } from './Employee/change-position/change-position.component';
 import { EmployeePasswordChangeComponent } from './Employee/employee-password-change/employee-password-change.component';
+import { UpdateProfileComponent } from './Employee/update-profile/update-profile.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
       { path: 'login', component: LoginUserInterfaceComponent },
       { path: 'lists/:id', component: EmployeeDetailsComponent ,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'} },
       { path: 'delete/:id', component: DeleteEmployeeComponent },
-      { path: 'update/:id', component: UpdateEmployeeComponent ,canActivate:[AuthLoginGuard]},      
+      { path: 'update/:id', component: UpdateEmployeeComponent ,canActivate:[AuthLoginGuard]},
+      { path: 'updateprofile/:id', component: UpdateProfileComponent ,canActivate:[AuthLoginGuard]},     
       { path: 'profile', component: EmployeeProfileComponent  ,canActivate:[AuthLoginGuard]},
       { path: 'register', component: EmployeeRegisterByLinkComponent  },
       { path: 'forgetpassword', component: ForgetEmployeePasswordComponent  },
@@ -130,7 +132,7 @@ import { EmployeePasswordChangeComponent } from './Employee/employee-password-ch
     ])
   ],
   providers:[AuthRoleGuard,AuthRoleGuard],
-  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe,FilterPipePipe2,FilterPipePipe3, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent, ChangePositionComponent, EmployeePasswordChangeComponent],
+  declarations: [FileSelectDirective,LoggedHeaderComponent,LoginUserInterfaceComponent, ShowEmployeesDetailsComponent, EmployeeDetailsComponent,  DeleteEmployeeComponent, LoginEmployeeComponent, SignupEmployeeComponent, DepartmentCreateComponent, RoleCreateComponent, UpdateEmployeeComponent, UpdateDepartmentComponent, UpdateRolesComponent, ShowDepartmentsDetailsComponent, ShowRolesDetailsComponent, AdminPageComponent, EmployeeProfileComponent, FilterPipePipe,FilterPipePipe2,FilterPipePipe3, EmployeeRegisterComponent, EmployeeRegisterByLinkComponent, ForgetEmployeePasswordComponent, ProjectCreateComponent, ProjectUpdateComponent, ProjectViewComponent, HomepageComponent, ChangePositionComponent, EmployeePasswordChangeComponent, UpdateProfileComponent],
   exports: [RouterModule]
 })
 export class ProfileModule { }

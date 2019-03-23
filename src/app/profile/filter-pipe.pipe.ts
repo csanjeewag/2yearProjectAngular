@@ -15,7 +15,9 @@ export class FilterPipePipe implements PipeTransform {
     }
    return  value.filter(items => 
       items.empName.toUpperCase().startsWith(args)==true ||
-       items.empEmail.toUpperCase().startsWith(args)==true
+       items.empEmail.toUpperCase().startsWith(args)==true||
+       items.projectName.toUpperCase().startsWith(args)==true||
+       items.empPosition.toUpperCase().startsWith(args)==true
       )
   }
 

@@ -2,19 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import {  RepositoryService} from './../../ShareData/repository.service';
 import { AuthServiceService } from "./../../AuthGards/auth-service.service";
 import { Router } from '@angular/router';
+import {formatDate} from '@angular/common';;
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
+  
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
+
+  constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) {
+
+   }
+
 public Last3Event:any;
 public Upcommming3Event:any;
 public ImageUrl:any;
 public IsAdmin:any;
 public IsRC:any;
+public today:any;
+
 
   ngOnInit() {
   this.IsAdmin = this.auth.isAdmin();
@@ -22,6 +30,7 @@ public IsRC:any;
 this.ImageUrl = this.repository.ImageUrl;
     this.getUpComingEvents();
     this.getpastEvents();
+   this.today =  formatDate(new Date(), 'yyyy/MM/dd', 'en');
   }
 
   public events:any;
@@ -82,6 +91,11 @@ public viewPoll(){
 }
 
 
+
+
+
 }
+
+
 
 

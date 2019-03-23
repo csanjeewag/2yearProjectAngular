@@ -2,6 +2,7 @@
   <div class="card w-100" *ngIf="event" >
     <div class="card-body">
       <h1 class="card-title">{{event.eventTitle}}</h1>
+      <hr>
       <h3>{{event.startDate|date}}</h3>
   
       <div class="row">
@@ -12,14 +13,17 @@
         <div class="col-sm-12 col-md-6">
           <div class="card-text">
             <h3 *ngIf="event.venue!='null'">{{event.venue}}</h3> <h3 *ngIf="event.destination!='null'">{{event.destination}}  </h3> 
-             <button id="teamviewbtn" *ngIf="event.eventTypeId==1" class="btn"  (click)="TeamView(event.id)">Team View</button></div>
-          
+             
           <p class="card-text"> {{event.eventDescription}} </p>
           <h5 *ngIf="event.endDate">End on:{{event.endDate|date}}</h5>
+          <br>
+          <button id="" *ngIf="event.eventTypeId==1" class="btn"  (click)="TeamView(event.id)">Team View</button></div>
+          
         </div>
         
 
         <div class="col-sm-12 col-md-10">
+          <br>
             <a (click)=gotoEventImages(event.id) class="btn" id="btn">Gallery</a>
             <br><br>
             <h4 class="border-bottom border-gray">Tasks of {{event.eventTitle}}</h4>

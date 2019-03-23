@@ -1,9 +1,11 @@
 
 .card-deck{
-    margin-left: 10%;
-    padding-right: 10%;
+
+    padding-right: 5%;
+    padding-left: 5%;
     padding-top: 20%;
     width: 100%;
+    min-height: 500px;
     
 
 }
@@ -35,7 +37,7 @@
   
     top: 0;
     left: 0;
-    background-image: url('../../../assets/Back/back14.jpg');
+    background-image: url('../../../assets/Back/back32.jpg');
     width: 100%;
     height: 100%;
     z-index: -1;

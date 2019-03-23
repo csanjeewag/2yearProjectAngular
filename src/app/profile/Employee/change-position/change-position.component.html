@@ -11,18 +11,18 @@
 						
           </div>
           <div class="row">
-              <div class="col-md-4">       
-               <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" required/>
-               <label>Search by Name:</label>
+              <div class="col-md-10 container">       
+               <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Enter Name/Position/Project" required/>
+               <!-- <label>Search by Name:</label> -->
             </div>
-            <div class="col-md-4">       
+            <!-- <div class="col-md-4">       
                 <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position"required />
                 <label>Search by Position:</label>
               </div>
              <div class="col-md-4">       
                 <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" required />
                 <label>Search by Project:</label>
-              </div>
+              </div> -->
 					<div class="panel-body">
               <div class=" input-group mb-3" [class.error]="isNotEmail">
              

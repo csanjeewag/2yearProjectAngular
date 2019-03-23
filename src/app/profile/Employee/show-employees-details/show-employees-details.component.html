@@ -1,101 +1,97 @@
 <app-nav-bar></app-nav-bar>
 <div id="background">
-<div id="backgroundIN">
+    <div id="backgroundIN">
 
-    <div *ngIf="result">
+        <div *ngIf="result">
             <br>
 
-            <br>
-            <button *ngIf="isAdmin"  type="button" id="addbutton"  class="btn link" (click)="UpdateMembers()">Update Members </button>
-<div class="col-md-10 col-lg-8 col-sm-12 container">
-    <div class="row">
-
-        <div class="col-md-4">
-             
-            <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" required/>
-            <label>Search by Name:</label>
-         </div>
-         <div class="col-md-4">       
-             <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" required/>
-             <label>Search by Position:</label>
-          </div>
-          <div class="col-md-4">       
-             <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" required/>
-             <label>Search by Project:</label>
-           </div>
-          </div>
-</div>
-<br>
-
-<br>
-
-    <div class="col-md-8 container">
-    	<div class="row">
-		
-        <br>
-        <br>
+            <div class="container">
 
 
-    <div *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject" role="tabpanel" class="col-lg-12 tab-pane fade active show" id="day-1">
 
-      <div id="zoom1"  class="row schedule-item" >
-        <div  id="Position" class="col-md-2"> <p>{{i.empPosition}}</p> </div>
-        <div class="col-md-10">
-          <div class="speaker">
-              <div class="row">
-                  <div class="col-md-2">
-                     <div id="zoom3" (click)="getdetails(i.id)">
-                    <img  *ngIf="i.empProfilePicture" [src]= "ImageUrl+i.empProfilePicture"id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
-                    <img *ngIf="!i.empProfilePicture"   src= "assets/_image/nodp.jpg"id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2"></div> 
-                        
-                  </div>
-                  <div class="col-md-8">
-                      <h4> <h2 id="Name"> {{i.empName}}</h2><span>  </span></h4>
-                  </div>
-                  <div class="col-md-2"> 
-                      <!-- <td id="zoom3" ><button type="button" id="details" class="btn  btn-default" (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
-                      <td id="zoom3" ><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
-                      <td id="zoom3" *ngIf="isAdmin"><button type="button" id="delete" class="btn  btn-danger" (click)=deActiveEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/delete.png" alt="Cinque Terre" ></button></td>
-                    -->
-                    <div id="Project" class="col-md-6"><br> <h4  id="zoom3">{{i.projectName}}</h4>
-                        
-                    </div>
-                    
-                  </div>
-                 
+                <div class="col-md-10 col-sm-12">
+                    <div class="row">
+                        <div class="col-md-11">
+
+                            <input [(ngModel)]="filtertext" type="text" class="form-control" id="filter" data-action="filter"
+                                data-filters="#dev-table" placeholder="Enter Name/Position/Project" required />
+                            <!-- <label>Filter:</label> -->
+                        </div>
+                        <div class="col-md-1">
+                            <button *ngIf="isAdmin" type="button" id="" class="btn link" (click)="UpdateMembers()">Update
+                                Members </button>
+                        </div>
+
+                        <!-- <div class="col-md-4">       
+                 <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" required/>
+                 <label>Search by Position:</label>
               </div>
-
-           
-            <div class="row">
-                <div class="col-md-6">  <h6 id="Email"> {{i.empEmail}}</h6>  <p id="Address">{{i.empAddress1}} {{i.empAddress2}}</p> 
-                   <div *ngIf="isAdmin||isRC">
-                        <a *ngIf="!(clickId==i.id)"  (click)="getId(i.id)"  href="void:;">take special notification</a>
-                        <a *ngIf="(clickId==i.id)"  (click)="send()"  href="void:;">Send</a>
-                        <input *ngIf="clickId==i.id" (keyup)="onKey($event.target.value)">
+              <div class="col-md-4">       
+                 <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" required/>
+                 <label>Search by Project:</label>
+               </div> -->
                     </div>
-                 </div>
-               
-            </div>
-          </div>
-          
-          <div class="row">
-              <div class="col-md-6"> </div>
-              
-          </div>
-        
-        </div>
- 
-      </div>
-     
-      <hr class="new1">
+                </div>
 
-    
-    
+                <br>
+                <br>
+                <hr>
+
+                <div *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject"
+                    role="tabpanel" class="col-lg-12 tab-pane fade active show" id="day-1">
+
+                    <div id="zoom1" class="row schedule-item">
+                        <div id="Position" class="col-md-2">
+                            <h5 id="zoom2">{{i.projectName}}</h5>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="speaker">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div id="zoom3" (click)="getdetails(i.id)">
+                                            <img *ngIf="i.empProfilePicture" [src]="ImageUrl+i.empProfilePicture" id="zoom2"
+                                                height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                                            <img *ngIf="!i.empProfilePicture" src="assets/_image/nodp.jpg" id="zoom2"
+                                                height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2"></div>
+
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4>
+                                            <h4 id="Name"> {{i.empName}}</h4><span> </span>
+                                        </h4>
+                                        <div class="col-md-12">
+                                            <h6 id="Email"> {{i.empPosition}} :- {{i.empEmail}}</h6>
+                                            <p id="Address">{{i.empAddress1}} {{i.empAddress2}}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div *ngIf="isAdmin||isRC">
+                                <a *ngIf="!(clickId==i.id)" (click)="getId(i.id)" href="void:;">Take
+                                    special notification</a>
+                                <a *ngIf="(clickId==i.id)" (click)="send()" href="void:;">Send</a>
+                                <input *ngIf="clickId==i.id" (keyup)="onKey($event.target.value)">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                </div>
+
+                <hr class="new1">
+
+
+
+
+            </div>
+        </div>
     </div>
-    
-</div>     
-</div>
-</div>
     <div id="load" class="row " *ngIf="!result">
-        <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
-      </div>
+        <img class="card-img-top" src="assets/loading.gif" alt="Cinque Terre">
+    </div>
+</div>

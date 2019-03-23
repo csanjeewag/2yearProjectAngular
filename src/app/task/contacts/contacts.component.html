@@ -10,15 +10,19 @@
 <div class="col-10 container">
 
 <div class="row ">
-    <div id="card" class="p-2 m-2 col-lg-2 col-sm-6 col-md-3" *ngFor="let i of result;">
-        
-            <h5 class="d-block text-black-dark " id="topic">{{i.contactType}}</h5>
+    <div id="" class="col-lg-3 col-sm-6 col-md-3" *ngFor="let i of result;">
+           <div class="card ms p-4">
+                <h5 class="d-block text-black-dark " id="topic">{{i.contactType}}</h5>
+                <hr>
             <p>{{i.description}}</p>
            <div class="container">
             <button type="button" (click)="viewAll(i.contactId)"><img src="https://img.icons8.com/ios-glyphs/30/000000/search.png"></button>
             <button type="button"  (click)="open2(content2,i.contactId)"><img src="https://img.icons8.com/android/30/000000/plus.png"></button>
             <!-- <button type="button" class=" btn-link btn-sm" (click)="open2(content3,i.contactId)">Update</button> -->
             <button type="button" (click)="deleteContactType(i.contactId)"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete.png"></button>
+ 
+            </div>
+        
         </div>
         </div>
 
@@ -68,7 +72,8 @@
 <!-- form to add contact types -->
 
 
-        <div id="cardAdd" class="p-2 m-2 col-lg-2 col-sm-6">
+        <div  class=" col-lg-3 col-sm-6">
+                <div id="cardAdd" class=" ms p-4">
             <button type="button"  (click)="open(content)">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/plus-math.png">                    </button>
             <div class="modal fade">
@@ -100,6 +105,8 @@
                      
                     </ng-template>
             </div>
+                </div>
+
         </div>
 
 

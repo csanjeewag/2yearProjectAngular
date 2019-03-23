@@ -74,15 +74,18 @@ export class ImageviewComponent implements OnInit {
     let url = "pastevent/deleteimage";
     let formData = new FormData();
     formData.append('Caption', id);
+    if(confirm("Are you sure to delete this image!")){
+      this.repo.postFile(url, formData)
 
-    this.repo.postFile(url, formData)
       .subscribe(img => {
         this.getimage();
 
       }, (error => {
-
+        alert("Image was not deleted!")
       })
       )
+    }
+ 
   }
 
   public eventname() {
