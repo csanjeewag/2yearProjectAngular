@@ -15,21 +15,14 @@
 
                             <input [(ngModel)]="filtertext" type="text" class="form-control" id="filter" data-action="filter"
                                 data-filters="#dev-table" placeholder="Enter Name/Position/Project" required />
-                            <!-- <label>Filter:</label> -->
+
                         </div>
                         <div class="col-md-1">
                             <button *ngIf="isAdmin" type="button" id="" class="btn link" (click)="UpdateMembers()">Update
                                 Members </button>
                         </div>
 
-                        <!-- <div class="col-md-4">       
-                 <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position" required/>
-                 <label>Search by Position:</label>
-              </div>
-              <div class="col-md-4">       
-                 <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" required/>
-                 <label>Search by Project:</label>
-               </div> -->
+
                     </div>
                 </div>
 

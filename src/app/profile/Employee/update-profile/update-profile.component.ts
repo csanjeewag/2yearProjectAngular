@@ -32,7 +32,7 @@
   
     ngOnInit() {
       this.next=false;
-    //  this.ImageUrl = "assets/_image/cslogo.png";
+  
     this.ImageUrl = this.repository.ImageUrl;
   
      this.isAdmin = this.auth.isAdmin();
@@ -180,7 +180,6 @@
   this.ownerForm.controls['address2'].setValue(this.employee.empAddress2);
   this.ownerForm.controls['department'].setValue(this.employee.departmentDprtId);
   this.ownerForm.controls['gender'].setValue(this.employee.empGender);
-  //this.ownerForm.controls['password'].setValue(this.employee.empPassword);
   this.ownerForm.controls['contact'].setValue(this.employee.empContact);
   this.ownerForm.controls['role'].setValue(this.employee.positionPId);
   this.ownerForm.controls['project'].setValue(this.employee.projectPrId);
@@ -190,7 +189,7 @@
     
   
     this.FileImage = file.item(0);
-   //selected image viewing
+   
     var reader = new FileReader();
     reader.onload = (event:any) => {
        this.profileImage = event.target.result;

@@ -12,8 +12,6 @@ import { AppComponent } from './app.component';
 import { RepositoryService } from './ShareData/repository.service';
 import {UserServiceService } from './ShareData/user-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { SidenavbarComponent } from './SharePart/sidenavbar/sidenavbar.component';
-//import {LandingPageComponent} from './landing-page/landing-page.component'
 import { AuthServiceService } from "./AuthGards/auth-service.service";
                                               
 @NgModule({
@@ -30,7 +28,7 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
     ReactiveFormsModule,
     SharedModuleModule,
     BrowserAnimationsModule,
-    //LandingPageComponent
+    
 
  
     

@@ -1,65 +1,53 @@
+<div>
+
+    <div class="wrapper fadeInDown col-md-12 container">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <h1>Update Project</h1>
+            </div>
+            <h5 class="card-title">
+                <h3 id="msg">{{Message}}</h3>
+            </h5>
+            <!-- Sign up Form -->
+            <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="updateproject(projectForm.value)">
+                <div class="form-group col-md-12">
+                    <label for="email" class="sr-only">DepartmentId</label>
+                    <input disabled formControlName="projectId" required>
+
+                    <em *ngIf="validateControl('projectId') && hasError('projectId', 'required')">*Project Id is
+                        required!</em>
 
 
-
-      <div >
-        
-            <div  class="wrapper fadeInDown col-md-12 container">
-              <div id="formContent">
-                <!-- Tabs Titles -->
-            
-                <!-- Icon -->
-                <div class="fadeIn first">
-                  <h1>Update Project</h1>
                 </div>
-                <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
-                <!-- Sign up Form -->
-                <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="updateproject(projectForm.value)">
-                    <div class="form-group col-md-12">
-                        <label for="email" class="sr-only">DepartmentId</label>
-                        <!-- <input class="form-control" formControlName="projectId" id="projectId" placeholder="Project Id"> -->
-                        <input disabled formControlName="projectId" required >
-                        <!-- <label> project Id</label> -->
-                        <em *ngIf="validateControl('projectId') && hasError('projectId', 'required')">*Project Id is required!</em>
-                       
-                
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="key" class="sr-only">Name</label>
-                        <!-- <input type="text" formControlName="projectName" id="projectName" class="form-control" placeholder="Project Name"> -->
-                        <input formControlName="projectName" required >
-                        <label> Project Name</label>
-                        <em *ngIf="validateControl('projectName') && hasError('projectName', 'required')">*Project name is required</em>
-                        
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="key" class="sr-only">Dis</label>
-                        <!-- <input type="text" formControlName="projectDescription" id="projectDescription" class="form-control" placeholder="Project Description"> -->
-                        <input formControlName="projectDescription" required >
-                        <label> Project Description</label>
-                        <em *ngIf="validateControl('projectDescription') && hasError('projectDescription', 'required')">*Project details is required</em>
-                        
-                    </div>
-                    
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                    <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+                <div class="form-group col-md-12">
+                    <label for="key" class="sr-only">Name</label>
+                    <input formControlName="projectName" required>
+                    <label> Project Name</label>
+                    <em *ngIf="validateControl('projectName') && hasError('projectName', 'required')">*Project name is
+                        required</em>
+
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="key" class="sr-only">Dis</label>
+                    <input formControlName="projectDescription" required>
+                    <label> Project Description</label>
+                    <em *ngIf="validateControl('projectDescription') && hasError('projectDescription', 'required')">*Project
+                        details is required</em>
+
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Update</button>
-                    
-                </div> 
-                </form>
-                    <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-                    
-                <!-- Remind Passowrd -->
-                <!-- <div id="formFooter">
-                  <a  id="crateAccountlink"  class="underlineHover" ></a>
-                 
-                </div> -->
-            
-              </div>
-            </div>
-        
-      
-            </div>
-        
-        
-        
-    
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+</div>

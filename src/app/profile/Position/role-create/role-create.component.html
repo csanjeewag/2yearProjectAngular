@@ -1,93 +1,33 @@
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+        <h3 class="card-title">Create Position</h3>
+        <h6 class="card-subtitle mb-2 text-muted">
+            <h6 id="msg">{{Message}}</h6>
+        </h6>
+        <form [formGroup]="positionForm" autocomplete="off" novalidate (ngSubmit)="createrole(positionForm.value)">
+            <div class="form-group col-md-12">
 
-
-
-
-      <!-- <div >
-        
-        <div  class="wrapper fadeInDown col-md-12 container">
-          <div id="formContent">
-   
-            <div class="fadeIn first">
-              <h1>Create Role</h1>
+                <input class="form-control" formControlName="positionId" id="positionId" required>
+                <label> Position Id</label>
+                
             </div>
-            <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5>
- 
-            <form [formGroup]="positionForm" autocomplete="off" novalidate (ngSubmit)="createrole(positionForm.value)">
-                <div class="form-group col-md-12">
-                 
-                    <input  class="form-control" formControlName="positionId" id="positionId"  required>
-                    <label> Position Id</label>
-                    <em *ngIf="validateControl('positionId') && hasError('positionId', 'required')">*Role Id is required!</em>
-                    <em *ngIf="validateControl('positionId') && hasError('positionId', 'email')">*This not a valid email!</em>
-            
-                </div>
-                <div class="form-group col-md-12">
-                    
-                    <input type="text" formControlName="positionName" id="positionName" class="form-control" required>
-                    <label> Position Name</label>
-                    <em *ngIf="validateControl('positionName') && hasError('positionName', 'required')">*Role name is required</em>
-                    <em *ngIf="validateControl('positionName') && hasError('positionName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div>
-                <div class="form-group col-md-12">
-                   
-                    <input type="text" formControlName="positionDis" id="positionDis" class="form-control" required>
-                    <label> Position Description</label>
-                    <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'required')">*Description is required</em>
-                    <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div>
-                
-                <div class="btn-group" role="group" aria-label="Basic example">
-              
-                <button type="submit" class="btn btn-success" [disabled]="!positionForm.valid">Create</button>
-                
-            </div> 
-            </form>
-           
-        
-          </div>
-        </div>
-    
-   
-        </div>
-     -->
+            <div class="form-group col-md-12">
 
-        <div class="card" style="width: 25rem;">
-                <div class="card-body">
-                  <h3 class="card-title">Create Position</h3>
-                  <h6 class="card-subtitle mb-2 text-muted"><h6 id="msg">{{Message}}</h6></h6>
-                  <form [formGroup]="positionForm" autocomplete="off" novalidate (ngSubmit)="createrole(positionForm.value)">
-                        <div class="form-group col-md-12">
-                         
-                            <input  class="form-control" formControlName="positionId" id="positionId"  required>
-                            <label> Position Id</label>
-                            <!-- <em *ngIf="validateControl('positionId') && hasError('positionId', 'required')">*Role Id is required!</em> -->
-                            
-                        </div>
-                        <div class="form-group col-md-12">
-                            
-                            <input type="text" formControlName="positionName" id="positionName" class="form-control" required>
-                            <label> Position Name</label>
-                            <!-- <em *ngIf="validateControl('positionName') && hasError('positionName', 'required')">*Role name is required</em> -->
-                           
-                        </div>
-                        <div class="form-group col-md-12">
-                           
-                            <input type="text" formControlName="positionDis" id="positionDis" class="form-control" required>
-                            <label> Position Description</label>
-                            <!-- <em *ngIf="validateControl('positionDis') && hasError('positionDis', 'required')">*Description is required</em> -->
-                          
-                        </div>
-                        
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                        <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-                        <button type="submit" class="btn" id="btn" [disabled]="!positionForm.valid">Create</button>
-                        
-                    </div> 
-                    </form>
-                </div>
-              </div>
-          
-    
-    
+                <input type="text" formControlName="positionName" id="positionName" class="form-control" required>
+                <label> Position Name</label>
+                
+            </div>
+            <div class="form-group col-md-12">
+
+                <input type="text" formControlName="positionDis" id="positionDis" class="form-control" required>
+                <label> Position Description</label>
+                
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+               <button type="submit" class="btn" id="btn" [disabled]="!positionForm.valid">Create</button>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -91,18 +91,7 @@ import { ok } from 'assert';
     }
   
     private executeOwnerCreation(value) {
-      // let owner: Employee = {
-      //   EmpId: ownerFormValue.id,
-      //   EmpName: ownerFormValue.name,
-      //   EmpContact: ownerFormValue.contact,
-      //   EmpAddress1: ownerFormValue.address1,
-      //   EmpAddress2: ownerFormValue.address2,
-      //   EmpEmail: ownerFormValue.email,
-      //   PositionPId: '',
-      //   EmpPassword:  ownerFormValue.password,
-      //   DepartmentDprtId: ownerFormValue.department,
-      //   EmpGender: ownerFormValue.gender,
-      // };
+      
 
       let formData = new FormData();
       formData.append('EmpId', value.id);

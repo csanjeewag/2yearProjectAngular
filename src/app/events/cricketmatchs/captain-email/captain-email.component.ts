@@ -4,6 +4,7 @@ import { RepositoryService } from './../../../ShareData/repository.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ParamMap } from '@angular/router';
 import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
+import { fadeInContent } from '@angular/material/select';
 
 @Component({
   selector: 'app-captain-email',
@@ -19,6 +20,7 @@ export class CaptainEmailComponent implements OnInit {
     public Form: FormGroup;
     public eventId: any;
     public logId:any;
+    public LoadForget:any;
     
    ngOnInit() {
       this.logId = this.auth.tokencheckId();
@@ -47,7 +49,7 @@ export class CaptainEmailComponent implements OnInit {
   }
   
   public emailData(value){
-
+    this.LoadForget = true;
     let formData = new FormData();
     formData.append('eventId',this.eventId);
     formData.append('senderId',this.logId);
@@ -63,10 +65,13 @@ export class CaptainEmailComponent implements OnInit {
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
          this.Message = res;
+         this.LoadForget = false;
+         alert('Email sent successfully!');
          this.router.navigate(['events/cricketmatchs/emailview/'+this.eventId]);
           },
           (error => {
-            this.Message = "try again, something wrong";
+            this.LoadForget = false;
+            this.Message = "try again, something wrong!";
           })
         )
   }

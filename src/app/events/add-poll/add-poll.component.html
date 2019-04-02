@@ -1,91 +1,97 @@
 <app-nav-bar></app-nav-bar>
-<div id="background"  >
-        <div id="backgroundIN" >
-<div >
-        
-    <div  class="wrapper col-md-8 container">
-      <div id="formContent" class="col-md-8">
-        <!-- Tabs Titles -->
-    
-        <!-- Icon -->
-        <div >
-          <h1>Create a Poll</h1>
-        </div>
-        <h5 class="card-title"> </h5>
-        <!-- Event Type Form -->
-        <form [formGroup]="pollForm" autocomplete="off" novalidate (ngSubmit)="createPoll(pollForm.value)">
-            
-  
-          <div class="form-group col-md-12">
-              
-                <input formControlName="title" id="title" class="form-control" required>
-                <label >Title of poll</label>
-            <em *ngIf="validateControl('title') && hasError('title', 'required')">Title is required</em>
-            
-        </div>
-      
-        <div class="form-group col-md-12">
-           
-         <input  formControlName="description" id="description" class="form-control" required>
-         <label >Description of poll</label>
-      </div>
-      <div class="form-group col-md-12">
-          <input type="date" formControlName="closingDate" id="closingDate" class="form-control"  required>
-          <label >closing Date of Poll</label>
-         <em *ngIf="validateControl('closingDate') && hasError('closingDate', 'required')">Closing date is required</em>
-      </div>
-      
-  
-            <div class="form-group col-md-12">
-                    <label >Destinations </label><br><br>
-                <input type="text" formControlName="destination1" id="destination1" class="form-control" placeholder="Destination 1" required>
-                <em *ngIf="validateControl('destination1') && hasError('destination1', 'required')">Destination 1 is required</em>
-                
+<div id="background">
+    <div id="backgroundIN">
+        <div>
 
+            <div class="wrapper col-md-8 container">
+                <div id="formContent" class="col-md-8">
+                    <!-- Tabs Titles -->
+
+                    <!-- Icon -->
+                    <div>
+                        <h1>Create a Poll</h1>
+                    </div>
+                    <h5 class="card-title"> </h5>
+                    <!-- Event Type Form -->
+                    <form [formGroup]="pollForm" autocomplete="off" novalidate (ngSubmit)="createPoll(pollForm.value)">
+
+
+                        <div class="form-group col-md-12">
+
+                            <input formControlName="title" id="title" class="form-control" required>
+                            <label>Title of poll</label>
+                            <em *ngIf="validateControl('title') && hasError('title', 'required')">Title is required</em>
+
+                        </div>
+
+                        <div class="form-group col-md-12">
+
+                            <input formControlName="description" id="description" class="form-control" required>
+                            <label>Description of poll</label>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="date" formControlName="closingDate" id="closingDate" class="form-control"
+                                required>
+                            <label>closing Date of Poll</label>
+                            <em *ngIf="validateControl('closingDate') && hasError('closingDate', 'required')">Closing
+                                date is required</em>
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+                            <label>Destinations </label><br><br>
+                            <input type="text" formControlName="destination1" id="destination1" class="form-control"
+                                placeholder="Destination 1" required>
+                            <em *ngIf="validateControl('destination1') && hasError('destination1', 'required')">Destination
+                                1 is required</em>
+
+
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" formControlName="destination2" id="destination2" class="form-control"
+                                placeholder="Destination 2" required>
+
+                            <em *ngIf="validateControl('destination2') && hasError('destination2', 'required')">Destination
+                                2 is required</em>
+
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" formControlName="destination3" id="destination3" class="form-control"
+                                placeholder="Destination 3">
+
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" formControlName="destination4" id="destination4" class="form-control"
+                                placeholder="Destination 4">
+
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" formControlName="destination5" id="destination5" class="form-control"
+                                placeholder="Destination 5">
+
+                        </div>
+
+
+
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+                            <button type="submit" class="btn btn-success" [disabled]="!pollForm.valid">Create</button>
+
+                        </div>
+                    </form>
+
+
+
+                </div>
             </div>
-            <div class="form-group col-md-12">
-                <input type="text" formControlName="destination2" id="destination2" class="form-control" placeholder="Destination 2" required>
-               
-                <em *ngIf="validateControl('destination2') && hasError('destination2', 'required')">Destination 2 is required</em>
-                
-            </div>
-  
-            <div class="form-group col-md-12">
-             <input type="text" formControlName="destination3" id="destination3" class="form-control" placeholder="Destination 3" >
-             
-          </div>
-  
-          <div class="form-group col-md-12">
-            <input type="text" formControlName="destination4" id="destination4" class="form-control" placeholder="Destination 4">
-          
+
+
+
+
         </div>
-  
-        <div class="form-group col-md-12">
-          <input type="text" formControlName="destination5" id="destination5" class="form-control" placeholder="Destination 5">
-         
-      </div>
-  
-     
-  
-     
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-            <button type="submit" class="btn btn-success" [disabled]="!pollForm.valid">Create</button>
-            
-        </div> 
-        </form>
-            <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-            
-        <!-- Remind Passowrd -->
-       
-  
-    
-      </div>
     </div>
-  
-  
-  
-  
-    </div>
-</div>
 </div>

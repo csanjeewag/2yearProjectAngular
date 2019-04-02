@@ -1,58 +1,61 @@
-
 <app-nav-bar></app-nav-bar>
-<div id="background"  >
-        <div id="backgroundIN" >
+<div id="background">
+  <div id="backgroundIN">
 
-      <div >
-        
-        <div  class="wrapper col-md-5 container">
-          <div id="formContent" >
-            <!-- Tabs Titles -->
-        
-            <!-- Icon -->
-            <div >
-              <h1>Create Event Type</h1>
-            </div>
-           
-            <!-- Event Type Form -->
-            <form [formGroup]="EventType" autocomplete="off" novalidate (ngSubmit)="createrole(EventType.value)">
-                
-                <div class="form-group">
-                    <label for="key" class="sr-only">Event type</label>
-                    <input type="text" formControlName="EventTypeName" id="EventTypeName" class="form-control" placeholder="Event Type Name">
-                    <em *ngIf="validateControl('EventTypeName') && hasError('EventTypeName', 'required')">*Event Type name is required</em>
-                    <em *ngIf="validateControl('EventTypeName') && hasError('EventTypeName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div>
-                <div class="form-group">
-                    <label for="key" class="sr-only">Description of event type</label>
-                    <input type="text" formControlName="EventTypeDescription" id="EventTypeDescription" class="form-control" placeholder="Event Type Description">
-                    <em *ngIf="validateControl('EventTypeDescription') && hasError('EventTypeDescription', 'required')">*Event Type details is required</em>
-                    <em *ngIf="validateControl('EventTypeDescription') && hasError('EventTypeDescription', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div>
-                
-                <div class="btn-group" role="group" aria-label="Basic example">
-                <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-                <button type="submit" class="btn btn-success" [disabled]="!EventType.valid">Create</button>
-                
-            </div> 
-            </form>
-                <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-                
-            <!-- Remind Passowrd -->
-           
-        
+    <div>
+
+      <div class="wrapper col-md-5 container">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+
+          <!-- Icon -->
+          <div>
+            <h1>Create Event Type</h1>
           </div>
+
+          <!-- Event Type Form -->
+          <form [formGroup]="EventType" autocomplete="off" novalidate (ngSubmit)="createrole(EventType.value)">
+
+            <div class="form-group">
+              <label for="key" class="sr-only">Event type</label>
+              <input type="text" formControlName="EventTypeName" id="EventTypeName" class="form-control" placeholder="Event Type Name">
+              <em *ngIf="validateControl('EventTypeName') && hasError('EventTypeName', 'required')">*Event Type name is
+                required</em>
+              <em *ngIf="validateControl('EventTypeName') && hasError('EventTypeName', 'maxlength')">*Maximum allowed
+                length is 100 characters.</em>
+
+            </div>
+            <div class="form-group">
+              <label for="key" class="sr-only">Description of event type</label>
+              <input type="text" formControlName="EventTypeDescription" id="EventTypeDescription" class="form-control"
+                placeholder="Event Type Description">
+              <em *ngIf="validateControl('EventTypeDescription') && hasError('EventTypeDescription', 'required')">*Event
+                Type details is required</em>
+              <em *ngIf="validateControl('EventTypeDescription') && hasError('EventTypeDescription', 'maxlength')">*Maximum
+                allowed length is 100 characters.</em>
+
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+              <button type="submit" class="btn btn-success" [disabled]="!EventType.valid">Create</button>
+
+            </div>
+          </form>
+
+          <!-- Remind Passowrd -->
+
+
         </div>
-    
-  
-        </div>
-    
-    
-    
-    
-    
-    
-</div>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+  </div>
 </div>

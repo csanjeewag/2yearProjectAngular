@@ -1,80 +1,27 @@
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h3 class="card-title">Create Department</h3>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <h6 id="msg">{{Message}}</h6>
+    </h6>
+    <form [formGroup]="departmentForm" autocomplete="off" novalidate (ngSubmit)="createdepartment(departmentForm.value)">
+      <div class="form-group col-md-12">
+        <label for="email" class="sr-only">DepartmentId</label>
+        <input class="form-control" formControlName="departmentId" id="departmentId" required>
+        <label> Department Id</label>
 
+      </div>
+      <div class="form-group col-md-12">
+        <label for="key" class="sr-only">Password</label>
+        <input type="text" formControlName="departmentName" id="departmentName" class="form-control" required>
+        <label> Department Name</label>
 
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
 
+        <button type="submit" id="btn" class="btn btn-success" [disabled]="!departmentForm.valid">Create</button>
 
-      <!-- <div >
-        
-        <div  class="wrapper fadeInDown col-md-12 container">
-          <div id="formContent"> -->
-            <!-- Tabs Titles -->
-        
-            <!-- Icon -->
-            <!-- <div >
-              <h1>Create Department</h1>
-            </div> -->
-            <!-- <h5 class="card-title"> <h3 id="msg">{{Message}}</h3></h5> -->
-            <!-- Sign up Form -->
-            <!-- <form [formGroup]="departmentForm" autocomplete="off" novalidate (ngSubmit)="createdepartment(departmentForm.value)">
-                <div class="form-group col-md-12">
-                    <label for="email" class="sr-only">DepartmentId</label>
-                    <input class="form-control" formControlName="departmentId" id="departmentId" required>
-                   <label > Department Id</label>
-                    <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'required')">*Department Id is required!</em>
-                    <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'email')">*This not a valid email!</em>
-            
-                </div>
-                <div class="form-group col-md-12">
-                    <label for="key" class="sr-only">Password</label>
-                    <input type="text" formControlName="departmentName" id="departmentName" class="form-control" required>
-                    <label > Department Name</label>
-                    <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'required')">*Department name is required</em>
-                    <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'maxlength')">*Maximum allowed length is 100 characters.</em>
-                  
-                </div>
-                <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button>
-                <button type="submit" class="btn btn-success" [disabled]="!departmentForm.valid">Create</button>
-                
-            </div> 
-            </form>  
-             -->
-
-
-
-
-        
-      <!-- </div>
-        </div>
-       
-        </div> -->
-    
-    
-    
-        <div class="card" style="width: 25rem;">
-          <div class="card-body">
-            <h3 class="card-title">Create Department</h3>
-            <h6 class="card-subtitle mb-2 text-muted"><h6 id="msg">{{Message}}</h6></h6>
-            <form [formGroup]="departmentForm" autocomplete="off" novalidate (ngSubmit)="createdepartment(departmentForm.value)">
-              <div class="form-group col-md-12">
-                  <label for="email" class="sr-only">DepartmentId</label>
-                  <input class="form-control" formControlName="departmentId" id="departmentId" required>
-                 <label > Department Id</label>
-                  <!-- <em *ngIf="validateControl('departmentId') && hasError('departmentId', 'required')">*Department Id is required!</em>
-                -->
-              </div>
-              <div class="form-group col-md-12">
-                  <label for="key" class="sr-only">Password</label>
-                  <input type="text" formControlName="departmentName" id="departmentName" class="form-control" required>
-                  <label > Department Name</label>
-                  <!-- <em *ngIf="validateControl('departmentName') && hasError('departmentName', 'required')">*Department name is required</em>
-                -->
-              </div>
-              <div class="btn-group" role="group" aria-label="Basic example">
-              <!-- <button type="button" id="btn" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-              <button type="submit" id ="btn" class="btn btn-success" [disabled]="!departmentForm.valid">Create</button>
-              
-          </div> 
-          </form>  
-          </div>
-        </div>
-    
+      </div>
+    </form>
+  </div>
+</div>

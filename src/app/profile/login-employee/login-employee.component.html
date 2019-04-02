@@ -1,75 +1,77 @@
-
 <!------ Include the above in your HEAD tag ---------->
-<div id = "back">
-<div class="wrapper fadeInDown col-sm-8 col-md-6 col-lg-4 container">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+<div id="back">
+    <div class="wrapper fadeInDown col-sm-8 col-md-6 col-lg-4 container">
+        <div id="formContent">
+            <!-- Tabs Titles -->
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img [src]="profileImage" id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2" alt="User Icon" />
-   
-      <h1 *ngIf="!EmployeeName">Sign in</h1>
-      
-    </div>
-    <h2 *ngIf="EmployeeName">Hi, {{EmployeeName}}</h2>
-    <!-- Login Form -->
-    <form [formGroup]="loginForm" autocomplete="off" novalidate >
-        <div class="form-group ">
-           
-            <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
-            <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
-       
-            <div   *ngIf="!hiddenPassword" class=" input-group mb-3" [class.error]="isNotEmail">
-                  
-                <input formControlName="email" id="email" required >
-                <label >Email </label>
-              
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img [src]="profileImage" id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2"
+                    alt="User Icon" />
+
+                <h1 *ngIf="!EmployeeName">Sign in</h1>
+
             </div>
-            </div>
-           
-            
-            <div class="input-group">
+            <h2 *ngIf="EmployeeName">Hi, {{EmployeeName}}</h2>
+            <!-- Login Form -->
+            <form [formGroup]="loginForm" autocomplete="off" novalidate>
+                <div class="form-group ">
+
+                    <em *ngIf="validateControl('email') && hasError('email', 'required')">*Email is required!</em>
+                    <em *ngIf="validateControl('email') && hasError('email', 'email')">*This not a valid email!</em>
+
+                    <div *ngIf="!hiddenPassword" class=" input-group mb-3" [class.error]="isNotEmail">
+
+                        <input formControlName="email" id="email" required>
+                        <label>Email </label>
+
+                    </div>
+                </div>
+
+
+                <div class="input-group">
                     <em *ngIf="validateControl('pass') && hasError('pass', 'required')">*password is required</em>
-                    <em *ngIf="validateControl('pass') && hasError('pass', 'maxlength')">*Maximum allowed length is 100 characters.</em>
+                    <em *ngIf="validateControl('pass') && hasError('pass', 'maxlength')">*Maximum allowed length is 100
+                        characters.</em>
 
-            <div class="  input-group mb-3" *ngIf="hiddenPassword">
-                   
-                    <div class="input-group-prepend">
-                            <!-- <label class="input-group-text" for="pass">Password </label> -->
-                            </div>
-                            <input type="password" formControlName="pass" required >
-                            <label >Password </label>
-                            <!-- <input type="password" formControlName="pass" id="pass" class="form-control" placeholder="Password"> -->
+                    <div class="  input-group mb-3" *ngIf="hiddenPassword">
+
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="password" formControlName="pass" required>
+                        <label>Password </label>
+                    </div>
+
+                </div>
+
+                <div>
+                    <p class="text-danger" *ngIf="isNotEmail">Above email is not registered!</p>
+                    <p class="text-danger">{{Message}}</p>
+                    <p class="text-danger">{{wait}}</p>
+
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button id="btn" *ngIf="!(hiddenPassword)&& !(Loading)" type="button" class="btn" (click)="hiddenpassword()">
+                        Next </button>
+                    <button id="btn" *ngIf="(hiddenPassword) && !(Loading)" type="submit" class="btn" [disabled]="!loginForm.valid"
+                        (click)="createLogin(loginForm.value)">Sign in</button>
+                    <div *ngIf="(Loading)"><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif"
+                            alt="Cinque Terre" id="loading"></div>
+
+                </div>
+
+
+            </form>
+
+            <div id="formFooter">
+                <a *ngIf="(!hiddenPassword)&& (!LoadForget)" id="crateAccountlink" class="underlineHover" (click)="crateAccount()">SignUp</a>
+                <div *ngIf="((hiddenPassword) && (!LoadForget))" class="copy-text"><a id="crateAccountlink" (click)="forgetpassword(loginForm.value)">
+                        Forgot passward.</a></div>
+                <div *ngIf="(LoadForget)"><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif"
+                        alt="Cinque Terre" id="loading"></div>
+
             </div>
-                    
+
         </div>
-
-            <div ><p class="text-danger" *ngIf="isNotEmail">Above email is not registered!</p>
-                <p class="text-danger" >{{Message}}</p>
-                <p class="text-danger" >{{wait}}</p>
-                
-            </div>
-            <div class="btn-group" role="group" aria-label="Basic example">
-            <button id="btn" *ngIf="!(hiddenPassword)&& !(Loading)" type="button" class="btn" (click)="hiddenpassword()"> Next </button>
-            <button id="btn" *ngIf="(hiddenPassword) && !(Loading)" type="submit" class="btn" [disabled]="!loginForm.valid" (click)="createLogin(loginForm.value)" >Sign in</button>
-            <!-- <button id="btn" type="button" class="btn " (click)="redirectToOwnerList()">Cancel</button> -->
-            <div *ngIf="(Loading)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
-
-        </div> 
-       
-        
-        </form>
-        <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-        
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a *ngIf="(!hiddenPassword)&& (!LoadForget)" id="crateAccountlink"  class="underlineHover" (click)="crateAccount()">SignUp</a>
-      <div *ngIf="((hiddenPassword) && (!LoadForget))" class="copy-text"><a id="crateAccountlink"  (click)="forgetpassword(loginForm.value)"> Forgot passward.</a></div>
-      <div *ngIf="(LoadForget)" ><img id="loadImage" style=" width : 35px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" id="loading"></div>
-
     </div>
-
-  </div>
-</div>
 </div>
