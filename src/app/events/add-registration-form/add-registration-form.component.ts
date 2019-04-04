@@ -62,7 +62,7 @@ this.getparamId();
       
       this.repository.postFile(apiUrl1, formdata)
         .subscribe(res =>  {
-           window.alert("Registration form has been added succesfully");
+          this.repository.SuccessAlert("Registration form has been added succesfully");
 
           this.urlAddress = "events/vieweventpage/"+this.eventId;
           this.router.navigate([this.urlAddress]);

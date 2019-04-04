@@ -115,11 +115,12 @@ import { ok } from 'assert';
           this.logcomponent.loginEmail = value.email;
            this.wait = false;
            this.message = ""
+           this.repository.SuccessAlert('Registration success!');
           },
           (error => {
             this.IsLogin= false;
             this.wait = false;
-            this.message = "Registration failed, try again!"
+            this.repository.errorAlert("Registration failed, try again!");
           })
         )
     }
@@ -150,7 +151,7 @@ import { ok } from 'assert';
       this.repository.getData(apiUrl)
         .subscribe(res => {
          this.projects = res;
-        console.log(res)
+        
             
           },
           (error => {
@@ -185,7 +186,7 @@ import { ok } from 'assert';
 
    this.repository.postData(apiUrl,loginuse)
          .subscribe(res=>{
-           console.log(res);
+           
            if(res==true)
            {this.isAvalibleemail=true }
            else 
@@ -207,7 +208,7 @@ onFileChange(file : FileList,id:number) {
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
-     console.log(event.target.result)
+     
   }
    reader.readAsDataURL(this.FileImage);
 }

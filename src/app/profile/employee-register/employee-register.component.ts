@@ -61,7 +61,8 @@ export class EmployeeRegisterComponent implements OnInit {
           this.waiting = false;
             },
           (error => {
-            this.message="Registration Failed, Try Again!";
+            //this.message="Registration Failed, Try Again!";
+            this.repository.errorAlert('Registration Failed, Try Again!');
             this.waiting = false;
           })
         )

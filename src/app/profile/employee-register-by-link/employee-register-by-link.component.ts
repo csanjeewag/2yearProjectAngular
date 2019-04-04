@@ -64,11 +64,12 @@
          this.repository.postData(apiUrl, register)
           .subscribe(res => {
            
-            this.message="Registration Success!";
+            this.repository.SuccessAlert("Registration Success!");
+            
             this.RegisterSucces=true;
               },
             (error => {
-              this.message="Registration Failed, Try Again!";
+              this.repository.errorAlert("Registration Failed, Try Again!");
               this.RegisterSucces = false;
             })
           )

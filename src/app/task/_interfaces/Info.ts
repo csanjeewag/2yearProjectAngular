@@ -1,5 +1,4 @@
 export interface Info {
-      //infoId:number;
       type: string;
       ctype: string;
       name:string;

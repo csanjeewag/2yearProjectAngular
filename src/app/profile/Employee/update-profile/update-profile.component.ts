@@ -97,11 +97,13 @@
         this.repository.postFile(apiUrl, formData)
           .subscribe(res => {
             this.router.navigate(['/profile/profile']);
-           alert(res);
+         //  alert(res);
+           this.repository.SuccessAlert(res.toString());
               
             },
             (error => {
-              alert(error);
+             // alert(error);
+              this.repository.SuccessAlert(error.toString());
             })
           )
       }

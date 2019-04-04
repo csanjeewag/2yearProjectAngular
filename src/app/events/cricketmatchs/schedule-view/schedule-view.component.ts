@@ -63,7 +63,7 @@ public IsRC:any;
     this.repository.getData(apiAddress)
     .subscribe(res => {
       this.allSchedule = res;
-      console.log(res)
+      
      
     },(error =>{
     })

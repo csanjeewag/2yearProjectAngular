@@ -55,7 +55,7 @@
        let apiUrl = 'EventType/createEventType';
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
-           window.alert("Event Type Added Succesfully");
+            this.repository.SuccessAlert("Event Type Added Succesfully");
            this.router.navigate(['events/addevent']);
             },
             (error => {

@@ -6,7 +6,6 @@ export interface NewTask {
     endDate:Date;
     budgetedCost:number;
     description:string;
-    //employeeId:number;
     employees:Array<any>;
     status:boolean;
     addDate:Date;

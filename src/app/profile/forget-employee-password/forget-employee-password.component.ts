@@ -70,11 +70,11 @@
          this.repository.postData(apiUrl, register)
           .subscribe(res => {
            
-            this.message="Password change Success!";
+            this.repository.SuccessAlert("Password change Success!");
             this.RegisterSucces=true;
               },
             (error => {
-              this.message="Password Change Failed, Try Again!";
+              this.repository.errorAlert("Password Change Failed, Try Again!");
               this.RegisterSucces = false;
             })
           )

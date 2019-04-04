@@ -13,6 +13,7 @@ import { RepositoryService } from './ShareData/repository.service';
 import {UserServiceService } from './ShareData/user-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthServiceService } from "./AuthGards/auth-service.service";
+import { AlertifyService } from './ShareData/alertify.service';
                                               
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
     UserServiceService,
     AuthLoginGuard,
     AuthServiceService,
-    AuthRoleGuard
+    AuthRoleGuard,
+    AlertifyService
   ],
   
   bootstrap: [AppComponent],

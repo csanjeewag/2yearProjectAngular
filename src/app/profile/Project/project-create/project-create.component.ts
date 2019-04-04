@@ -56,13 +56,13 @@
         
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
-            this.Message="project Created!";
+            this.repository.SuccessAlert("project Created!");
                 this.router.navigate(['/profile/admin/project']);
              this.fill();
          
             },
             (error => {
-              this.Message="role Created Failed,Try Again!";
+              this.repository.errorAlert("role Created Failed,Try Again!");
             })
           )
       

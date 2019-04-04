@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router, ParamMap } from '@angular/router';
 import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/forms';
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
+import { AlertifyService } from 'src/app/ShareData/alertify.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class CommentComponent implements OnInit {
   public author: any;
   public ImageUrl:any;
 
-  constructor(private router: Router, private repository: RepositoryService, private rout: ActivatedRoute, private auth: AuthServiceService) { }
+  constructor(private alertify: AlertifyService, private router: Router, private repository: RepositoryService, private rout: ActivatedRoute, private auth: AuthServiceService) { }
 
   public commentForm: FormGroup;
   ngOnInit() {
@@ -47,6 +48,7 @@ export class CommentComponent implements OnInit {
       .subscribe(res => {
         this.comment = res;
       console.log(res)
+      
       }, (error) => {
 
       })
@@ -59,7 +61,8 @@ export class CommentComponent implements OnInit {
   console.log(url);
    this.repository.getData(url)
         .subscribe( img => {
-          this.getcomment();       
+          this.getcomment(); 
+          this.alertify.error('Comment deleted !');      
         }, (error => {     
         })
         )

@@ -50,9 +50,7 @@ public errorMessage:any;
 
     this.taskForm = new FormGroup({        
     
-      //TaskId: new FormControl('',[Validators.required,Validators.maxLength(5)]),
       TaskName:  new FormControl('',[Validators.required]),
-      //EventName: new FormControl(''),
       StartDate: new FormControl('',[Validators.required]),
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
@@ -84,12 +82,11 @@ let apiUrl = 'task/create';
 
         this.repository.postData(apiUrl, t)
           .subscribe(res =>  {
-            alert('Task Updated');
-              this.router.navigate(['task/list']);
+            this.repository.SuccessAlert('Task updated!');
+            this.router.navigate(['task/list']);
          
             },
             (error => {
-              //this.Message="project updated Failed,Try Again!";
             })
           )
       
@@ -105,11 +102,9 @@ let apiUrl = 'task/create';
           
           .subscribe(res => {
             this.task = res as any;
-            console.log( this.task)
             this.fillTask();
           },
           (error) => {
-          //  this.handleErrors(error);n
           })
          });
     }
@@ -148,19 +143,15 @@ let apiUrl = 'task/create';
 {
 this.goalText=Name;
 this.employeeId=id;
-console.log(this.employeeId+""+Name);
 }  
   
 public  getAllEmployee(){
   this.repository.getData('employee')
   .subscribe(res => {
     this.result = res ;
-    //var myObjStr = JSON.stringify(res);
  
-   console.log(this.result);
   },
   (error) => {
-  //  this.handleErrors(error);n
   })
 }
     
@@ -168,11 +159,9 @@ public  getAllEmployee(){
 
 onChange(id:string,empName:string, isChecked: boolean) {
   if(isChecked) {
-    console.log(empName)
     this.employeeId=id;
     this.employees.push(id);
     this.emailFormArray.push(empName);
-    console.log(this.employeeId)
 
   } else {
     let index = this.emailFormArray.indexOf(empName);
@@ -204,16 +193,12 @@ onChangeStatus(isChecked: boolean){
 
   public getempfortask(tid){
   
-    console.log(tid)
     this.repository.getData('task/getempfortask/'+tid)
     .subscribe(res => {
-      //this.result = res as Observable<NewTask>;
       this.employee = res as any;
-      console.log(this.employee);
 
     },
     (error) => {
-    //  this.handleErrors(error);n
     })
    
 
@@ -224,11 +209,9 @@ onChangeStatus(isChecked: boolean){
         .subscribe(res => {
           this.event = res ;
   
-         console.log('----------->'+this.event.startDate);
           
         },
         (error) => {
-        //  this.handleErrors(error);n
         })
   }
   compareTwoDates(){

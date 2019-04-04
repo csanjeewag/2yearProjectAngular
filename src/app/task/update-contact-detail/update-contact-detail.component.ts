@@ -50,11 +50,9 @@ public getContactDetails() {
     .subscribe(res => {
       this.contactdetail = res as any;
       this.ContactContactId=this.contactdetail.contactContactId;
-      console.log('detail id'+ this.ContactContactId)
       this.fillContactDetail();
     },
     (error) => {
-    //  this.handleErrors(error);n
     })
    });
     
@@ -89,8 +87,7 @@ public updateContacts(value){
     .subscribe(res => {
       this.router.navigate(['/task/viewcontact/'+this.ContactContactId]);
 
-      alert('updated');
-      },
+      this.repository.SuccessAlert('Updated!');      },
       (error => {
         
       })

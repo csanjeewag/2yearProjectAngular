@@ -61,12 +61,12 @@
         
         this.repository.postFile(apiUrl, formdata)
           .subscribe(res =>  {
-            this.Message="Project updated!";
+            this.repository.SuccessAlert("Project updated!");
               this.router.navigate(['/profile/admin/project']);
          
             },
             (error => {
-              this.Message="project updated Failed,Try Again!";
+              this.repository.errorAlert("project updated Failed,Try Again!");
             })
           )
       

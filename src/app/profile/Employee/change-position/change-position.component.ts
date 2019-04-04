@@ -7,6 +7,7 @@ import { AuthServiceService } from "./../../../AuthGards/auth-service.service";
 import {Employee} from './../../_interfaces/employee.model';
 import { Observable } from 'rxjs';
 import { FilterPipePipe } from "./../../filter-pipe.pipe";
+import { AlertifyService } from 'src/app/ShareData/alertify.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ChangePositionComponent implements OnInit {
   public projects:any;
   public departments:any;
   public Loading:any;
-  constructor(private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
+  constructor(private alertify: AlertifyService, private repository :RepositoryService,private router: Router, private auth:AuthServiceService) { }
 
   ngOnInit() {
   
@@ -86,11 +87,14 @@ export class ChangePositionComponent implements OnInit {
         
           }
           this.getAllEmployee();
-          alert("Position change sucsses!")
+          
+        this.repository.SuccessAlert("Position change successfully!");
+
           this.Loading = null;
           },
           (error => {
-            alert("Position change failed!")
+            
+            this.repository.errorAlert("Position change failed!");
             this.Loading = null;
           })
         )
@@ -165,12 +169,13 @@ export class ChangePositionComponent implements OnInit {
         .subscribe(res => {
           this.getAllEmployee();
         
-          alert("sucsses!")
+          this.repository.SuccessAlert('successful!');
           if(loggout){ this.auth.loggout();}
 
           },
           (error => {
-            alert("failed!")
+            // alert("failed!")
+            this.repository.errorAlert('failed');
           })
         )
     }

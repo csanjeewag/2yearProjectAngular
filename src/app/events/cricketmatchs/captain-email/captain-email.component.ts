@@ -66,12 +66,12 @@ export class CaptainEmailComponent implements OnInit {
         .subscribe(res => {
          this.Message = res;
          this.LoadForget = false;
-         alert('Email sent successfully!');
+         this.repository.SuccessAlert('Email sent successfully!');
          this.router.navigate(['events/cricketmatchs/emailview/'+this.eventId]);
           },
           (error => {
             this.LoadForget = false;
-            this.Message = "try again, something wrong!";
+            this.repository.errorAlert("try again, something wrong!");
           })
         )
   }

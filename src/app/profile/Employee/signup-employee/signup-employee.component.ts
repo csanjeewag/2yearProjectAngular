@@ -119,7 +119,8 @@ import { ok } from 'assert';
           (error => {
             this.IsLogin= false;
             this.wait = false;
-            this.message = "Registration failed, try again!"
+           
+            this.repository.errorAlert('Registration failed, try again!');
           })
         )
     }

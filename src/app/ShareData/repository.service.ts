@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserServiceService } from './user-service.service';
 import { Observable } from 'rxjs';
-
+import { AlertifyService } from "./alertify.service";
 
 
 
@@ -15,7 +15,7 @@ interface userIdIsUnique {
 })
 
 export class RepositoryService {
-  constructor(private http: HttpClient, private envUrl: UserServiceService, private userurl: UserServiceService) { }
+  constructor(private alertify: AlertifyService,private http: HttpClient, private envUrl: UserServiceService, private userurl: UserServiceService) { }
   public islogged: any;
   public ImageUrl = this.envUrl.mainUrl;
   public UserProfileImageUrl: any;
@@ -90,6 +90,19 @@ export class RepositoryService {
     }
 
   }
+
+  SuccessAlert(message: string) {
+    this.alertify.Success(message);
+}
+errorAlert(message: string) {
+    this.alertify.error(message);
+}
+WarningAlert(message: string) {
+    this.alertify.Warning(message);
+}
+MessageAlert(message: string) {
+    this.alertify.Message(message);
+}
 
 
 }

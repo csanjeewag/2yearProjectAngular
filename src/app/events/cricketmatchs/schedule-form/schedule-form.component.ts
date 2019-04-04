@@ -49,7 +49,7 @@ export class ScheduleFormComponent implements OnInit {
     this.repository.getData(apiAddress)
       .subscribe(res => {
         this.schedule = res;
-        console.log(this.schedule);
+        
       }, (error => {
 
       })
@@ -63,22 +63,15 @@ export class ScheduleFormComponent implements OnInit {
         if (this.schedulearray.indexOf(newHero) < 0) {
           this.schedulearray.push(newHero);
           this.ClickNum = newHero;
-          console.log(newHero)
+          
         }
       }
     }
 
-    // if (newHero) {
-    //   if (this.schedulearray.indexOf(newHero) < 0) {
-    //     this.schedulearray.push(newHero);
-    //     this.ClickNum = newHero;
-    //     console.log(newHero)
-    //   }
-    // }
   }
 
   addId(id) {
-    console.log(id)
+    
 
     this.TeamId = id;
     if (this.ClickNum == 1) { this.team1 = this.TeamId; }
@@ -103,12 +96,7 @@ export class ScheduleFormComponent implements OnInit {
 
   public submitData() {
 
-    console.log("t1 " + this.team1)
-    console.log("t2 " + this.team2)
-    console.log("t3 " + this.team3)
-    console.log("t4 " + this.team4)
-    console.log("t5 " + this.team5)
-    console.log("t6 " + this.team6)
+    
 
     let formData = new FormData();
 
@@ -140,13 +128,13 @@ export class ScheduleFormComponent implements OnInit {
         this.router.navigate(['events/cricketmatchs/scheduleview/'+this.eventId]);
       },
         (error => {
-          this.Message = "try again, something wrong";
+          this.repository.errorAlert("try again, something wrong");
         })
       )
   }
 
   public alertSub(){
-    alert(this.msg);
+    this.repository.SuccessAlert(this.msg);
   }
 public setscheduleName(name){
   this.setscheduleName = name;

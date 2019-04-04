@@ -58,13 +58,13 @@ export class RoleCreateComponent implements OnInit {
       
       this.repository.postData(apiUrl, positions)
         .subscribe(res =>  {
-          this.Message="role Created!";
+          this.repository.SuccessAlert("Position Created!");
               this.router.navigate(['/profile/admin/roles']);
            this.fill();
        
           },
           (error => {
-            this.Message="role Created Failed,Try Again!";
+            this.repository.errorAlert("Position Created Failed,Try Again!");
           })
         )
     

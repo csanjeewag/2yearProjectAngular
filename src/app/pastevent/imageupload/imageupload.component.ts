@@ -152,7 +152,7 @@ export class ImageuploadComponent implements OnInit {
 
         this.route.navigate(['/pastevent/imageview/', this.eventid]);
 
-        console.log(res);
+       this.repository.SuccessAlert('Image Upload Successfully');
       }, (error => {
         console.log("error");
       })
