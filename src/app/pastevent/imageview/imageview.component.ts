@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router, ParamMap } from '@angular/router';
 import { AuthServiceService } from "../../AuthGards/auth-service.service";
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertifyService } from 'src/app/ShareData/alertify.service';
 
 @Component({
   selector: 'app-imageview',
@@ -23,7 +24,7 @@ export class ImageviewComponent implements OnInit {
   public IsRC:any;
 
   
-  constructor(private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private alertify: AlertifyService, private router: Router, private repo: RepositoryService, private route: ActivatedRoute, private auth:AuthServiceService, config: NgbModalConfig, private modalService: NgbModal) { }
   public eventId: any;
   ngOnInit() {
     this.IsAdmin = this.auth.isAdmin();
@@ -74,15 +75,18 @@ export class ImageviewComponent implements OnInit {
     let url = "pastevent/deleteimage";
     let formData = new FormData();
     formData.append('Caption', id);
+    if(confirm("Are you sure to delete this image!")){
+      this.repo.postFile(url, formData)
 
-    this.repo.postFile(url, formData)
       .subscribe(img => {
         this.getimage();
 
       }, (error => {
-
+        this.alertify.error('Image was not deleted!');
       })
       )
+    }
+ 
   }
 
   public eventname() {

@@ -91,13 +91,13 @@ export class TeamFormComponent implements OnInit {
 
     this.repository.postFile(apiUrl, formData)
       .subscribe(res => {
-        this.Message = res;
+        this.repository.SuccessAlert(res.toString())
          
         this.router.navigate(['events/cricketmatchs/teamview/'+this.eventId]);
       },
         (error => {
 
-          this.Message = "try again, something wrong";
+          this.repository.errorAlert("try again, something wrong!");
 
         })
       )
@@ -137,11 +137,10 @@ export class TeamFormComponent implements OnInit {
   onChange2(id: string, empName: string, isChecked: boolean) {
     if (isChecked) {
       this.captainId = id;
-      //this.employees.push(id);
+  
       this.name = empName;
     } else {
-      // let index = this.emailFormArray.indexOf(empName);
-      // this.emailFormArray.splice(index,1);
+     
     }
   }
 

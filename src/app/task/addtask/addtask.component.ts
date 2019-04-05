@@ -40,17 +40,13 @@ public errorMessage:any;
     this.geteventbyid(this.eventid);
     this.taskForm = new FormGroup({        
     
-      //TaskId: new FormControl('',[Validators.required,Validators.maxLength(5)]),
       TaskName:  new FormControl('',[Validators.required]),
-      //EventName: new FormControl(''),
       StartDate: new FormControl('',[Validators.required]),
       EndDate: new FormControl('',[Validators.required]),
       BudgetedCost: new FormControl('',[Validators.required]),
       Description: new FormControl(''),
-      //EmployeeEmpId: new FormControl(''),
-      //Admin: new FormControl('',[Validators.required]),
+      
       },
-      //{ validators: isvalidconfirmpassword }
       );
     }
 
@@ -62,7 +58,6 @@ public errorMessage:any;
 
 
     public createTask(profileFormValue) {
-      //console.log(profileFormValue)
       if (this.taskForm.valid) {
         this.executeTaskCreation(profileFormValue);
   
@@ -79,7 +74,6 @@ public errorMessage:any;
     endDate:profileFormValue.EndDate,
     budgetedCost:profileFormValue.BudgetedCost,
     description:profileFormValue.Description,
-    //employeeId:this.employeeId,
     employees:this.employees,
     status:false,
     addDate:profileFormValue.addDate,
@@ -89,7 +83,7 @@ public errorMessage:any;
     let apiUrl = 'task/create';
     this.repository.postData(apiUrl,t)
         .subscribe(res => {
-          this.router.navigate(['task/list']);
+          this.repository.SuccessAlert('Task assigned!');
             
           },
           
@@ -104,13 +98,10 @@ public errorMessage:any;
       this.repository.getData('employee')
       .subscribe(res => {
         this.result = res ;
-        //var myObjStr = JSON.stringify(res);
      
-       console.log(this.result);
         
       },
       (error) => {
-      //  this.handleErrors(error);n
       })
     }
     
@@ -153,7 +144,6 @@ this.employeeId=id;
       this.employeeId=id;
       this.employees.push(id);
       this.emailFormArray.push(empName);
-      console.log(this.employeeId)
 
     } else {
       let index = this.emailFormArray.indexOf(empName);
@@ -167,11 +157,9 @@ public geteventbyid(eventid){
       .subscribe(res => {
         this.event = res ;
 
-       console.log('----------->'+this.event.startDate);
         
       },
       (error) => {
-      //  this.handleErrors(error);n
       })
 }
 

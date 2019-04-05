@@ -12,9 +12,8 @@ import { AppComponent } from './app.component';
 import { RepositoryService } from './ShareData/repository.service';
 import {UserServiceService } from './ShareData/user-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { SidenavbarComponent } from './SharePart/sidenavbar/sidenavbar.component';
-//import {LandingPageComponent} from './landing-page/landing-page.component'
 import { AuthServiceService } from "./AuthGards/auth-service.service";
+import { AlertifyService } from './ShareData/alertify.service';
                                               
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
     ReactiveFormsModule,
     SharedModuleModule,
     BrowserAnimationsModule,
-    //LandingPageComponent
+    
 
  
     
@@ -40,7 +39,8 @@ import { AuthServiceService } from "./AuthGards/auth-service.service";
     UserServiceService,
     AuthLoginGuard,
     AuthServiceService,
-    AuthRoleGuard
+    AuthRoleGuard,
+    AlertifyService
   ],
   
   bootstrap: [AppComponent],

@@ -95,7 +95,7 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
           
             },
             (error => {
-              this.Message="Your loggin faild, Check your Id or Password!";
+              this.repository.errorAlert("Your loggin faild, Check your Id or Password!");
               this.Loading = false;
             })
           )
@@ -125,7 +125,8 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
             this.isNotEmail =false;  this.hiddenPassword = true;
            return true;
           },(error => {
-            this.Message = "email is not register!"
+            this.repository.WarningAlert("email is not register!");
+          
             this.isNotEmail =true; this.hiddenPassword = false;
            this.Loading = false;
            return true;
@@ -140,12 +141,12 @@ import { LoginByEmail } from '../_interfaces/login-by-email';
       
       this.repository.getData('employee/forgetpassword/'+value.email)
       .subscribe(res => {
-        this.Message="For change password, go to your email.";
+        this.repository.MessageAlert("For change password, go to your email.");
         this.wait = ""; 
         this.LoadForget = false;
     },
       (error) => {
-        this.Message="you can not change password.";
+        this.repository.MessageAlert("you can not change password.");
         this.wait = ""; 
         this.LoadForget = false;
       })

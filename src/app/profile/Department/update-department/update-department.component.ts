@@ -57,12 +57,14 @@
         
         this.repository.postData(apiUrl, departments)
           .subscribe(res =>  {
-            this.Message="Department updated!";
+            
+            this.repository.SuccessAlert("Department updated!");
               this.router.navigate(['/profile/admin/departments']);
          
             },
             (error => {
-              this.Message="Department updated Failed,Try Again!";
+              
+              this.repository.errorAlert("Department updated Failed,Try Again!");
             })
           )
       

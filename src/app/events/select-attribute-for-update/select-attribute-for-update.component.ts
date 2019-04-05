@@ -72,7 +72,7 @@ export class SelectAttributeForUpdateComponent implements OnInit {
           
           },
           (error => {
-            this.Message="Event Created Failed,Try Again!";
+            this.repository.errorAlert("Event Created Failed,Try Again!");
           })
         )
     

@@ -207,7 +207,7 @@ export class AddEventComponent implements OnInit {
   
     public createrole(value) {
     
-    console.log(value) 
+    
       if (this.EventForm.valid) {
         if(this.eventId!=null){
           let formdata = new FormData;
@@ -235,7 +235,8 @@ export class AddEventComponent implements OnInit {
            
            this.repository.postFile(apiUrl, formdata)
              .subscribe(res =>  {
-               window.alert("Event has been succesfully Created")
+               
+               this.repository.SuccessAlert('Event has been succesfully Created');
                this.urlAddress = "profile/home";
                this.router.navigate([this.urlAddress]);
             
@@ -266,7 +267,7 @@ export class AddEventComponent implements OnInit {
     
             this.repository.postFile(apiUrl, atformdata)
               .subscribe(res =>  {
-                window.alert("Event has been succesfully Created")
+                this.repository.SuccessAlert("Event has been succesfully Created");
 
                this.urlAddress = "profile/home";
                  this.router.navigate([this.urlAddress]);
@@ -322,7 +323,7 @@ export class AddEventComponent implements OnInit {
             this.numberOfTeams = this.attribute.numberOfTeams;
             this.budgetedCost = this.attribute.budgetedCost;
             this.actualCost = this.attribute.actualCost;
-            console.log("this is actual cost"+this.attribute.actualCost)
+            
             this.mainOrganiZer = this.attribute.mainOrganiZer;
             this.summary = this.attribute.summary;
 

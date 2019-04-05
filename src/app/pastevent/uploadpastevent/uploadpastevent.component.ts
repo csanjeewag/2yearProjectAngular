@@ -19,7 +19,7 @@ export class UploadpasteventComponent implements OnInit {
   public summaryForm: FormGroup
   ngOnInit() {
     this.eventid = this.rout.snapshot.paramMap.get('id')
-    // this.getTasks();
+    
     this.summaryForm = new FormGroup({
 
       summary: new FormControl('', [Validators.required]),
@@ -27,13 +27,13 @@ export class UploadpasteventComponent implements OnInit {
   }
 
   OnSubmit(value) {
-    console.log(value)
+    
     let url = " pastevent/upgradeevent";
     let formData = new FormData();
     formData.append('EventId', this.eventid);
     formData.append('EventDescription', value.summary);
 
-    console.log(this.eventid);
+    
     this.repository.postData(url, formData)
       .subscribe(res => {
 
@@ -42,27 +42,4 @@ export class UploadpasteventComponent implements OnInit {
       })
       )
   }
-
-
-
-  // public getTasks() {
-  //   let url = "task/getall";
-  //   this.repository.getData(url)
-
-  //     .subscribe(res => {
-
-  //       this.results = res;
-  //       console.log(this.results);
-  //     }, (error) => {
-
-  //     })
-
-  // }
-
-
-
-
-
-
-
 }

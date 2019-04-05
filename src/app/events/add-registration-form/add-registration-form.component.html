@@ -1,151 +1,147 @@
 <app-nav-bar></app-nav-bar>
-<div id="background"  >
-        <div id="backgroundIN" >
-<div >
-        
-  <div  class="wrapper col-md-8 container">
-    <div id="formContent" >
-      <!-- Tabs Titles -->
-  
-      <!-- Icon -->
-      <div id="title" style="color: rgb(70, 65, 65)">
-        <h1>Add Registration Form</h1>
-      </div>
+<div id="background">
+  <div id="backgroundIN">
+    <div>
 
-      
-      <!-- Sign up Form -->
-      <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
-          
-              <div class="form-group col-md-12">
-                        <input class="form-control" formControlName="name" id="name" required>
-                      <label >name</label>
-                      
-                  </div> 
+      <div class="wrapper col-md-8 container">
+        <div id="formContent">
+          <!-- Tabs Titles -->
 
-                 
+          <!-- Icon -->
+          <div id="title" style="color: rgb(70, 65, 65)">
+            <h1>Add Registration Form</h1>
+          </div>
 
-                 
-                     
-                     <div class="form-group col-md-12" *ngIf="attribute.dob">
-                      <input type="date" class="form-control" formControlName="dob" id="dob" required>
-                      <label >dob</label>
-                      
-                  </div>
-                  <div class="form-group col-md-8" *ngIf="attribute.gender">
-                    <div class ="row">
-                        <div class="form-group col-md-4 " >
-                          <label class="gender">Gender:</label>
-                        </div>
-                        <div class="form-group col-md-1 ">
-                                <label class="gender">Male:</label>
-                        </div>
-                        <div class="form-group col-md-2 ">
-                                   
-                            <input type="radio" name="gender"   value="male" formControlName="gender" >
-                        </div>
-                        <div class="form-group col-md-1 ">
-                                <label class="gender">Female:</label>
-                        </div>
-                        <div class="form-group col-md-2 ">
-                        
-                            <input type="radio"  name="gender"  value="female"formControlName="gender"  >
-                        </div></div>
-                        
-                      </div>
-                  <div class="form-group col-md-12" *ngIf="attribute.spouseDob">
-                    <input type="date" class="form-control" formControlName="spouseDob" id="spouseDob" required>
-                    <label >spouseDob</label>
-                   
+
+          <!-- Sign up Form -->
+          <form [formGroup]="EventForm" autocomplete="off" novalidate (ngSubmit)="createrole(EventForm.value)">
+
+            <div class="form-group col-md-12">
+              <input class="form-control" formControlName="name" id="name" required>
+              <label>name</label>
+
+            </div>
+
+
+
+
+
+            <div class="form-group col-md-12" *ngIf="attribute.dob">
+              <input type="date" class="form-control" formControlName="dob" id="dob" required>
+              <label>dob</label>
+
+            </div>
+            <div class="form-group col-md-8" *ngIf="attribute.gender">
+              <div class="row">
+                <div class="form-group col-md-4 ">
+                  <label class="gender">Gender:</label>
                 </div>
-      
+                <div class="form-group col-md-1 ">
+                  <label class="gender">Male:</label>
+                </div>
+                <div class="form-group col-md-2 ">
 
-          <div class="form-group col-md-12" *ngIf="attribute.transportationMode">
-             
+                  <input type="radio" name="gender" value="male" formControlName="gender">
+                </div>
+                <div class="form-group col-md-1 ">
+                  <label class="gender">Female:</label>
+                </div>
+                <div class="form-group col-md-2 ">
+
+                  <input type="radio" name="gender" value="female" formControlName="gender">
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group col-md-12" *ngIf="attribute.spouseDob">
+              <input type="date" class="form-control" formControlName="spouseDob" id="spouseDob" required>
+              <label>spouseDob</label>
+
+            </div>
+
+
+            <div class="form-group col-md-12" *ngIf="attribute.transportationMode">
+
               <select class="form-control" formControlName="transportationMode" id="transportationMode" required>
-                      <option value="" selected disabled hidden></option>
-                      <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
-                  </select>
-                  <label >transportationMode</label>
+                <option value="" selected disabled hidden></option>
+                <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
+              </select>
+              <label>transportationMode</label>
             </div>
 
 
             <div class="form-group col-md-12" *ngIf="attribute.accomadation">
-             
+
               <select class="form-control" formControlName="accomadation" id="accomadation" required>
-                      <option value="" selected disabled hidden></option>
-                      <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
-                  </select>
-                  <label >accomadation</label>
+                <option value="" selected disabled hidden></option>
+                <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
+              </select>
+              <label>accomadation</label>
             </div>
 
             <div class="form-group col-md-12" *ngIf="attribute.mealType">
-             
+
               <select class="form-control" formControlName="mealType" id="mealType" required>
-                      <option value="" selected disabled hidden></option>
-                      <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
-                  </select>
-                  <label >mealType</label>
+                <option value="" selected disabled hidden></option>
+                <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
+              </select>
+              <label>mealType</label>
             </div>
-          
-           
-          <!--dont use closing date as ClosingDate-->
-      
 
-         
 
-          <div class="form-group col-md-12" *ngIf="attribute.nic">
-               <input class="form-control" formControlName="nic" id="nic" required>
-              <label >nic</label>
-          </div> 
-         
-         
-          <div class="form-group col-md-12" *ngIf="attribute.spouseName">
-               <input class="form-control" formControlName="spouseName" id="spouseName" required>
-               <label >spouseName</label>
+            <!--dont use closing date as ClosingDate-->
 
-          </div> 
-          <div class="form-group col-md-12" *ngIf="attribute.spouseNic">
+
+
+
+            <div class="form-group col-md-12" *ngIf="attribute.nic">
+              <input class="form-control" formControlName="nic" id="nic" required>
+              <label>nic</label>
+            </div>
+
+
+            <div class="form-group col-md-12" *ngIf="attribute.spouseName">
+              <input class="form-control" formControlName="spouseName" id="spouseName" required>
+              <label>spouseName</label>
+
+            </div>
+            <div class="form-group col-md-12" *ngIf="attribute.spouseNic">
               <input class="form-control" formControlName="spouseNic" id="spouseNic" required>
-              <label >spouseNic</label>
-         </div> 
-        
+              <label>spouseNic</label>
+            </div>
 
-  
-         
-          <div class="btn-group" role="group" aria-label="Basic example">
-          <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-          <button type="submit" class="btn btn-success" >Add form</button>
-          <div class="col-sm-1"></div>
-           <button type="button" class="btn btn-success" (click)="updateEvent(EventForm.value)">Add more fields</button>
-           
-      </div> 
 
-      
-      </form>
-          <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-          
-      <!-- Remind Passowrd -->
-      
-  
+
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="submit" class="btn btn-success">Add form</button>
+              <div class="col-sm-1"></div>
+              <button type="button" class="btn btn-success" (click)="updateEvent(EventForm.value)">Add more fields</button>
+
+            </div>
+
+
+          </form>
+
+        </div>
+      </div>
+
+
     </div>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
-</div>
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-  </div>

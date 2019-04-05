@@ -126,7 +126,7 @@ export class UpdateEventComponent implements OnInit {
       
       this.repository.postFile(apiUrl, formdata)
         .subscribe(res =>  {
-         window.alert("Event has been succesfully edited");
+          this.repository.SuccessAlert("Event has been succesfully edited");
           this.router.navigate(['/events/vieweventpage/'+this.PrId]);
        
           },
@@ -313,7 +313,7 @@ onFileChange(file : FileList,id:number) {
   reader.onload = (event:any) => {
      this.ImageUrl = event.target.result;
 
-     console.log(event.target.result)
+    
   }
    reader.readAsDataURL(this.FileImage);
 }

@@ -21,7 +21,7 @@ export class ScheduleViewsComponent implements OnInit {
   ngOnInit() {
     this.schId = this.route.snapshot.paramMap.get('id')
     this.getTeamSchedule();
-   //  this.getAllSchedule();
+   
   }
 
   public getTeamSchedule(){

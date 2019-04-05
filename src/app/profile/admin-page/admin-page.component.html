@@ -4,78 +4,71 @@
 
 
 
-<div class="form-row">
-  
-    <div class="form-group col-md-11 col-lg-10 col-sm-12 container">
-     
+        <div class="form-row">
 
-<div class="card">
-    <h2>Admin Controller Page</h2>
-    <div class="card-body">
-  
-      
-      <div id="showview">
-          <div>
-              
-            </div>
-            <div class="form-row ">
-                <div class="form-group col-md-6 container">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button id="btn" (click) ="isdepartment()" routerLink="/profile/admin/departments" routerLinkActive="active" type="button" class="btn ">View Departments</button>
-                        <button id="btn" (click)="isrole()" routerLink="/profile/admin/roles" routerLinkActive="active" type="button" class="btn ">View Roles</button>
-                        <button id="btn" (click)="isproject()"  routerLink="/profile/admin/project" routerLinkActive="active" type="button" class="btn ">View Projects</button>
-                        
-                      </div>
+            <div class="form-group col-md-11 col-lg-10 col-sm-12 container">
+
+
+                <div class="card">
+
+                    <div class="card-body">
+
+
+                        <div id="showview">
+                            <div>
+                                <h2>Admin Dashboard</h2>
+                                <hr>
+
+                            </div>
+                            <div class="form-row ">
+                                <div class="form-group col-md-6 container">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button id="btn" (click)="isdepartment()" routerLink="/profile/admin/departments"
+                                            routerLinkActive="active" type="button" class="btn ">View Departments</button>
+                                        <button id="btn" (click)="isrole()" routerLink="/profile/admin/roles"
+                                            routerLinkActive="active" type="button" class="btn ">View Positions</button>
+                                        <button id="btn" (click)="isproject()" routerLink="/profile/admin/project"
+                                            routerLinkActive="active" type="button" class="btn ">View Projects</button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row ">
+
+                                <div class="form-group col-md-8 container">
+                                    <!-- <app-show-roles-details></app-show-roles-details> -->
+                                    <br>
+
+
+                                    <div>
+                                        <router-outlet></router-outlet>
+                                    </div>
+
+                                </div>
+                                <div class="form-group col-md-4 container">
+                                    <br><br><br>
+                                    <div *ngIf="department">
+                                        <app-department-create></app-department-create>
+                                    </div>
+                                    <div *ngIf="role">
+                                        <app-role-create></app-role-create>
+                                    </div>
+                                    <div *ngIf="project">
+                                        <app-project-create></app-project-create>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
             </div>
 
-        <div class="form-row ">
-   
-          <div class="form-group col-md-8 container">
-              <!-- <app-show-roles-details></app-show-roles-details> -->
-              <br>
-           
-                
-                <div >
-                  <router-outlet></router-outlet>
-                </div>
-            
-          </div>
-          <div class="form-group col-md-4 container">
-            <br><br><br> 
-            <div  *ngIf="department"><app-department-create></app-department-create></div>
-              <div *ngIf="role"><app-role-create></app-role-create></div>
-              <div *ngIf="project"><app-project-create></app-project-create></div>
-          </div>
-          <!-- <div class="form-group col-md-6"> -->
-            
-              <!-- <div class="btn-group" role="group" aria-label="Basic example">
-                  <button id="btn" (click) ="isdepartment()"  type="button" class="btn"> Create Departments</button>
-                  <button id="btn"  (click)="isrole()" type="button" class="btn"> Create Roles</button>
-                  <button id="btn"  (click)="isproject()" type="button" class="btn"> Create Project</button>
-                  <br>
-                </div>
-                <div  *ngIf="department"><app-department-create></app-department-create></div>
-              <div *ngIf="role"><app-role-create></app-role-create></div>
-              <div *ngIf="project"><app-project-create></app-project-create></div>
-               -->
-               
-              <!-- <app-show-departments-details></app-show-departments-details> -->
-          <!-- </div> -->
-
-
-      
-      
         </div>
-      </div>
-      
-        
-     
-      </div> 
+
     </div>
-  </div>
-
-</div>
-
-</div>
 </div>

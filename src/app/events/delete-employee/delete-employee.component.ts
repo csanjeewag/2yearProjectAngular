@@ -45,7 +45,7 @@ public attribute:any;
      
     },
     (error) => {
-    //  this.handleErrors(error);n
+    
     })
     this.getAttribute();
   }
@@ -53,7 +53,7 @@ public attribute:any;
 
   public getAttribute(){
     let apiUrl = 'Registration/getRegistrationAttribute/'+this.repository.curentEventId;
-    console.log("inside get attribute")
+   
     this.repository.getData(apiUrl)
       .subscribe(res => {
        this.attribute = res;
@@ -80,7 +80,7 @@ public attribute:any;
   }
 
   public deleteEmployee(){
-    console.log("inside delete")
+    
     let formdata = new FormData;
     formdata.append('IsActive','false'); 
     formdata.append('Id',this.employee.id); 
@@ -104,7 +104,7 @@ public attribute:any;
         
     this.repository.postFile(apiUrl, formdata)
        .subscribe(res =>  {
-           window.alert("Employee has deleted succesfully")
+        this.repository.SuccessAlert("Employee has deleted succesfully")
         },
          (error => {
           

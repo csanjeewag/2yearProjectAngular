@@ -1,122 +1,132 @@
 <app-nav-bar></app-nav-bar>
-<div id="background"   >
-    <div id="backgroundIN" *ngIf="result">
+<div id="background">
+  <div id="backgroundIN" *ngIf="result">
 
     <div class="col-md-12 container">
-    	<div class="row">
-			<div class="col-md-12">
-				<div class="tableWithHeader ">
-					<div class="Header">
-						<h3 class="panel-title">...</h3>
-						
-          </div>
-          <div class="row">
-              <div class="col-md-4">       
-               <input [(ngModel)]="filtertext"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Name" required/>
-               <label>Search by Name:</label>
-            </div>
-            <div class="col-md-4">       
-                <input [(ngModel)]="filterposition"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Position"required />
-                <label>Search by Position:</label>
-              </div>
-             <div class="col-md-4">       
-                <input [(ngModel)]="filterproject"  type="text" class="form-control" id="filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Project" required />
-                <label>Search by Project:</label>
-              </div>
-					<div class="panel-body">
-              <div class=" input-group mb-3" [class.error]="isNotEmail">
-             
-            </div>
-         
-          <div class="table-responsive" id="table">
-					<table class="table col-lg-12" >
-            <thead>
-            <tr >
-                <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Project</th>
-              
-              <th>Position</th>
-              <th>Department</th>
-              <th>Active/Deactive</th>
-              <th></th>
-            
-              <th *ngIf="isAdmin"></th>
-             
-            </tr></thead>
-            <tbody>
-            <tr  *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject  " >
-              <td id="zoom3" > 
-                <img *ngIf="!i.empProfilePicture" src="assets/_image/nodp.jpg" id="profilePicture" id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
-                <img *ngIf="i.empProfilePicture" [src]= "ImageUrl+i.empProfilePicture" id="profilePicture" id="zoom2" height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
-              </td>
-              <td>{{i.empName}}</td>
-              <td>{{i.empEmail}}</td>
-              <td>
-                <div class="dropdown">
-                  <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{i.projectName}}
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"  >
-                    <a  *ngFor="let p of projects" class="dropdown-item" (click)="changedetails(i.id,i.empEmail,'','',p.prId)"> {{p.projectName}}</a>
-                  
-                  </div>
-                </div>
-               </td>           
-             
-               <td>
-                <div class="dropdown">
-                  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{i.empPosition}}
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"  >
-                    <a  *ngFor="let p of position" class="dropdown-item" (click)="changedetails(i.id,i.empEmail,p.positionId,'','')"> {{p.positionName}}</a>
-                  
-                  </div>
-                </div>
-               </td>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tableWithHeader ">
+            <div class="Header">
+              <h3 class="panel-title"></h3><br>
 
-               <td>
-                <div class="dropdown">
-                  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{i.empDepartment}}
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"  >
-                    <a  *ngFor="let d of departments" class="dropdown-item" (click)="changedetails(i.id,i.empEmail,'',d.dprtId,'')"> {{d.dprtName}}</a>
-                  
-                  </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 container">
+                <input [(ngModel)]="filtertext" type="text" class="form-control" id="filter" data-action="filter"
+                  data-filters="#dev-table" placeholder="Enter Name/Position/Project" required />
+                <!-- <label>Search by Name:</label> -->
+              </div>
+
+              <div class="panel-body">
+                <div class=" input-group mb-3" [class.error]="isNotEmail">
+
                 </div>
-               </td>
-               <td id="btn" *ngIf="(i.isActive)&&(Loading!=i.empEmail)" id="zoom3" ><button type="button" id="delete" class="btn  " (click)=statechange(i.empEmail,0,i.id)>For Deactive</button></td>
-               <td id="btn" *ngIf="!(i.isActive)&&(Loading!=i.empEmail)" id="zoom3" ><button type="button" id="delete" class="btn " (click)=statechange(i.empEmail,1,i.id)>For Active</button></td>
-               <td id="btn" *ngIf="(Loading==i.empEmail)"><div ><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" ></div>
-       
-              
-              <td id="zoom3" ><button type="button" id="details" class="btn " (click)=detailsemployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre" ></button></td>
-                    <td id="btn" id="zoom3" ><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre" ></button></td>
-                   
-             
-            </tr>
-            </tbody>
-          </table></div>
-					
-				</div>
-			</div>
-			
+
+                <div class="table-responsive" id="table">
+                  <table class="table col-lg-12">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Project</th>
+
+                        <th>Position</th>
+                        <th>Department</th>
+                        <th>Active/Deactive</th>
+                        <th></th>
+
+                        <th *ngIf="isAdmin"></th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let i of result | filterPipe: filtertext | filterPipePipe2: filterposition | filterPipePipe3: filterproject  ">
+                        <td id="zoom3">
+                          <img *ngIf="!i.empProfilePicture" src="assets/_image/nodp.jpg" id="profilePicture" id="zoom2"
+                            height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                          <img *ngIf="i.empProfilePicture" [src]="ImageUrl+i.empProfilePicture" id="profilePicture" id="zoom2"
+                            height="100em" width="100em" alt="User Icon" class="rounded-circle margin-left ml-2">
+                        </td>
+                        <td>{{i.empName}}</td>
+                        <td>{{i.empEmail}}</td>
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              {{i.projectName}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a *ngFor="let p of projects" class="dropdown-item" (click)="changedetails(i.id,i.empEmail,'','',p.prId)">
+                                {{p.projectName}}</a>
+
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              {{i.empPosition}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a *ngFor="let p of position" class="dropdown-item" (click)="changedetails(i.id,i.empEmail,p.positionId,'','')">
+                                {{p.positionName}}</a>
+
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              {{i.empDepartment}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a *ngFor="let d of departments" class="dropdown-item" (click)="changedetails(i.id,i.empEmail,'',d.dprtId,'')">
+                                {{d.dprtName}}</a>
+
+                            </div>
+                          </div>
+                        </td>
+                        <td id="btn" *ngIf="(i.isActive)&&(Loading!=i.empEmail)" id="zoom3"><button type="button" id="delete"
+                            class="btn  " (click)=statechange(i.empEmail,0,i.id)>Deactive</button></td>
+                        <td id="btn" *ngIf="!(i.isActive)&&(Loading!=i.empEmail)" id="zoom3"><button type="button" id="delete"
+                            class="btn " (click)=statechange(i.empEmail,1,i.id)>Active</button></td>
+                        <td id="btn" *ngIf="(Loading==i.empEmail)">
+                          <div><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif"
+                              alt="Cinque Terre"></div>
+
+
+                        <td id="zoom3"><button type="button" id="details" class="btn " (click)=detailsemployee(i.empId)><img
+                              id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Cinque Terre"></button></td>
+                        <td id="btn" id="zoom3"><button type="button" id="update" class="btn  btn-success" (click)=updateEmployee(i.empId)><img
+                              id="loadImage" style=" width : 15px;" class="card-img-top" src="assets/edit.png" alt="Cinque Terre"></button></td>
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+
+
+
+          </div>
+        </div>
+      </div>
     </div>
-    
-   <div>
- 
-   
 
   </div>
-</div>
-</div>
-</div>
-
-</div>
-<div id="load" class="row " *ngIf="!result">
-    <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
+  <div id="load" class="row " *ngIf="!result">
+    <img class="card-img-top" src="assets/loading.gif" alt="Cinque Terre">
   </div>
 </div>

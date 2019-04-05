@@ -94,12 +94,14 @@ public next:any;
       
       this.repository.postFile(apiUrl, formData)
         .subscribe(res => {
-          this.router.navigate(['/profile/profile']);
-         alert(res);
+          this.router.navigate(['/profile/lists']);
+         //alert(res);
+         this.repository.SuccessAlert(res.toString());
             
           },
           (error => {
-            alert(error);
+           // alert(error);
+            this.repository.errorAlert('something wrong!');
           })
         )
     }

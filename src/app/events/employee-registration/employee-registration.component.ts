@@ -115,11 +115,11 @@ export class EmployeeRegistrationComponent implements OnInit {
         
         this.repository.postFile(apiUrl, formdata)
            .subscribe(res =>  {
-               window.alert("You have registered succesfully")
+            this.repository.SuccessAlert("You have registered succesfully")
                this.ngOnInit();
             },
              (error => {
-              window.alert("You have already registered")
+              this.repository.errorAlert("You have already registered")
             
              })
            )

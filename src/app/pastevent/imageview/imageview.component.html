@@ -10,7 +10,9 @@
 <div class="col-lg-11 col-sm-12 container">
 
 
-    <h2 *ngIf="eevent" class="card-title">{{eevent.eventTitle}}</h2>
+  <br>
+    <h1 *ngIf="eevent" class="card-title">{{eevent.eventTitle}}</h1>
+    <hr>
     
     <a  (click)=gotoimageupload(eventId)><img src="assets/_image/uploadimage.png" width="70" height="70" class="rounded-circle margin-left ml-2"></a>  
    
@@ -23,17 +25,17 @@
               <div class="box">
         
         
-                <div class="boxInner" (click)="open(image)">
+                <div class="boxInner" >
                   <ng-template #image id="x">
                     <div class="modal-header"></div>
                     <div class="modal-body">
                       <!-- modal viewing -->
-                      <img width="475px" class="card" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                      <img  width="475px" class="card" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
                     </div>
                     <div class="modal-footer"></div>
                   </ng-template>
                   <!-- gallery viewing  -->
-                  <img id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
+                  <img (click)="open(image)" id="zoom1" class="images card w-100" [src]="ImageUrl+i.imageId" alt="Cinque Terre">
                   <a id="author"> {{i.author}} </a>
         
                   <div class="titleBox"><a *ngIf="this.IsAdmin || this.IsRC" (click)=deleteimage(i.imageId)>Delete</a> </div>

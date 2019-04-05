@@ -60,12 +60,12 @@
         
         this.repository.postData(apiUrl, positions)
           .subscribe(res =>  {
-            this.Message="role updated!";
+            this.repository.SuccessAlert("Position updated!");
                this.router.navigate(['/profile/admin/roles']);
          
             },
             (error => {
-              this.Message="role updated Failed,Try Again!";
+              this.repository.errorAlert("Position updated Failed,Try Again!");
             })
           )
       
@@ -75,12 +75,12 @@
 
       
       this.RoleId = this.route.snapshot.paramMap.get('id')
-      console.log(this.RoleId)
+     
       
       this.repository.getData('position/getposition/'+this.RoleId)
       .subscribe(res => {
         this.roles = res ;
-        console.log(res)
+       
         this.fillERoles();
       },
       (error) => {

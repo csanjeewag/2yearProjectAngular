@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators, EmailValidator } from '@angular/for
 import {  RepositoryService} from './../../../ShareData/repository.service';
 import { Router } from '@angular/router';
 import { Department } from '../../_interfaces/department';
+import { AlertifyService } from 'src/app/ShareData/alertify.service';
 
 @Component({
   selector: 'app-department-create',
@@ -12,7 +13,7 @@ import { Department } from '../../_interfaces/department';
 })
 export class DepartmentCreateComponent implements OnInit {
 
-  constructor(private router: Router,  private repository : RepositoryService) { }
+  constructor(private alertify: AlertifyService,private router: Router,  private repository : RepositoryService) {}
 
   public departmentForm: FormGroup;
   public Message:any;
@@ -53,7 +54,7 @@ export class DepartmentCreateComponent implements OnInit {
       
       this.repository.postData(apiUrl, departments)
         .subscribe(res =>  {
-          this.Message="Department Created!";
+          this.alertify.Success('Department Created!')
              this.router.navigate(['/profile/admin/departments']);
               this.fill();
           },

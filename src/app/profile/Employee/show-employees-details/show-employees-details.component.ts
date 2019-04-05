@@ -110,12 +110,12 @@ export class ShowEmployeesDetailsComponent implements OnInit {
     
     this.repo.postFile(apiUrl, formData)
       .subscribe(res => {
-        alert('success!')
+        this.repo.SuccessAlert('success!')
         this.clickId = 0;
         
         },
         (error => {
-       alert('something wrongs')
+       this.repo.errorAlert('something wrongs')
         })
       )
   }

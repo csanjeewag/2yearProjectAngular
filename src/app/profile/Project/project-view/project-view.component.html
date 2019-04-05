@@ -1,76 +1,77 @@
-
-
 <div class="container">
-    
+
   <div class="row">
-  <div class="col-md-12">
-    <div class="tableWithHeader ">
-      <div class="Header">
-        <h3 class="panel-title">..All Project Details.. 
-          <!-- <button type="button" class="btn  btn-sm" data-toggle="modal" data-target="#myModal">crate</button -->
-            </h3>
-        
+    <div class="col-md-12">
+      <div class="tableWithHeader ">
+        <div class="Header">
+          <h3 class="panel-title">Project Details
+            <!-- <button type="button" class="btn  btn-sm" data-toggle="modal" data-target="#myModal">crate</button -->
+          </h3>
+
+        </div>
+
+        <div class="table-responsive" id="table">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Project Id</th>
+                <th>Project Name</th>
+                <th> Desciption</th>
+                <th>Update</th>
+                <th></th>
+                <th></th>
+
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of project;">
+                <td>{{i.projectId}}</td>
+                <td>{{i.projectName}}</td>
+                <td>{{i.projectDescription}}</td>
+
+                <td><button type="button" id="update" class="btn btn-success" (click)=updateProject(i.projectId)><img
+                      style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Update"></button></td>
+                <td *ngIf="(i.isActive)&&(Loading!=i.projectId)"><button id="btn" type="button" id="delete" class="btn"
+                    (click)=DeActive(i.projectId)>Deactive</button></td>
+                <td *ngIf="!(i.isActive)&&(Loading!=i.projectId)"><button id="btn" type="button" id="delete" class="btn"
+                    (click)=Active(i.projectId)>Active</button></td>
+                <td *ngIf="(Loading==i.projectId)">
+                  <div><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre"></div>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
-      
-      <div class="table-responsive" id="table">
-      <table class="table table-hover">
-        <thead>
-        <tr >
-            <th>Project Id</th>
-          <th>Project Name</th>
-          <th> Desciption</th>
-          <th>Update</th>
-          <th></th>
-          <th></th>
-         
-          
-         
-        </tr></thead>
-        <tbody>
-        <tr *ngFor="let i of project;">
-          <td>{{i.projectId}}</td>
-          <td>{{i.projectName}}</td>
-          <td>{{i.projectDescription}}</td>
-          
-             <td><button type="button" id="update" class="btn btn-success" (click)=updateProject(i.projectId)><img   style=" width : 15px;" class="card-img-top" src="assets/details.png" alt="Update" ></button></td>
-            <td  *ngIf="(i.isActive)&&(Loading!=i.projectId)" ><button id="btn" type="button" id="delete" class="btn" (click)=DeActive(i.projectId)>Deactive</button></td>
-            <td  *ngIf="!(i.isActive)&&(Loading!=i.projectId)"><button id="btn" type="button" id="delete" class="btn" (click)=Active(i.projectId)>Active</button></td>
-            <td *ngIf="(Loading==i.projectId)"><div ><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif" alt="Cinque Terre" ></div>
-             </td>
-         
-        </tr>
-        </tbody>
-      </table></div>
-      
     </div>
+
   </div>
-  
-</div>
 </div>
 
 <div class="container">
 
   <!-- Trigger the modal with a button -->
- 
+
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-          <!-- <h4 class="modal-title">Modal Header</h4> -->
+
         </div>
         <div class="modal-body">
-         <app-project-create></app-project-create>
+          <app-project-create></app-project-create>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div> -->
+
       </div>
-      
+
     </div>
   </div>
-  
+
 </div>

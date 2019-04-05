@@ -15,17 +15,17 @@
 
     <div  class="col-sm-12 col-md-1"></div>
   
-    <div  *ngIf="event"  class="col-sm-12 col-md-4 my-auto">
+    <div  *ngIf="event"  class="col-sm-12 col-md-4 my-auto" id="zoom1" >
       <div class="card-body">
-        <h2 class="card-title"><i>{{event.eventTitle}}</i></h2>
-        <h4> Date : {{event.startDate |date}}</h4>
-        <h4> Ground : {{event.venue}}</h4>
+        <h1 class="card-title"><i>{{event.eventTitle}}</i></h1>
+        <h5> Date : {{event.startDate |date}}</h5>
+        <h5> Vanue : {{event.venue}}</h5>
       </div>
     </div>
   
     <div class="col-sm-12 col-md-3">
       <div class="card w-100">
-        <div class="card" id="zoom1">
+        <div class="card" id="zoom3">
           <img *ngIf="event"  class="card-img-top" [src]="ImageUrl+event.eventImageUrl" alt="Card image cap">
         </div>
       </div>
@@ -51,7 +51,7 @@
       
             <!-- CARD add -->
       
-            <div class="card col-12">
+            <div class="card col-12" id="zoom1">
               <div class="card-body">
                 <h5 class="card-title"><i>{{team.teamName}}</i></h5>
               </div>

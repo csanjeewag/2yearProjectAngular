@@ -1,151 +1,154 @@
 <app-nav-bar></app-nav-bar>
-<div id="background" *ngIf="event"  >
-        <div id="backgroundIN" >
-<div >
-        
-        <div  class="wrapper  col-md-8 container">
-          <div id="formContent">
-            <!-- Tabs Titles -->
-        
-            <!-- Icon -->
-            <div >
-              <h1>Update Event</h1>
-            </div>
-            <h5 class="card-title"></h5>
-            <!-- Sign up Form -->
-            <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="updateproject(projectForm.value)">
-                    <div class="form-group col-md-12">
-                            <input class="form-control" formControlName="EventTitle" id="EventTitle" placeholder="EventTitle">
-                            <label >Event Title</label>
+<div id="background" *ngIf="event">
+    <div id="backgroundIN">
+        <div>
 
-                            <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription is required!</em>
-                            
-                        </div> 
+            <div class="wrapper  col-md-8 container">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+
+                    <!-- Icon -->
+                    <div>
+                        <h1>Update Event</h1>
+                    </div>
+                    <h5 class="card-title"></h5>
+                    <!-- Sign up Form -->
+                    <form [formGroup]="projectForm" autocomplete="off" novalidate (ngSubmit)="updateproject(projectForm.value)">
+                        <div class="form-group col-md-12">
+                            <input class="form-control" formControlName="EventTitle" id="EventTitle" placeholder="EventTitle">
+                            <label>Event Title</label>
+
+                            <em *ngIf="validateControl('EventTitle') && hasError('EventTitle', 'required')">*EventDescription
+                                is required!</em>
+
+                        </div>
 
                         <div class="form-group col-md-12">
                             <h6>Add a Event Image <input type="file" (change)="onFileChange($event.target.files)" /></h6>
-                            <img  *ngIf="ImageUrl" [src]=ImageUrl id="icon" alt="User Icon" > 
-                          </div>
-                          
-                          <div class="form-group col-md-12">
-                                <label >Event Description</label><br/>
-                                 <textarea class="form-control" formControlName="EventDescription" id="EventDescription" ></textarea>
-                                
-                                <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">Event Description is required</em>
-                                
-                            </div> 
-                           
-                        
-                    <div class="form-group">
+                            <img *ngIf="ImageUrl" [src]=ImageUrl id="icon" alt="User Icon">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label>Event Description</label><br />
+                            <textarea class="form-control" formControlName="EventDescription" id="EventDescription"></textarea>
+
+                            <em *ngIf="validateControl('EventDescription') && hasError('EventDescription', 'required')">Event
+                                Description is required</em>
+
+                        </div>
+
+
+                        <div class="form-group">
                             <!-- <label>Event Type</label><br>
                             <select class="form-control" formControlName="EventType" id="EventType" required>
                                 
                                     <option value="" selected disabled hidden>EventTypes</option>
                                     <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
                                 </select> -->
-                          </div>
-                          <div class="form-group col-md-12">
+                        </div>
+                        <div class="form-group col-md-12">
                             <label>Event Type</label><br>
-                        <select class="form-control" formControlName="EventType" id="EventType" required>
-                                
+                            <select class="form-control" formControlName="EventType" id="EventType" required>
+
                                 <option value="" selected disabled hidden></option>
                                 <option [value]="e.id" *ngFor="let e of eventtypes">{{e.eventTypeName}}</option>
                             </select>
-                           
-                      </div>
-                          <div class="form-group col-md-12">
-                             <input type="date" class="form-control" formControlName="StartDate" id="StartDate" required>
-                             <label >Start Date</label>
-                            <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*EventStartDate is required!</em>
-                            
+
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="date" class="form-control" formControlName="StartDate" id="StartDate" required>
+                            <label>Start Date</label>
+                            <em *ngIf="validateControl('StartDate') && hasError('StartDate', 'required')">*EventStartDate
+                                is required!</em>
+
                         </div>
                         <div class="form-group col-md-12" *ngIf="closingDate">
-                                 <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate" required>
-                                <label >Closing Date</label>
+                            <input type="date" class="form-control" formControlName="ClosingDate" id="ClosingDate"
+                                required>
+                            <label>Closing Date</label>
 
-                            </div>
-                            <div class="form-group col-md-12" *ngIf="endDate">
-                                     <input type="date" class="form-control" formControlName="EndDate" id="EndDate" required>
-                                     <label >End Date</label>
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="endDate">
+                            <input type="date" class="form-control" formControlName="EndDate" id="EndDate" required>
+                            <label>End Date</label>
 
-                                </div>
-                               
-                       
-                        
+                        </div>
 
-                            <div class="form-group col-md-12" *ngIf="liquor">
-                                      <input class="form-control" formControlName="Liquor" id="Liquor" required>
-                                    <label >Whether liquor is allowed or not</label>
 
-                                   
-                                </div> 
-                               
-                            <div class="form-group col-md-12" *ngIf="isFamilyMembersAllowed">
-                                    <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed" required>
-                                    <label >Whether family members are allowed</label>
 
-                                </div> 
-                                <div class="form-group col-md-12" *ngIf="venue">
-                                        <input class="form-control" formControlName="Venue" id="Venue" required>
-                                        <label >Venue</label>
 
-                                    </div> 
-                                    
-                                <div class="form-group col-md-12" *ngIf="numberOfTeams">
-                                        <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" required>
-                                        <label >Number of Teams</label>
+                        <div class="form-group col-md-12" *ngIf="liquor">
+                            <input class="form-control" formControlName="Liquor" id="Liquor" required>
+                            <label>Whether liquor is allowed or not</label>
 
-                                    </div> 
-                                    <div class="form-group col-md-12" *ngIf="destination">
-                                            <input class="form-control" formControlName="Destination" id="Destination" required>
-                                            <label >Destination</label>
 
-                                        </div> 
+                        </div>
 
-                                        <div class="form-group col-md-12"*ngIf="budgetedCost">
-                                                <input class="form-control" formControlName="budgetedCost" id="budgetedCost" required>
-                                                <label >Budgeted Cost</label>
-                                    
-                                           </div> 
-                                    
-                                           <div class="form-group col-md-12"*ngIf="actualCost">
-                                                <input class="form-control" formControlName="actualCost" id="actualCost" required>
-                                                <label >Actual Cost</label>
-                                    
-                                           </div> 
-                                          
-                                           <div class="form-group col-md-12"*ngIf="mainOrganiZer">
-                                                <input class="form-control" formControlName="mainOrganiZer" id="mainOrganiZer" required>
-                                                <label >Main Organizer</label>
-                                    
-                                           </div> 
-                                    
-                                           <div class="form-group col-md-12"*ngIf="summary">
-                                                <input class="form-control" formControlName="summary" id="summary" required>
-                                                <label >Summary of Event</label>
-                                    
-                                           </div> 
-                
-                <div class="btn-group" role="group" aria-label="Basic example">
-                <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
-                <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid" (click)="updateproject(projectForm.value)">Save Changes</button>
-                <div class="col-sm-1"></div>
-                <button type="button" class="btn btn-success" [disabled]="!projectForm.valid"  (click)="updateAttribute(projectForm.value)">Add more field</button>
-                
-            </div> 
-            </form>
-                <!-- <div class="copy-text">For Create new account? <i class="fa fa-heart"></i><a id="crateAccountlink"  (click)="crateAccount()"> Create</a></div> -->
-                
-            <!-- Remind Passowrd -->
-           
-        
-          </div>
+                        <div class="form-group col-md-12" *ngIf="isFamilyMembersAllowed">
+                            <input class="form-control" formControlName="IsFamilyMembersAllowed" id="IsFamilyMembersAllowed"
+                                required>
+                            <label>Whether family members are allowed</label>
+
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="venue">
+                            <input class="form-control" formControlName="Venue" id="Venue" required>
+                            <label>Venue</label>
+
+                        </div>
+
+                        <div class="form-group col-md-12" *ngIf="numberOfTeams">
+                            <input class="form-control" formControlName="NumberOfTeams" id="NumberOfTeams" required>
+                            <label>Number of Teams</label>
+
+                        </div>
+                        <div class="form-group col-md-12" *ngIf="destination">
+                            <input class="form-control" formControlName="Destination" id="Destination" required>
+                            <label>Destination</label>
+
+                        </div>
+
+                        <div class="form-group col-md-12" *ngIf="budgetedCost">
+                            <input class="form-control" formControlName="budgetedCost" id="budgetedCost" required>
+                            <label>Budgeted Cost</label>
+
+                        </div>
+
+                        <div class="form-group col-md-12" *ngIf="actualCost">
+                            <input class="form-control" formControlName="actualCost" id="actualCost" required>
+                            <label>Actual Cost</label>
+
+                        </div>
+
+                        <div class="form-group col-md-12" *ngIf="mainOrganiZer">
+                            <input class="form-control" formControlName="mainOrganiZer" id="mainOrganiZer" required>
+                            <label>Main Organizer</label>
+
+                        </div>
+
+                        <div class="form-group col-md-12" *ngIf="summary">
+                            <input class="form-control" formControlName="summary" id="summary" required>
+                            <label>Summary of Event</label>
+
+                        </div>
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <!-- <button type="button" class="btn btn-danger" (click)="redirectToOwnerList()">Cancel</button> -->
+                            <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid" (click)="updateproject(projectForm.value)">Save
+                                Changes</button>
+                            <div class="col-sm-1"></div>
+                            <button type="button" class="btn btn-success" [disabled]="!projectForm.valid" (click)="updateAttribute(projectForm.value)">Add
+                                more field</button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
         </div>
-    
-  
-        </div>
-    
-            
-            
-  </div>
-  </div>
+
+
+
+    </div>
+</div>

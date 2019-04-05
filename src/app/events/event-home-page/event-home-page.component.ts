@@ -23,7 +23,7 @@ export class EventHomePageComponent implements OnInit {
     this.repository.getData('event/v')
     .subscribe(res => {
       this.events = res ;
-      console.log(res);
+      
 
   },
     (error) => {
@@ -34,11 +34,10 @@ export class EventHomePageComponent implements OnInit {
 
   register(pKeys){
   
-    ///this.router.navigate(['/profile/list',gonextId])
-    console.log(pKeys);
+   
     this.urlAddress = "events/viewEventPage/"+pKeys;
     this.route.navigate([this.urlAddress]);
-    console.log(this.urlAddress);
+    
     
   }
 

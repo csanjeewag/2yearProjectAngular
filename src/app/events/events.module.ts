@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CreateEventPageForTripComponent } from './create-event-page-for-trip/create-event-page-for-trip.component';
 import { ViewEventPageComponent } from './view-event-page/view-event-page.component';
-import { OneDayTripComponent } from './one-day-trip/one-day-trip.component';
-import { TwoDayTripComponent } from './two-day-trip/two-day-trip.component';
+
 import { EventHomePageComponent } from './event-home-page/event-home-page.component';
-import { YearEndPartyComponent } from './year-end-party/year-end-party.component';
+
 
 import { AuthLoginGuard } from "./../AuthGards/auth-login.guard";
 import { AuthRoleGuard } from "./../AuthGards/auth-role.guard";
@@ -54,11 +52,10 @@ import { ViewPollComponent } from './view-poll/view-poll.component';
       {path:'addregistrationform/:id', component:AddRegistrationFormComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
       {path:'addregistrationform', component:AddRegistrationFormComponent,canActivate:[AuthRoleGuard],data: { expectedRole1: 'AD',expectedRole2: 'RC'}},
       {path:'eventHomePage', component:EventHomePageComponent},
-      //{ path: 'CricketMatch', loadChildren: "./CricketMatch/CricketMatch.module#CricketMatchModule" },  
-      { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },        
+      { path: 'cricketmatchs', loadChildren: "./cricketmatchs/cricketmatchs.module#CricketmatchsModule" },
     ]),
   ],
   providers:[AuthLoginGuard,AuthRoleGuard],
-  declarations: [CreateEventPageForTripComponent, ViewEventPageComponent, OneDayTripComponent, TwoDayTripComponent,EventHomePageComponent,YearEndPartyComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent, AddPollComponent, ViewPollComponent]
+  declarations: [ ViewEventPageComponent,EventHomePageComponent, AddEventTypeComponent, AddEventComponent, SelectAttributeComponent, UpdateEventComponent, AddRegistrationFormComponent, SelectAttributeRegistrationComponent, EmployeeRegistrationComponent, SelectAttributeForUpdateComponent, ViewEmployeeComponent, DeleteEmployeeComponent, AddPollComponent, ViewPollComponent]
 })
 export class EventsModule { }

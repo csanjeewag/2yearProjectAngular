@@ -2,15 +2,15 @@
 
 <nav id="navBar" class="navbar navbar-expand-lg navbar-dark ">
 
-  <img src="assets/_image/cslogo.png" id="navbarimage">CreativeEvent
+  <img src="assets/_image/clogo1.png" id="navbarimage"> 
 
 <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </a>
-<div class="collapse navbar-collapse" id="navbarText">
+<div class="collapse navbar-collapse pl-4" id="navbarText">
   <ul class="navbar-nav mr-auto">
 
-    <li class="nav-item active" >
+    <li class="nav-item " >
       <a class="nav-link" routerLink="/profile/home" routerLinkActive="active">Home </a>
     </li>
     <li class="nav-item"  >
@@ -20,9 +20,7 @@
     <li class="nav-item"  >
       <a class="nav-link" routerLink="/profile/lists" routerLinkActive="active ">Members</a>
     </li>
-    <li class="nav-item" *ngIf="isAdmin" >
-      <a class="nav-link" routerLink="/profile/update" routerLinkActive="active ">Update Members</a>
-    </li>
+    
 
     <li class="nav-item"  >
       <a class="nav-link" routerLink="/task/contact" routerLinkActive="active ">Contact</a>

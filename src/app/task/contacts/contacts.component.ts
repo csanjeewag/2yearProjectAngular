@@ -81,8 +81,7 @@ public empid:any;
     this.repository.postData(apiUrl,ctype)
     
         .subscribe(res => {
-          alert('Type added');
-          this.ngOnInit();
+          this.repository.SuccessAlert('Type added!');          this.ngOnInit();
           this.getAllContactTypes();
             
 
@@ -98,8 +97,6 @@ public viewAll(id){
 }
 
 public addContacts(value){
-  console.log(value);
-  console.log(this.contactid);
   let formData = new FormData();
   formData.append('ContactContactId',this.contactid);
   formData.append('Name',value.oname);
@@ -112,8 +109,7 @@ public addContacts(value){
     
   this.repository.postFile(apiUrl, formData)
     .subscribe(res => {
-      alert('Detail Added')
-      },
+      this.repository.SuccessAlert('Detail added!');      },
       (error => {
         
       })
@@ -134,7 +130,6 @@ public deleteContactType(id){
   .subscribe(res => {
   this.getAllContactTypes()
   this.Loading = false;
-console.log('deleted');
   this.getAllContactTypes();
 },
  (error) => {

@@ -1,57 +1,68 @@
 <app-nav-bar></app-nav-bar>
 <div id="background">
-        <div id="backgroundIN">
-                
-                <div class="row " *ngIf="result">
-                    <main role="main" class="container">
-                        <div class="d-flex align-items-center p-3 my-3 text-white-50 rounded box-shadow" id="part0">
-                          <img *ngIf="ProfileImage" [src]="ProfileImage"  id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2">
-                          <img *ngIf="!ProfileImage" src="assets/_image/nodp.jpg"  id="zoom3" height="200em" width="200em" alt="User Icon" class="rounded-circle margin-left ml-2">
-                         
-                          <div class="lh-100">
-                            <h5 class="mb-0 text-white lh-100" >{{result.empName}} </h5>
-                            <h5 class="mb-0 text-white lh-100"> <small (click)=updateprofile(result.empId) id="update" style="position:absolute; right:15%"> update
-                               <br><small (click)=changepassword(result.empEmail)> change Password</small></small> 
-                          </h5>
-                          <!-- <p (click)=changepassword(result.empEmail)> change Password</p>  -->
-                            <small>{{result.empPosition}}</small>
-                            <table class="cntent">
-                                <tr>
-                                    <td><img src="assets/email.png" class="icon" width="25" height="25"></td>
-                                    <td class="pl-3"><h6 class="text-white lh-100">{{result.empEmail  }}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="assets/_image/project.png" class="icon" width="25" height="25"></td>
-                                    <td class="pl-3"><h6 class="mb-0 text-white lh-100">{{result.empDepartment}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="assets/_image/location.png" class="icon" width="25" height="25"></td>
-                                    <td class="pl-3"><h6 class="mb-0 text-white lh-100">{{result.empAddress1}}</h6></td>
-                                </tr>
-                                <tr>
-                                    <td><img src="assets/_image/calander.png" class="icon" width="25" height="25"></td>
-                                    <td class="pl-3"><h6 class="mb-0 text-white lh-100">{{result.empStartDate | date}}</h6></td>
-                                </tr>
-                                
+    <div id="backgroundIN">
 
-                        
+        <div class="row " *ngIf="result">
+            <main role="main" class="container">
+                <div class="d-flex align-items-center p-3 my-3 text-white-50 rounded box-shadow" id="part0">
+                    <img *ngIf="ProfileImage" [src]="ProfileImage" id="zoom3" height="200em" width="200em" alt="User Icon"
+                        class="rounded-circle margin-left ml-2">
+                    <img *ngIf="!ProfileImage" src="assets/_image/nodp.jpg" id="zoom3" height="200em" width="200em" alt="User Icon"
+                        class="rounded-circle margin-left ml-2">
+
+                    <div class="lh-100">
+                        <h5 class="mb-0 text-white lh-100">{{result.empName}} </h5>
+                        <h5 class="mb-0 text-white lh-100"> <small (click)=updateprofile(result.empId) id="update"
+                                style="position:absolute; right:15%"> Update Profile
+                                <br><small (click)=changepassword(result.empEmail)> Change Password</small></small>
+                        </h5>
+                        <!-- <p (click)=changepassword(result.empEmail)> change Password</p>  -->
+                        <small>{{result.empPosition}}</small>
+                        <table class="cntent">
+                            <tr>
+                                <td><img src="assets/email.png" class="icon" width="25" height="25"></td>
+                                <td class="pl-3">
+                                    <h6 class="text-white lh-100">{{result.empEmail }}</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/_image/project.png" class="icon" width="25" height="25"></td>
+                                <td class="pl-3">
+                                    <h6 class="mb-0 text-white lh-100">{{result.empDepartment}}</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/_image/location.png" class="icon" width="25" height="25"></td>
+                                <td class="pl-3">
+                                    <h6 class="mb-0 text-white lh-100">{{result.empAddress1}}</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/_image/calander.png" class="icon" width="25" height="25"></td>
+                                <td class="pl-3">
+                                    <h6 class="mb-0 text-white lh-100">{{result.empStartDate | date}}</h6>
+                                </td>
+                            </tr>
+
+
+
                         </table>
-                          </div>
-                        </div>
-                  
-                        
-                        <app-add-info></app-add-info>
-
-
-
-                      </main>
-                  
-                </div>
-
-                <div id="load" class="row " *ngIf="!result">
-                  <img  class="card-img-top" src="assets/loading.gif" alt="Cinque Terre" >
+                    </div>
                 </div>
 
 
-   </div>
-   </div>
+                <app-add-info></app-add-info>
+
+
+
+            </main>
+
+        </div>
+
+        <div id="load" class="row " *ngIf="!result">
+            <img class="card-img-top" src="assets/loading.gif" alt="Cinque Terre">
+        </div>
+
+
+    </div>
+</div>

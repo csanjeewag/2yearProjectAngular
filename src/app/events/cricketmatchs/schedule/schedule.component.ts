@@ -63,11 +63,11 @@ export class ScheduleComponent implements OnInit {
         this.ClickNum = newHero;
         
       }else{
-        alert("This is already entered!");
+        this.repository.WarningAlert("This is already entered!");
       }
     }
     else{
-      alert("This not valid number, try again!");
+      this.repository.WarningAlert("This not valid number, try again!");
     }
   }
 
@@ -127,13 +127,13 @@ export class ScheduleComponent implements OnInit {
         this.router.navigate(['events/cricketmatchs/scheduleview/'+this.eventId]);
       },
         (error => {
-          this.Message = "try again, something wrong";
+          this.repository.errorAlert("try again, something wrong");
         })
       )
   }
 
   public alertSub(){
-    alert(this.msg);
+    this.repository.SuccessAlert(this.msg);
   }
 
   public setscheduleName(name){

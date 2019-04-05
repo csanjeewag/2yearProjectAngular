@@ -10,7 +10,7 @@
     </div>
     <br>
 
-    <div class="card text-center" *ngIf="!details && this.IsRC" >
+    <div class="card text-center" *ngIf="!details && IsRC" >
         <div class="card-header">  
         </div>
         <div class="card-body">
@@ -25,7 +25,7 @@
 
 
 
-    <div *ngIf="!details && this.IsRC"  >
+    <div *ngIf="details && IsRC"  >
             <button type="button" class="btn" id="btn" (click)="composeMail()">Compose Mail</button>      
             <br><br>
     <!-- Start send email -->

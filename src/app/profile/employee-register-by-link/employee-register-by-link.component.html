@@ -5,14 +5,14 @@
   <div class="form-group col-md-6" id="page">
       <div class="card">
           <div class="card-header" id="header">
-              <h4 class=" text-center" *ngIf="!(RegisterSucces)">Event managment system!</h4>
-              <h4 *ngIf="(RegisterSucces)"> Welcome you for Event Manegment System</h4>
+              <h4 class=" text-center" *ngIf="!(RegisterSucces)">Event management system!</h4>
+              <h4 *ngIf="(RegisterSucces)"> Welcome to the Event Management System</h4>
           </div>
           <div class="card-body" id="card-body">
             <blockquote class="blockquote mb-0">
               <br>
               <h5>Hello, {{Name}}</h5><br>
-              <h5 *ngIf="!(RegisterSucces)">If you prefer to register, Event managment system in creative software, you can register!</h5>
+              <h5 *ngIf="!(RegisterSucces)">Check your email and enter the security code below to finish setting up your Account !</h5>
               <h4 id="error">{{message}}</h4>
                 <form *ngIf="!(RegisterSucces)" [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="Register(registerForm.value)">
                     
@@ -27,12 +27,12 @@
                   </div>
             </form>
             <div *ngIf="RegisterSucces">
-                <h5>Welcome to our Event manement system. It is exciting to know working with you in the following days to come. We would love to hear your new ideas and insights that will contribute a lot for our growing company</h5>
-                <h5>You can log now, go to <a href="http://localhost:4200/profile/login">login</a>,</h5>
+                <h5>Welcome to Our Event Management system.</h5>
+                <h5>You can login to the system now, go to <a href="http://localhost:4200/profile/login">login</a>,</h5>
                 <h5> Thank you!</h5>
             </div>
             <br>
-              <footer class="blockquote-footer">Creative Software <cite title="Source Title">Event Manement System</cite></footer>
+              <footer class="blockquote-footer">Creative Software <cite title="Source Title">Event Management System</cite></footer>
             </blockquote>
           </div>
         </div>

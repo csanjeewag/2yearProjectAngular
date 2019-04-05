@@ -25,10 +25,8 @@ public taskdetails:any;
 
   ngOnInit() {
   this.empid=this.auth.tokencheckId();
-   // this.empid=1;
-    console.log('----------->'+this.empid);
-    this.getAllContactTypes();
-    this. getTaskForEmployee(this.empid);
+  this.getAllContactTypes();
+  this. getTaskForEmployee(this.empid);
     
     this.contactForm = new FormGroup({
       name:new FormControl(''),
@@ -95,7 +93,6 @@ public addContacts(value){
 
 open(content,id) {
   this.taskId=id;
-  console.log(this.taskId);
   this.modalService.open(content);
 }
 
@@ -104,19 +101,16 @@ public  getTaskForEmployee(id){
   this.repository.getData('task/gettaskforemp/'+id)
   .subscribe(res => {
     this.result2 = res ;
-    console.log('--------->'+res);
    
     
   },
   (error) => {
-  //  this.handleErrors(error);n
   })
 }
 
 
 public viewInfoDetails(id){
   this.route.navigate(['task/viewtaskinfo/'+id]);
-  console.log(id);
 
 }
 
