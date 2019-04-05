@@ -115,7 +115,7 @@ import { ok } from 'assert';
           this.logcomponent.loginEmail = value.email;
            this.wait = false;
            this.message = ""
-           this.repository.SuccessAlert('Registration success!');
+           this.repository.SuccessAlert('Success!');
           },
           (error => {
             this.IsLogin= false;

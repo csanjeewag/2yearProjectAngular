@@ -88,13 +88,13 @@ export class ChangePositionComponent implements OnInit {
           }
           this.getAllEmployee();
           
-        this.repository.SuccessAlert("Position change successfully!");
+        this.repository.SuccessAlert("Employee update successfully!");
 
           this.Loading = null;
           },
           (error => {
             
-            this.repository.errorAlert("Position change failed!");
+            this.repository.errorAlert("Employee update failed!");
             this.Loading = null;
           })
         )

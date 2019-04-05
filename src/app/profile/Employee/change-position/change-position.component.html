@@ -92,9 +92,9 @@
                           </div>
                         </td>
                         <td id="btn" *ngIf="(i.isActive)&&(Loading!=i.empEmail)" id="zoom3"><button type="button" id="delete"
-                            class="btn  " (click)=statechange(i.empEmail,0,i.id)>For Deactive</button></td>
+                            class="btn  " (click)=statechange(i.empEmail,0,i.id)>Deactive</button></td>
                         <td id="btn" *ngIf="!(i.isActive)&&(Loading!=i.empEmail)" id="zoom3"><button type="button" id="delete"
-                            class="btn " (click)=statechange(i.empEmail,1,i.id)>For Active</button></td>
+                            class="btn " (click)=statechange(i.empEmail,1,i.id)>Active</button></td>
                         <td id="btn" *ngIf="(Loading==i.empEmail)">
                           <div><img id="loadImage" style=" width : 25px;" class="card-img-top" src="assets/loading1.gif"
                               alt="Cinque Terre"></div>

@@ -13,7 +13,7 @@
 
   <div id="part1" *ngIf="Upcommming3Event">
 
-    <h1 id="head" class=" container">UPCOMMING EVENTS</h1>
+    <h1 id="head" class=" container">UPCOMING EVENTS</h1>
     <div id="addbuttonview">
       <button *ngIf="IsAdmin||IsRC" type="button" id="addbutton" class="btn link" (click)="onClick()">Add New Event
       </button>
@@ -68,7 +68,7 @@
           <p><a class="btn btn-secondary" role="button" (click)="ViewPastEvent(item.id)">View details &raquo;</a></p>
         </div>
 
-        <a id="txt">More..</a>
+        <a routerLink="/pastevent/eventcard" routerLinkActive="active" id="txt">More..</a>
       </div>
 
 
@@ -123,8 +123,8 @@
 
 </div>
 <div class="card-footer text-muted">
-    Designed by,
-    level 2 undergraduates 
-    of university of moratuwa 
-    faculty Information Technology.
+    Developed by,
+    Level 2 Undergraduates,  
+    Faculty of Information Technology
+     University of Moratuwa.
   </div>
